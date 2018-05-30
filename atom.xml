@@ -156,9 +156,9 @@
       <category term="漏扫" scheme="http://yoursite.com/categories/%E6%BC%8F%E6%89%AB/"/>
     
     
-      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="扫描器" scheme="http://yoursite.com/tags/%E6%89%AB%E6%8F%8F%E5%99%A8/"/>
+    
+      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="自动化" scheme="http://yoursite.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
     
