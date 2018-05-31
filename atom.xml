@@ -266,9 +266,9 @@
       <category term="docker" scheme="http://yoursite.com/categories/docker/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
       <category term="docker" scheme="http://yoursite.com/tags/docker/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
@@ -528,11 +528,11 @@
       <category term="安全" scheme="http://yoursite.com/categories/%E5%AE%89%E5%85%A8/"/>
     
     
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
       <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="安全" scheme="http://yoursite.com/tags/%E5%AE%89%E5%85%A8/"/>
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
