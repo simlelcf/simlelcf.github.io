@@ -361,9 +361,9 @@
       <category term="django任务队列" scheme="http://yoursite.com/categories/django%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
       <category term="django" scheme="http://yoursite.com/tags/django/"/>
     
