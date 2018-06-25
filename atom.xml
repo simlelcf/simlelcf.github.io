@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>simle丶流</title>
-  <subtitle>我来不及认真地年轻，待明白过来时，只能选择认真地老去</subtitle>
+  <subtitle>胆小怕生！不易相处</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -9,7 +9,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>Yu BenLiu</name>
+    <name>simle</name>
     
   </author>
   
