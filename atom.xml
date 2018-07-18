@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-16T08:00:41.263Z</updated>
+  <updated>2018-07-18T07:59:26.595Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,74 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>helloworld生命周期</title>
+    <link href="http://yoursite.com/2018/07/18/helloword/"/>
+    <id>http://yoursite.com/2018/07/18/helloword/</id>
+    <published>2018-07-18T07:59:26.594Z</published>
+    <updated>2018-07-18T07:59:26.595Z</updated>
+    
+    <content type="html"><![CDATA[<p>在我们要学习一门编程语言的时候第一个程序基本上是helloworld，但就是这个简单的程序到底是如何运行的，在此做一下记录。<br><img src="https://upload-images.jianshu.io/upload_images/3941016-511f2343273f9a90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<a id="more"></a>
+<blockquote>
+<p>文章中的部分内容来自《深入理解计算机系统》第一章<br>helloworld  从到创建，执行，输出简单消息，再到终止，中间到底是如何运行的。简单介绍下。</p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></div><div class="line">&#123;</div><div class="line">	<span class="built_in">printf</span> (<span class="string">"hello  world \n"</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="二进制文本"><a href="#二进制文本" class="headerlink" title="二进制文本"></a>二进制文本</h2><ul>
+<li>计算机中，数据的存储我们看到的是一串英文代码，其实存储的是2进制数据，helloworld 程序的代码可以用 ASCLL码表示。再把具体的ASCLL码转为为2进制。</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/3941016-2bd37d49ef16eac2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="16进制的hello.c"></p>
+<ul>
+<li>如图中的23对应的10进制数据为35 而35对应的为#<br><img src="https://upload-images.jianshu.io/upload_images/3941016-a0c71f1f0af07306.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ul>
+<h2 id="程序被其他程序翻译成不同的格式"><a href="#程序被其他程序翻译成不同的格式" class="headerlink" title="程序被其他程序翻译成不同的格式"></a>程序被其他程序翻译成不同的格式</h2><p>hello程序从一个高级的c程序开始因为这样更容易让人读懂。但是如果要运行hello这个程序，必须要转为编译成更低的机器语言。</p>
+<ol>
+<li><p>在Linux 中从源程序到目标程序是由编译器完成的。<br><img src="https://upload-images.jianshu.io/upload_images/3941016-bf20f3ee15935569.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+</li>
+<li><p>可以用file 命令查看目标程序的详细信息</p>
+</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/3941016-be2300fbb8a4d43f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<blockquote>
+<p>可以看出这个程序的格式为elf(对应的Windows下的编译的为pie) 64为程序，因为处理器是向下兼容的如果要生成32位程序可以使用  (-m32)   </p>
+</blockquote>
+<h2 id="在编译中到底经历了哪些阶段"><a href="#在编译中到底经历了哪些阶段" class="headerlink" title="在编译中到底经历了哪些阶段"></a>在编译中到底经历了哪些阶段</h2><p><img src="https://upload-images.jianshu.io/upload_images/3941016-27119309c5367d45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ol>
+<li>预处理阶段（cpp）根据以#号开头的命令，修改原始的c程序，比如helloworld 中的第一行 #include<stdio.h>命令告诉预处理器读取系统头文件stdio.h 的内容.并把他直接插入程序文本中，得到一个c程序 ,通常是以 .i 为扩张名。stdio.h 文件在Linux中的（/usr/include目录下) </stdio.h></li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/3941016-ac34c48610009d5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ol>
+<li>编译阶段，汇编器(ccl)为把上面的helloworld.i  反义成hello.s他包含一个汇编语言程序，用（ida查看汇编程序）</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/3941016-ca0d9998e651a056.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IDA查看"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3941016-f13d94bc7d0c3e12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="objdump查看"></p>
+<ol>
+<li>汇编阶段：把源程序的helloworld.s  翻译成机器语言指令。并将结果保存在  helloworld.o文件中，helloworld.o 是一个2进制文件</li>
+</ol>
+<ol>
+<li>链接阶段： 源程序中的hellworld 调用了printf 函数  ，他是每一个C 编辑器提供的标准c库中的一个函数，printf 函数存在一个名为printf.o的单独的预编译好的目标文中中，而这个文件必须以某种形式合并到我们helloworld.o程序中链接器(ld)就负责这种合并。结果生产一个可执行的文件为helloworld。</li>
+</ol>
+<h3 id="ida-查看链接的printf-函数"><a href="#ida-查看链接的printf-函数" class="headerlink" title="ida 查看链接的printf 函数"></a>ida 查看链接的printf 函数</h3><p><img src="https://upload-images.jianshu.io/upload_images/3941016-7c820f4d3de67eb6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="运行helloworld程序："><a href="#运行helloworld程序：" class="headerlink" title="运行helloworld程序："></a>运行helloworld程序：</h2><p><img src="https://upload-images.jianshu.io/upload_images/3941016-07bad11a13279098.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3941016-cc721e884c507feb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3941016-3f2b1409d002282b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在我们要学习一门编程语言的时候第一个程序基本上是helloworld，但就是这个简单的程序到底是如何运行的，在此做一下记录。&lt;br&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/3941016-511f2343273f9a90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;image.png&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="helloworld生命周期" scheme="http://yoursite.com/categories/helloworld%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    
+    
+      <category term="逆向" scheme="http://yoursite.com/tags/%E9%80%86%E5%90%91/"/>
+    
+      <category term="计算机系统" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>linux程序的保护机制</title>
