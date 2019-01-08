@@ -222,6 +222,38 @@
     </entry>
     
     <entry>
+      <title><![CDATA[凯撒密码的加密解密]]></title>
+      <url>/2018/05/30/kaisa/</url>
+      <content type="html"><![CDATA[<h1 id="凯撒密码的加密解密"><a href="#凯撒密码的加密解密" class="headerlink" title="凯撒密码的加密解密"></a><font color="#C71585" size="4" face="黑体">凯撒密码的加密解密</font></h1><p><img src="http://upload-images.jianshu.io/upload_images/3941016-e89a4ef8ac364e69.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="密码.jpeg"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>凯撒密码作为一种最为古老的对称加密体制，在古罗马的时候都已经很流行，他的基本思想是：通过把字母移动一定的位数来实现加密和解密。明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E，以此类推X将变成A，Y变成B，Z变成C。由此可见，位数就是凯撒密码加密和解密的密钥。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="凯撒密码加密脚"><a href="#凯撒密码加密脚" class="headerlink" title="凯撒密码加密脚"></a>凯撒密码加密脚</h1><ul>
+<li>交单的26次加密脚本<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding:utf-8</span></div><div class="line"></div><div class="line">upperDict=[<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>,<span class="string">'E'</span>,<span class="string">'F'</span>,<span class="string">'G'</span>,<span class="string">'H'</span>,<span class="string">'I'</span>,<span class="string">'J'</span>,<span class="string">'K'</span>,<span class="string">'L'</span>,<span class="string">'M'</span>,<span class="string">'N'</span>,<span class="string">'O'</span>,<span class="string">'P'</span>,<span class="string">'Q'</span>,<span class="string">'R'</span>,<span class="string">'S'</span>,<span class="string">'T'</span>,<span class="string">'U'</span>,<span class="string">'V'</span>,<span class="string">'W'</span>,<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>]</div><div class="line">lowerDict=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>,<span class="string">'g'</span>,<span class="string">'h'</span>,<span class="string">'i'</span>,<span class="string">'j'</span>,<span class="string">'k'</span>,<span class="string">'l'</span>,<span class="string">'m'</span>,<span class="string">'n'</span>,<span class="string">'o'</span>,<span class="string">'p'</span>,<span class="string">'q'</span>,<span class="string">'r'</span>,<span class="string">'s'</span>,<span class="string">'t'</span>,<span class="string">'u'</span>,<span class="string">'v'</span>,<span class="string">'w'</span>,<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'z'</span>]</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">cesarWithLetter</span><span class="params">(ciphertext,offset)</span>:</span></div><div class="line">    <span class="string">'''</span></div><div class="line">    凯撒密码 :</div><div class="line">        只转换字母(包括大写小写)</div><div class="line">    参数 : </div><div class="line">        ciphertext : 明文</div><div class="line">        offset : 偏移量</div><div class="line">    '''</div><div class="line">    result = <span class="string">""</span></div><div class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> ciphertext:</div><div class="line">        <span class="keyword">if</span> ch.isupper():</div><div class="line">            result=result+upperDict[((upperDict.index(ch)+offset)%<span class="number">26</span>)]</div><div class="line">        <span class="keyword">elif</span> ch.islower():</div><div class="line">            result=result+lowerDict[((lowerDict.index(ch)+offset)%<span class="number">26</span>)]</div><div class="line">        <span class="keyword">elif</span> ch.isdigit():</div><div class="line">            result=result+ch</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            result=result+ch</div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">printAllResult</span><span class="params">(ciphertext)</span>:</span></div><div class="line">    <span class="string">'''</span></div><div class="line">    打印所有偏移结果</div><div class="line">    '''</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(upperDict)):</div><div class="line">        <span class="keyword">print</span> cesarWithLetter(ciphertext,i)</div><div class="line"></div><div class="line">ciphertext=raw_input(<span class="string">"Please input the words :"</span>)</div><div class="line">printAllResult(ciphertext)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="自动控制偏移位自动解密"><a href="#自动控制偏移位自动解密" class="headerlink" title="自动控制偏移位自动解密"></a>自动控制偏移位自动解密</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#-*-coding:utf-8-*-</span></div><div class="line">__author__ = <span class="number">007</span></div><div class="line">__date__ = <span class="number">2016</span> / <span class="number">02</span> / <span class="number">04</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#==================================================================#</span></div><div class="line"><span class="comment">#         凯撒密码(caesar)是最早的代换密码,对称密码的一种                #</span></div><div class="line"><span class="comment">#   算法：将每个字母用字母表中它之后的第k个字母（称作位移值）替代            #</span></div><div class="line"><span class="comment">#==================================================================#</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">encryption</span><span class="params">()</span>:</span></div><div class="line">    str_raw = raw_input(<span class="string">"请输入明文："</span>)</div><div class="line">    k = input(<span class="string">"请输入位移值："</span>)</div><div class="line">    str_change = str_raw.lower()</div><div class="line">    str_list = list(str_change)</div><div class="line">    str_list_encry = str_list</div><div class="line">    i = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> i &lt; len(str_list):</div><div class="line">        <span class="keyword">if</span> ord(str_list[i]) &lt; <span class="number">123</span>-k:</div><div class="line">            str_list_encry[i] = chr(ord(str_list[i]) + k)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            str_list_encry[i] = chr(ord(str_list[i]) + k - <span class="number">26</span>)</div><div class="line">        i = i+<span class="number">1</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"加密结果为："</span>+<span class="string">""</span>.join(str_list_encry)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">decryption</span><span class="params">()</span>:</span></div><div class="line">    str_raw = raw_input(<span class="string">"请输入密文："</span>)</div><div class="line">    k = input(<span class="string">"请输入位移值："</span>)</div><div class="line">    str_change = str_raw.lower()</div><div class="line">    str_list = list(str_change)</div><div class="line">    str_list_decry = str_list</div><div class="line">    i = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> i &lt; len(str_list):</div><div class="line">        <span class="keyword">if</span> ord(str_list[i]) &gt;= <span class="number">97</span>+k:</div><div class="line">            str_list_decry[i] = chr(ord(str_list[i]) - k)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            str_list_decry[i] = chr(ord(str_list[i]) + <span class="number">26</span> - k)</div><div class="line">        i = i+<span class="number">1</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"解密结果为："</span>+<span class="string">""</span>.join(str_list_decry)</div><div class="line"></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">u"1. 加密"</span></div><div class="line">    <span class="keyword">print</span> <span class="string">u"2. 解密"</span></div><div class="line">    choice = raw_input(<span class="string">"请选择："</span>)</div><div class="line">    <span class="keyword">if</span> choice == <span class="string">"1"</span>:</div><div class="line">        encryption()</div><div class="line">    <span class="keyword">elif</span> choice == <span class="string">"2"</span>:</div><div class="line">        decryption()</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">print</span> <span class="string">u"您的输入有误！"</span></div><div class="line"></div><div class="line"><span class="comment">#if __name__ == "__main__":</span></div><div class="line"><span class="comment">#    main</span></div></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 密码学 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 密码学 </tag>
+            
+            <tag> Python </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[妈妈生日快乐]]></title>
       <url>/2018/05/30/mother/</url>
       <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3941016-893e99aa7b8b04d7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WechatIMG299.jpeg"></p>
@@ -255,98 +287,98 @@
     </entry>
     
     <entry>
-      <title><![CDATA[elk的部署]]></title>
-      <url>/2018/05/30/elk%E7%9A%84%E5%AE%89%E8%A3%85/</url>
-      <content type="html"><![CDATA[<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
-<li><p>kail2.0  (安装的服务器)</p>
-</li>
-<li><p>安装包<br>elasticsearch-5.6.0.deb  （主要程序）<br>kibana-5.6.0-amd64.deb</p>
-</li>
-</ul>
-<h2 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h2><ul>
-<li>jdk默认要1.8 下载好jdk  解压jdk</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-6a44f79dd77d8e8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ul>
-<li>配置jdk 环境变量gedit ~/.bashrc  （文件最后添加）</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/jdk1.8</div><div class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</div><div class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</div><div class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<ul>
-<li><p>保存退出，然后输入下面的命令来使之生效<br>source ~/.bashrc</p>
-</li>
-<li><p>配置默认JDK<br>由于一些Linux的发行版中已经存在默认的JDK，如OpenJDK等。所以为了使得我们刚才安装好的JDK版本能成为默认的JDK版本，我们还要进行下面的配置。<br>执行下面的命令：<br>sudo update-alternatives –install /usr/bin/java java /jdk1.8/bin/java 300<br>sudo update-alternatives –install /usr/bin/javac javac /jdk1.8/bin/javac 300</p>
-</li>
-<li><p>切换JDK版本<br>update-alternatives –config java</p>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-bbaff9f083089182.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="安装主程序"><a href="#安装主程序" class="headerlink" title="安装主程序"></a>安装主程序</h2><ul>
-<li>安装<br>dpkg  -i   elasticsearch-5.6.0.deb </li>
-<li>启动主程序</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f38bc1cf6e47a88b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>##几种报错处理</p>
-<h3 id="第一种配置文件没发现"><a href="#第一种配置文件没发现" class="headerlink" title="第一种配置文件没发现"></a>第一种配置文件没发现</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-e93116d97162c55b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ul>
-<li>解决方法<br>这个错误我觉得主要是因为找不到配置文件,但是如果你直接在安装目录里去启动elasticsearch的话，elasticsearch只会在当前目录找config文件夹，如果安装成service的形式应该是可以找到配置文件，但我没去尝试，后面试试问题知道了，我们可以直接把/etc目录下的elasticsearch配置文件copy过来：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp -r /etc/elasticsearch /usr/share/elasticsearch/config</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="第二种不用用root用户启动"><a href="#第二种不用用root用户启动" class="headerlink" title="第二种不用用root用户启动"></a>第二种不用用root用户启动</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-9a97e1ca785470cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>解决方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">~ groupadd elsearch</div><div class="line">➜  ~ useradd elsearch -g elsearch -p elsearch</div><div class="line">➜  ~ cd /usr/share  </div><div class="line">➜   chown -R elsearch:elsearch elasticsearch </div><div class="line">➜  su elsearch</div><div class="line">./elasticsearch</div></pre></td></tr></table></figure></p>
-<h3 id="验证访问9200端口-安装成功"><a href="#验证访问9200端口-安装成功" class="headerlink" title="验证访问9200端口 安装成功"></a>验证访问9200端口 安装成功</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-814b78ca2949d3cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="安装Kibana"><a href="#安装Kibana" class="headerlink" title="安装Kibana"></a>安装Kibana</h2><p><img src="http://upload-images.jianshu.io/upload_images/3941016-1684145ddb781d07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="安装-X-Pack"><a href="#安装-X-Pack" class="headerlink" title="安装 X-Pack"></a>安装 X-Pack</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">bin/elasticsearch-plugin install x-pack</div><div class="line"></div><div class="line">bin/kibana-plugin install x-pack</div></pre></td></tr></table></figure>
-<h2 id="安装-logstash"><a href="#安装-logstash" class="headerlink" title="安装 logstash"></a>安装 logstash</h2><p><img src="http://upload-images.jianshu.io/upload_images/3941016-e23da84734772460.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="安装-logstash-input-jdbc"><a href="#安装-logstash-input-jdbc" class="headerlink" title="安装 logstash-input-jdbc"></a>安装 logstash-input-jdbc</h2><p><img src="http://upload-images.jianshu.io/upload_images/3941016-23d074537c912893.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
-      
-        <categories>
-            
-            <category> elk </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> elk </tag>
-            
-            <tag> 大数据 </tag>
-            
-            <tag> 搜索 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[凯撒密码的加密解密]]></title>
-      <url>/2018/05/30/kaisa/</url>
-      <content type="html"><![CDATA[<h1 id="凯撒密码的加密解密"><a href="#凯撒密码的加密解密" class="headerlink" title="凯撒密码的加密解密"></a><font color="#C71585" size="4" face="黑体">凯撒密码的加密解密</font></h1><p><img src="http://upload-images.jianshu.io/upload_images/3941016-e89a4ef8ac364e69.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="密码.jpeg"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>凯撒密码作为一种最为古老的对称加密体制，在古罗马的时候都已经很流行，他的基本思想是：通过把字母移动一定的位数来实现加密和解密。明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E，以此类推X将变成A，Y变成B，Z变成C。由此可见，位数就是凯撒密码加密和解密的密钥。</p>
+      <title><![CDATA[kubernetes的部署]]></title>
+      <url>/2018/05/30/kubernetes%E7%9A%84%E9%83%A8%E7%BD%B2/</url>
+      <content type="html"><![CDATA[<h2 id="什么是kubernetes"><a href="#什么是kubernetes" class="headerlink" title="什么是kubernetes"></a>什么是kubernetes</h2><blockquote>
+<p>Kubernetes是Google开源的容器集群管理系统，其提供应用部署、维护、 扩展机制等功能，利用Kubernetes能方便地管理跨机器运行容器化的应用</p>
 </blockquote>
-<a id="more"></a>
-<h1 id="凯撒密码加密脚"><a href="#凯撒密码加密脚" class="headerlink" title="凯撒密码加密脚"></a>凯撒密码加密脚</h1><ul>
-<li>交单的26次加密脚本<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding:utf-8</span></div><div class="line"></div><div class="line">upperDict=[<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>,<span class="string">'E'</span>,<span class="string">'F'</span>,<span class="string">'G'</span>,<span class="string">'H'</span>,<span class="string">'I'</span>,<span class="string">'J'</span>,<span class="string">'K'</span>,<span class="string">'L'</span>,<span class="string">'M'</span>,<span class="string">'N'</span>,<span class="string">'O'</span>,<span class="string">'P'</span>,<span class="string">'Q'</span>,<span class="string">'R'</span>,<span class="string">'S'</span>,<span class="string">'T'</span>,<span class="string">'U'</span>,<span class="string">'V'</span>,<span class="string">'W'</span>,<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>]</div><div class="line">lowerDict=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>,<span class="string">'g'</span>,<span class="string">'h'</span>,<span class="string">'i'</span>,<span class="string">'j'</span>,<span class="string">'k'</span>,<span class="string">'l'</span>,<span class="string">'m'</span>,<span class="string">'n'</span>,<span class="string">'o'</span>,<span class="string">'p'</span>,<span class="string">'q'</span>,<span class="string">'r'</span>,<span class="string">'s'</span>,<span class="string">'t'</span>,<span class="string">'u'</span>,<span class="string">'v'</span>,<span class="string">'w'</span>,<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'z'</span>]</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">cesarWithLetter</span><span class="params">(ciphertext,offset)</span>:</span></div><div class="line">    <span class="string">'''</span></div><div class="line">    凯撒密码 :</div><div class="line">        只转换字母(包括大写小写)</div><div class="line">    参数 : </div><div class="line">        ciphertext : 明文</div><div class="line">        offset : 偏移量</div><div class="line">    '''</div><div class="line">    result = <span class="string">""</span></div><div class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> ciphertext:</div><div class="line">        <span class="keyword">if</span> ch.isupper():</div><div class="line">            result=result+upperDict[((upperDict.index(ch)+offset)%<span class="number">26</span>)]</div><div class="line">        <span class="keyword">elif</span> ch.islower():</div><div class="line">            result=result+lowerDict[((lowerDict.index(ch)+offset)%<span class="number">26</span>)]</div><div class="line">        <span class="keyword">elif</span> ch.isdigit():</div><div class="line">            result=result+ch</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            result=result+ch</div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">printAllResult</span><span class="params">(ciphertext)</span>:</span></div><div class="line">    <span class="string">'''</span></div><div class="line">    打印所有偏移结果</div><div class="line">    '''</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(upperDict)):</div><div class="line">        <span class="keyword">print</span> cesarWithLetter(ciphertext,i)</div><div class="line"></div><div class="line">ciphertext=raw_input(<span class="string">"Please input the words :"</span>)</div><div class="line">printAllResult(ciphertext)</div></pre></td></tr></table></figure>
-</li>
+<a id="more"></a>   
+<p>##主要的功能<br>1) 使用Docker对应用程序包装(package)、实例化(instantiate)、运行(run)。</p>
+<p>2) 以集群的方式运行、管理跨机器的容器。</p>
+<p>3) 解决Docker跨机器容器之间的通讯问题。</p>
+<p>4) Kubernetes的自我修复机制使得容器集群总是运行在用户期望的状态。</p>
+<h2 id="Kubernetes主要概念"><a href="#Kubernetes主要概念" class="headerlink" title="Kubernetes主要概念"></a>Kubernetes主要概念</h2><h3 id="一-Pods"><a href="#一-Pods" class="headerlink" title="一 Pods"></a>一 Pods</h3><p>Pod是Kubernetes的基本操作单元，把相关的一个或多个容器构成一个Pod，通常Pod里的容器运行相同的应用。Pod包含的容器运行在同一个Minion(Host)上，看作一个统一管理单元，共享相同的volumes和network namespace/IP和Port空间。</p>
+<h3 id="二-Services"><a href="#二-Services" class="headerlink" title="二 Services"></a>二 Services</h3><p>Services也是Kubernetes的基本操作单元，是真实应用服务的抽象，每一个服务后面都有很多对应的容器来支持，通过Proxy的port和服务selector决定服务请求传递给后端提供服务的容器，对外表现为一个单一访问接口，外部不需要了解后端如何运行，这给扩展或维护后端带来很大的好处。</p>
+<h3 id="三-Replication-Controllers"><a href="#三-Replication-Controllers" class="headerlink" title="三 Replication Controllers"></a>三 Replication Controllers</h3><p>Replication Controller确保任何时候Kubernetes集群中有指定数量的pod副本(replicas)在运行， 如果少于指定数量的pod副本(replicas)，Replication Controller会启动新的Container，反之会杀死多余的以保证数量不变。Replication Controller使用预先定义的pod模板创建pods，一旦创建成功，pod 模板和创建的pods没有任何关联，可以修改pod 模板而不会对已创建pods有任何影响，也可以直接更新通过Replication Controller创建的pods。对于利用pod 模板创建的pods，Replication Controller根据label selector来关联，通过修改pods的label可以删除对应的pods。Replication Controller主要有如下用法：<br>1) Rescheduling<br>如上所述，Replication Controller会确保Kubernetes集群中指定的pod副本(replicas)在运行， 即使在节点出错时。<br>2) Scaling<br>通过修改Replication Controller的副本(replicas)数量来水平扩展或者缩小运行的pods。<br>3) Rolling updates<br>Replication Controller的设计原则使得可以一个一个地替换pods来rolling updates服务。<br>4) Multiple release tracks<br>如果需要在系统中运行multiple release的服务，Replication Controller使用labels来区分multiple release tracks。</p>
+<h3 id="四-Labels"><a href="#四-Labels" class="headerlink" title="四 Labels"></a>四 Labels</h3><p>Labels是用于区分Pod、Service、Replication Controller的key/value键值对，Pod、Service、 Replication Controller可以有多个label，但是每个label的key只能对应一个value。Labels是Service和Replication Controller运行的基础，为了将访问Service的请求转发给后端提供服务的多个容器，正是通过标识容器的labels来选择正确的容器。同样，Replication Controller也使用labels来管理通过pod 模板创建的一组容器，这样Replication Controller可以更加容易，方便地管理多个容器，无论有多少容器。</p>
+<h2 id="Kubernetes构件"><a href="#Kubernetes构件" class="headerlink" title="Kubernetes构件"></a>Kubernetes构件</h2><p>Kubenetes整体框架，主要包括kubecfg、Master API Server、Kubelet、Minion(Host)以及Proxy</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-76ea037267e3e5b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="一-Master"><a href="#一-Master" class="headerlink" title="一  Master"></a>一  Master</h3><p>Master定义了Kubernetes 集群Master/API Server的主要声明，包括Pod Registry、Controller Registry、Service Registry、Endpoint Registry、Minion Registry、Binding Registry、RESTStorage以及Client, 是client(Kubecfg)调用Kubernetes API，管理Kubernetes主要构件Pods、Services、Minions、容器的入口。Master由API Server、Scheduler以及Registry等组成。从下图可知Master的工作流主要分以下步骤：<br>1) Kubecfg将特定的请求，比如创建Pod，发送给Kubernetes Client。<br>2) Kubernetes Client将请求发送给API server。<br>3) API Server根据请求的类型，比如创建Pod时storage类型是pods，然后依此选择何种REST Storage API对请求作出处理。<br>4) REST Storage API对的请求作相应的处理。<br>5) 将处理的结果存入高可用键值存储系统Etcd中。<br>6) 在API Server响应Kubecfg的请求后，Scheduler会根据Kubernetes Client获取集群中运行Pod及Minion信息。<br>7) 依据从Kubernetes Client获取的信息，Scheduler将未分发的Pod分发到可用的Minion节点上。<br>下面是Master的主要构件的详细介绍：<br><img src="http://upload-images.jianshu.io/upload_images/3941016-16f56503372f2b4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>图3-2 Master主要构件及工作流</p>
+<h3 id="Minion-Registry"><a href="#Minion-Registry" class="headerlink" title="Minion Registry"></a>Minion Registry</h3><p>Minion Registry负责跟踪Kubernetes 集群中有多少Minion(Host)。Kubernetes封装Minion Registry成实现Kubernetes API Server的RESTful API接口REST，通过这些API，我们可以对Minion Registry做Create、Get、List、Delete操作，由于Minon只能被创建或删除，所以不支持Update操作，并把Minion的相关配置信息存储到etcd。除此之外，Scheduler算法根据Minion的资源容量来确定是否将新建Pod分发到该Minion节点。</p>
+<h3 id="Pod-Registry"><a href="#Pod-Registry" class="headerlink" title="Pod Registry"></a>Pod Registry</h3><p>Pod Registry负责跟踪Kubernetes集群中有多少Pod在运行，以及这些Pod跟Minion是如何的映射关系。将Pod Registry和Cloud Provider信息及其他相关信息封装成实现Kubernetes API Server的RESTful API接口REST。通过这些API，我们可以对Pod进行Create、Get、List、Update、Delete操作，并将Pod的信息存储到etcd中，而且可以通过Watch接口监视Pod的变化情况，比如一个Pod被新建、删除或者更新。</p>
+<h3 id="Service-Registry"><a href="#Service-Registry" class="headerlink" title="Service Registry"></a>Service Registry</h3><p>Service Registry负责跟踪Kubernetes集群中运行的所有服务。根据提供的Cloud Provider及Minion Registry信息把Service Registry封装成实现Kubernetes API Server需要的RESTful API接口REST。利用这些接口，我们可以对Service进行Create、Get、List、Update、Delete操作，以及监视Service变化情况的watch操作，并把Service信息存储到etcd。</p>
+<h3 id="Controller-Registry"><a href="#Controller-Registry" class="headerlink" title="Controller Registry"></a>Controller Registry</h3><p>Controller Registry负责跟踪Kubernetes集群中所有的Replication Controller，Replication Controller维护着指定数量的pod 副本(replicas)拷贝，如果其中的一个容器死掉，Replication Controller会自动启动一个新的容器，如果死掉的容器恢复，其会杀死多出的容器以保证指定的拷贝不变。通过封装Controller Registry为实现Kubernetes API Server的RESTful API接口REST， 利用这些接口，我们可以对Replication Controller进行Create、Get、List、Update、Delete操作，以及监视Replication Controller变化情况的watch操作，并把Replication Controller信息存储到etcd。</p>
+<h3 id="Endpoints-Registry"><a href="#Endpoints-Registry" class="headerlink" title="Endpoints Registry"></a>Endpoints Registry</h3><p>Endpoints Registry负责收集Service的endpoint，比如Name：”mysql”，Endpoints: [“10.10.1.1:1909”，”10.10.2.2:8834”]，同Pod Registry，Controller Registry也实现了Kubernetes API Server的RESTful API接口，可以做Create、Get、List、Update、Delete以及watch操作。</p>
+<h3 id="Binding-Registry"><a href="#Binding-Registry" class="headerlink" title="Binding Registry"></a>Binding Registry</h3><p>Binding包括一个需要绑定Pod的ID和Pod被绑定的Host，Scheduler写Binding Registry后，需绑定的Pod被绑定到一个host。Binding Registry也实现了Kubernetes API Server的RESTful API接口，但Binding Registry是一个write-only对象，所有只有Create操作可以使用， 否则会引起错误。</p>
+<h3 id="Scheduler"><a href="#Scheduler" class="headerlink" title="Scheduler"></a>Scheduler</h3><p>Scheduler收集和分析当前Kubernetes集群中所有Minion节点的资源(内存、CPU)负载情况，然后依此分发新建的Pod到Kubernetes集群中可用的节点。由于一旦Minion节点的资源被分配给Pod，那这些资源就不能再分配给其他Pod， 除非这些Pod被删除或者退出， 因此，Kubernetes需要分析集群中所有Minion的资源使用情况，保证分发的工作负载不会超出当前该Minion节点的可用资源范围。具体来说，Scheduler做以下工作：<br>1) 实时监测Kubernetes集群中未分发的Pod。<br>2) 实时监测Kubernetes集群中所有运行的Pod，Scheduler需要根据这些Pod的资源状况安全地将未分发的Pod分发到指定的Minion节点上。<br>3) Scheduler也监测Minion节点信息，由于会频繁查找Minion节点，Scheduler会缓存一份最新的信息在本地。<br>4) 最后，Scheduler在分发Pod到指定的Minion节点后，会把Pod相关的信息Binding写回API Server。</p>
+<h3 id="Kubelet"><a href="#Kubelet" class="headerlink" title="Kubelet"></a>Kubelet</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-470b89f752a0b96d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>图3-3 Kubernetes详细构件<br>根据上图3-3可知Kubelet是Kubernetes集群中每个Minion和Master API Server的连接点，Kubelet运行在每个Minion上，是Master API Server和Minion之间的桥梁，接收Master API Server分配给它的commands和work，与持久性键值存储etcd、file、server和http进行交互，读取配置信息。Kubelet的主要工作是管理Pod和容器的生命周期，其包括Docker Client、Root Directory、Pod Workers、Etcd Client、Cadvisor Client以及Health Checker组件，具体工作如下：<br>1) 通过Worker给Pod异步运行特定的Action。<br>2) 设置容器的环境变量。<br>3) 给容器绑定Volume。<br>4) 给容器绑定Port。<br>5) 根据指定的Pod运行一个单一容器。<br>6) 杀死容器。<br>7) 给指定的Pod创建network 容器。<br>8) 删除Pod的所有容器。<br>9) 同步Pod的状态。<br>10) 从Cadvisor获取container info、 pod info、root info、machine info。<br>11) 检测Pod的容器健康状态信息。<br>12) 在容器中运行命令。</p>
+<h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><p>Proxy是为了解决外部网络能够访问跨机器集群中容器提供的应用服务而设计的，从上图3-3可知Proxy服务也运行在每个Minion上。Proxy提供TCP/UDP sockets的proxy，每创建一种Service，Proxy主要从etcd获取Services和Endpoints的配置信息，或者也可以从file获取，然后根据配置信息在Minion上启动一个Proxy的进程并监听相应的服务端口，当外部请求发生时，Proxy会根据Load Balancer将请求分发到后端正确的容器处</p>
+<h2 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h2><blockquote>
+<p>准备工作</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>对象</th>
+<th>版本</th>
+<th>ip</th>
+<th>备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>k8s-master</td>
+<td>centos7</td>
+<td>192.168.29.11</td>
+<td>K8S的master所在主机</td>
+</tr>
+<tr>
+<td>etcd-server</td>
+<td>centos7</td>
+<td>192.168.29.11</td>
+<td>etcd服务所在主机，与master在同一机器</td>
+</tr>
+<tr>
+<td>k8s-slave</td>
+<td>centos7</td>
+<td>192.168.29.12</td>
+<td>K8S节点所在主机</td>
+</tr>
+</tbody>
+</table>
+<h3 id="安装主要程序"><a href="#安装主要程序" class="headerlink" title="安装主要程序"></a>安装主要程序</h3><ul>
+<li>192.168.29.11<br>执行以下命令，安装kubernetes和etcd</li>
 </ul>
-<h1 id="自动控制偏移位自动解密"><a href="#自动控制偏移位自动解密" class="headerlink" title="自动控制偏移位自动解密"></a>自动控制偏移位自动解密</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#-*-coding:utf-8-*-</span></div><div class="line">__author__ = <span class="number">007</span></div><div class="line">__date__ = <span class="number">2016</span> / <span class="number">02</span> / <span class="number">04</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#==================================================================#</span></div><div class="line"><span class="comment">#         凯撒密码(caesar)是最早的代换密码,对称密码的一种                #</span></div><div class="line"><span class="comment">#   算法：将每个字母用字母表中它之后的第k个字母（称作位移值）替代            #</span></div><div class="line"><span class="comment">#==================================================================#</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">encryption</span><span class="params">()</span>:</span></div><div class="line">    str_raw = raw_input(<span class="string">"请输入明文："</span>)</div><div class="line">    k = input(<span class="string">"请输入位移值："</span>)</div><div class="line">    str_change = str_raw.lower()</div><div class="line">    str_list = list(str_change)</div><div class="line">    str_list_encry = str_list</div><div class="line">    i = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> i &lt; len(str_list):</div><div class="line">        <span class="keyword">if</span> ord(str_list[i]) &lt; <span class="number">123</span>-k:</div><div class="line">            str_list_encry[i] = chr(ord(str_list[i]) + k)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            str_list_encry[i] = chr(ord(str_list[i]) + k - <span class="number">26</span>)</div><div class="line">        i = i+<span class="number">1</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"加密结果为："</span>+<span class="string">""</span>.join(str_list_encry)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">decryption</span><span class="params">()</span>:</span></div><div class="line">    str_raw = raw_input(<span class="string">"请输入密文："</span>)</div><div class="line">    k = input(<span class="string">"请输入位移值："</span>)</div><div class="line">    str_change = str_raw.lower()</div><div class="line">    str_list = list(str_change)</div><div class="line">    str_list_decry = str_list</div><div class="line">    i = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> i &lt; len(str_list):</div><div class="line">        <span class="keyword">if</span> ord(str_list[i]) &gt;= <span class="number">97</span>+k:</div><div class="line">            str_list_decry[i] = chr(ord(str_list[i]) - k)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            str_list_decry[i] = chr(ord(str_list[i]) + <span class="number">26</span> - k)</div><div class="line">        i = i+<span class="number">1</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"解密结果为："</span>+<span class="string">""</span>.join(str_list_decry)</div><div class="line"></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">u"1. 加密"</span></div><div class="line">    <span class="keyword">print</span> <span class="string">u"2. 解密"</span></div><div class="line">    choice = raw_input(<span class="string">"请选择："</span>)</div><div class="line">    <span class="keyword">if</span> choice == <span class="string">"1"</span>:</div><div class="line">        encryption()</div><div class="line">    <span class="keyword">elif</span> choice == <span class="string">"2"</span>:</div><div class="line">        decryption()</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">print</span> <span class="string">u"您的输入有误！"</span></div><div class="line"></div><div class="line"><span class="comment">#if __name__ == "__main__":</span></div><div class="line"><span class="comment">#    main</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install --enablerepo=virt7-docker-common-release kubernetes etcd</div></pre></td></tr></table></figure>
+<h2 id="禁用防火墙"><a href="#禁用防火墙" class="headerlink" title="禁用防火墙"></a>禁用防火墙</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl disable iptables-services firewalld</div><div class="line">systemctl stop iptables-services firewalld</div></pre></td></tr></table></figure>
+<h3 id="192-168-29-11-上主机配置"><a href="#192-168-29-11-上主机配置" class="headerlink" title="192.168.29.11 上主机配置"></a>192.168.29.11 上主机配置</h3><h4 id="一-修改文件-etc-kubernetes-config-所有节点"><a href="#一-修改文件-etc-kubernetes-config-所有节点" class="headerlink" title="一 修改文件/etc/kubernetes/config(所有节点)"></a>一 修改文件/etc/kubernetes/config(所有节点)</h4><p>注意，master和slave主机都要修改<br>指定master主机的ip，文件内容如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f2286b4085fb8079.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下"><a href="#二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下" class="headerlink" title="二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下"></a>二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-a881113924dd47da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="三-修改配置文件-etc-kubernetes-apiserver"><a href="#三-修改配置文件-etc-kubernetes-apiserver" class="headerlink" title="三 修改配置文件/etc/kubernetes/apiserver"></a>三 修改配置文件/etc/kubernetes/apiserver</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-83c145be3b651c13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="四-修改配置文件-etc-kubernetes-controller-manager，定义slave主机ip地址"><a href="#四-修改配置文件-etc-kubernetes-controller-manager，定义slave主机ip地址" class="headerlink" title="四 修改配置文件/etc/kubernetes/controller-manager，定义slave主机ip地址"></a>四 修改配置文件/etc/kubernetes/controller-manager，定义slave主机ip地址</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-6a410aa1eaf7d1b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="在master主机上，启动服务"><a href="#在master主机上，启动服务" class="headerlink" title="在master主机上，启动服务"></a>在master主机上，启动服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for SERVICES in etcd kube-apiserver kube-controller-manager kube-scheduler; do</div><div class="line">    systemctl restart $SERVICES</div><div class="line">    systemctl enable $SERVICES</div><div class="line">    systemctl status $SERVICES</div><div class="line">done</div></pre></td></tr></table></figure>
+<h2 id="slave节点配置"><a href="#slave节点配置" class="headerlink" title="slave节点配置"></a>slave节点配置</h2><p>yum 安装kubernetes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install  kubernetes flannel</div></pre></td></tr></table></figure></p>
+<h3 id="slave-配置文件修改"><a href="#slave-配置文件修改" class="headerlink" title="slave 配置文件修改"></a>slave 配置文件修改</h3><h4 id="一-修改kubernetes配置文件，指定master"><a href="#一-修改kubernetes配置文件，指定master" class="headerlink" title="一 .修改kubernetes配置文件，指定master"></a>一 .修改kubernetes配置文件，指定master</h4><p>/etc/kubernetes/config</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-2181a58f95b1164b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="二-配置kubelet服务"><a href="#二-配置kubelet服务" class="headerlink" title="二  配置kubelet服务"></a>二  配置kubelet服务</h4><p> /etc/kubernetes/kubelet</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-5d1fb93275d32ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="在slave主机上，启动服务"><a href="#在slave主机上，启动服务" class="headerlink" title="在slave主机上，启动服务"></a>在slave主机上，启动服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for SERVICES in kube-proxy kubelet docker flanneld; do</div><div class="line">    systemctl restart $SERVICES</div><div class="line">    systemctl enable $SERVICES</div><div class="line">    systemctl status $SERVICES</div><div class="line">done</div></pre></td></tr></table></figure>
+<p>###验证</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f8344025c3bc9b20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 ]]></content>
       
         <categories>
             
-            <category> 密码学 </category>
+            <category> docker </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 密码学 </tag>
+            <tag> docker </tag>
             
-            <tag> Python </tag>
+            <tag> Linux </tag>
             
         </tags>
         
@@ -480,9 +512,9 @@
         
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Python </tag>
             
             <tag> django </tag>
             
@@ -514,104 +546,6 @@
             <tag> 扫描器 </tag>
             
             <tag> 自动化 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[kubernetes的部署]]></title>
-      <url>/2018/05/30/kubernetes%E7%9A%84%E9%83%A8%E7%BD%B2/</url>
-      <content type="html"><![CDATA[<h2 id="什么是kubernetes"><a href="#什么是kubernetes" class="headerlink" title="什么是kubernetes"></a>什么是kubernetes</h2><blockquote>
-<p>Kubernetes是Google开源的容器集群管理系统，其提供应用部署、维护、 扩展机制等功能，利用Kubernetes能方便地管理跨机器运行容器化的应用</p>
-</blockquote>
-<a id="more"></a>   
-<p>##主要的功能<br>1) 使用Docker对应用程序包装(package)、实例化(instantiate)、运行(run)。</p>
-<p>2) 以集群的方式运行、管理跨机器的容器。</p>
-<p>3) 解决Docker跨机器容器之间的通讯问题。</p>
-<p>4) Kubernetes的自我修复机制使得容器集群总是运行在用户期望的状态。</p>
-<h2 id="Kubernetes主要概念"><a href="#Kubernetes主要概念" class="headerlink" title="Kubernetes主要概念"></a>Kubernetes主要概念</h2><h3 id="一-Pods"><a href="#一-Pods" class="headerlink" title="一 Pods"></a>一 Pods</h3><p>Pod是Kubernetes的基本操作单元，把相关的一个或多个容器构成一个Pod，通常Pod里的容器运行相同的应用。Pod包含的容器运行在同一个Minion(Host)上，看作一个统一管理单元，共享相同的volumes和network namespace/IP和Port空间。</p>
-<h3 id="二-Services"><a href="#二-Services" class="headerlink" title="二 Services"></a>二 Services</h3><p>Services也是Kubernetes的基本操作单元，是真实应用服务的抽象，每一个服务后面都有很多对应的容器来支持，通过Proxy的port和服务selector决定服务请求传递给后端提供服务的容器，对外表现为一个单一访问接口，外部不需要了解后端如何运行，这给扩展或维护后端带来很大的好处。</p>
-<h3 id="三-Replication-Controllers"><a href="#三-Replication-Controllers" class="headerlink" title="三 Replication Controllers"></a>三 Replication Controllers</h3><p>Replication Controller确保任何时候Kubernetes集群中有指定数量的pod副本(replicas)在运行， 如果少于指定数量的pod副本(replicas)，Replication Controller会启动新的Container，反之会杀死多余的以保证数量不变。Replication Controller使用预先定义的pod模板创建pods，一旦创建成功，pod 模板和创建的pods没有任何关联，可以修改pod 模板而不会对已创建pods有任何影响，也可以直接更新通过Replication Controller创建的pods。对于利用pod 模板创建的pods，Replication Controller根据label selector来关联，通过修改pods的label可以删除对应的pods。Replication Controller主要有如下用法：<br>1) Rescheduling<br>如上所述，Replication Controller会确保Kubernetes集群中指定的pod副本(replicas)在运行， 即使在节点出错时。<br>2) Scaling<br>通过修改Replication Controller的副本(replicas)数量来水平扩展或者缩小运行的pods。<br>3) Rolling updates<br>Replication Controller的设计原则使得可以一个一个地替换pods来rolling updates服务。<br>4) Multiple release tracks<br>如果需要在系统中运行multiple release的服务，Replication Controller使用labels来区分multiple release tracks。</p>
-<h3 id="四-Labels"><a href="#四-Labels" class="headerlink" title="四 Labels"></a>四 Labels</h3><p>Labels是用于区分Pod、Service、Replication Controller的key/value键值对，Pod、Service、 Replication Controller可以有多个label，但是每个label的key只能对应一个value。Labels是Service和Replication Controller运行的基础，为了将访问Service的请求转发给后端提供服务的多个容器，正是通过标识容器的labels来选择正确的容器。同样，Replication Controller也使用labels来管理通过pod 模板创建的一组容器，这样Replication Controller可以更加容易，方便地管理多个容器，无论有多少容器。</p>
-<h2 id="Kubernetes构件"><a href="#Kubernetes构件" class="headerlink" title="Kubernetes构件"></a>Kubernetes构件</h2><p>Kubenetes整体框架，主要包括kubecfg、Master API Server、Kubelet、Minion(Host)以及Proxy</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-76ea037267e3e5b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h3 id="一-Master"><a href="#一-Master" class="headerlink" title="一  Master"></a>一  Master</h3><p>Master定义了Kubernetes 集群Master/API Server的主要声明，包括Pod Registry、Controller Registry、Service Registry、Endpoint Registry、Minion Registry、Binding Registry、RESTStorage以及Client, 是client(Kubecfg)调用Kubernetes API，管理Kubernetes主要构件Pods、Services、Minions、容器的入口。Master由API Server、Scheduler以及Registry等组成。从下图可知Master的工作流主要分以下步骤：<br>1) Kubecfg将特定的请求，比如创建Pod，发送给Kubernetes Client。<br>2) Kubernetes Client将请求发送给API server。<br>3) API Server根据请求的类型，比如创建Pod时storage类型是pods，然后依此选择何种REST Storage API对请求作出处理。<br>4) REST Storage API对的请求作相应的处理。<br>5) 将处理的结果存入高可用键值存储系统Etcd中。<br>6) 在API Server响应Kubecfg的请求后，Scheduler会根据Kubernetes Client获取集群中运行Pod及Minion信息。<br>7) 依据从Kubernetes Client获取的信息，Scheduler将未分发的Pod分发到可用的Minion节点上。<br>下面是Master的主要构件的详细介绍：<br><img src="http://upload-images.jianshu.io/upload_images/3941016-16f56503372f2b4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>图3-2 Master主要构件及工作流</p>
-<h3 id="Minion-Registry"><a href="#Minion-Registry" class="headerlink" title="Minion Registry"></a>Minion Registry</h3><p>Minion Registry负责跟踪Kubernetes 集群中有多少Minion(Host)。Kubernetes封装Minion Registry成实现Kubernetes API Server的RESTful API接口REST，通过这些API，我们可以对Minion Registry做Create、Get、List、Delete操作，由于Minon只能被创建或删除，所以不支持Update操作，并把Minion的相关配置信息存储到etcd。除此之外，Scheduler算法根据Minion的资源容量来确定是否将新建Pod分发到该Minion节点。</p>
-<h3 id="Pod-Registry"><a href="#Pod-Registry" class="headerlink" title="Pod Registry"></a>Pod Registry</h3><p>Pod Registry负责跟踪Kubernetes集群中有多少Pod在运行，以及这些Pod跟Minion是如何的映射关系。将Pod Registry和Cloud Provider信息及其他相关信息封装成实现Kubernetes API Server的RESTful API接口REST。通过这些API，我们可以对Pod进行Create、Get、List、Update、Delete操作，并将Pod的信息存储到etcd中，而且可以通过Watch接口监视Pod的变化情况，比如一个Pod被新建、删除或者更新。</p>
-<h3 id="Service-Registry"><a href="#Service-Registry" class="headerlink" title="Service Registry"></a>Service Registry</h3><p>Service Registry负责跟踪Kubernetes集群中运行的所有服务。根据提供的Cloud Provider及Minion Registry信息把Service Registry封装成实现Kubernetes API Server需要的RESTful API接口REST。利用这些接口，我们可以对Service进行Create、Get、List、Update、Delete操作，以及监视Service变化情况的watch操作，并把Service信息存储到etcd。</p>
-<h3 id="Controller-Registry"><a href="#Controller-Registry" class="headerlink" title="Controller Registry"></a>Controller Registry</h3><p>Controller Registry负责跟踪Kubernetes集群中所有的Replication Controller，Replication Controller维护着指定数量的pod 副本(replicas)拷贝，如果其中的一个容器死掉，Replication Controller会自动启动一个新的容器，如果死掉的容器恢复，其会杀死多出的容器以保证指定的拷贝不变。通过封装Controller Registry为实现Kubernetes API Server的RESTful API接口REST， 利用这些接口，我们可以对Replication Controller进行Create、Get、List、Update、Delete操作，以及监视Replication Controller变化情况的watch操作，并把Replication Controller信息存储到etcd。</p>
-<h3 id="Endpoints-Registry"><a href="#Endpoints-Registry" class="headerlink" title="Endpoints Registry"></a>Endpoints Registry</h3><p>Endpoints Registry负责收集Service的endpoint，比如Name：”mysql”，Endpoints: [“10.10.1.1:1909”，”10.10.2.2:8834”]，同Pod Registry，Controller Registry也实现了Kubernetes API Server的RESTful API接口，可以做Create、Get、List、Update、Delete以及watch操作。</p>
-<h3 id="Binding-Registry"><a href="#Binding-Registry" class="headerlink" title="Binding Registry"></a>Binding Registry</h3><p>Binding包括一个需要绑定Pod的ID和Pod被绑定的Host，Scheduler写Binding Registry后，需绑定的Pod被绑定到一个host。Binding Registry也实现了Kubernetes API Server的RESTful API接口，但Binding Registry是一个write-only对象，所有只有Create操作可以使用， 否则会引起错误。</p>
-<h3 id="Scheduler"><a href="#Scheduler" class="headerlink" title="Scheduler"></a>Scheduler</h3><p>Scheduler收集和分析当前Kubernetes集群中所有Minion节点的资源(内存、CPU)负载情况，然后依此分发新建的Pod到Kubernetes集群中可用的节点。由于一旦Minion节点的资源被分配给Pod，那这些资源就不能再分配给其他Pod， 除非这些Pod被删除或者退出， 因此，Kubernetes需要分析集群中所有Minion的资源使用情况，保证分发的工作负载不会超出当前该Minion节点的可用资源范围。具体来说，Scheduler做以下工作：<br>1) 实时监测Kubernetes集群中未分发的Pod。<br>2) 实时监测Kubernetes集群中所有运行的Pod，Scheduler需要根据这些Pod的资源状况安全地将未分发的Pod分发到指定的Minion节点上。<br>3) Scheduler也监测Minion节点信息，由于会频繁查找Minion节点，Scheduler会缓存一份最新的信息在本地。<br>4) 最后，Scheduler在分发Pod到指定的Minion节点后，会把Pod相关的信息Binding写回API Server。</p>
-<h3 id="Kubelet"><a href="#Kubelet" class="headerlink" title="Kubelet"></a>Kubelet</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-470b89f752a0b96d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>图3-3 Kubernetes详细构件<br>根据上图3-3可知Kubelet是Kubernetes集群中每个Minion和Master API Server的连接点，Kubelet运行在每个Minion上，是Master API Server和Minion之间的桥梁，接收Master API Server分配给它的commands和work，与持久性键值存储etcd、file、server和http进行交互，读取配置信息。Kubelet的主要工作是管理Pod和容器的生命周期，其包括Docker Client、Root Directory、Pod Workers、Etcd Client、Cadvisor Client以及Health Checker组件，具体工作如下：<br>1) 通过Worker给Pod异步运行特定的Action。<br>2) 设置容器的环境变量。<br>3) 给容器绑定Volume。<br>4) 给容器绑定Port。<br>5) 根据指定的Pod运行一个单一容器。<br>6) 杀死容器。<br>7) 给指定的Pod创建network 容器。<br>8) 删除Pod的所有容器。<br>9) 同步Pod的状态。<br>10) 从Cadvisor获取container info、 pod info、root info、machine info。<br>11) 检测Pod的容器健康状态信息。<br>12) 在容器中运行命令。</p>
-<h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><p>Proxy是为了解决外部网络能够访问跨机器集群中容器提供的应用服务而设计的，从上图3-3可知Proxy服务也运行在每个Minion上。Proxy提供TCP/UDP sockets的proxy，每创建一种Service，Proxy主要从etcd获取Services和Endpoints的配置信息，或者也可以从file获取，然后根据配置信息在Minion上启动一个Proxy的进程并监听相应的服务端口，当外部请求发生时，Proxy会根据Load Balancer将请求分发到后端正确的容器处</p>
-<h2 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h2><blockquote>
-<p>准备工作</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>对象</th>
-<th>版本</th>
-<th>ip</th>
-<th>备注 </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>k8s-master</td>
-<td>centos7</td>
-<td>192.168.29.11</td>
-<td>K8S的master所在主机</td>
-</tr>
-<tr>
-<td>etcd-server</td>
-<td>centos7</td>
-<td>192.168.29.11</td>
-<td>etcd服务所在主机，与master在同一机器</td>
-</tr>
-<tr>
-<td>k8s-slave</td>
-<td>centos7</td>
-<td>192.168.29.12</td>
-<td>K8S节点所在主机</td>
-</tr>
-</tbody>
-</table>
-<h3 id="安装主要程序"><a href="#安装主要程序" class="headerlink" title="安装主要程序"></a>安装主要程序</h3><ul>
-<li>192.168.29.11<br>执行以下命令，安装kubernetes和etcd</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install --enablerepo=virt7-docker-common-release kubernetes etcd</div></pre></td></tr></table></figure>
-<h2 id="禁用防火墙"><a href="#禁用防火墙" class="headerlink" title="禁用防火墙"></a>禁用防火墙</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl disable iptables-services firewalld</div><div class="line">systemctl stop iptables-services firewalld</div></pre></td></tr></table></figure>
-<h3 id="192-168-29-11-上主机配置"><a href="#192-168-29-11-上主机配置" class="headerlink" title="192.168.29.11 上主机配置"></a>192.168.29.11 上主机配置</h3><h4 id="一-修改文件-etc-kubernetes-config-所有节点"><a href="#一-修改文件-etc-kubernetes-config-所有节点" class="headerlink" title="一 修改文件/etc/kubernetes/config(所有节点)"></a>一 修改文件/etc/kubernetes/config(所有节点)</h4><p>注意，master和slave主机都要修改<br>指定master主机的ip，文件内容如下：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f2286b4085fb8079.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下"><a href="#二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下" class="headerlink" title="二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下"></a>二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-a881113924dd47da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="三-修改配置文件-etc-kubernetes-apiserver"><a href="#三-修改配置文件-etc-kubernetes-apiserver" class="headerlink" title="三 修改配置文件/etc/kubernetes/apiserver"></a>三 修改配置文件/etc/kubernetes/apiserver</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-83c145be3b651c13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="四-修改配置文件-etc-kubernetes-controller-manager，定义slave主机ip地址"><a href="#四-修改配置文件-etc-kubernetes-controller-manager，定义slave主机ip地址" class="headerlink" title="四 修改配置文件/etc/kubernetes/controller-manager，定义slave主机ip地址"></a>四 修改配置文件/etc/kubernetes/controller-manager，定义slave主机ip地址</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-6a410aa1eaf7d1b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h3 id="在master主机上，启动服务"><a href="#在master主机上，启动服务" class="headerlink" title="在master主机上，启动服务"></a>在master主机上，启动服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for SERVICES in etcd kube-apiserver kube-controller-manager kube-scheduler; do</div><div class="line">    systemctl restart $SERVICES</div><div class="line">    systemctl enable $SERVICES</div><div class="line">    systemctl status $SERVICES</div><div class="line">done</div></pre></td></tr></table></figure>
-<h2 id="slave节点配置"><a href="#slave节点配置" class="headerlink" title="slave节点配置"></a>slave节点配置</h2><p>yum 安装kubernetes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install  kubernetes flannel</div></pre></td></tr></table></figure></p>
-<h3 id="slave-配置文件修改"><a href="#slave-配置文件修改" class="headerlink" title="slave 配置文件修改"></a>slave 配置文件修改</h3><h4 id="一-修改kubernetes配置文件，指定master"><a href="#一-修改kubernetes配置文件，指定master" class="headerlink" title="一 .修改kubernetes配置文件，指定master"></a>一 .修改kubernetes配置文件，指定master</h4><p>/etc/kubernetes/config</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-2181a58f95b1164b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="二-配置kubelet服务"><a href="#二-配置kubelet服务" class="headerlink" title="二  配置kubelet服务"></a>二  配置kubelet服务</h4><p> /etc/kubernetes/kubelet</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-5d1fb93275d32ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h3 id="在slave主机上，启动服务"><a href="#在slave主机上，启动服务" class="headerlink" title="在slave主机上，启动服务"></a>在slave主机上，启动服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for SERVICES in kube-proxy kubelet docker flanneld; do</div><div class="line">    systemctl restart $SERVICES</div><div class="line">    systemctl enable $SERVICES</div><div class="line">    systemctl status $SERVICES</div><div class="line">done</div></pre></td></tr></table></figure>
-<p>###验证</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f8344025c3bc9b20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
-      
-        <categories>
-            
-            <category> docker </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> docker </tag>
-            
-            <tag> Linux </tag>
             
         </tags>
         
@@ -719,6 +653,72 @@
             <tag> 心情 </tag>
             
             <tag> 随笔 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[elk的部署]]></title>
+      <url>/2018/05/30/elk%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li><p>kail2.0  (安装的服务器)</p>
+</li>
+<li><p>安装包<br>elasticsearch-5.6.0.deb  （主要程序）<br>kibana-5.6.0-amd64.deb</p>
+</li>
+</ul>
+<h2 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h2><ul>
+<li>jdk默认要1.8 下载好jdk  解压jdk</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-6a44f79dd77d8e8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li>配置jdk 环境变量gedit ~/.bashrc  （文件最后添加）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/jdk1.8</div><div class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</div><div class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</div><div class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li><p>保存退出，然后输入下面的命令来使之生效<br>source ~/.bashrc</p>
+</li>
+<li><p>配置默认JDK<br>由于一些Linux的发行版中已经存在默认的JDK，如OpenJDK等。所以为了使得我们刚才安装好的JDK版本能成为默认的JDK版本，我们还要进行下面的配置。<br>执行下面的命令：<br>sudo update-alternatives –install /usr/bin/java java /jdk1.8/bin/java 300<br>sudo update-alternatives –install /usr/bin/javac javac /jdk1.8/bin/javac 300</p>
+</li>
+<li><p>切换JDK版本<br>update-alternatives –config java</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-bbaff9f083089182.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="安装主程序"><a href="#安装主程序" class="headerlink" title="安装主程序"></a>安装主程序</h2><ul>
+<li>安装<br>dpkg  -i   elasticsearch-5.6.0.deb </li>
+<li>启动主程序</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f38bc1cf6e47a88b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>##几种报错处理</p>
+<h3 id="第一种配置文件没发现"><a href="#第一种配置文件没发现" class="headerlink" title="第一种配置文件没发现"></a>第一种配置文件没发现</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-e93116d97162c55b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li>解决方法<br>这个错误我觉得主要是因为找不到配置文件,但是如果你直接在安装目录里去启动elasticsearch的话，elasticsearch只会在当前目录找config文件夹，如果安装成service的形式应该是可以找到配置文件，但我没去尝试，后面试试问题知道了，我们可以直接把/etc目录下的elasticsearch配置文件copy过来：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp -r /etc/elasticsearch /usr/share/elasticsearch/config</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="第二种不用用root用户启动"><a href="#第二种不用用root用户启动" class="headerlink" title="第二种不用用root用户启动"></a>第二种不用用root用户启动</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-9a97e1ca785470cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>解决方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">~ groupadd elsearch</div><div class="line">➜  ~ useradd elsearch -g elsearch -p elsearch</div><div class="line">➜  ~ cd /usr/share  </div><div class="line">➜   chown -R elsearch:elsearch elasticsearch </div><div class="line">➜  su elsearch</div><div class="line">./elasticsearch</div></pre></td></tr></table></figure></p>
+<h3 id="验证访问9200端口-安装成功"><a href="#验证访问9200端口-安装成功" class="headerlink" title="验证访问9200端口 安装成功"></a>验证访问9200端口 安装成功</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-814b78ca2949d3cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="安装Kibana"><a href="#安装Kibana" class="headerlink" title="安装Kibana"></a>安装Kibana</h2><p><img src="http://upload-images.jianshu.io/upload_images/3941016-1684145ddb781d07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="安装-X-Pack"><a href="#安装-X-Pack" class="headerlink" title="安装 X-Pack"></a>安装 X-Pack</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">bin/elasticsearch-plugin install x-pack</div><div class="line"></div><div class="line">bin/kibana-plugin install x-pack</div></pre></td></tr></table></figure>
+<h2 id="安装-logstash"><a href="#安装-logstash" class="headerlink" title="安装 logstash"></a>安装 logstash</h2><p><img src="http://upload-images.jianshu.io/upload_images/3941016-e23da84734772460.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="安装-logstash-input-jdbc"><a href="#安装-logstash-input-jdbc" class="headerlink" title="安装 logstash-input-jdbc"></a>安装 logstash-input-jdbc</h2><p><img src="http://upload-images.jianshu.io/upload_images/3941016-23d074537c912893.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> elk </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> elk </tag>
+            
+            <tag> 大数据 </tag>
+            
+            <tag> 搜索 </tag>
             
         </tags>
         
