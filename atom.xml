@@ -165,9 +165,9 @@
       <category term="密码学" scheme="http://yubenliu.cn/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
     
-      <category term="Python" scheme="http://yubenliu.cn/tags/Python/"/>
-    
       <category term="密码学" scheme="http://yubenliu.cn/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+      <category term="Python" scheme="http://yubenliu.cn/tags/Python/"/>
     
   </entry>
   
@@ -218,9 +218,9 @@
       <category term="django任务队列" scheme="http://yubenliu.cn/categories/django%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97/"/>
     
     
-      <category term="Linux" scheme="http://yubenliu.cn/tags/Linux/"/>
-    
       <category term="Python" scheme="http://yubenliu.cn/tags/Python/"/>
+    
+      <category term="Linux" scheme="http://yubenliu.cn/tags/Linux/"/>
     
       <category term="django" scheme="http://yubenliu.cn/tags/django/"/>
     
