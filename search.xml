@@ -596,6 +596,39 @@ bin/kibana-plugin install x-pack
     </entry>
     
     <entry>
+      <title><![CDATA[妈妈生日快乐]]></title>
+      <url>/2018/05/30/mother/</url>
+      <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3941016-893e99aa7b8b04d7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WechatIMG299.jpeg"></p>
+<blockquote>
+<p>世界上如果选择一个最爱你的人那一定是你的妈妈</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="小时候"><a href="#小时候" class="headerlink" title="小时候"></a>小时候</h1><p>一直觉得自己不会长大，永远待在父母的身边，记得小时候如果过生日再怎么淘气，你也不会打我，嘿嘿，在你眼中我是个永远长不大的小屁孩，惹你生气，记得初中的时候第一次住在学校，一个星期后回家，第一件事你对着我说，瘦了，没吃饱吧。其实我也很想家。<br><img src="http://upload-images.jianshu.io/upload_images/3941016-ad773803ba51d297.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WechatIMG97.jpeg"></p>
+<h1 id="真的有心灵感应"><a href="#真的有心灵感应" class="headerlink" title="真的有心灵感应"></a>真的有心灵感应</h1><p>原谅我，忘记了你生日是什么时候，记得大学的时候，有次和朋友一起外出玩，心里一直在想着你，我不知道为什么。可能发生了什么事，我打个电话给你，才知道今天是你生日，原谅我不孝，没把你的生日记在心里。可能那时候你是多么的想让我打个电话，让我也感应到了。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="520" height="86" src="//music.163.com/outchain/player?type=2&id=177578&auto=1&height=66"></iframe>
+
+
+<h1 id="2017-杭州"><a href="#2017-杭州" class="headerlink" title="2017-杭州"></a>2017-杭州</h1><p>越来越大，离家乡越来越远，可能我们这代就这样，小时候哥哥那么小就一个人去深圳拼搏，现在才知道那时候他是多么的艰难，都离开了你身边，连你的生日都是你一个人过得，上周给你打电话，你说生日那天不要打电话给你了，省点电话费，我当时真的不知道说什么，我希望下个你的生日我陪在你的身边。</p>
+<p>#也许</p>
+<p>也许这世间有很多伟大的事，伟大的人，但在我眼里你最是伟大的，妈妈生日快乐，哪怕你看不到，永远健康，献给我最亲爱的妈妈。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 心情 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 心情，母亲 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[kubernetes的部署]]></title>
       <url>/2018/05/30/kubernetes%E7%9A%84%E9%83%A8%E7%BD%B2/</url>
       <content type="html"><![CDATA[<h2 id="什么是kubernetes"><a href="#什么是kubernetes" class="headerlink" title="什么是kubernetes"></a>什么是kubernetes</h2><blockquote>
@@ -704,6 +737,164 @@ done
     </entry>
     
     <entry>
+      <title><![CDATA[python中的任务队列]]></title>
+      <url>/2018/05/30/python-task-ququ22e/</url>
+      <content type="html"><![CDATA[<ul>
+<li>为什么要做任务队列</li>
+</ul>
+<p>要回答这个问题我们首先看看在流水线上的案列，如果人的速度很慢，机器的速度比人的速度快很多，就会造成，机器生产的东西没有及时处理，越积越多，造成阻塞，影响生产。</p>
+<a id="more"></a>
+<ul>
+<li><p>任务队列的意义：</p>
+<p>打个比方如果出现人的速度跟不上机器速度怎么办，这个时候我们就需要第三方，监管人员（任务队列）把机器生产的东西，放在一个地方，（队列），然后分配给每个用户，有条不理的执行。</p>
+</li>
+</ul>
+<blockquote>
+<p> python 里面的celery  模块是一个简单，灵活且可靠的，处理大量消息的分布式系统，并且提供维护这样一个系统的必需工具。它是一个专注于实时处理的任务队列，同时也支持任务调度。</p>
+</blockquote>
+<ul>
+<li>关于安装celery</li>
+</ul>
+<pre><code>pip  install Celery
+</code></pre><h1 id="关于celery-的概念介绍"><a href="#关于celery-的概念介绍" class="headerlink" title="关于celery 的概念介绍"></a>关于celery 的概念介绍</h1><p><strong>消息队列</strong><br>消息队列的输入是工作的一个单元，称为任务，独立的职程（Worker）进程持续监视队列中是否有需要处理的新任务。<br>Celery 用消息通信，通常使用中间人（Broker）在客户端和职程间斡旋。这个过程从客户端向队列添加消息开始，之后中间人把消息派送给职程，职程对消息进行处理。如下图所示：<br> <img src="http://upload-images.jianshu.io/upload_images/3941016-00078436898975e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>Celery 系统可包含多个职程和中间人，以此获得高可用性和横向扩展能力。<br><strong>Celery**</strong>的架构<strong><br>Celery的架构由三部分组成，消息中间件（message broker），任务执行单元（worker）和任务执行结果存储（task result store）组成。
+</strong>消息中间件<strong><br>Celery本身不提供消息服务，但是可以方便的和第三方提供的消息中间件集成，包括，<a href="http://rabbitmq.com/" target="_blank" rel="external">RabbitMQ</a>,<a href="http://redis.io/" target="_blank" rel="external">Redis</a>,<a href="http://mongodb.org/" target="_blank" rel="external">MongoDB</a>等，这里我先去了解<a href="http://rabbitmq.com/" target="_blank" rel="external">RabbitMQ</a>,<a href="http://redis.io/" target="_blank" rel="external">Redis</a>。
+</strong>任务执行单元<strong><br>Worker是Celery提供的任务执行的单元，worker并发的运行在分布式的系统节点中
+</strong>任务结果存储**<br>Task result store用来存储Worker执行的任务的结果，Celery支持以不同方式存储任务的结果，包括Redis，MongoDB，Django ORM，AMQP等，这里我先不去看它是如何存储的，就先选用Redis来存储任务执行结果。</p>
+<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><p> 环境</p>
+<ul>
+<li>kaillinux  主机两台（192.168.29.234，192.168.29.198）</li>
+<li>redis   (192.168.29.234 )</li>
+<li>flower (192.168.29.234)</li>
+<li>任务脚本（两台都必须部署）</li>
+</ul>
+<p>任务脚本</p>
+<ul>
+<li>tasks.py  (计算加减乘除)</li>
+</ul>
+<pre><code>import os
+import sys
+import datetime
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(BASE_DIR)
+from celery import Celery
+from celery import chain, group, chord, Task
+import celeryconfig
+app = Celery()
+app.config_from_object(celeryconfig)
+__all__ = [&#39;add&#39;, &#39;reduce&#39;,&#39;sum_all&#39;, &#39;other&#39;]
+####################################
+# tas #
+####################################
+@app.task
+def add(x, y):
+    return x + y
+@app.task
+def reduce(x, y):
+    return x - y
+@app.task
+def sum(values):
+    return sum([int(value) for value in values])
+@app.task
+def other(x, y):
+    return x * y
+</code></pre><ul>
+<li>celeryconfig.py</li>
+</ul>
+<pre><code>!/usr/bin/python
+#coding:utf-8
+from kombu import Queue
+CELERY_TIMEZONE = &#39;Asia/Shanghai&#39;
+####################################
+# 一般配置 #
+####################################
+CELERY_TASK_SERIALIZER = &#39;json&#39;
+CELERY_RESULT_SERIALIZER = &#39;json&#39;
+CELERY_ACCEPT_CONTENT=[&#39;json&#39;]
+CELERY_TIMEZONE = &#39;Asia/Shanghai&#39;
+CELERY_ENABLE_UTC = True
+# List of modules to import when celery starts.
+CELERY_IMPORTS = (&#39;tasks&#39;, )
+CELERYD_MAX_TASKS_PER_CHILD = 40 #  每个worker执行了多少任务就会死掉
+BROKER_POOL_LIMIT = 10 #默认celery与broker连接池连接数
+CELERY_DEFAULT_QUEUE=&#39;default&#39;
+CELERY_DEFAULT_ROUTING_KEY=&#39;task.default&#39;
+CELERY_RESULT_BACKEND=&#39;redis://192.168.29.234:6379/0&#39;  
+BROKER_URL=&#39;redis://192.168.29.234:6379/0&#39;  
+#默认队列
+CELERY_DEFAULT_QUEUE = &#39;celery&#39;
+CELERY_DEFAULT_ROUTING_KEY = &#39;celery&#39;
+CELERYD_LOG_FILE=&quot;./logs/celery.log&quot;
+CELERY_QUEUEs = (
+    Queue(&quot;queue_add&quot;, routing_key=&#39;queue_add&#39;),
+    Queue(&#39;queue_reduce&#39;, routing_key=&#39;queue_sum&#39;),
+    Queue(&#39;celery&#39;, routing_key=&#39;celery&#39;),
+    )
+CELERY_ROUTES = {
+    &#39;task.add&#39;:{&#39;queue&#39;:&#39;queue_add&#39;, &#39;routing_key&#39;:&#39;queue_add&#39;},
+    &#39;task.reduce&#39;:{&#39;queue&#39;:&#39;queue_reduce&#39;, &#39;routing_key&#39;:&#39;queue_sum&#39;},
+}
+</code></pre><h1 id="关于flower是监控任务信息的web-图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower-文件"><a href="#关于flower是监控任务信息的web-图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower-文件" class="headerlink" title="关于flower是监控任务信息的web 图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower 文件"></a>关于flower是监控任务信息的web 图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower 文件</h1><p><a href="https://github.com/mher/flower" target="_blank" rel="external">flower github</a></p>
+<p>在234 上flower.py 的脚本</p>
+<pre><code>#!/usr/bin/env python
+#coding:utf-8
+broker_api = &#39;redis://127.0.0.1:6379/0&#39;
+logging = &#39;DEBUG&#39;
+address = &#39;0.0.0.0&#39;
+port = 5555
+#外部访问密码
+#basic_auth=[&#39;root:ybl8651073&#39;]
+persistent=True  #持久化celery tasks（如果为false的话，重启flower之后，监控的task就消失了)
+db=&quot;/root/flower_db&quot;
+</code></pre><h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><ul>
+<li>在198上启动<pre><code>celery worker -A  tasks --loglevel=info --queues=celery,queue_add --hostname=celery_worker198
+</code></pre></li>
+<li>在234 上启动</li>
+</ul>
+<pre><code>1.  redis服务
+2.  celery worker -A  tasks --loglevel=info --queues=celery,queue_reduce --hostname=celery_worker234
+3.  celery  flower worker -A  tasks  --config==/root/flower.py
+</code></pre><h1 id="服务器验证"><a href="#服务器验证" class="headerlink" title="服务器验证"></a>服务器验证</h1><ul>
+<li>在任一台有celeryservice项目代码的服务器上，运行add、reduce、-</li>
+<li>sum、other任务（测试可简单使用add.delay(1,2)等）</li>
+<li>add只会在198上运行，</li>
+<li>sum任务，可能会在198或234服务器的worker节点运行</li>
+<li>reduce任务,只会在234上运行。</li>
+<li>other任务可能会在198或者234上运行。</li>
+</ul>
+<h1 id="打开监控web-192-168-29-234-5555"><a href="#打开监控web-192-168-29-234-5555" class="headerlink" title="打开监控web 192.168.29.234:5555"></a>打开监控web 192.168.29.234:5555</h1><p><img src="http://upload-images.jianshu.io/upload_images/3941016-3fb477a9ac403fba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" 两台上线workers"></p>
+<ul>
+<li>随机运行几个任务</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-91d2a6b25d0eeba9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li>分析<br><img src="http://upload-images.jianshu.io/upload_images/3941016-d8248fb57d9ac788.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运行结果"></li>
+</ul>
+<ul>
+<li>也可以通过 curl提交任务<pre><code>curl -X POST -d &#39;{&quot;args&quot;:[1,2]}&#39; http://192.168.29.234:5555/api/task/async-apply/tasks.add
+</code></pre></li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> django任务队列 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> django </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[nc的高级用法]]></title>
       <url>/2018/05/30/nc%20%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/</url>
       <content type="html"><![CDATA[<ul>
@@ -760,146 +951,6 @@ nc  服务器地址（127.0.0.1） 服务器端口号如（65535）
             <tag> 工具 </tag>
             
             <tag> 安全 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[妈妈生日快乐]]></title>
-      <url>/2018/05/30/mother/</url>
-      <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3941016-893e99aa7b8b04d7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WechatIMG299.jpeg"></p>
-<blockquote>
-<p>世界上如果选择一个最爱你的人那一定是你的妈妈</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="小时候"><a href="#小时候" class="headerlink" title="小时候"></a>小时候</h1><p>一直觉得自己不会长大，永远待在父母的身边，记得小时候如果过生日再怎么淘气，你也不会打我，嘿嘿，在你眼中我是个永远长不大的小屁孩，惹你生气，记得初中的时候第一次住在学校，一个星期后回家，第一件事你对着我说，瘦了，没吃饱吧。其实我也很想家。<br><img src="http://upload-images.jianshu.io/upload_images/3941016-ad773803ba51d297.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WechatIMG97.jpeg"></p>
-<h1 id="真的有心灵感应"><a href="#真的有心灵感应" class="headerlink" title="真的有心灵感应"></a>真的有心灵感应</h1><p>原谅我，忘记了你生日是什么时候，记得大学的时候，有次和朋友一起外出玩，心里一直在想着你，我不知道为什么。可能发生了什么事，我打个电话给你，才知道今天是你生日，原谅我不孝，没把你的生日记在心里。可能那时候你是多么的想让我打个电话，让我也感应到了。</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="520" height="86" src="//music.163.com/outchain/player?type=2&id=177578&auto=1&height=66"></iframe>
-
-
-<h1 id="2017-杭州"><a href="#2017-杭州" class="headerlink" title="2017-杭州"></a>2017-杭州</h1><p>越来越大，离家乡越来越远，可能我们这代就这样，小时候哥哥那么小就一个人去深圳拼搏，现在才知道那时候他是多么的艰难，都离开了你身边，连你的生日都是你一个人过得，上周给你打电话，你说生日那天不要打电话给你了，省点电话费，我当时真的不知道说什么，我希望下个你的生日我陪在你的身边。</p>
-<p>#也许</p>
-<p>也许这世间有很多伟大的事，伟大的人，但在我眼里你最是伟大的，妈妈生日快乐，哪怕你看不到，永远健康，献给我最亲爱的妈妈。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 心情 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 心情，母亲 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[小心情]]></title>
-      <url>/2018/05/30/xiaoqiu/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>与你分享，最自我的存在，最重要的秘密。<br><img src="http://upload-images.jianshu.io/upload_images/3941016-fe10f7fc79dd1705.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="小秋"></p>
-</blockquote>
-<p>脑海里存在过好多个故事<br>大多包含了我爱你的主题</p>
-<p>它们可能在我想你的某些须臾发生了</p>
-<p>然后消失在我无法说忘记的深深自责里</p>
-<p>偶尔会记录下的都是可以用言语概论的</p>
-<p>在我觉得实在是孤单了喔</p>
-<p>说与 除了你我的爱人们听</p>
-<a id="more"></a>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-dbca79068aeaa29b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>我还是喜欢和你面对面交谈</p>
-<p>坐在相同的时间和空间里</p>
-<p>对你感到无语的时候就真的不发一言</p>
-<p>你对我心存怀疑的时候可以看着我的眼睛</p>
-<p>他会告诉你我是个好人以及不愿说出口的我爱你</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=68450&auto=1&height=66"></iframe>
-
-
-<p>喜欢陌生的街区 无知的人行道</p>
-<p>风带过来的都是那些无知人的气味儿</p>
-<p>你敢信么 走在拥挤的人潮中我反而安心</p>
-<p>那些结伴的骑行者他们的欢颜</p>
-<p>风尘仆仆的赶路人</p>
-<p>推着婴儿车的年轻母亲</p>
-<p>我似乎见过无数次这样的面孔</p>
-<p>他们好像发生着同样的故事</p>
-<p>然而生活本就是如此 千篇一律</p>
-<p>那些个学画的日子里</p>
-<p>兴奋失落骄傲迷茫哭泣</p>
-<p>有你 有她们有青春</p>
-<p>想来都是无比珍贵</p>
-<p>细数不尽的</p>
-<p>这个世界上 我最畏惧的就是时间了</p>
-<p>那个傻瓜阿</p>
-<p>“明年我要带着一大束玫瑰花去军队”</p>
-<p>她喊我的名字 说“我决定了”</p>
-<p>我们经常郑重其事地做一些决定</p>
-<p>然而我还是被点燃了</p>
-<p>我幻想幸福的场景美好的结局</p>
-<p>我哭着拥抱她说“为你高兴”</p>
-<p>她轻拍着我的后背</p>
-<p>在我耳边说“你也会等到这一天的。”</p>
-<p>还带着把握住了幸福的女孩应该有的沉稳语调</p>
-<p>早上自然醒</p>
-<p>想到运动会那天</p>
-<p>你把食指贴近嘴唇作出嘘的动作</p>
-<p>脸上还挂着谈话时的笑意</p>
-<p>样子特别好看</p>
-<p>然后就看到你们的实习老师走了过来</p>
-<p>跳远结束的时候</p>
-<p>你屁颠屁颠跑回来</p>
-<p>一脸兴奋说着刚如何摔惨了丢人了</p>
-<p>样子特别可爱</p>
-<p>可不可以借我一个“从此” 我的故事该完结了</p>
-<p>但是 安徒生先生已经把最后一个“从此”也用掉了</p>
-<p>要不你试试看我的“后来”“以后”“最后”或者“然后”</p>
-<p>不了， 看来我只能让我的王子和公主死掉了</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-bf7aa59fc2d09c00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>我有时会对自己说，写个故事吧。<br>生活这么无趣，随便写个开头结尾，就能打动人。<br>后来往往无果，因为生活面孔多，生活其实比故事厉害，<br>觉得生活无聊就写不出好看的故事。<br>人为什么会觉得无聊，人们总说，今天简直无聊得要死，<br>这句话其实一点也不夸张啊。<br>有人会选择死亡，要么因为懦弱，他们是被困难打败了；<br>要么就是无聊教唆的，他们无所恋了。<br>我显然还是有所恋的， 就算单恋一个人<br>我也持续了够久。<br>我还是乐意去编织一些乱七八糟的东西，<br>或记录某些真实 给以后。<br>感到无聊的时候，就会把时间奉给想念。<br>离世的长辈，许久未见的朋友，不知去向的故人，<br>不曾相恋的恋人。<br>运气不错的话，过程中就能收获灵感。<br>潜意识里那些想说的话，会在一瞬间，自己就排列组合<br>小跑而来。</p>
-<p>那女人按照惯例，<br>在星期一的早晨，<br>又开始数落起她可怜的丈夫。<br>“我真是受够了，<br>看看你没出息的样子。”<br>她先是重复了上周<br>以及上上周<br>以及上上上周的开场白。<br>他的丈夫沉默不语，<br>或许没听到，因为他正</p>
-<p>“记得把牛奶喝掉，<br>喝完记得把杯子洗干净。<br>我去上班了，<br>这日子简直没法过了。”<br>结束语也一样。</p>
-<p>能随着性子，<br>最终完成一件事。<br>便十分美好。</p>
-<p>朝闻道，夕死可矣。<br>人们想要强调某件事时，<br>总会把话说得极其夸张。</p>
-<p>相对老无所依这样故弄玄虚的电影，<br>还是更喜欢听别人实实在在讲故事。<br>比如一次别离，比如通天塔。<br>它们首先是想好好讲一个好故事，<br>而后希望发人深省产生讨论。<br>它们讲礼貌，是特别有诚意的诉说者。</p>
-<p>我们是动物<br>孤独地过冬<br>春天来了<br>我把自己滚成一个球<br>沿路摘几颗新鲜的酱果<br>赶到你家门口<br>等待你慢慢苏醒的样子<br>你扑腾了几下<br>张开了翅膀<br>看到坐在树下的我<br>你高兴地俯冲下来<br>叼走了我背上的紫色酱果<br>然后飞走了<br>我拾起你掉落的羽毛<br>如获珍宝</p>
-<p>回忆往常日子里<br>所有与你的对视</p>
-<p>夏尔走了之后<br>每个星期都会去镇上喝酒<br>最近去得比较频繁<br>我爱上了一个姑娘<br>每天下午三点<br>她会推着小推车来给酒馆送酒<br>一个月过去夏尔还没有回来<br>我带姑娘回家<br>她自己脱衣服然后洗澡<br>在做第三次的时候她说<br>我知道你不爱我<br>你只不过想讲一个故事</p>
-<p>你连一把好剑都没有<br>你也好意思说自己是行侠仗义的江湖中人<br>那个兜里不过揣了几把小刀的卷卷头竟也嘲笑我<br>当时我也是年轻气盛冲上去几拳把他打倒在地<br>眼看他一脸血我接着用力补了几脚就扬长而去<br>隐约听到围观的人群中传来声音小李小李你没事吧<br>我顾自向前</p>
-<p>她突然说“我妈妈是在酉时生下我的，<br>日落酉时，记住啦，我死了你要告诉道士先生呀”<br>“日落有时？就像现在太阳要下山了吗？”<br>“恩，就是傍晚了，好好记住，他们都不知道，<br>我们家总要有一个人知道。”<br>我突然明白这件事是非常神圣的，<br>那年我六七岁，她只告诉我一个人。<br>就在几年前她离开。<br>非常突然，我们每个人都开始自责。<br>她离开之前，家里还在商量她的99岁大寿。<br>出殡那天，我和姑姑还有另外几个人坐一辆车，<br>有个女人一直大声说笑，吵吵闹闹。<br>我想抽她一耳光。<br>我看着窗外，姑姑搂着我。<br>一直下着小雨。</p>
-<p>小时候第一次在户口簿上看到她的名字<br>我嘲笑她说谁给你取的名字啊张大姐</p>
-<p>也是第一次知道她不姓杨而是姓张</p>
-<p>通常我们坐在一起的时候<br>我不大记得是谁先开口<br>说第一句话</p>
-<p>坐在那里抽烟的男人<br>外套歪躺在沙发上<br>墙脚立着一盆绿植，叶子大而茂盛<br>女人不知去了哪里，菜摆在桌上慢慢凉<br>从窗外飞来一只鸟，横冲直撞<br>男人熄灭了半支的烟，躺在沙发上<br>外套压在身下，露出半只袖<br>鸟儿飞来飞去不觉得累<br>汤面上结起一层油花，女人没有回来<br>而墙角立着一盆绿植<br>鸟儿横冲直撞</p>
-<p>和薇聊了好多，<br>五年内几乎没有联系，<br>我给她讲现在的自己，<br>猛然发现曾经最爱做的事情现在依然，<br>写字画画喜欢kimi。<br>你变了么</p>
-<p>2013.12.16 杭州下雪了<br>和你生活在同一座城市的好处是 感受 同样的天气<br>两点钟的时候 各自发条状态迎接季节赠予的礼物 是的下雪了<br>过去几天的雾霾 似乎对我没什么影响好像事不关己<br>早上下雨 冷 撑一把大大的 枣红色的伞<br>下午坐在寝室看非诚勿扰 窗外 雪很大<br>超美的<br><img src="http://upload-images.jianshu.io/upload_images/3941016-a44b39bbba6cb45a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>为什么在做事情之前，<br>我不告诉自己，<br>一定要做到最好，<br>要尽到最大的努力去完成。<br>以前总爱顺其自然。<br>我对自己一直很客气，<br>所以我变成特别容易满足的人，<br>对别人也完全没有杀伤力。<br>可能快乐至上吧。<br>失之坦然，得之淡然，处之泰然，顺其自然。<br>并不去给一个对错的判断，快乐就好。<br>最终信仰是：永远忠于自己。</p>
-<p>以前有愿望写故事，<br>以为能像我做其他事情一样顺其自然，<br>没有提纲就这么一味地写，<br>隔半年想再接下去，<br>却发现不能像当初一样随心所欲了。<br>当有无数种可能摆在你面前的时候，<br>你都不知道该如何走向当初设定好的结局。</p>
-<p>我喜欢在家里转圈圈，这样可以带动思考。<br>额(⊙o⊙)…，好吧，我承认我给我的怪癖找了一个冠冕堂皇的借口。</p>
-<p>小时候有暴力倾向。<br>有时认为自己是个自闭症患者。</p>
-<p>大概十一岁的时候我开始懂得构建自己的精神世界，<br>后来开始患得患失，慢慢的，会把自己的情绪放大化，<br>喜欢的人和事物会尤其喜欢，而且持久。</p>
-<p>一生中我们会遇到形形色色的人，<br>入耳许许多多的事，<br>无论你是否主动搭讪这个世界，<br>世界总能带给我们改变。<br>2013年夏天，我在南京。<br>这段旅程蓄谋已久。<br>其然实践起来也并不难，我们甚至连车票都没有提前买好，背着包约定在车站见面。<br>行李简单，拖着一双洞洞鞋，见面是一个不陌生的拥抱。<br>她说的第一句话是，好想你啊。我说的是，好热啊。<br>开玩笑的，你知道我是如此爱你。<br>我相信那些独自旅行的人都是因为找不到合适的伴侣。<br>那个白天我们在图书馆待到闭馆，然后坐着旧巴士穿越了长兴这座小城，从北到南。<br>深夜吃了干挑面，坐在马路边。差不多是凌晨四点的时候，我们坐上了开往南京的火车。<br>从一开始，这段旅程的定义就是要不断给自己找麻烦。<br>八月份，南京，取消青旅预订床位，火车···<br>晚上我们坐在秦淮河旁，有人彻夜聊天，有陌生人和我们坐一桌，扰得我不安稳。<br>有点小雨，我睡着了，她给我支起雨伞，我醒来觉得好笑。<br>且说到这吧。倘若两个人有共同的记忆，一提便会想起来。</p>
-<p>昨天的小清新和之前没写完的故事，就先不分享了。</p>
-<p>该快乐快乐，该烦躁烦躁，建议你快乐</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-b2b720b0c28be7ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 心情 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 心情 </tag>
-            
-            <tag> 随笔 </tag>
             
         </tags>
         
@@ -1505,158 +1556,107 @@ if __name__ == &#39;__main__&#39;:
     </entry>
     
     <entry>
-      <title><![CDATA[python中的任务队列]]></title>
-      <url>/2018/05/30/python-task-ququ22e/</url>
-      <content type="html"><![CDATA[<ul>
-<li>为什么要做任务队列</li>
-</ul>
-<p>要回答这个问题我们首先看看在流水线上的案列，如果人的速度很慢，机器的速度比人的速度快很多，就会造成，机器生产的东西没有及时处理，越积越多，造成阻塞，影响生产。</p>
-<a id="more"></a>
-<ul>
-<li><p>任务队列的意义：</p>
-<p>打个比方如果出现人的速度跟不上机器速度怎么办，这个时候我们就需要第三方，监管人员（任务队列）把机器生产的东西，放在一个地方，（队列），然后分配给每个用户，有条不理的执行。</p>
-</li>
-</ul>
-<blockquote>
-<p> python 里面的celery  模块是一个简单，灵活且可靠的，处理大量消息的分布式系统，并且提供维护这样一个系统的必需工具。它是一个专注于实时处理的任务队列，同时也支持任务调度。</p>
+      <title><![CDATA[小心情]]></title>
+      <url>/2018/05/30/xiaoqiu/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>与你分享，最自我的存在，最重要的秘密。<br><img src="http://upload-images.jianshu.io/upload_images/3941016-fe10f7fc79dd1705.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="小秋"></p>
 </blockquote>
-<ul>
-<li>关于安装celery</li>
-</ul>
-<pre><code>pip  install Celery
-</code></pre><h1 id="关于celery-的概念介绍"><a href="#关于celery-的概念介绍" class="headerlink" title="关于celery 的概念介绍"></a>关于celery 的概念介绍</h1><p><strong>消息队列</strong><br>消息队列的输入是工作的一个单元，称为任务，独立的职程（Worker）进程持续监视队列中是否有需要处理的新任务。<br>Celery 用消息通信，通常使用中间人（Broker）在客户端和职程间斡旋。这个过程从客户端向队列添加消息开始，之后中间人把消息派送给职程，职程对消息进行处理。如下图所示：<br> <img src="http://upload-images.jianshu.io/upload_images/3941016-00078436898975e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>Celery 系统可包含多个职程和中间人，以此获得高可用性和横向扩展能力。<br><strong>Celery**</strong>的架构<strong><br>Celery的架构由三部分组成，消息中间件（message broker），任务执行单元（worker）和任务执行结果存储（task result store）组成。
-</strong>消息中间件<strong><br>Celery本身不提供消息服务，但是可以方便的和第三方提供的消息中间件集成，包括，<a href="http://rabbitmq.com/" target="_blank" rel="external">RabbitMQ</a>,<a href="http://redis.io/" target="_blank" rel="external">Redis</a>,<a href="http://mongodb.org/" target="_blank" rel="external">MongoDB</a>等，这里我先去了解<a href="http://rabbitmq.com/" target="_blank" rel="external">RabbitMQ</a>,<a href="http://redis.io/" target="_blank" rel="external">Redis</a>。
-</strong>任务执行单元<strong><br>Worker是Celery提供的任务执行的单元，worker并发的运行在分布式的系统节点中
-</strong>任务结果存储**<br>Task result store用来存储Worker执行的任务的结果，Celery支持以不同方式存储任务的结果，包括Redis，MongoDB，Django ORM，AMQP等，这里我先不去看它是如何存储的，就先选用Redis来存储任务执行结果。</p>
-<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><p> 环境</p>
-<ul>
-<li>kaillinux  主机两台（192.168.29.234，192.168.29.198）</li>
-<li>redis   (192.168.29.234 )</li>
-<li>flower (192.168.29.234)</li>
-<li>任务脚本（两台都必须部署）</li>
-</ul>
-<p>任务脚本</p>
-<ul>
-<li>tasks.py  (计算加减乘除)</li>
-</ul>
-<pre><code>import os
-import sys
-import datetime
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(BASE_DIR)
-from celery import Celery
-from celery import chain, group, chord, Task
-import celeryconfig
-app = Celery()
-app.config_from_object(celeryconfig)
-__all__ = [&#39;add&#39;, &#39;reduce&#39;,&#39;sum_all&#39;, &#39;other&#39;]
-####################################
-# tas #
-####################################
-@app.task
-def add(x, y):
-    return x + y
-@app.task
-def reduce(x, y):
-    return x - y
-@app.task
-def sum(values):
-    return sum([int(value) for value in values])
-@app.task
-def other(x, y):
-    return x * y
-</code></pre><ul>
-<li>celeryconfig.py</li>
-</ul>
-<pre><code>!/usr/bin/python
-#coding:utf-8
-from kombu import Queue
-CELERY_TIMEZONE = &#39;Asia/Shanghai&#39;
-####################################
-# 一般配置 #
-####################################
-CELERY_TASK_SERIALIZER = &#39;json&#39;
-CELERY_RESULT_SERIALIZER = &#39;json&#39;
-CELERY_ACCEPT_CONTENT=[&#39;json&#39;]
-CELERY_TIMEZONE = &#39;Asia/Shanghai&#39;
-CELERY_ENABLE_UTC = True
-# List of modules to import when celery starts.
-CELERY_IMPORTS = (&#39;tasks&#39;, )
-CELERYD_MAX_TASKS_PER_CHILD = 40 #  每个worker执行了多少任务就会死掉
-BROKER_POOL_LIMIT = 10 #默认celery与broker连接池连接数
-CELERY_DEFAULT_QUEUE=&#39;default&#39;
-CELERY_DEFAULT_ROUTING_KEY=&#39;task.default&#39;
-CELERY_RESULT_BACKEND=&#39;redis://192.168.29.234:6379/0&#39;  
-BROKER_URL=&#39;redis://192.168.29.234:6379/0&#39;  
-#默认队列
-CELERY_DEFAULT_QUEUE = &#39;celery&#39;
-CELERY_DEFAULT_ROUTING_KEY = &#39;celery&#39;
-CELERYD_LOG_FILE=&quot;./logs/celery.log&quot;
-CELERY_QUEUEs = (
-    Queue(&quot;queue_add&quot;, routing_key=&#39;queue_add&#39;),
-    Queue(&#39;queue_reduce&#39;, routing_key=&#39;queue_sum&#39;),
-    Queue(&#39;celery&#39;, routing_key=&#39;celery&#39;),
-    )
-CELERY_ROUTES = {
-    &#39;task.add&#39;:{&#39;queue&#39;:&#39;queue_add&#39;, &#39;routing_key&#39;:&#39;queue_add&#39;},
-    &#39;task.reduce&#39;:{&#39;queue&#39;:&#39;queue_reduce&#39;, &#39;routing_key&#39;:&#39;queue_sum&#39;},
-}
-</code></pre><h1 id="关于flower是监控任务信息的web-图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower-文件"><a href="#关于flower是监控任务信息的web-图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower-文件" class="headerlink" title="关于flower是监控任务信息的web 图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower 文件"></a>关于flower是监控任务信息的web 图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower 文件</h1><p><a href="https://github.com/mher/flower" target="_blank" rel="external">flower github</a></p>
-<p>在234 上flower.py 的脚本</p>
-<pre><code>#!/usr/bin/env python
-#coding:utf-8
-broker_api = &#39;redis://127.0.0.1:6379/0&#39;
-logging = &#39;DEBUG&#39;
-address = &#39;0.0.0.0&#39;
-port = 5555
-#外部访问密码
-#basic_auth=[&#39;root:ybl8651073&#39;]
-persistent=True  #持久化celery tasks（如果为false的话，重启flower之后，监控的task就消失了)
-db=&quot;/root/flower_db&quot;
-</code></pre><h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><ul>
-<li>在198上启动<pre><code>celery worker -A  tasks --loglevel=info --queues=celery,queue_add --hostname=celery_worker198
-</code></pre></li>
-<li>在234 上启动</li>
-</ul>
-<pre><code>1.  redis服务
-2.  celery worker -A  tasks --loglevel=info --queues=celery,queue_reduce --hostname=celery_worker234
-3.  celery  flower worker -A  tasks  --config==/root/flower.py
-</code></pre><h1 id="服务器验证"><a href="#服务器验证" class="headerlink" title="服务器验证"></a>服务器验证</h1><ul>
-<li>在任一台有celeryservice项目代码的服务器上，运行add、reduce、-</li>
-<li>sum、other任务（测试可简单使用add.delay(1,2)等）</li>
-<li>add只会在198上运行，</li>
-<li>sum任务，可能会在198或234服务器的worker节点运行</li>
-<li>reduce任务,只会在234上运行。</li>
-<li>other任务可能会在198或者234上运行。</li>
-</ul>
-<h1 id="打开监控web-192-168-29-234-5555"><a href="#打开监控web-192-168-29-234-5555" class="headerlink" title="打开监控web 192.168.29.234:5555"></a>打开监控web 192.168.29.234:5555</h1><p><img src="http://upload-images.jianshu.io/upload_images/3941016-3fb477a9ac403fba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" 两台上线workers"></p>
-<ul>
-<li>随机运行几个任务</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-91d2a6b25d0eeba9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ul>
-<li>分析<br><img src="http://upload-images.jianshu.io/upload_images/3941016-d8248fb57d9ac788.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运行结果"></li>
-</ul>
-<ul>
-<li>也可以通过 curl提交任务<pre><code>curl -X POST -d &#39;{&quot;args&quot;:[1,2]}&#39; http://192.168.29.234:5555/api/task/async-apply/tasks.add
-</code></pre></li>
-</ul>
+<p>脑海里存在过好多个故事<br>大多包含了我爱你的主题</p>
+<p>它们可能在我想你的某些须臾发生了</p>
+<p>然后消失在我无法说忘记的深深自责里</p>
+<p>偶尔会记录下的都是可以用言语概论的</p>
+<p>在我觉得实在是孤单了喔</p>
+<p>说与 除了你我的爱人们听</p>
+<a id="more"></a>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-dbca79068aeaa29b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>我还是喜欢和你面对面交谈</p>
+<p>坐在相同的时间和空间里</p>
+<p>对你感到无语的时候就真的不发一言</p>
+<p>你对我心存怀疑的时候可以看着我的眼睛</p>
+<p>他会告诉你我是个好人以及不愿说出口的我爱你</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=68450&auto=1&height=66"></iframe>
+
+
+<p>喜欢陌生的街区 无知的人行道</p>
+<p>风带过来的都是那些无知人的气味儿</p>
+<p>你敢信么 走在拥挤的人潮中我反而安心</p>
+<p>那些结伴的骑行者他们的欢颜</p>
+<p>风尘仆仆的赶路人</p>
+<p>推着婴儿车的年轻母亲</p>
+<p>我似乎见过无数次这样的面孔</p>
+<p>他们好像发生着同样的故事</p>
+<p>然而生活本就是如此 千篇一律</p>
+<p>那些个学画的日子里</p>
+<p>兴奋失落骄傲迷茫哭泣</p>
+<p>有你 有她们有青春</p>
+<p>想来都是无比珍贵</p>
+<p>细数不尽的</p>
+<p>这个世界上 我最畏惧的就是时间了</p>
+<p>那个傻瓜阿</p>
+<p>“明年我要带着一大束玫瑰花去军队”</p>
+<p>她喊我的名字 说“我决定了”</p>
+<p>我们经常郑重其事地做一些决定</p>
+<p>然而我还是被点燃了</p>
+<p>我幻想幸福的场景美好的结局</p>
+<p>我哭着拥抱她说“为你高兴”</p>
+<p>她轻拍着我的后背</p>
+<p>在我耳边说“你也会等到这一天的。”</p>
+<p>还带着把握住了幸福的女孩应该有的沉稳语调</p>
+<p>早上自然醒</p>
+<p>想到运动会那天</p>
+<p>你把食指贴近嘴唇作出嘘的动作</p>
+<p>脸上还挂着谈话时的笑意</p>
+<p>样子特别好看</p>
+<p>然后就看到你们的实习老师走了过来</p>
+<p>跳远结束的时候</p>
+<p>你屁颠屁颠跑回来</p>
+<p>一脸兴奋说着刚如何摔惨了丢人了</p>
+<p>样子特别可爱</p>
+<p>可不可以借我一个“从此” 我的故事该完结了</p>
+<p>但是 安徒生先生已经把最后一个“从此”也用掉了</p>
+<p>要不你试试看我的“后来”“以后”“最后”或者“然后”</p>
+<p>不了， 看来我只能让我的王子和公主死掉了</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-bf7aa59fc2d09c00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>我有时会对自己说，写个故事吧。<br>生活这么无趣，随便写个开头结尾，就能打动人。<br>后来往往无果，因为生活面孔多，生活其实比故事厉害，<br>觉得生活无聊就写不出好看的故事。<br>人为什么会觉得无聊，人们总说，今天简直无聊得要死，<br>这句话其实一点也不夸张啊。<br>有人会选择死亡，要么因为懦弱，他们是被困难打败了；<br>要么就是无聊教唆的，他们无所恋了。<br>我显然还是有所恋的， 就算单恋一个人<br>我也持续了够久。<br>我还是乐意去编织一些乱七八糟的东西，<br>或记录某些真实 给以后。<br>感到无聊的时候，就会把时间奉给想念。<br>离世的长辈，许久未见的朋友，不知去向的故人，<br>不曾相恋的恋人。<br>运气不错的话，过程中就能收获灵感。<br>潜意识里那些想说的话，会在一瞬间，自己就排列组合<br>小跑而来。</p>
+<p>那女人按照惯例，<br>在星期一的早晨，<br>又开始数落起她可怜的丈夫。<br>“我真是受够了，<br>看看你没出息的样子。”<br>她先是重复了上周<br>以及上上周<br>以及上上上周的开场白。<br>他的丈夫沉默不语，<br>或许没听到，因为他正</p>
+<p>“记得把牛奶喝掉，<br>喝完记得把杯子洗干净。<br>我去上班了，<br>这日子简直没法过了。”<br>结束语也一样。</p>
+<p>能随着性子，<br>最终完成一件事。<br>便十分美好。</p>
+<p>朝闻道，夕死可矣。<br>人们想要强调某件事时，<br>总会把话说得极其夸张。</p>
+<p>相对老无所依这样故弄玄虚的电影，<br>还是更喜欢听别人实实在在讲故事。<br>比如一次别离，比如通天塔。<br>它们首先是想好好讲一个好故事，<br>而后希望发人深省产生讨论。<br>它们讲礼貌，是特别有诚意的诉说者。</p>
+<p>我们是动物<br>孤独地过冬<br>春天来了<br>我把自己滚成一个球<br>沿路摘几颗新鲜的酱果<br>赶到你家门口<br>等待你慢慢苏醒的样子<br>你扑腾了几下<br>张开了翅膀<br>看到坐在树下的我<br>你高兴地俯冲下来<br>叼走了我背上的紫色酱果<br>然后飞走了<br>我拾起你掉落的羽毛<br>如获珍宝</p>
+<p>回忆往常日子里<br>所有与你的对视</p>
+<p>夏尔走了之后<br>每个星期都会去镇上喝酒<br>最近去得比较频繁<br>我爱上了一个姑娘<br>每天下午三点<br>她会推着小推车来给酒馆送酒<br>一个月过去夏尔还没有回来<br>我带姑娘回家<br>她自己脱衣服然后洗澡<br>在做第三次的时候她说<br>我知道你不爱我<br>你只不过想讲一个故事</p>
+<p>你连一把好剑都没有<br>你也好意思说自己是行侠仗义的江湖中人<br>那个兜里不过揣了几把小刀的卷卷头竟也嘲笑我<br>当时我也是年轻气盛冲上去几拳把他打倒在地<br>眼看他一脸血我接着用力补了几脚就扬长而去<br>隐约听到围观的人群中传来声音小李小李你没事吧<br>我顾自向前</p>
+<p>她突然说“我妈妈是在酉时生下我的，<br>日落酉时，记住啦，我死了你要告诉道士先生呀”<br>“日落有时？就像现在太阳要下山了吗？”<br>“恩，就是傍晚了，好好记住，他们都不知道，<br>我们家总要有一个人知道。”<br>我突然明白这件事是非常神圣的，<br>那年我六七岁，她只告诉我一个人。<br>就在几年前她离开。<br>非常突然，我们每个人都开始自责。<br>她离开之前，家里还在商量她的99岁大寿。<br>出殡那天，我和姑姑还有另外几个人坐一辆车，<br>有个女人一直大声说笑，吵吵闹闹。<br>我想抽她一耳光。<br>我看着窗外，姑姑搂着我。<br>一直下着小雨。</p>
+<p>小时候第一次在户口簿上看到她的名字<br>我嘲笑她说谁给你取的名字啊张大姐</p>
+<p>也是第一次知道她不姓杨而是姓张</p>
+<p>通常我们坐在一起的时候<br>我不大记得是谁先开口<br>说第一句话</p>
+<p>坐在那里抽烟的男人<br>外套歪躺在沙发上<br>墙脚立着一盆绿植，叶子大而茂盛<br>女人不知去了哪里，菜摆在桌上慢慢凉<br>从窗外飞来一只鸟，横冲直撞<br>男人熄灭了半支的烟，躺在沙发上<br>外套压在身下，露出半只袖<br>鸟儿飞来飞去不觉得累<br>汤面上结起一层油花，女人没有回来<br>而墙角立着一盆绿植<br>鸟儿横冲直撞</p>
+<p>和薇聊了好多，<br>五年内几乎没有联系，<br>我给她讲现在的自己，<br>猛然发现曾经最爱做的事情现在依然，<br>写字画画喜欢kimi。<br>你变了么</p>
+<p>2013.12.16 杭州下雪了<br>和你生活在同一座城市的好处是 感受 同样的天气<br>两点钟的时候 各自发条状态迎接季节赠予的礼物 是的下雪了<br>过去几天的雾霾 似乎对我没什么影响好像事不关己<br>早上下雨 冷 撑一把大大的 枣红色的伞<br>下午坐在寝室看非诚勿扰 窗外 雪很大<br>超美的<br><img src="http://upload-images.jianshu.io/upload_images/3941016-a44b39bbba6cb45a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>为什么在做事情之前，<br>我不告诉自己，<br>一定要做到最好，<br>要尽到最大的努力去完成。<br>以前总爱顺其自然。<br>我对自己一直很客气，<br>所以我变成特别容易满足的人，<br>对别人也完全没有杀伤力。<br>可能快乐至上吧。<br>失之坦然，得之淡然，处之泰然，顺其自然。<br>并不去给一个对错的判断，快乐就好。<br>最终信仰是：永远忠于自己。</p>
+<p>以前有愿望写故事，<br>以为能像我做其他事情一样顺其自然，<br>没有提纲就这么一味地写，<br>隔半年想再接下去，<br>却发现不能像当初一样随心所欲了。<br>当有无数种可能摆在你面前的时候，<br>你都不知道该如何走向当初设定好的结局。</p>
+<p>我喜欢在家里转圈圈，这样可以带动思考。<br>额(⊙o⊙)…，好吧，我承认我给我的怪癖找了一个冠冕堂皇的借口。</p>
+<p>小时候有暴力倾向。<br>有时认为自己是个自闭症患者。</p>
+<p>大概十一岁的时候我开始懂得构建自己的精神世界，<br>后来开始患得患失，慢慢的，会把自己的情绪放大化，<br>喜欢的人和事物会尤其喜欢，而且持久。</p>
+<p>一生中我们会遇到形形色色的人，<br>入耳许许多多的事，<br>无论你是否主动搭讪这个世界，<br>世界总能带给我们改变。<br>2013年夏天，我在南京。<br>这段旅程蓄谋已久。<br>其然实践起来也并不难，我们甚至连车票都没有提前买好，背着包约定在车站见面。<br>行李简单，拖着一双洞洞鞋，见面是一个不陌生的拥抱。<br>她说的第一句话是，好想你啊。我说的是，好热啊。<br>开玩笑的，你知道我是如此爱你。<br>我相信那些独自旅行的人都是因为找不到合适的伴侣。<br>那个白天我们在图书馆待到闭馆，然后坐着旧巴士穿越了长兴这座小城，从北到南。<br>深夜吃了干挑面，坐在马路边。差不多是凌晨四点的时候，我们坐上了开往南京的火车。<br>从一开始，这段旅程的定义就是要不断给自己找麻烦。<br>八月份，南京，取消青旅预订床位，火车···<br>晚上我们坐在秦淮河旁，有人彻夜聊天，有陌生人和我们坐一桌，扰得我不安稳。<br>有点小雨，我睡着了，她给我支起雨伞，我醒来觉得好笑。<br>且说到这吧。倘若两个人有共同的记忆，一提便会想起来。</p>
+<p>昨天的小清新和之前没写完的故事，就先不分享了。</p>
+<p>该快乐快乐，该烦躁烦躁，建议你快乐</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-b2b720b0c28be7ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 ]]></content>
       
         <categories>
             
-            <category> django任务队列 </category>
+            <category> 心情 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> Python </tag>
+            <tag> 心情 </tag>
             
-            <tag> Linux </tag>
-            
-            <tag> django </tag>
+            <tag> 随笔 </tag>
             
         </tags>
         
