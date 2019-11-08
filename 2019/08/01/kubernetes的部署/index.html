@@ -4,14 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Weblogic-2018-2628 漏洞的利用, Simle丶樱木">
-    <meta name="description" content="
+    <meta name="keywords" content="kubernetes的部署, Simle丶樱木">
+    <meta name="description" content="什么是kubernetes
+Kubernetes是Google开源的容器集群管理系统，其提供应用部署、维护、 扩展机制等功能，利用Kubernetes能方便地管理跨机器运行容器化的应用
 
-漏洞的利用环境
- Vulhub是一个基于docker和docker-compose的漏洞环境集合，进入对应目录并执行一条语句即可启动一个全新的漏洞环境，让漏洞复现变得更加简单，让安全研究者更加专注于漏洞原理本身。
-
-
-vulhhub  ">
+   
+##主要的功能1) 使用Docker对应用程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +17,7 @@ vulhhub  ">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Weblogic-2018-2628 漏洞的利用 | Simle丶樱木</title>
+    <title>kubernetes的部署 | Simle丶樱木</title>
     <link rel="icon" type="image/png" href="/cat.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,13 +307,13 @@ vulhhub  ">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Weblogic-2018-2628 漏洞的利用
+                        kubernetes的部署
                     </div>
                 </div>
             </div>
@@ -427,16 +425,12 @@ vulhhub  ">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/weblogic/">
-                                <span class="chip bg-color">weblogic</span>
+                            <a href="/tags/docker/">
+                                <span class="chip bg-color">docker</span>
                             </a>
                         
-                            <a href="/tags/漏洞利用/">
-                                <span class="chip bg-color">漏洞利用</span>
-                            </a>
-                        
-                            <a href="/tags/反序列化/">
-                                <span class="chip bg-color">反序列化</span>
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
@@ -447,8 +441,8 @@ vulhhub  ">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/漏洞利用/" class="post-category">
-                                漏洞利用
+                            <a href="/categories/docker/" class="post-category">
+                                docker
                             </a>
                         
                     </div>
@@ -460,7 +454,7 @@ vulhhub  ">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-11-30
+                    2019-08-01
                 </div>
                 
 
@@ -469,14 +463,14 @@ vulhhub  ">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    157
+                    2,514
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    10 分
                 </div>
                 
 				
@@ -492,26 +486,92 @@ vulhhub  ">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="http://note.youdao.com/yws/res/3022/WEBRESOURCEb9ee595b02b6a7327e1da090f04f3b4a" alt="image"></p>
-<a id="more"></a>
-<h2 id="漏洞的利用环境"><a href="#漏洞的利用环境" class="headerlink" title="漏洞的利用环境"></a>漏洞的利用环境</h2><blockquote>
-<p> Vulhub是一个基于docker和docker-compose的漏洞环境集合，进入对应目录并执行一条语句即可启动一个全新的漏洞环境，让漏洞复现变得更加简单，让安全研究者更加专注于漏洞原理本身。</p>
+                <h2 id="什么是kubernetes"><a href="#什么是kubernetes" class="headerlink" title="什么是kubernetes"></a>什么是kubernetes</h2><blockquote>
+<p>Kubernetes是Google开源的容器集群管理系统，其提供应用部署、维护、 扩展机制等功能，利用Kubernetes能方便地管理跨机器运行容器化的应用</p>
 </blockquote>
-<ul>
-<li><p><a href="https://github.com/vulhub/" target="_blank" rel="external">vulhhub</a>  知名的漏洞库。</p>
-</li>
-<li><p>cd  /root/vulhub/weblogic/CVE-2018-2628</p>
-</li>
-<li>docker-compose up -d  启动运行环境</li>
-<li>docker ps  查看启动的服务</li>
+<a id="more"></a>   
+<p>##主要的功能<br>1) 使用Docker对应用程序包装(package)、实例化(instantiate)、运行(run)。</p>
+<p>2) 以集群的方式运行、管理跨机器的容器。</p>
+<p>3) 解决Docker跨机器容器之间的通讯问题。</p>
+<p>4) Kubernetes的自我修复机制使得容器集群总是运行在用户期望的状态。</p>
+<h2 id="Kubernetes主要概念"><a href="#Kubernetes主要概念" class="headerlink" title="Kubernetes主要概念"></a>Kubernetes主要概念</h2><h3 id="一-Pods"><a href="#一-Pods" class="headerlink" title="一 Pods"></a>一 Pods</h3><p>Pod是Kubernetes的基本操作单元，把相关的一个或多个容器构成一个Pod，通常Pod里的容器运行相同的应用。Pod包含的容器运行在同一个Minion(Host)上，看作一个统一管理单元，共享相同的volumes和network namespace/IP和Port空间。</p>
+<h3 id="二-Services"><a href="#二-Services" class="headerlink" title="二 Services"></a>二 Services</h3><p>Services也是Kubernetes的基本操作单元，是真实应用服务的抽象，每一个服务后面都有很多对应的容器来支持，通过Proxy的port和服务selector决定服务请求传递给后端提供服务的容器，对外表现为一个单一访问接口，外部不需要了解后端如何运行，这给扩展或维护后端带来很大的好处。</p>
+<h3 id="三-Replication-Controllers"><a href="#三-Replication-Controllers" class="headerlink" title="三 Replication Controllers"></a>三 Replication Controllers</h3><p>Replication Controller确保任何时候Kubernetes集群中有指定数量的pod副本(replicas)在运行， 如果少于指定数量的pod副本(replicas)，Replication Controller会启动新的Container，反之会杀死多余的以保证数量不变。Replication Controller使用预先定义的pod模板创建pods，一旦创建成功，pod 模板和创建的pods没有任何关联，可以修改pod 模板而不会对已创建pods有任何影响，也可以直接更新通过Replication Controller创建的pods。对于利用pod 模板创建的pods，Replication Controller根据label selector来关联，通过修改pods的label可以删除对应的pods。Replication Controller主要有如下用法：<br>1) Rescheduling<br>如上所述，Replication Controller会确保Kubernetes集群中指定的pod副本(replicas)在运行， 即使在节点出错时。<br>2) Scaling<br>通过修改Replication Controller的副本(replicas)数量来水平扩展或者缩小运行的pods。<br>3) Rolling updates<br>Replication Controller的设计原则使得可以一个一个地替换pods来rolling updates服务。<br>4) Multiple release tracks<br>如果需要在系统中运行multiple release的服务，Replication Controller使用labels来区分multiple release tracks。</p>
+<h3 id="四-Labels"><a href="#四-Labels" class="headerlink" title="四 Labels"></a>四 Labels</h3><p>Labels是用于区分Pod、Service、Replication Controller的key/value键值对，Pod、Service、 Replication Controller可以有多个label，但是每个label的key只能对应一个value。Labels是Service和Replication Controller运行的基础，为了将访问Service的请求转发给后端提供服务的多个容器，正是通过标识容器的labels来选择正确的容器。同样，Replication Controller也使用labels来管理通过pod 模板创建的一组容器，这样Replication Controller可以更加容易，方便地管理多个容器，无论有多少容器。</p>
+<h2 id="Kubernetes构件"><a href="#Kubernetes构件" class="headerlink" title="Kubernetes构件"></a>Kubernetes构件</h2><p>Kubenetes整体框架，主要包括kubecfg、Master API Server、Kubelet、Minion(Host)以及Proxy</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-76ea037267e3e5b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="一-Master"><a href="#一-Master" class="headerlink" title="一  Master"></a>一  Master</h3><p>Master定义了Kubernetes 集群Master/API Server的主要声明，包括Pod Registry、Controller Registry、Service Registry、Endpoint Registry、Minion Registry、Binding Registry、RESTStorage以及Client, 是client(Kubecfg)调用Kubernetes API，管理Kubernetes主要构件Pods、Services、Minions、容器的入口。Master由API Server、Scheduler以及Registry等组成。从下图可知Master的工作流主要分以下步骤：<br>1) Kubecfg将特定的请求，比如创建Pod，发送给Kubernetes Client。<br>2) Kubernetes Client将请求发送给API server。<br>3) API Server根据请求的类型，比如创建Pod时storage类型是pods，然后依此选择何种REST Storage API对请求作出处理。<br>4) REST Storage API对的请求作相应的处理。<br>5) 将处理的结果存入高可用键值存储系统Etcd中。<br>6) 在API Server响应Kubecfg的请求后，Scheduler会根据Kubernetes Client获取集群中运行Pod及Minion信息。<br>7) 依据从Kubernetes Client获取的信息，Scheduler将未分发的Pod分发到可用的Minion节点上。<br>下面是Master的主要构件的详细介绍：<br><img src="http://upload-images.jianshu.io/upload_images/3941016-16f56503372f2b4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>图3-2 Master主要构件及工作流</p>
+<h3 id="Minion-Registry"><a href="#Minion-Registry" class="headerlink" title="Minion Registry"></a>Minion Registry</h3><p>Minion Registry负责跟踪Kubernetes 集群中有多少Minion(Host)。Kubernetes封装Minion Registry成实现Kubernetes API Server的RESTful API接口REST，通过这些API，我们可以对Minion Registry做Create、Get、List、Delete操作，由于Minon只能被创建或删除，所以不支持Update操作，并把Minion的相关配置信息存储到etcd。除此之外，Scheduler算法根据Minion的资源容量来确定是否将新建Pod分发到该Minion节点。</p>
+<h3 id="Pod-Registry"><a href="#Pod-Registry" class="headerlink" title="Pod Registry"></a>Pod Registry</h3><p>Pod Registry负责跟踪Kubernetes集群中有多少Pod在运行，以及这些Pod跟Minion是如何的映射关系。将Pod Registry和Cloud Provider信息及其他相关信息封装成实现Kubernetes API Server的RESTful API接口REST。通过这些API，我们可以对Pod进行Create、Get、List、Update、Delete操作，并将Pod的信息存储到etcd中，而且可以通过Watch接口监视Pod的变化情况，比如一个Pod被新建、删除或者更新。</p>
+<h3 id="Service-Registry"><a href="#Service-Registry" class="headerlink" title="Service Registry"></a>Service Registry</h3><p>Service Registry负责跟踪Kubernetes集群中运行的所有服务。根据提供的Cloud Provider及Minion Registry信息把Service Registry封装成实现Kubernetes API Server需要的RESTful API接口REST。利用这些接口，我们可以对Service进行Create、Get、List、Update、Delete操作，以及监视Service变化情况的watch操作，并把Service信息存储到etcd。</p>
+<h3 id="Controller-Registry"><a href="#Controller-Registry" class="headerlink" title="Controller Registry"></a>Controller Registry</h3><p>Controller Registry负责跟踪Kubernetes集群中所有的Replication Controller，Replication Controller维护着指定数量的pod 副本(replicas)拷贝，如果其中的一个容器死掉，Replication Controller会自动启动一个新的容器，如果死掉的容器恢复，其会杀死多出的容器以保证指定的拷贝不变。通过封装Controller Registry为实现Kubernetes API Server的RESTful API接口REST， 利用这些接口，我们可以对Replication Controller进行Create、Get、List、Update、Delete操作，以及监视Replication Controller变化情况的watch操作，并把Replication Controller信息存储到etcd。</p>
+<h3 id="Endpoints-Registry"><a href="#Endpoints-Registry" class="headerlink" title="Endpoints Registry"></a>Endpoints Registry</h3><p>Endpoints Registry负责收集Service的endpoint，比如Name：”mysql”，Endpoints: [“10.10.1.1:1909”，”10.10.2.2:8834”]，同Pod Registry，Controller Registry也实现了Kubernetes API Server的RESTful API接口，可以做Create、Get、List、Update、Delete以及watch操作。</p>
+<h3 id="Binding-Registry"><a href="#Binding-Registry" class="headerlink" title="Binding Registry"></a>Binding Registry</h3><p>Binding包括一个需要绑定Pod的ID和Pod被绑定的Host，Scheduler写Binding Registry后，需绑定的Pod被绑定到一个host。Binding Registry也实现了Kubernetes API Server的RESTful API接口，但Binding Registry是一个write-only对象，所有只有Create操作可以使用， 否则会引起错误。</p>
+<h3 id="Scheduler"><a href="#Scheduler" class="headerlink" title="Scheduler"></a>Scheduler</h3><p>Scheduler收集和分析当前Kubernetes集群中所有Minion节点的资源(内存、CPU)负载情况，然后依此分发新建的Pod到Kubernetes集群中可用的节点。由于一旦Minion节点的资源被分配给Pod，那这些资源就不能再分配给其他Pod， 除非这些Pod被删除或者退出， 因此，Kubernetes需要分析集群中所有Minion的资源使用情况，保证分发的工作负载不会超出当前该Minion节点的可用资源范围。具体来说，Scheduler做以下工作：<br>1) 实时监测Kubernetes集群中未分发的Pod。<br>2) 实时监测Kubernetes集群中所有运行的Pod，Scheduler需要根据这些Pod的资源状况安全地将未分发的Pod分发到指定的Minion节点上。<br>3) Scheduler也监测Minion节点信息，由于会频繁查找Minion节点，Scheduler会缓存一份最新的信息在本地。<br>4) 最后，Scheduler在分发Pod到指定的Minion节点后，会把Pod相关的信息Binding写回API Server。</p>
+<h3 id="Kubelet"><a href="#Kubelet" class="headerlink" title="Kubelet"></a>Kubelet</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-470b89f752a0b96d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>图3-3 Kubernetes详细构件<br>根据上图3-3可知Kubelet是Kubernetes集群中每个Minion和Master API Server的连接点，Kubelet运行在每个Minion上，是Master API Server和Minion之间的桥梁，接收Master API Server分配给它的commands和work，与持久性键值存储etcd、file、server和http进行交互，读取配置信息。Kubelet的主要工作是管理Pod和容器的生命周期，其包括Docker Client、Root Directory、Pod Workers、Etcd Client、Cadvisor Client以及Health Checker组件，具体工作如下：<br>1) 通过Worker给Pod异步运行特定的Action。<br>2) 设置容器的环境变量。<br>3) 给容器绑定Volume。<br>4) 给容器绑定Port。<br>5) 根据指定的Pod运行一个单一容器。<br>6) 杀死容器。<br>7) 给指定的Pod创建network 容器。<br>8) 删除Pod的所有容器。<br>9) 同步Pod的状态。<br>10) 从Cadvisor获取container info、 pod info、root info、machine info。<br>11) 检测Pod的容器健康状态信息。<br>12) 在容器中运行命令。</p>
+<h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><p>Proxy是为了解决外部网络能够访问跨机器集群中容器提供的应用服务而设计的，从上图3-3可知Proxy服务也运行在每个Minion上。Proxy提供TCP/UDP sockets的proxy，每创建一种Service，Proxy主要从etcd获取Services和Endpoints的配置信息，或者也可以从file获取，然后根据配置信息在Minion上启动一个Proxy的进程并监听相应的服务端口，当外部请求发生时，Proxy会根据Load Balancer将请求分发到后端正确的容器处</p>
+<h2 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h2><blockquote>
+<p>准备工作</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>对象</th>
+<th>版本</th>
+<th>ip</th>
+<th>备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>k8s-master</td>
+<td>centos7</td>
+<td>192.168.29.11</td>
+<td>K8S的master所在主机</td>
+</tr>
+<tr>
+<td>etcd-server</td>
+<td>centos7</td>
+<td>192.168.29.11</td>
+<td>etcd服务所在主机，与master在同一机器</td>
+</tr>
+<tr>
+<td>k8s-slave</td>
+<td>centos7</td>
+<td>192.168.29.12</td>
+<td>K8S节点所在主机</td>
+</tr>
+</tbody>
+</table>
+<h3 id="安装主要程序"><a href="#安装主要程序" class="headerlink" title="安装主要程序"></a>安装主要程序</h3><ul>
+<li>192.168.29.11<br>执行以下命令，安装kubernetes和etcd</li>
 </ul>
-<p><img src="http://note.youdao.com/yws/res/2992/8987988DED48483FA3B6890E99F77A1B" alt="image"></p>
-<h2 id="poc-验证"><a href="#poc-验证" class="headerlink" title="poc 验证"></a>poc 验证</h2><pre><code> python  weblogic-poc.py  192.168.0.6:7001(目标地址:端口)
-</code></pre><p><img src="http://note.youdao.com/yws/res/2997/BE17B5B51C644E6A87B74CB9AABB3ABD" alt="image"></p>
-<h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><p><img src="http://note.youdao.com/yws/res/3001/E5950E927E4245AD88348B5B490E2F4D" alt="image"></p>
-<h2 id="利用返回的shell-地址得到服务器shell"><a href="#利用返回的shell-地址得到服务器shell" class="headerlink" title="利用返回的shell 地址得到服务器shell"></a>利用返回的shell 地址得到服务器shell</h2><p><img src="http://note.youdao.com/yws/res/3006/2703CE3039A04CA6B561AADA70473B18" alt="image"></p>
-<h2 id="工具打包地址"><a href="#工具打包地址" class="headerlink" title="工具打包地址"></a>工具打包地址</h2><p><a href="https://pan.baidu.com/s/1UKw12yEs2JavFAkSEwa19Q" target="_blank" rel="external">百度云地址</a></p>
-<p>密码为  6vj3</p>
+<pre><code>yum -y install --enablerepo=virt7-docker-common-release kubernetes etcd
+</code></pre><h2 id="禁用防火墙"><a href="#禁用防火墙" class="headerlink" title="禁用防火墙"></a>禁用防火墙</h2><pre><code>systemctl disable iptables-services firewalld
+systemctl stop iptables-services firewalld
+</code></pre><h3 id="192-168-29-11-上主机配置"><a href="#192-168-29-11-上主机配置" class="headerlink" title="192.168.29.11 上主机配置"></a>192.168.29.11 上主机配置</h3><h4 id="一-修改文件-etc-kubernetes-config-所有节点"><a href="#一-修改文件-etc-kubernetes-config-所有节点" class="headerlink" title="一 修改文件/etc/kubernetes/config(所有节点)"></a>一 修改文件/etc/kubernetes/config(所有节点)</h4><p>注意，master和slave主机都要修改<br>指定master主机的ip，文件内容如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f2286b4085fb8079.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下"><a href="#二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下" class="headerlink" title="二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下"></a>二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-a881113924dd47da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="三-修改配置文件-etc-kubernetes-apiserver"><a href="#三-修改配置文件-etc-kubernetes-apiserver" class="headerlink" title="三 修改配置文件/etc/kubernetes/apiserver"></a>三 修改配置文件/etc/kubernetes/apiserver</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-83c145be3b651c13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="四-修改配置文件-etc-kubernetes-controller-manager，定义slave主机ip地址"><a href="#四-修改配置文件-etc-kubernetes-controller-manager，定义slave主机ip地址" class="headerlink" title="四 修改配置文件/etc/kubernetes/controller-manager，定义slave主机ip地址"></a>四 修改配置文件/etc/kubernetes/controller-manager，定义slave主机ip地址</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-6a410aa1eaf7d1b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="在master主机上，启动服务"><a href="#在master主机上，启动服务" class="headerlink" title="在master主机上，启动服务"></a>在master主机上，启动服务</h3><pre><code>for SERVICES in etcd kube-apiserver kube-controller-manager kube-scheduler; do
+    systemctl restart $SERVICES
+    systemctl enable $SERVICES
+    systemctl status $SERVICES
+done
+</code></pre><h2 id="slave节点配置"><a href="#slave节点配置" class="headerlink" title="slave节点配置"></a>slave节点配置</h2><p>yum 安装kubernetes</p>
+<pre><code>yum -y install  kubernetes flannel
+</code></pre><h3 id="slave-配置文件修改"><a href="#slave-配置文件修改" class="headerlink" title="slave 配置文件修改"></a>slave 配置文件修改</h3><h4 id="一-修改kubernetes配置文件，指定master"><a href="#一-修改kubernetes配置文件，指定master" class="headerlink" title="一 .修改kubernetes配置文件，指定master"></a>一 .修改kubernetes配置文件，指定master</h4><p>/etc/kubernetes/config</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-2181a58f95b1164b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="二-配置kubelet服务"><a href="#二-配置kubelet服务" class="headerlink" title="二  配置kubelet服务"></a>二  配置kubelet服务</h4><p> /etc/kubernetes/kubelet</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-5d1fb93275d32ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="在slave主机上，启动服务"><a href="#在slave主机上，启动服务" class="headerlink" title="在slave主机上，启动服务"></a>在slave主机上，启动服务</h3><pre><code>for SERVICES in kube-proxy kubelet docker flanneld; do
+    systemctl restart $SERVICES
+    systemctl enable $SERVICES
+    systemctl status $SERVICES
+done
+</code></pre><p>###验证</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f8344025c3bc9b20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 
             </div>
             <hr/>
@@ -537,7 +597,7 @@ vulhhub  ">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yubenliu.cn/2018/11/30/weblogic-2018-2628/">http://yubenliu.cn/2018/11/30/weblogic-2018-2628/</a>
+                    <a href="http://yubenliu.cn/2019/08/01/kubernetes的部署/">http://yubenliu.cn/2019/08/01/kubernetes的部署/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -575,16 +635,12 @@ vulhhub  ">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/weblogic/">
-                                    <span class="chip bg-color">weblogic</span>
+                                <a href="/tags/docker/">
+                                    <span class="chip bg-color">docker</span>
                                 </a>
                             
-                                <a href="/tags/漏洞利用/">
-                                    <span class="chip bg-color">漏洞利用</span>
-                                </a>
-                            
-                                <a href="/tags/反序列化/">
-                                    <span class="chip bg-color">反序列化</span>
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
                                 </a>
                             
                         </div>
@@ -754,19 +810,24 @@ vulhhub  ">
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/08/02/CVE-2018-11776漏洞复现/">
+                <a href="/2019/08/02/scan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="CVE-2018-11776漏洞复现">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="nessus与awvs API">
                         
-                        <span class="card-title">CVE-2018-11776漏洞复现</span>
+                        <span class="card-title">nessus与awvs API</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            0x01 漏洞概述2018年8月23日，ApacheStrust2发布最新安全公告，ApacheStruts2 存在远程代码执行的高危漏洞，该漏洞由SemmleSecurity Researchteam的安全研究员汇报，漏洞编号为CVE-2
+                            
+前言 最近在做自动化安全扫描器开发，在项目中想引用比较知名的扫描器，如是整理了一下API作为参考
+
+ Nessus 6.x版本#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time   
                         
                     </div>
                     <div class="publish-info">
@@ -777,8 +838,8 @@ vulhhub  ">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/web安全/" class="post-category">
-                                    web安全
+                            <a href="/categories/漏扫/" class="post-category">
+                                    漏扫
                                 </a>
                             
                             
@@ -788,16 +849,16 @@ vulhhub  ">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/漏洞复现/">
-                        <span class="chip bg-color">漏洞复现</span>
+                    <a href="/tags/扫描器/">
+                        <span class="chip bg-color">扫描器</span>
                     </a>
                     
-                    <a href="/tags/CVE-2018-11776/">
-                        <span class="chip bg-color">CVE-2018-11776</span>
+                    <a href="/tags/工具/">
+                        <span class="chip bg-color">工具</span>
                     </a>
                     
-                    <a href="/tags/struts2/">
-                        <span class="chip bg-color">struts2</span>
+                    <a href="/tags/自动化/">
+                        <span class="chip bg-color">自动化</span>
                     </a>
                     
                 </div>

