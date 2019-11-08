@@ -3,124 +3,6 @@
   
     
     <entry>
-      <title><![CDATA[凯撒密码的加密解密]]></title>
-      <url>/2019/11/08/kaisa/</url>
-      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>凯撒密码作为一种最为古老的对称加密体制，在古罗马的时候都已经很流行，他的基本思想是：通过把字母移动一定的位数来实现加密和解密。明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E，以此类推X将变成A，Y变成B，Z变成C。由此可见，位数就是凯撒密码加密和解密的密钥。</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="凯撒密码加密脚"><a href="#凯撒密码加密脚" class="headerlink" title="凯撒密码加密脚"></a>凯撒密码加密脚</h1><ul>
-<li>交单的26次加密脚本</li>
-</ul>
-<pre class=" language-python"><code class="language-python">
-<span class="token comment" spellcheck="true">#coding:utf-8</span>
-upperDict<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'D'</span><span class="token punctuation">,</span><span class="token string">'E'</span><span class="token punctuation">,</span><span class="token string">'F'</span><span class="token punctuation">,</span><span class="token string">'G'</span><span class="token punctuation">,</span><span class="token string">'H'</span><span class="token punctuation">,</span><span class="token string">'I'</span><span class="token punctuation">,</span><span class="token string">'J'</span><span class="token punctuation">,</span><span class="token string">'K'</span><span class="token punctuation">,</span><span class="token string">'L'</span><span class="token punctuation">,</span><span class="token string">'M'</span><span class="token punctuation">,</span><span class="token string">'N'</span><span class="token punctuation">,</span><span class="token string">'O'</span><span class="token punctuation">,</span><span class="token string">'P'</span><span class="token punctuation">,</span><span class="token string">'Q'</span><span class="token punctuation">,</span><span class="token string">'R'</span><span class="token punctuation">,</span><span class="token string">'S'</span><span class="token punctuation">,</span><span class="token string">'T'</span><span class="token punctuation">,</span><span class="token string">'U'</span><span class="token punctuation">,</span><span class="token string">'V'</span><span class="token punctuation">,</span><span class="token string">'W'</span><span class="token punctuation">,</span><span class="token string">'X'</span><span class="token punctuation">,</span><span class="token string">'Y'</span><span class="token punctuation">,</span><span class="token string">'Z'</span><span class="token punctuation">]</span>
-lowerDict<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">,</span><span class="token string">'d'</span><span class="token punctuation">,</span><span class="token string">'e'</span><span class="token punctuation">,</span><span class="token string">'f'</span><span class="token punctuation">,</span><span class="token string">'g'</span><span class="token punctuation">,</span><span class="token string">'h'</span><span class="token punctuation">,</span><span class="token string">'i'</span><span class="token punctuation">,</span><span class="token string">'j'</span><span class="token punctuation">,</span><span class="token string">'k'</span><span class="token punctuation">,</span><span class="token string">'l'</span><span class="token punctuation">,</span><span class="token string">'m'</span><span class="token punctuation">,</span><span class="token string">'n'</span><span class="token punctuation">,</span><span class="token string">'o'</span><span class="token punctuation">,</span><span class="token string">'p'</span><span class="token punctuation">,</span><span class="token string">'q'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">,</span><span class="token string">'s'</span><span class="token punctuation">,</span><span class="token string">'t'</span><span class="token punctuation">,</span><span class="token string">'u'</span><span class="token punctuation">,</span><span class="token string">'v'</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">,</span><span class="token string">'x'</span><span class="token punctuation">,</span><span class="token string">'y'</span><span class="token punctuation">,</span><span class="token string">'z'</span><span class="token punctuation">]</span>
-<span class="token keyword">def</span> <span class="token function">cesarWithLetter</span><span class="token punctuation">(</span>ciphertext<span class="token punctuation">,</span>offset<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">'''
-    凯撒密码 :
-        只转换字母(包括大写小写)
-    参数 : 
-        ciphertext : 明文
-        offset : 偏移量
-    '''</span>
-    result <span class="token operator">=</span> <span class="token string">""</span>
-    <span class="token keyword">for</span> ch <span class="token keyword">in</span> ciphertext<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> ch<span class="token punctuation">.</span>isupper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            result<span class="token operator">=</span>result<span class="token operator">+</span>upperDict<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token punctuation">(</span>upperDict<span class="token punctuation">.</span>index<span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span class="token operator">+</span>offset<span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-        <span class="token keyword">elif</span> ch<span class="token punctuation">.</span>islower<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            result<span class="token operator">=</span>result<span class="token operator">+</span>lowerDict<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token punctuation">(</span>lowerDict<span class="token punctuation">.</span>index<span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span class="token operator">+</span>offset<span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-        <span class="token keyword">elif</span> ch<span class="token punctuation">.</span>isdigit<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            result<span class="token operator">=</span>result<span class="token operator">+</span>ch
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            result<span class="token operator">=</span>result<span class="token operator">+</span>ch
-    <span class="token keyword">return</span> result
-
-<span class="token keyword">def</span> <span class="token function">printAllResult</span><span class="token punctuation">(</span>ciphertext<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">'''
-    打印所有偏移结果
-    '''</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>upperDict<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span> cesarWithLetter<span class="token punctuation">(</span>ciphertext<span class="token punctuation">,</span>i<span class="token punctuation">)</span>
-
-ciphertext<span class="token operator">=</span>raw_input<span class="token punctuation">(</span><span class="token string">"Please input the words :"</span><span class="token punctuation">)</span>
-printAllResult<span class="token punctuation">(</span>ciphertext<span class="token punctuation">)</span>
-</code></pre>
-<h1 id="自动控制偏移位自动解密"><a href="#自动控制偏移位自动解密" class="headerlink" title="自动控制偏移位自动解密"></a>自动控制偏移位自动解密</h1><pre class=" language-python"><code class="language-python">
-<span class="token comment" spellcheck="true">#-*-coding:utf-8-*-</span>
-__author__ <span class="token operator">=</span> <span class="token number">007</span>
-__date__ <span class="token operator">=</span> <span class="token number">2016</span> <span class="token operator">/</span> <span class="token number">02</span> <span class="token operator">/</span> <span class="token number">04</span>
-
-
-<span class="token comment" spellcheck="true">#==================================================================#</span>
-<span class="token comment" spellcheck="true">#         凯撒密码(caesar)是最早的代换密码,对称密码的一种                #</span>
-<span class="token comment" spellcheck="true">#   算法：将每个字母用字母表中它之后的第k个字母（称作位移值）替代            #</span>
-<span class="token comment" spellcheck="true">#==================================================================#</span>
-
-<span class="token keyword">def</span> <span class="token function">encryption</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    str_raw <span class="token operator">=</span> raw_input<span class="token punctuation">(</span><span class="token string">"请输入明文："</span><span class="token punctuation">)</span>
-    k <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入位移值："</span><span class="token punctuation">)</span>
-    str_change <span class="token operator">=</span> str_raw<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    str_list <span class="token operator">=</span> list<span class="token punctuation">(</span>str_change<span class="token punctuation">)</span>
-    str_list_encry <span class="token operator">=</span> str_list
-    i <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">while</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>str_list<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> ord<span class="token punctuation">(</span>str_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">123</span><span class="token operator">-</span>k<span class="token punctuation">:</span>
-            str_list_encry<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> chr<span class="token punctuation">(</span>ord<span class="token punctuation">(</span>str_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> k<span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            str_list_encry<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> chr<span class="token punctuation">(</span>ord<span class="token punctuation">(</span>str_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> k <span class="token operator">-</span> <span class="token number">26</span><span class="token punctuation">)</span>
-        i <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span>
-    <span class="token keyword">print</span> <span class="token string">"加密结果为："</span><span class="token operator">+</span><span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>str_list_encry<span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">decryption</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    str_raw <span class="token operator">=</span> raw_input<span class="token punctuation">(</span><span class="token string">"请输入密文："</span><span class="token punctuation">)</span>
-    k <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入位移值："</span><span class="token punctuation">)</span>
-    str_change <span class="token operator">=</span> str_raw<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    str_list <span class="token operator">=</span> list<span class="token punctuation">(</span>str_change<span class="token punctuation">)</span>
-    str_list_decry <span class="token operator">=</span> str_list
-    i <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">while</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>str_list<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> ord<span class="token punctuation">(</span>str_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">97</span><span class="token operator">+</span>k<span class="token punctuation">:</span>
-            str_list_decry<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> chr<span class="token punctuation">(</span>ord<span class="token punctuation">(</span>str_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span> k<span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            str_list_decry<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> chr<span class="token punctuation">(</span>ord<span class="token punctuation">(</span>str_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">26</span> <span class="token operator">-</span> k<span class="token punctuation">)</span>
-        i <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span>
-    <span class="token keyword">print</span> <span class="token string">"解密结果为："</span><span class="token operator">+</span><span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>str_list_decry<span class="token punctuation">)</span>
-
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span> u<span class="token string">"1. 加密"</span>
-    <span class="token keyword">print</span> u<span class="token string">"2. 解密"</span>
-    choice <span class="token operator">=</span> raw_input<span class="token punctuation">(</span><span class="token string">"请选择："</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> choice <span class="token operator">==</span> <span class="token string">"1"</span><span class="token punctuation">:</span>
-        encryption<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">elif</span> choice <span class="token operator">==</span> <span class="token string">"2"</span><span class="token punctuation">:</span>
-        decryption<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span> u<span class="token string">"您的输入有误！"</span>
-
-<span class="token comment" spellcheck="true">#if __name__ == "__main__":</span>
-<span class="token comment" spellcheck="true">#    main</span>
-</code></pre>
-]]></content>
-      
-        <categories>
-            
-            <category> 密码学 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 密码学 </tag>
-            
-            <tag> Python </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[CVE-2018-11776漏洞复现]]></title>
       <url>/2019/08/02/CVE-2018-11776%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</url>
       <content type="html"><![CDATA[<h1 id="0x01-漏洞概述"><a href="#0x01-漏洞概述" class="headerlink" title="0x01 漏洞概述"></a>0x01 漏洞概述</h1><p>2018年8月23日，ApacheStrust2发布最新安全公告，ApacheStruts2 存在远程代码执行的高危漏洞，该漏洞由SemmleSecurity Researchteam的安全研究员汇报，漏洞编号为CVE-2018-11776（S2-057）。</p>
@@ -285,6 +167,124 @@ if __name__ == &#39;__main__&#39;:
             <tag> 漏洞利用 </tag>
             
             <tag> 反序列化 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[凯撒密码的加密解密]]></title>
+      <url>/2018/09/07/kaisa/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>凯撒密码作为一种最为古老的对称加密体制，在古罗马的时候都已经很流行，他的基本思想是：通过把字母移动一定的位数来实现加密和解密。明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E，以此类推X将变成A，Y变成B，Z变成C。由此可见，位数就是凯撒密码加密和解密的密钥。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="凯撒密码加密脚"><a href="#凯撒密码加密脚" class="headerlink" title="凯撒密码加密脚"></a>凯撒密码加密脚</h1><ul>
+<li>交单的26次加密脚本</li>
+</ul>
+<pre class=" language-python"><code class="language-python">
+<span class="token comment" spellcheck="true">#coding:utf-8</span>
+upperDict<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span><span class="token string">'B'</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">,</span><span class="token string">'D'</span><span class="token punctuation">,</span><span class="token string">'E'</span><span class="token punctuation">,</span><span class="token string">'F'</span><span class="token punctuation">,</span><span class="token string">'G'</span><span class="token punctuation">,</span><span class="token string">'H'</span><span class="token punctuation">,</span><span class="token string">'I'</span><span class="token punctuation">,</span><span class="token string">'J'</span><span class="token punctuation">,</span><span class="token string">'K'</span><span class="token punctuation">,</span><span class="token string">'L'</span><span class="token punctuation">,</span><span class="token string">'M'</span><span class="token punctuation">,</span><span class="token string">'N'</span><span class="token punctuation">,</span><span class="token string">'O'</span><span class="token punctuation">,</span><span class="token string">'P'</span><span class="token punctuation">,</span><span class="token string">'Q'</span><span class="token punctuation">,</span><span class="token string">'R'</span><span class="token punctuation">,</span><span class="token string">'S'</span><span class="token punctuation">,</span><span class="token string">'T'</span><span class="token punctuation">,</span><span class="token string">'U'</span><span class="token punctuation">,</span><span class="token string">'V'</span><span class="token punctuation">,</span><span class="token string">'W'</span><span class="token punctuation">,</span><span class="token string">'X'</span><span class="token punctuation">,</span><span class="token string">'Y'</span><span class="token punctuation">,</span><span class="token string">'Z'</span><span class="token punctuation">]</span>
+lowerDict<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">,</span><span class="token string">'d'</span><span class="token punctuation">,</span><span class="token string">'e'</span><span class="token punctuation">,</span><span class="token string">'f'</span><span class="token punctuation">,</span><span class="token string">'g'</span><span class="token punctuation">,</span><span class="token string">'h'</span><span class="token punctuation">,</span><span class="token string">'i'</span><span class="token punctuation">,</span><span class="token string">'j'</span><span class="token punctuation">,</span><span class="token string">'k'</span><span class="token punctuation">,</span><span class="token string">'l'</span><span class="token punctuation">,</span><span class="token string">'m'</span><span class="token punctuation">,</span><span class="token string">'n'</span><span class="token punctuation">,</span><span class="token string">'o'</span><span class="token punctuation">,</span><span class="token string">'p'</span><span class="token punctuation">,</span><span class="token string">'q'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">,</span><span class="token string">'s'</span><span class="token punctuation">,</span><span class="token string">'t'</span><span class="token punctuation">,</span><span class="token string">'u'</span><span class="token punctuation">,</span><span class="token string">'v'</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">,</span><span class="token string">'x'</span><span class="token punctuation">,</span><span class="token string">'y'</span><span class="token punctuation">,</span><span class="token string">'z'</span><span class="token punctuation">]</span>
+<span class="token keyword">def</span> <span class="token function">cesarWithLetter</span><span class="token punctuation">(</span>ciphertext<span class="token punctuation">,</span>offset<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    凯撒密码 :
+        只转换字母(包括大写小写)
+    参数 : 
+        ciphertext : 明文
+        offset : 偏移量
+    '''</span>
+    result <span class="token operator">=</span> <span class="token string">""</span>
+    <span class="token keyword">for</span> ch <span class="token keyword">in</span> ciphertext<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> ch<span class="token punctuation">.</span>isupper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            result<span class="token operator">=</span>result<span class="token operator">+</span>upperDict<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token punctuation">(</span>upperDict<span class="token punctuation">.</span>index<span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span class="token operator">+</span>offset<span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        <span class="token keyword">elif</span> ch<span class="token punctuation">.</span>islower<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            result<span class="token operator">=</span>result<span class="token operator">+</span>lowerDict<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token punctuation">(</span>lowerDict<span class="token punctuation">.</span>index<span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span class="token operator">+</span>offset<span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        <span class="token keyword">elif</span> ch<span class="token punctuation">.</span>isdigit<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            result<span class="token operator">=</span>result<span class="token operator">+</span>ch
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            result<span class="token operator">=</span>result<span class="token operator">+</span>ch
+    <span class="token keyword">return</span> result
+
+<span class="token keyword">def</span> <span class="token function">printAllResult</span><span class="token punctuation">(</span>ciphertext<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    打印所有偏移结果
+    '''</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>upperDict<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span> cesarWithLetter<span class="token punctuation">(</span>ciphertext<span class="token punctuation">,</span>i<span class="token punctuation">)</span>
+
+ciphertext<span class="token operator">=</span>raw_input<span class="token punctuation">(</span><span class="token string">"Please input the words :"</span><span class="token punctuation">)</span>
+printAllResult<span class="token punctuation">(</span>ciphertext<span class="token punctuation">)</span>
+</code></pre>
+<h1 id="自动控制偏移位自动解密"><a href="#自动控制偏移位自动解密" class="headerlink" title="自动控制偏移位自动解密"></a>自动控制偏移位自动解密</h1><pre class=" language-python"><code class="language-python">
+<span class="token comment" spellcheck="true">#-*-coding:utf-8-*-</span>
+__author__ <span class="token operator">=</span> <span class="token number">007</span>
+__date__ <span class="token operator">=</span> <span class="token number">2016</span> <span class="token operator">/</span> <span class="token number">02</span> <span class="token operator">/</span> <span class="token number">04</span>
+
+
+<span class="token comment" spellcheck="true">#==================================================================#</span>
+<span class="token comment" spellcheck="true">#         凯撒密码(caesar)是最早的代换密码,对称密码的一种                #</span>
+<span class="token comment" spellcheck="true">#   算法：将每个字母用字母表中它之后的第k个字母（称作位移值）替代            #</span>
+<span class="token comment" spellcheck="true">#==================================================================#</span>
+
+<span class="token keyword">def</span> <span class="token function">encryption</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    str_raw <span class="token operator">=</span> raw_input<span class="token punctuation">(</span><span class="token string">"请输入明文："</span><span class="token punctuation">)</span>
+    k <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入位移值："</span><span class="token punctuation">)</span>
+    str_change <span class="token operator">=</span> str_raw<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    str_list <span class="token operator">=</span> list<span class="token punctuation">(</span>str_change<span class="token punctuation">)</span>
+    str_list_encry <span class="token operator">=</span> str_list
+    i <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>str_list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> ord<span class="token punctuation">(</span>str_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">123</span><span class="token operator">-</span>k<span class="token punctuation">:</span>
+            str_list_encry<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> chr<span class="token punctuation">(</span>ord<span class="token punctuation">(</span>str_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> k<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            str_list_encry<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> chr<span class="token punctuation">(</span>ord<span class="token punctuation">(</span>str_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> k <span class="token operator">-</span> <span class="token number">26</span><span class="token punctuation">)</span>
+        i <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span>
+    <span class="token keyword">print</span> <span class="token string">"加密结果为："</span><span class="token operator">+</span><span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>str_list_encry<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">decryption</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    str_raw <span class="token operator">=</span> raw_input<span class="token punctuation">(</span><span class="token string">"请输入密文："</span><span class="token punctuation">)</span>
+    k <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入位移值："</span><span class="token punctuation">)</span>
+    str_change <span class="token operator">=</span> str_raw<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    str_list <span class="token operator">=</span> list<span class="token punctuation">(</span>str_change<span class="token punctuation">)</span>
+    str_list_decry <span class="token operator">=</span> str_list
+    i <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>str_list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> ord<span class="token punctuation">(</span>str_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">97</span><span class="token operator">+</span>k<span class="token punctuation">:</span>
+            str_list_decry<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> chr<span class="token punctuation">(</span>ord<span class="token punctuation">(</span>str_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span> k<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            str_list_decry<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> chr<span class="token punctuation">(</span>ord<span class="token punctuation">(</span>str_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">26</span> <span class="token operator">-</span> k<span class="token punctuation">)</span>
+        i <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span>
+    <span class="token keyword">print</span> <span class="token string">"解密结果为："</span><span class="token operator">+</span><span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>str_list_decry<span class="token punctuation">)</span>
+
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span> u<span class="token string">"1. 加密"</span>
+    <span class="token keyword">print</span> u<span class="token string">"2. 解密"</span>
+    choice <span class="token operator">=</span> raw_input<span class="token punctuation">(</span><span class="token string">"请选择："</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> choice <span class="token operator">==</span> <span class="token string">"1"</span><span class="token punctuation">:</span>
+        encryption<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> choice <span class="token operator">==</span> <span class="token string">"2"</span><span class="token punctuation">:</span>
+        decryption<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span> u<span class="token string">"您的输入有误！"</span>
+
+<span class="token comment" spellcheck="true">#if __name__ == "__main__":</span>
+<span class="token comment" spellcheck="true">#    main</span>
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> 密码学 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 密码学 </tag>
+            
+            <tag> Python </tag>
             
         </tags>
         
@@ -596,114 +596,6 @@ bin/kibana-plugin install x-pack
     </entry>
     
     <entry>
-      <title><![CDATA[kubernetes的部署]]></title>
-      <url>/2018/05/30/kubernetes%E7%9A%84%E9%83%A8%E7%BD%B2/</url>
-      <content type="html"><![CDATA[<h2 id="什么是kubernetes"><a href="#什么是kubernetes" class="headerlink" title="什么是kubernetes"></a>什么是kubernetes</h2><blockquote>
-<p>Kubernetes是Google开源的容器集群管理系统，其提供应用部署、维护、 扩展机制等功能，利用Kubernetes能方便地管理跨机器运行容器化的应用</p>
-</blockquote>
-<a id="more"></a>   
-<p>##主要的功能<br>1) 使用Docker对应用程序包装(package)、实例化(instantiate)、运行(run)。</p>
-<p>2) 以集群的方式运行、管理跨机器的容器。</p>
-<p>3) 解决Docker跨机器容器之间的通讯问题。</p>
-<p>4) Kubernetes的自我修复机制使得容器集群总是运行在用户期望的状态。</p>
-<h2 id="Kubernetes主要概念"><a href="#Kubernetes主要概念" class="headerlink" title="Kubernetes主要概念"></a>Kubernetes主要概念</h2><h3 id="一-Pods"><a href="#一-Pods" class="headerlink" title="一 Pods"></a>一 Pods</h3><p>Pod是Kubernetes的基本操作单元，把相关的一个或多个容器构成一个Pod，通常Pod里的容器运行相同的应用。Pod包含的容器运行在同一个Minion(Host)上，看作一个统一管理单元，共享相同的volumes和network namespace/IP和Port空间。</p>
-<h3 id="二-Services"><a href="#二-Services" class="headerlink" title="二 Services"></a>二 Services</h3><p>Services也是Kubernetes的基本操作单元，是真实应用服务的抽象，每一个服务后面都有很多对应的容器来支持，通过Proxy的port和服务selector决定服务请求传递给后端提供服务的容器，对外表现为一个单一访问接口，外部不需要了解后端如何运行，这给扩展或维护后端带来很大的好处。</p>
-<h3 id="三-Replication-Controllers"><a href="#三-Replication-Controllers" class="headerlink" title="三 Replication Controllers"></a>三 Replication Controllers</h3><p>Replication Controller确保任何时候Kubernetes集群中有指定数量的pod副本(replicas)在运行， 如果少于指定数量的pod副本(replicas)，Replication Controller会启动新的Container，反之会杀死多余的以保证数量不变。Replication Controller使用预先定义的pod模板创建pods，一旦创建成功，pod 模板和创建的pods没有任何关联，可以修改pod 模板而不会对已创建pods有任何影响，也可以直接更新通过Replication Controller创建的pods。对于利用pod 模板创建的pods，Replication Controller根据label selector来关联，通过修改pods的label可以删除对应的pods。Replication Controller主要有如下用法：<br>1) Rescheduling<br>如上所述，Replication Controller会确保Kubernetes集群中指定的pod副本(replicas)在运行， 即使在节点出错时。<br>2) Scaling<br>通过修改Replication Controller的副本(replicas)数量来水平扩展或者缩小运行的pods。<br>3) Rolling updates<br>Replication Controller的设计原则使得可以一个一个地替换pods来rolling updates服务。<br>4) Multiple release tracks<br>如果需要在系统中运行multiple release的服务，Replication Controller使用labels来区分multiple release tracks。</p>
-<h3 id="四-Labels"><a href="#四-Labels" class="headerlink" title="四 Labels"></a>四 Labels</h3><p>Labels是用于区分Pod、Service、Replication Controller的key/value键值对，Pod、Service、 Replication Controller可以有多个label，但是每个label的key只能对应一个value。Labels是Service和Replication Controller运行的基础，为了将访问Service的请求转发给后端提供服务的多个容器，正是通过标识容器的labels来选择正确的容器。同样，Replication Controller也使用labels来管理通过pod 模板创建的一组容器，这样Replication Controller可以更加容易，方便地管理多个容器，无论有多少容器。</p>
-<h2 id="Kubernetes构件"><a href="#Kubernetes构件" class="headerlink" title="Kubernetes构件"></a>Kubernetes构件</h2><p>Kubenetes整体框架，主要包括kubecfg、Master API Server、Kubelet、Minion(Host)以及Proxy</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-76ea037267e3e5b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h3 id="一-Master"><a href="#一-Master" class="headerlink" title="一  Master"></a>一  Master</h3><p>Master定义了Kubernetes 集群Master/API Server的主要声明，包括Pod Registry、Controller Registry、Service Registry、Endpoint Registry、Minion Registry、Binding Registry、RESTStorage以及Client, 是client(Kubecfg)调用Kubernetes API，管理Kubernetes主要构件Pods、Services、Minions、容器的入口。Master由API Server、Scheduler以及Registry等组成。从下图可知Master的工作流主要分以下步骤：<br>1) Kubecfg将特定的请求，比如创建Pod，发送给Kubernetes Client。<br>2) Kubernetes Client将请求发送给API server。<br>3) API Server根据请求的类型，比如创建Pod时storage类型是pods，然后依此选择何种REST Storage API对请求作出处理。<br>4) REST Storage API对的请求作相应的处理。<br>5) 将处理的结果存入高可用键值存储系统Etcd中。<br>6) 在API Server响应Kubecfg的请求后，Scheduler会根据Kubernetes Client获取集群中运行Pod及Minion信息。<br>7) 依据从Kubernetes Client获取的信息，Scheduler将未分发的Pod分发到可用的Minion节点上。<br>下面是Master的主要构件的详细介绍：<br><img src="http://upload-images.jianshu.io/upload_images/3941016-16f56503372f2b4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>图3-2 Master主要构件及工作流</p>
-<h3 id="Minion-Registry"><a href="#Minion-Registry" class="headerlink" title="Minion Registry"></a>Minion Registry</h3><p>Minion Registry负责跟踪Kubernetes 集群中有多少Minion(Host)。Kubernetes封装Minion Registry成实现Kubernetes API Server的RESTful API接口REST，通过这些API，我们可以对Minion Registry做Create、Get、List、Delete操作，由于Minon只能被创建或删除，所以不支持Update操作，并把Minion的相关配置信息存储到etcd。除此之外，Scheduler算法根据Minion的资源容量来确定是否将新建Pod分发到该Minion节点。</p>
-<h3 id="Pod-Registry"><a href="#Pod-Registry" class="headerlink" title="Pod Registry"></a>Pod Registry</h3><p>Pod Registry负责跟踪Kubernetes集群中有多少Pod在运行，以及这些Pod跟Minion是如何的映射关系。将Pod Registry和Cloud Provider信息及其他相关信息封装成实现Kubernetes API Server的RESTful API接口REST。通过这些API，我们可以对Pod进行Create、Get、List、Update、Delete操作，并将Pod的信息存储到etcd中，而且可以通过Watch接口监视Pod的变化情况，比如一个Pod被新建、删除或者更新。</p>
-<h3 id="Service-Registry"><a href="#Service-Registry" class="headerlink" title="Service Registry"></a>Service Registry</h3><p>Service Registry负责跟踪Kubernetes集群中运行的所有服务。根据提供的Cloud Provider及Minion Registry信息把Service Registry封装成实现Kubernetes API Server需要的RESTful API接口REST。利用这些接口，我们可以对Service进行Create、Get、List、Update、Delete操作，以及监视Service变化情况的watch操作，并把Service信息存储到etcd。</p>
-<h3 id="Controller-Registry"><a href="#Controller-Registry" class="headerlink" title="Controller Registry"></a>Controller Registry</h3><p>Controller Registry负责跟踪Kubernetes集群中所有的Replication Controller，Replication Controller维护着指定数量的pod 副本(replicas)拷贝，如果其中的一个容器死掉，Replication Controller会自动启动一个新的容器，如果死掉的容器恢复，其会杀死多出的容器以保证指定的拷贝不变。通过封装Controller Registry为实现Kubernetes API Server的RESTful API接口REST， 利用这些接口，我们可以对Replication Controller进行Create、Get、List、Update、Delete操作，以及监视Replication Controller变化情况的watch操作，并把Replication Controller信息存储到etcd。</p>
-<h3 id="Endpoints-Registry"><a href="#Endpoints-Registry" class="headerlink" title="Endpoints Registry"></a>Endpoints Registry</h3><p>Endpoints Registry负责收集Service的endpoint，比如Name：”mysql”，Endpoints: [“10.10.1.1:1909”，”10.10.2.2:8834”]，同Pod Registry，Controller Registry也实现了Kubernetes API Server的RESTful API接口，可以做Create、Get、List、Update、Delete以及watch操作。</p>
-<h3 id="Binding-Registry"><a href="#Binding-Registry" class="headerlink" title="Binding Registry"></a>Binding Registry</h3><p>Binding包括一个需要绑定Pod的ID和Pod被绑定的Host，Scheduler写Binding Registry后，需绑定的Pod被绑定到一个host。Binding Registry也实现了Kubernetes API Server的RESTful API接口，但Binding Registry是一个write-only对象，所有只有Create操作可以使用， 否则会引起错误。</p>
-<h3 id="Scheduler"><a href="#Scheduler" class="headerlink" title="Scheduler"></a>Scheduler</h3><p>Scheduler收集和分析当前Kubernetes集群中所有Minion节点的资源(内存、CPU)负载情况，然后依此分发新建的Pod到Kubernetes集群中可用的节点。由于一旦Minion节点的资源被分配给Pod，那这些资源就不能再分配给其他Pod， 除非这些Pod被删除或者退出， 因此，Kubernetes需要分析集群中所有Minion的资源使用情况，保证分发的工作负载不会超出当前该Minion节点的可用资源范围。具体来说，Scheduler做以下工作：<br>1) 实时监测Kubernetes集群中未分发的Pod。<br>2) 实时监测Kubernetes集群中所有运行的Pod，Scheduler需要根据这些Pod的资源状况安全地将未分发的Pod分发到指定的Minion节点上。<br>3) Scheduler也监测Minion节点信息，由于会频繁查找Minion节点，Scheduler会缓存一份最新的信息在本地。<br>4) 最后，Scheduler在分发Pod到指定的Minion节点后，会把Pod相关的信息Binding写回API Server。</p>
-<h3 id="Kubelet"><a href="#Kubelet" class="headerlink" title="Kubelet"></a>Kubelet</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-470b89f752a0b96d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>图3-3 Kubernetes详细构件<br>根据上图3-3可知Kubelet是Kubernetes集群中每个Minion和Master API Server的连接点，Kubelet运行在每个Minion上，是Master API Server和Minion之间的桥梁，接收Master API Server分配给它的commands和work，与持久性键值存储etcd、file、server和http进行交互，读取配置信息。Kubelet的主要工作是管理Pod和容器的生命周期，其包括Docker Client、Root Directory、Pod Workers、Etcd Client、Cadvisor Client以及Health Checker组件，具体工作如下：<br>1) 通过Worker给Pod异步运行特定的Action。<br>2) 设置容器的环境变量。<br>3) 给容器绑定Volume。<br>4) 给容器绑定Port。<br>5) 根据指定的Pod运行一个单一容器。<br>6) 杀死容器。<br>7) 给指定的Pod创建network 容器。<br>8) 删除Pod的所有容器。<br>9) 同步Pod的状态。<br>10) 从Cadvisor获取container info、 pod info、root info、machine info。<br>11) 检测Pod的容器健康状态信息。<br>12) 在容器中运行命令。</p>
-<h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><p>Proxy是为了解决外部网络能够访问跨机器集群中容器提供的应用服务而设计的，从上图3-3可知Proxy服务也运行在每个Minion上。Proxy提供TCP/UDP sockets的proxy，每创建一种Service，Proxy主要从etcd获取Services和Endpoints的配置信息，或者也可以从file获取，然后根据配置信息在Minion上启动一个Proxy的进程并监听相应的服务端口，当外部请求发生时，Proxy会根据Load Balancer将请求分发到后端正确的容器处</p>
-<h2 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h2><blockquote>
-<p>准备工作</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>对象</th>
-<th>版本</th>
-<th>ip</th>
-<th>备注 </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>k8s-master</td>
-<td>centos7</td>
-<td>192.168.29.11</td>
-<td>K8S的master所在主机</td>
-</tr>
-<tr>
-<td>etcd-server</td>
-<td>centos7</td>
-<td>192.168.29.11</td>
-<td>etcd服务所在主机，与master在同一机器</td>
-</tr>
-<tr>
-<td>k8s-slave</td>
-<td>centos7</td>
-<td>192.168.29.12</td>
-<td>K8S节点所在主机</td>
-</tr>
-</tbody>
-</table>
-<h3 id="安装主要程序"><a href="#安装主要程序" class="headerlink" title="安装主要程序"></a>安装主要程序</h3><ul>
-<li>192.168.29.11<br>执行以下命令，安装kubernetes和etcd</li>
-</ul>
-<pre><code>yum -y install --enablerepo=virt7-docker-common-release kubernetes etcd
-</code></pre><h2 id="禁用防火墙"><a href="#禁用防火墙" class="headerlink" title="禁用防火墙"></a>禁用防火墙</h2><pre><code>systemctl disable iptables-services firewalld
-systemctl stop iptables-services firewalld
-</code></pre><h3 id="192-168-29-11-上主机配置"><a href="#192-168-29-11-上主机配置" class="headerlink" title="192.168.29.11 上主机配置"></a>192.168.29.11 上主机配置</h3><h4 id="一-修改文件-etc-kubernetes-config-所有节点"><a href="#一-修改文件-etc-kubernetes-config-所有节点" class="headerlink" title="一 修改文件/etc/kubernetes/config(所有节点)"></a>一 修改文件/etc/kubernetes/config(所有节点)</h4><p>注意，master和slave主机都要修改<br>指定master主机的ip，文件内容如下：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f2286b4085fb8079.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下"><a href="#二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下" class="headerlink" title="二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下"></a>二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-a881113924dd47da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="三-修改配置文件-etc-kubernetes-apiserver"><a href="#三-修改配置文件-etc-kubernetes-apiserver" class="headerlink" title="三 修改配置文件/etc/kubernetes/apiserver"></a>三 修改配置文件/etc/kubernetes/apiserver</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-83c145be3b651c13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="四-修改配置文件-etc-kubernetes-controller-manager，定义slave主机ip地址"><a href="#四-修改配置文件-etc-kubernetes-controller-manager，定义slave主机ip地址" class="headerlink" title="四 修改配置文件/etc/kubernetes/controller-manager，定义slave主机ip地址"></a>四 修改配置文件/etc/kubernetes/controller-manager，定义slave主机ip地址</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-6a410aa1eaf7d1b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h3 id="在master主机上，启动服务"><a href="#在master主机上，启动服务" class="headerlink" title="在master主机上，启动服务"></a>在master主机上，启动服务</h3><pre><code>for SERVICES in etcd kube-apiserver kube-controller-manager kube-scheduler; do
-    systemctl restart $SERVICES
-    systemctl enable $SERVICES
-    systemctl status $SERVICES
-done
-</code></pre><h2 id="slave节点配置"><a href="#slave节点配置" class="headerlink" title="slave节点配置"></a>slave节点配置</h2><p>yum 安装kubernetes</p>
-<pre><code>yum -y install  kubernetes flannel
-</code></pre><h3 id="slave-配置文件修改"><a href="#slave-配置文件修改" class="headerlink" title="slave 配置文件修改"></a>slave 配置文件修改</h3><h4 id="一-修改kubernetes配置文件，指定master"><a href="#一-修改kubernetes配置文件，指定master" class="headerlink" title="一 .修改kubernetes配置文件，指定master"></a>一 .修改kubernetes配置文件，指定master</h4><p>/etc/kubernetes/config</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-2181a58f95b1164b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="二-配置kubelet服务"><a href="#二-配置kubelet服务" class="headerlink" title="二  配置kubelet服务"></a>二  配置kubelet服务</h4><p> /etc/kubernetes/kubelet</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-5d1fb93275d32ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h3 id="在slave主机上，启动服务"><a href="#在slave主机上，启动服务" class="headerlink" title="在slave主机上，启动服务"></a>在slave主机上，启动服务</h3><pre><code>for SERVICES in kube-proxy kubelet docker flanneld; do
-    systemctl restart $SERVICES
-    systemctl enable $SERVICES
-    systemctl status $SERVICES
-done
-</code></pre><p>###验证</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f8344025c3bc9b20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
-      
-        <categories>
-            
-            <category> docker </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> docker </tag>
-            
-            <tag> Linux </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[妈妈生日快乐]]></title>
       <url>/2018/05/30/mother/</url>
       <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3941016-893e99aa7b8b04d7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WechatIMG299.jpeg"></p>
@@ -788,11 +680,11 @@ nc  服务器地址（127.0.0.1） 服务器端口号如（65535）
         
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 工具 </tag>
             
             <tag> 安全 </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
         
@@ -951,6 +843,221 @@ db=&quot;/root/flower_db&quot;
             <tag> Linux </tag>
             
             <tag> django </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[小心情]]></title>
+      <url>/2018/05/30/xiaoqiu/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>与你分享，最自我的存在，最重要的秘密。<br><img src="http://upload-images.jianshu.io/upload_images/3941016-fe10f7fc79dd1705.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="小秋"></p>
+</blockquote>
+<p>脑海里存在过好多个故事<br>大多包含了我爱你的主题</p>
+<p>它们可能在我想你的某些须臾发生了</p>
+<p>然后消失在我无法说忘记的深深自责里</p>
+<p>偶尔会记录下的都是可以用言语概论的</p>
+<p>在我觉得实在是孤单了喔</p>
+<p>说与 除了你我的爱人们听</p>
+<a id="more"></a>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-dbca79068aeaa29b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>我还是喜欢和你面对面交谈</p>
+<p>坐在相同的时间和空间里</p>
+<p>对你感到无语的时候就真的不发一言</p>
+<p>你对我心存怀疑的时候可以看着我的眼睛</p>
+<p>他会告诉你我是个好人以及不愿说出口的我爱你</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=68450&auto=1&height=66"></iframe>
+
+
+<p>喜欢陌生的街区 无知的人行道</p>
+<p>风带过来的都是那些无知人的气味儿</p>
+<p>你敢信么 走在拥挤的人潮中我反而安心</p>
+<p>那些结伴的骑行者他们的欢颜</p>
+<p>风尘仆仆的赶路人</p>
+<p>推着婴儿车的年轻母亲</p>
+<p>我似乎见过无数次这样的面孔</p>
+<p>他们好像发生着同样的故事</p>
+<p>然而生活本就是如此 千篇一律</p>
+<p>那些个学画的日子里</p>
+<p>兴奋失落骄傲迷茫哭泣</p>
+<p>有你 有她们有青春</p>
+<p>想来都是无比珍贵</p>
+<p>细数不尽的</p>
+<p>这个世界上 我最畏惧的就是时间了</p>
+<p>那个傻瓜阿</p>
+<p>“明年我要带着一大束玫瑰花去军队”</p>
+<p>她喊我的名字 说“我决定了”</p>
+<p>我们经常郑重其事地做一些决定</p>
+<p>然而我还是被点燃了</p>
+<p>我幻想幸福的场景美好的结局</p>
+<p>我哭着拥抱她说“为你高兴”</p>
+<p>她轻拍着我的后背</p>
+<p>在我耳边说“你也会等到这一天的。”</p>
+<p>还带着把握住了幸福的女孩应该有的沉稳语调</p>
+<p>早上自然醒</p>
+<p>想到运动会那天</p>
+<p>你把食指贴近嘴唇作出嘘的动作</p>
+<p>脸上还挂着谈话时的笑意</p>
+<p>样子特别好看</p>
+<p>然后就看到你们的实习老师走了过来</p>
+<p>跳远结束的时候</p>
+<p>你屁颠屁颠跑回来</p>
+<p>一脸兴奋说着刚如何摔惨了丢人了</p>
+<p>样子特别可爱</p>
+<p>可不可以借我一个“从此” 我的故事该完结了</p>
+<p>但是 安徒生先生已经把最后一个“从此”也用掉了</p>
+<p>要不你试试看我的“后来”“以后”“最后”或者“然后”</p>
+<p>不了， 看来我只能让我的王子和公主死掉了</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-bf7aa59fc2d09c00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>我有时会对自己说，写个故事吧。<br>生活这么无趣，随便写个开头结尾，就能打动人。<br>后来往往无果，因为生活面孔多，生活其实比故事厉害，<br>觉得生活无聊就写不出好看的故事。<br>人为什么会觉得无聊，人们总说，今天简直无聊得要死，<br>这句话其实一点也不夸张啊。<br>有人会选择死亡，要么因为懦弱，他们是被困难打败了；<br>要么就是无聊教唆的，他们无所恋了。<br>我显然还是有所恋的， 就算单恋一个人<br>我也持续了够久。<br>我还是乐意去编织一些乱七八糟的东西，<br>或记录某些真实 给以后。<br>感到无聊的时候，就会把时间奉给想念。<br>离世的长辈，许久未见的朋友，不知去向的故人，<br>不曾相恋的恋人。<br>运气不错的话，过程中就能收获灵感。<br>潜意识里那些想说的话，会在一瞬间，自己就排列组合<br>小跑而来。</p>
+<p>那女人按照惯例，<br>在星期一的早晨，<br>又开始数落起她可怜的丈夫。<br>“我真是受够了，<br>看看你没出息的样子。”<br>她先是重复了上周<br>以及上上周<br>以及上上上周的开场白。<br>他的丈夫沉默不语，<br>或许没听到，因为他正</p>
+<p>“记得把牛奶喝掉，<br>喝完记得把杯子洗干净。<br>我去上班了，<br>这日子简直没法过了。”<br>结束语也一样。</p>
+<p>能随着性子，<br>最终完成一件事。<br>便十分美好。</p>
+<p>朝闻道，夕死可矣。<br>人们想要强调某件事时，<br>总会把话说得极其夸张。</p>
+<p>相对老无所依这样故弄玄虚的电影，<br>还是更喜欢听别人实实在在讲故事。<br>比如一次别离，比如通天塔。<br>它们首先是想好好讲一个好故事，<br>而后希望发人深省产生讨论。<br>它们讲礼貌，是特别有诚意的诉说者。</p>
+<p>我们是动物<br>孤独地过冬<br>春天来了<br>我把自己滚成一个球<br>沿路摘几颗新鲜的酱果<br>赶到你家门口<br>等待你慢慢苏醒的样子<br>你扑腾了几下<br>张开了翅膀<br>看到坐在树下的我<br>你高兴地俯冲下来<br>叼走了我背上的紫色酱果<br>然后飞走了<br>我拾起你掉落的羽毛<br>如获珍宝</p>
+<p>回忆往常日子里<br>所有与你的对视</p>
+<p>夏尔走了之后<br>每个星期都会去镇上喝酒<br>最近去得比较频繁<br>我爱上了一个姑娘<br>每天下午三点<br>她会推着小推车来给酒馆送酒<br>一个月过去夏尔还没有回来<br>我带姑娘回家<br>她自己脱衣服然后洗澡<br>在做第三次的时候她说<br>我知道你不爱我<br>你只不过想讲一个故事</p>
+<p>你连一把好剑都没有<br>你也好意思说自己是行侠仗义的江湖中人<br>那个兜里不过揣了几把小刀的卷卷头竟也嘲笑我<br>当时我也是年轻气盛冲上去几拳把他打倒在地<br>眼看他一脸血我接着用力补了几脚就扬长而去<br>隐约听到围观的人群中传来声音小李小李你没事吧<br>我顾自向前</p>
+<p>她突然说“我妈妈是在酉时生下我的，<br>日落酉时，记住啦，我死了你要告诉道士先生呀”<br>“日落有时？就像现在太阳要下山了吗？”<br>“恩，就是傍晚了，好好记住，他们都不知道，<br>我们家总要有一个人知道。”<br>我突然明白这件事是非常神圣的，<br>那年我六七岁，她只告诉我一个人。<br>就在几年前她离开。<br>非常突然，我们每个人都开始自责。<br>她离开之前，家里还在商量她的99岁大寿。<br>出殡那天，我和姑姑还有另外几个人坐一辆车，<br>有个女人一直大声说笑，吵吵闹闹。<br>我想抽她一耳光。<br>我看着窗外，姑姑搂着我。<br>一直下着小雨。</p>
+<p>小时候第一次在户口簿上看到她的名字<br>我嘲笑她说谁给你取的名字啊张大姐</p>
+<p>也是第一次知道她不姓杨而是姓张</p>
+<p>通常我们坐在一起的时候<br>我不大记得是谁先开口<br>说第一句话</p>
+<p>坐在那里抽烟的男人<br>外套歪躺在沙发上<br>墙脚立着一盆绿植，叶子大而茂盛<br>女人不知去了哪里，菜摆在桌上慢慢凉<br>从窗外飞来一只鸟，横冲直撞<br>男人熄灭了半支的烟，躺在沙发上<br>外套压在身下，露出半只袖<br>鸟儿飞来飞去不觉得累<br>汤面上结起一层油花，女人没有回来<br>而墙角立着一盆绿植<br>鸟儿横冲直撞</p>
+<p>和薇聊了好多，<br>五年内几乎没有联系，<br>我给她讲现在的自己，<br>猛然发现曾经最爱做的事情现在依然，<br>写字画画喜欢kimi。<br>你变了么</p>
+<p>2013.12.16 杭州下雪了<br>和你生活在同一座城市的好处是 感受 同样的天气<br>两点钟的时候 各自发条状态迎接季节赠予的礼物 是的下雪了<br>过去几天的雾霾 似乎对我没什么影响好像事不关己<br>早上下雨 冷 撑一把大大的 枣红色的伞<br>下午坐在寝室看非诚勿扰 窗外 雪很大<br>超美的<br><img src="http://upload-images.jianshu.io/upload_images/3941016-a44b39bbba6cb45a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>为什么在做事情之前，<br>我不告诉自己，<br>一定要做到最好，<br>要尽到最大的努力去完成。<br>以前总爱顺其自然。<br>我对自己一直很客气，<br>所以我变成特别容易满足的人，<br>对别人也完全没有杀伤力。<br>可能快乐至上吧。<br>失之坦然，得之淡然，处之泰然，顺其自然。<br>并不去给一个对错的判断，快乐就好。<br>最终信仰是：永远忠于自己。</p>
+<p>以前有愿望写故事，<br>以为能像我做其他事情一样顺其自然，<br>没有提纲就这么一味地写，<br>隔半年想再接下去，<br>却发现不能像当初一样随心所欲了。<br>当有无数种可能摆在你面前的时候，<br>你都不知道该如何走向当初设定好的结局。</p>
+<p>我喜欢在家里转圈圈，这样可以带动思考。<br>额(⊙o⊙)…，好吧，我承认我给我的怪癖找了一个冠冕堂皇的借口。</p>
+<p>小时候有暴力倾向。<br>有时认为自己是个自闭症患者。</p>
+<p>大概十一岁的时候我开始懂得构建自己的精神世界，<br>后来开始患得患失，慢慢的，会把自己的情绪放大化，<br>喜欢的人和事物会尤其喜欢，而且持久。</p>
+<p>一生中我们会遇到形形色色的人，<br>入耳许许多多的事，<br>无论你是否主动搭讪这个世界，<br>世界总能带给我们改变。<br>2013年夏天，我在南京。<br>这段旅程蓄谋已久。<br>其然实践起来也并不难，我们甚至连车票都没有提前买好，背着包约定在车站见面。<br>行李简单，拖着一双洞洞鞋，见面是一个不陌生的拥抱。<br>她说的第一句话是，好想你啊。我说的是，好热啊。<br>开玩笑的，你知道我是如此爱你。<br>我相信那些独自旅行的人都是因为找不到合适的伴侣。<br>那个白天我们在图书馆待到闭馆，然后坐着旧巴士穿越了长兴这座小城，从北到南。<br>深夜吃了干挑面，坐在马路边。差不多是凌晨四点的时候，我们坐上了开往南京的火车。<br>从一开始，这段旅程的定义就是要不断给自己找麻烦。<br>八月份，南京，取消青旅预订床位，火车···<br>晚上我们坐在秦淮河旁，有人彻夜聊天，有陌生人和我们坐一桌，扰得我不安稳。<br>有点小雨，我睡着了，她给我支起雨伞，我醒来觉得好笑。<br>且说到这吧。倘若两个人有共同的记忆，一提便会想起来。</p>
+<p>昨天的小清新和之前没写完的故事，就先不分享了。</p>
+<p>该快乐快乐，该烦躁烦躁，建议你快乐</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-b2b720b0c28be7ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 心情 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 心情 </tag>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[kubernetes的部署]]></title>
+      <url>/2018/05/30/kubernetes%E7%9A%84%E9%83%A8%E7%BD%B2/</url>
+      <content type="html"><![CDATA[<h2 id="什么是kubernetes"><a href="#什么是kubernetes" class="headerlink" title="什么是kubernetes"></a>什么是kubernetes</h2><blockquote>
+<p>Kubernetes是Google开源的容器集群管理系统，其提供应用部署、维护、 扩展机制等功能，利用Kubernetes能方便地管理跨机器运行容器化的应用</p>
+</blockquote>
+<a id="more"></a>   
+<p>##主要的功能<br>1) 使用Docker对应用程序包装(package)、实例化(instantiate)、运行(run)。</p>
+<p>2) 以集群的方式运行、管理跨机器的容器。</p>
+<p>3) 解决Docker跨机器容器之间的通讯问题。</p>
+<p>4) Kubernetes的自我修复机制使得容器集群总是运行在用户期望的状态。</p>
+<h2 id="Kubernetes主要概念"><a href="#Kubernetes主要概念" class="headerlink" title="Kubernetes主要概念"></a>Kubernetes主要概念</h2><h3 id="一-Pods"><a href="#一-Pods" class="headerlink" title="一 Pods"></a>一 Pods</h3><p>Pod是Kubernetes的基本操作单元，把相关的一个或多个容器构成一个Pod，通常Pod里的容器运行相同的应用。Pod包含的容器运行在同一个Minion(Host)上，看作一个统一管理单元，共享相同的volumes和network namespace/IP和Port空间。</p>
+<h3 id="二-Services"><a href="#二-Services" class="headerlink" title="二 Services"></a>二 Services</h3><p>Services也是Kubernetes的基本操作单元，是真实应用服务的抽象，每一个服务后面都有很多对应的容器来支持，通过Proxy的port和服务selector决定服务请求传递给后端提供服务的容器，对外表现为一个单一访问接口，外部不需要了解后端如何运行，这给扩展或维护后端带来很大的好处。</p>
+<h3 id="三-Replication-Controllers"><a href="#三-Replication-Controllers" class="headerlink" title="三 Replication Controllers"></a>三 Replication Controllers</h3><p>Replication Controller确保任何时候Kubernetes集群中有指定数量的pod副本(replicas)在运行， 如果少于指定数量的pod副本(replicas)，Replication Controller会启动新的Container，反之会杀死多余的以保证数量不变。Replication Controller使用预先定义的pod模板创建pods，一旦创建成功，pod 模板和创建的pods没有任何关联，可以修改pod 模板而不会对已创建pods有任何影响，也可以直接更新通过Replication Controller创建的pods。对于利用pod 模板创建的pods，Replication Controller根据label selector来关联，通过修改pods的label可以删除对应的pods。Replication Controller主要有如下用法：<br>1) Rescheduling<br>如上所述，Replication Controller会确保Kubernetes集群中指定的pod副本(replicas)在运行， 即使在节点出错时。<br>2) Scaling<br>通过修改Replication Controller的副本(replicas)数量来水平扩展或者缩小运行的pods。<br>3) Rolling updates<br>Replication Controller的设计原则使得可以一个一个地替换pods来rolling updates服务。<br>4) Multiple release tracks<br>如果需要在系统中运行multiple release的服务，Replication Controller使用labels来区分multiple release tracks。</p>
+<h3 id="四-Labels"><a href="#四-Labels" class="headerlink" title="四 Labels"></a>四 Labels</h3><p>Labels是用于区分Pod、Service、Replication Controller的key/value键值对，Pod、Service、 Replication Controller可以有多个label，但是每个label的key只能对应一个value。Labels是Service和Replication Controller运行的基础，为了将访问Service的请求转发给后端提供服务的多个容器，正是通过标识容器的labels来选择正确的容器。同样，Replication Controller也使用labels来管理通过pod 模板创建的一组容器，这样Replication Controller可以更加容易，方便地管理多个容器，无论有多少容器。</p>
+<h2 id="Kubernetes构件"><a href="#Kubernetes构件" class="headerlink" title="Kubernetes构件"></a>Kubernetes构件</h2><p>Kubenetes整体框架，主要包括kubecfg、Master API Server、Kubelet、Minion(Host)以及Proxy</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-76ea037267e3e5b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="一-Master"><a href="#一-Master" class="headerlink" title="一  Master"></a>一  Master</h3><p>Master定义了Kubernetes 集群Master/API Server的主要声明，包括Pod Registry、Controller Registry、Service Registry、Endpoint Registry、Minion Registry、Binding Registry、RESTStorage以及Client, 是client(Kubecfg)调用Kubernetes API，管理Kubernetes主要构件Pods、Services、Minions、容器的入口。Master由API Server、Scheduler以及Registry等组成。从下图可知Master的工作流主要分以下步骤：<br>1) Kubecfg将特定的请求，比如创建Pod，发送给Kubernetes Client。<br>2) Kubernetes Client将请求发送给API server。<br>3) API Server根据请求的类型，比如创建Pod时storage类型是pods，然后依此选择何种REST Storage API对请求作出处理。<br>4) REST Storage API对的请求作相应的处理。<br>5) 将处理的结果存入高可用键值存储系统Etcd中。<br>6) 在API Server响应Kubecfg的请求后，Scheduler会根据Kubernetes Client获取集群中运行Pod及Minion信息。<br>7) 依据从Kubernetes Client获取的信息，Scheduler将未分发的Pod分发到可用的Minion节点上。<br>下面是Master的主要构件的详细介绍：<br><img src="http://upload-images.jianshu.io/upload_images/3941016-16f56503372f2b4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>图3-2 Master主要构件及工作流</p>
+<h3 id="Minion-Registry"><a href="#Minion-Registry" class="headerlink" title="Minion Registry"></a>Minion Registry</h3><p>Minion Registry负责跟踪Kubernetes 集群中有多少Minion(Host)。Kubernetes封装Minion Registry成实现Kubernetes API Server的RESTful API接口REST，通过这些API，我们可以对Minion Registry做Create、Get、List、Delete操作，由于Minon只能被创建或删除，所以不支持Update操作，并把Minion的相关配置信息存储到etcd。除此之外，Scheduler算法根据Minion的资源容量来确定是否将新建Pod分发到该Minion节点。</p>
+<h3 id="Pod-Registry"><a href="#Pod-Registry" class="headerlink" title="Pod Registry"></a>Pod Registry</h3><p>Pod Registry负责跟踪Kubernetes集群中有多少Pod在运行，以及这些Pod跟Minion是如何的映射关系。将Pod Registry和Cloud Provider信息及其他相关信息封装成实现Kubernetes API Server的RESTful API接口REST。通过这些API，我们可以对Pod进行Create、Get、List、Update、Delete操作，并将Pod的信息存储到etcd中，而且可以通过Watch接口监视Pod的变化情况，比如一个Pod被新建、删除或者更新。</p>
+<h3 id="Service-Registry"><a href="#Service-Registry" class="headerlink" title="Service Registry"></a>Service Registry</h3><p>Service Registry负责跟踪Kubernetes集群中运行的所有服务。根据提供的Cloud Provider及Minion Registry信息把Service Registry封装成实现Kubernetes API Server需要的RESTful API接口REST。利用这些接口，我们可以对Service进行Create、Get、List、Update、Delete操作，以及监视Service变化情况的watch操作，并把Service信息存储到etcd。</p>
+<h3 id="Controller-Registry"><a href="#Controller-Registry" class="headerlink" title="Controller Registry"></a>Controller Registry</h3><p>Controller Registry负责跟踪Kubernetes集群中所有的Replication Controller，Replication Controller维护着指定数量的pod 副本(replicas)拷贝，如果其中的一个容器死掉，Replication Controller会自动启动一个新的容器，如果死掉的容器恢复，其会杀死多出的容器以保证指定的拷贝不变。通过封装Controller Registry为实现Kubernetes API Server的RESTful API接口REST， 利用这些接口，我们可以对Replication Controller进行Create、Get、List、Update、Delete操作，以及监视Replication Controller变化情况的watch操作，并把Replication Controller信息存储到etcd。</p>
+<h3 id="Endpoints-Registry"><a href="#Endpoints-Registry" class="headerlink" title="Endpoints Registry"></a>Endpoints Registry</h3><p>Endpoints Registry负责收集Service的endpoint，比如Name：”mysql”，Endpoints: [“10.10.1.1:1909”，”10.10.2.2:8834”]，同Pod Registry，Controller Registry也实现了Kubernetes API Server的RESTful API接口，可以做Create、Get、List、Update、Delete以及watch操作。</p>
+<h3 id="Binding-Registry"><a href="#Binding-Registry" class="headerlink" title="Binding Registry"></a>Binding Registry</h3><p>Binding包括一个需要绑定Pod的ID和Pod被绑定的Host，Scheduler写Binding Registry后，需绑定的Pod被绑定到一个host。Binding Registry也实现了Kubernetes API Server的RESTful API接口，但Binding Registry是一个write-only对象，所有只有Create操作可以使用， 否则会引起错误。</p>
+<h3 id="Scheduler"><a href="#Scheduler" class="headerlink" title="Scheduler"></a>Scheduler</h3><p>Scheduler收集和分析当前Kubernetes集群中所有Minion节点的资源(内存、CPU)负载情况，然后依此分发新建的Pod到Kubernetes集群中可用的节点。由于一旦Minion节点的资源被分配给Pod，那这些资源就不能再分配给其他Pod， 除非这些Pod被删除或者退出， 因此，Kubernetes需要分析集群中所有Minion的资源使用情况，保证分发的工作负载不会超出当前该Minion节点的可用资源范围。具体来说，Scheduler做以下工作：<br>1) 实时监测Kubernetes集群中未分发的Pod。<br>2) 实时监测Kubernetes集群中所有运行的Pod，Scheduler需要根据这些Pod的资源状况安全地将未分发的Pod分发到指定的Minion节点上。<br>3) Scheduler也监测Minion节点信息，由于会频繁查找Minion节点，Scheduler会缓存一份最新的信息在本地。<br>4) 最后，Scheduler在分发Pod到指定的Minion节点后，会把Pod相关的信息Binding写回API Server。</p>
+<h3 id="Kubelet"><a href="#Kubelet" class="headerlink" title="Kubelet"></a>Kubelet</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-470b89f752a0b96d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>图3-3 Kubernetes详细构件<br>根据上图3-3可知Kubelet是Kubernetes集群中每个Minion和Master API Server的连接点，Kubelet运行在每个Minion上，是Master API Server和Minion之间的桥梁，接收Master API Server分配给它的commands和work，与持久性键值存储etcd、file、server和http进行交互，读取配置信息。Kubelet的主要工作是管理Pod和容器的生命周期，其包括Docker Client、Root Directory、Pod Workers、Etcd Client、Cadvisor Client以及Health Checker组件，具体工作如下：<br>1) 通过Worker给Pod异步运行特定的Action。<br>2) 设置容器的环境变量。<br>3) 给容器绑定Volume。<br>4) 给容器绑定Port。<br>5) 根据指定的Pod运行一个单一容器。<br>6) 杀死容器。<br>7) 给指定的Pod创建network 容器。<br>8) 删除Pod的所有容器。<br>9) 同步Pod的状态。<br>10) 从Cadvisor获取container info、 pod info、root info、machine info。<br>11) 检测Pod的容器健康状态信息。<br>12) 在容器中运行命令。</p>
+<h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><p>Proxy是为了解决外部网络能够访问跨机器集群中容器提供的应用服务而设计的，从上图3-3可知Proxy服务也运行在每个Minion上。Proxy提供TCP/UDP sockets的proxy，每创建一种Service，Proxy主要从etcd获取Services和Endpoints的配置信息，或者也可以从file获取，然后根据配置信息在Minion上启动一个Proxy的进程并监听相应的服务端口，当外部请求发生时，Proxy会根据Load Balancer将请求分发到后端正确的容器处</p>
+<h2 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h2><blockquote>
+<p>准备工作</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>对象</th>
+<th>版本</th>
+<th>ip</th>
+<th>备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>k8s-master</td>
+<td>centos7</td>
+<td>192.168.29.11</td>
+<td>K8S的master所在主机</td>
+</tr>
+<tr>
+<td>etcd-server</td>
+<td>centos7</td>
+<td>192.168.29.11</td>
+<td>etcd服务所在主机，与master在同一机器</td>
+</tr>
+<tr>
+<td>k8s-slave</td>
+<td>centos7</td>
+<td>192.168.29.12</td>
+<td>K8S节点所在主机</td>
+</tr>
+</tbody>
+</table>
+<h3 id="安装主要程序"><a href="#安装主要程序" class="headerlink" title="安装主要程序"></a>安装主要程序</h3><ul>
+<li>192.168.29.11<br>执行以下命令，安装kubernetes和etcd</li>
+</ul>
+<pre><code>yum -y install --enablerepo=virt7-docker-common-release kubernetes etcd
+</code></pre><h2 id="禁用防火墙"><a href="#禁用防火墙" class="headerlink" title="禁用防火墙"></a>禁用防火墙</h2><pre><code>systemctl disable iptables-services firewalld
+systemctl stop iptables-services firewalld
+</code></pre><h3 id="192-168-29-11-上主机配置"><a href="#192-168-29-11-上主机配置" class="headerlink" title="192.168.29.11 上主机配置"></a>192.168.29.11 上主机配置</h3><h4 id="一-修改文件-etc-kubernetes-config-所有节点"><a href="#一-修改文件-etc-kubernetes-config-所有节点" class="headerlink" title="一 修改文件/etc/kubernetes/config(所有节点)"></a>一 修改文件/etc/kubernetes/config(所有节点)</h4><p>注意，master和slave主机都要修改<br>指定master主机的ip，文件内容如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f2286b4085fb8079.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下"><a href="#二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下" class="headerlink" title="二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下"></a>二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-a881113924dd47da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="三-修改配置文件-etc-kubernetes-apiserver"><a href="#三-修改配置文件-etc-kubernetes-apiserver" class="headerlink" title="三 修改配置文件/etc/kubernetes/apiserver"></a>三 修改配置文件/etc/kubernetes/apiserver</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-83c145be3b651c13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="四-修改配置文件-etc-kubernetes-controller-manager，定义slave主机ip地址"><a href="#四-修改配置文件-etc-kubernetes-controller-manager，定义slave主机ip地址" class="headerlink" title="四 修改配置文件/etc/kubernetes/controller-manager，定义slave主机ip地址"></a>四 修改配置文件/etc/kubernetes/controller-manager，定义slave主机ip地址</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-6a410aa1eaf7d1b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="在master主机上，启动服务"><a href="#在master主机上，启动服务" class="headerlink" title="在master主机上，启动服务"></a>在master主机上，启动服务</h3><pre><code>for SERVICES in etcd kube-apiserver kube-controller-manager kube-scheduler; do
+    systemctl restart $SERVICES
+    systemctl enable $SERVICES
+    systemctl status $SERVICES
+done
+</code></pre><h2 id="slave节点配置"><a href="#slave节点配置" class="headerlink" title="slave节点配置"></a>slave节点配置</h2><p>yum 安装kubernetes</p>
+<pre><code>yum -y install  kubernetes flannel
+</code></pre><h3 id="slave-配置文件修改"><a href="#slave-配置文件修改" class="headerlink" title="slave 配置文件修改"></a>slave 配置文件修改</h3><h4 id="一-修改kubernetes配置文件，指定master"><a href="#一-修改kubernetes配置文件，指定master" class="headerlink" title="一 .修改kubernetes配置文件，指定master"></a>一 .修改kubernetes配置文件，指定master</h4><p>/etc/kubernetes/config</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-2181a58f95b1164b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="二-配置kubelet服务"><a href="#二-配置kubelet服务" class="headerlink" title="二  配置kubelet服务"></a>二  配置kubelet服务</h4><p> /etc/kubernetes/kubelet</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-5d1fb93275d32ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="在slave主机上，启动服务"><a href="#在slave主机上，启动服务" class="headerlink" title="在slave主机上，启动服务"></a>在slave主机上，启动服务</h3><pre><code>for SERVICES in kube-proxy kubelet docker flanneld; do
+    systemctl restart $SERVICES
+    systemctl enable $SERVICES
+    systemctl status $SERVICES
+done
+</code></pre><p>###验证</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3941016-f8344025c3bc9b20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> docker </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> docker </tag>
             
         </tags>
         
@@ -1550,113 +1657,6 @@ if __name__ == &#39;__main__&#39;:
             <tag> 扫描器 </tag>
             
             <tag> 自动化 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[小心情]]></title>
-      <url>/2018/05/30/xiaoqiu/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>与你分享，最自我的存在，最重要的秘密。<br><img src="http://upload-images.jianshu.io/upload_images/3941016-fe10f7fc79dd1705.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="小秋"></p>
-</blockquote>
-<p>脑海里存在过好多个故事<br>大多包含了我爱你的主题</p>
-<p>它们可能在我想你的某些须臾发生了</p>
-<p>然后消失在我无法说忘记的深深自责里</p>
-<p>偶尔会记录下的都是可以用言语概论的</p>
-<p>在我觉得实在是孤单了喔</p>
-<p>说与 除了你我的爱人们听</p>
-<a id="more"></a>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-dbca79068aeaa29b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>我还是喜欢和你面对面交谈</p>
-<p>坐在相同的时间和空间里</p>
-<p>对你感到无语的时候就真的不发一言</p>
-<p>你对我心存怀疑的时候可以看着我的眼睛</p>
-<p>他会告诉你我是个好人以及不愿说出口的我爱你</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=68450&auto=1&height=66"></iframe>
-
-
-<p>喜欢陌生的街区 无知的人行道</p>
-<p>风带过来的都是那些无知人的气味儿</p>
-<p>你敢信么 走在拥挤的人潮中我反而安心</p>
-<p>那些结伴的骑行者他们的欢颜</p>
-<p>风尘仆仆的赶路人</p>
-<p>推着婴儿车的年轻母亲</p>
-<p>我似乎见过无数次这样的面孔</p>
-<p>他们好像发生着同样的故事</p>
-<p>然而生活本就是如此 千篇一律</p>
-<p>那些个学画的日子里</p>
-<p>兴奋失落骄傲迷茫哭泣</p>
-<p>有你 有她们有青春</p>
-<p>想来都是无比珍贵</p>
-<p>细数不尽的</p>
-<p>这个世界上 我最畏惧的就是时间了</p>
-<p>那个傻瓜阿</p>
-<p>“明年我要带着一大束玫瑰花去军队”</p>
-<p>她喊我的名字 说“我决定了”</p>
-<p>我们经常郑重其事地做一些决定</p>
-<p>然而我还是被点燃了</p>
-<p>我幻想幸福的场景美好的结局</p>
-<p>我哭着拥抱她说“为你高兴”</p>
-<p>她轻拍着我的后背</p>
-<p>在我耳边说“你也会等到这一天的。”</p>
-<p>还带着把握住了幸福的女孩应该有的沉稳语调</p>
-<p>早上自然醒</p>
-<p>想到运动会那天</p>
-<p>你把食指贴近嘴唇作出嘘的动作</p>
-<p>脸上还挂着谈话时的笑意</p>
-<p>样子特别好看</p>
-<p>然后就看到你们的实习老师走了过来</p>
-<p>跳远结束的时候</p>
-<p>你屁颠屁颠跑回来</p>
-<p>一脸兴奋说着刚如何摔惨了丢人了</p>
-<p>样子特别可爱</p>
-<p>可不可以借我一个“从此” 我的故事该完结了</p>
-<p>但是 安徒生先生已经把最后一个“从此”也用掉了</p>
-<p>要不你试试看我的“后来”“以后”“最后”或者“然后”</p>
-<p>不了， 看来我只能让我的王子和公主死掉了</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-bf7aa59fc2d09c00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>我有时会对自己说，写个故事吧。<br>生活这么无趣，随便写个开头结尾，就能打动人。<br>后来往往无果，因为生活面孔多，生活其实比故事厉害，<br>觉得生活无聊就写不出好看的故事。<br>人为什么会觉得无聊，人们总说，今天简直无聊得要死，<br>这句话其实一点也不夸张啊。<br>有人会选择死亡，要么因为懦弱，他们是被困难打败了；<br>要么就是无聊教唆的，他们无所恋了。<br>我显然还是有所恋的， 就算单恋一个人<br>我也持续了够久。<br>我还是乐意去编织一些乱七八糟的东西，<br>或记录某些真实 给以后。<br>感到无聊的时候，就会把时间奉给想念。<br>离世的长辈，许久未见的朋友，不知去向的故人，<br>不曾相恋的恋人。<br>运气不错的话，过程中就能收获灵感。<br>潜意识里那些想说的话，会在一瞬间，自己就排列组合<br>小跑而来。</p>
-<p>那女人按照惯例，<br>在星期一的早晨，<br>又开始数落起她可怜的丈夫。<br>“我真是受够了，<br>看看你没出息的样子。”<br>她先是重复了上周<br>以及上上周<br>以及上上上周的开场白。<br>他的丈夫沉默不语，<br>或许没听到，因为他正</p>
-<p>“记得把牛奶喝掉，<br>喝完记得把杯子洗干净。<br>我去上班了，<br>这日子简直没法过了。”<br>结束语也一样。</p>
-<p>能随着性子，<br>最终完成一件事。<br>便十分美好。</p>
-<p>朝闻道，夕死可矣。<br>人们想要强调某件事时，<br>总会把话说得极其夸张。</p>
-<p>相对老无所依这样故弄玄虚的电影，<br>还是更喜欢听别人实实在在讲故事。<br>比如一次别离，比如通天塔。<br>它们首先是想好好讲一个好故事，<br>而后希望发人深省产生讨论。<br>它们讲礼貌，是特别有诚意的诉说者。</p>
-<p>我们是动物<br>孤独地过冬<br>春天来了<br>我把自己滚成一个球<br>沿路摘几颗新鲜的酱果<br>赶到你家门口<br>等待你慢慢苏醒的样子<br>你扑腾了几下<br>张开了翅膀<br>看到坐在树下的我<br>你高兴地俯冲下来<br>叼走了我背上的紫色酱果<br>然后飞走了<br>我拾起你掉落的羽毛<br>如获珍宝</p>
-<p>回忆往常日子里<br>所有与你的对视</p>
-<p>夏尔走了之后<br>每个星期都会去镇上喝酒<br>最近去得比较频繁<br>我爱上了一个姑娘<br>每天下午三点<br>她会推着小推车来给酒馆送酒<br>一个月过去夏尔还没有回来<br>我带姑娘回家<br>她自己脱衣服然后洗澡<br>在做第三次的时候她说<br>我知道你不爱我<br>你只不过想讲一个故事</p>
-<p>你连一把好剑都没有<br>你也好意思说自己是行侠仗义的江湖中人<br>那个兜里不过揣了几把小刀的卷卷头竟也嘲笑我<br>当时我也是年轻气盛冲上去几拳把他打倒在地<br>眼看他一脸血我接着用力补了几脚就扬长而去<br>隐约听到围观的人群中传来声音小李小李你没事吧<br>我顾自向前</p>
-<p>她突然说“我妈妈是在酉时生下我的，<br>日落酉时，记住啦，我死了你要告诉道士先生呀”<br>“日落有时？就像现在太阳要下山了吗？”<br>“恩，就是傍晚了，好好记住，他们都不知道，<br>我们家总要有一个人知道。”<br>我突然明白这件事是非常神圣的，<br>那年我六七岁，她只告诉我一个人。<br>就在几年前她离开。<br>非常突然，我们每个人都开始自责。<br>她离开之前，家里还在商量她的99岁大寿。<br>出殡那天，我和姑姑还有另外几个人坐一辆车，<br>有个女人一直大声说笑，吵吵闹闹。<br>我想抽她一耳光。<br>我看着窗外，姑姑搂着我。<br>一直下着小雨。</p>
-<p>小时候第一次在户口簿上看到她的名字<br>我嘲笑她说谁给你取的名字啊张大姐</p>
-<p>也是第一次知道她不姓杨而是姓张</p>
-<p>通常我们坐在一起的时候<br>我不大记得是谁先开口<br>说第一句话</p>
-<p>坐在那里抽烟的男人<br>外套歪躺在沙发上<br>墙脚立着一盆绿植，叶子大而茂盛<br>女人不知去了哪里，菜摆在桌上慢慢凉<br>从窗外飞来一只鸟，横冲直撞<br>男人熄灭了半支的烟，躺在沙发上<br>外套压在身下，露出半只袖<br>鸟儿飞来飞去不觉得累<br>汤面上结起一层油花，女人没有回来<br>而墙角立着一盆绿植<br>鸟儿横冲直撞</p>
-<p>和薇聊了好多，<br>五年内几乎没有联系，<br>我给她讲现在的自己，<br>猛然发现曾经最爱做的事情现在依然，<br>写字画画喜欢kimi。<br>你变了么</p>
-<p>2013.12.16 杭州下雪了<br>和你生活在同一座城市的好处是 感受 同样的天气<br>两点钟的时候 各自发条状态迎接季节赠予的礼物 是的下雪了<br>过去几天的雾霾 似乎对我没什么影响好像事不关己<br>早上下雨 冷 撑一把大大的 枣红色的伞<br>下午坐在寝室看非诚勿扰 窗外 雪很大<br>超美的<br><img src="http://upload-images.jianshu.io/upload_images/3941016-a44b39bbba6cb45a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>为什么在做事情之前，<br>我不告诉自己，<br>一定要做到最好，<br>要尽到最大的努力去完成。<br>以前总爱顺其自然。<br>我对自己一直很客气，<br>所以我变成特别容易满足的人，<br>对别人也完全没有杀伤力。<br>可能快乐至上吧。<br>失之坦然，得之淡然，处之泰然，顺其自然。<br>并不去给一个对错的判断，快乐就好。<br>最终信仰是：永远忠于自己。</p>
-<p>以前有愿望写故事，<br>以为能像我做其他事情一样顺其自然，<br>没有提纲就这么一味地写，<br>隔半年想再接下去，<br>却发现不能像当初一样随心所欲了。<br>当有无数种可能摆在你面前的时候，<br>你都不知道该如何走向当初设定好的结局。</p>
-<p>我喜欢在家里转圈圈，这样可以带动思考。<br>额(⊙o⊙)…，好吧，我承认我给我的怪癖找了一个冠冕堂皇的借口。</p>
-<p>小时候有暴力倾向。<br>有时认为自己是个自闭症患者。</p>
-<p>大概十一岁的时候我开始懂得构建自己的精神世界，<br>后来开始患得患失，慢慢的，会把自己的情绪放大化，<br>喜欢的人和事物会尤其喜欢，而且持久。</p>
-<p>一生中我们会遇到形形色色的人，<br>入耳许许多多的事，<br>无论你是否主动搭讪这个世界，<br>世界总能带给我们改变。<br>2013年夏天，我在南京。<br>这段旅程蓄谋已久。<br>其然实践起来也并不难，我们甚至连车票都没有提前买好，背着包约定在车站见面。<br>行李简单，拖着一双洞洞鞋，见面是一个不陌生的拥抱。<br>她说的第一句话是，好想你啊。我说的是，好热啊。<br>开玩笑的，你知道我是如此爱你。<br>我相信那些独自旅行的人都是因为找不到合适的伴侣。<br>那个白天我们在图书馆待到闭馆，然后坐着旧巴士穿越了长兴这座小城，从北到南。<br>深夜吃了干挑面，坐在马路边。差不多是凌晨四点的时候，我们坐上了开往南京的火车。<br>从一开始，这段旅程的定义就是要不断给自己找麻烦。<br>八月份，南京，取消青旅预订床位，火车···<br>晚上我们坐在秦淮河旁，有人彻夜聊天，有陌生人和我们坐一桌，扰得我不安稳。<br>有点小雨，我睡着了，她给我支起雨伞，我醒来觉得好笑。<br>且说到这吧。倘若两个人有共同的记忆，一提便会想起来。</p>
-<p>昨天的小清新和之前没写完的故事，就先不分享了。</p>
-<p>该快乐快乐，该烦躁烦躁，建议你快乐</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3941016-b2b720b0c28be7ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 心情 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 心情 </tag>
-            
-            <tag> 随笔 </tag>
             
         </tags>
         
