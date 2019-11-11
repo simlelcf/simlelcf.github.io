@@ -2,13 +2,14 @@
 <html lang="zh-CN">
 
 
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="helloworld生命周期, Simle丶樱木">
     <meta name="description" content="在我们要学习一门编程语言的时候第一个程序基本上是helloworld，但就是这个简单的程序到底是如何运行的，在此做一下记录。
 
 
-文章中的部分内容来自《深入理解计算机系统》第一章helloworld  从到创建，执行，输出简单消息，再到终止">
+
+文章中的部分内容来自《深入理解计算机系统》第一章helloworld  从到创建，执行，输出简单消息，再到终">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -142,7 +143,7 @@
         <div class="logo-name">Simle丶樱木</div>
         <div class="logo-desc">
             
-            好好学习天天向上
+            心若在，梦就在。
             
         </div>
     </div>
@@ -487,6 +488,7 @@
             <div id="articleContent">
                 <p>在我们要学习一门编程语言的时候第一个程序基本上是helloworld，但就是这个简单的程序到底是如何运行的，在此做一下记录。<br><img src="https://upload-images.jianshu.io/upload_images/3941016-511f2343273f9a90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <a id="more"></a>
+
 <blockquote>
 <p>文章中的部分内容来自《深入理解计算机系统》第一章<br>helloworld  从到创建，执行，输出简单消息，再到终止，中间到底是如何运行的。简单介绍下。</p>
 </blockquote>
@@ -495,8 +497,7 @@
 <span class="token punctuation">{</span>
     <span class="token function">printf</span> <span class="token punctuation">(</span><span class="token string">"hello  world \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<span class="token punctuation">}</span></code></pre>
 <h2 id="二进制文本"><a href="#二进制文本" class="headerlink" title="二进制文本"></a>二进制文本</h2><ul>
 <li>计算机中，数据的存储我们看到的是一串英文代码，其实存储的是2进制数据，helloworld 程序的代码可以用 ASCLL码表示。再把具体的ASCLL码转为为2进制。</li>
 </ul>
@@ -517,18 +518,18 @@
 </blockquote>
 <h2 id="在编译中到底经历了哪些阶段"><a href="#在编译中到底经历了哪些阶段" class="headerlink" title="在编译中到底经历了哪些阶段"></a>在编译中到底经历了哪些阶段</h2><p><img src="https://upload-images.jianshu.io/upload_images/3941016-27119309c5367d45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <ol>
-<li>预处理阶段（cpp）根据以#号开头的命令，修改原始的c程序，比如helloworld 中的第一行 #include<stdio.h>命令告诉预处理器读取系统头文件stdio.h 的内容.并把他直接插入程序文本中，得到一个c程序 ,通常是以 .i 为扩张名。stdio.h 文件在Linux中的（/usr/include目录下) </stdio.h></li>
+<li>预处理阶段（cpp）根据以#号开头的命令，修改原始的c程序，比如helloworld 中的第一行 #include&lt;stdio.h&gt;命令告诉预处理器读取系统头文件stdio.h 的内容.并把他直接插入程序文本中，得到一个c程序 ,通常是以 .i 为扩张名。stdio.h 文件在Linux中的（/usr/include目录下) </li>
 </ol>
 <p><img src="https://upload-images.jianshu.io/upload_images/3941016-ac34c48610009d5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ol>
+<ol start="2">
 <li>编译阶段，汇编器(ccl)为把上面的helloworld.i  反义成hello.s他包含一个汇编语言程序，用（ida查看汇编程序）</li>
 </ol>
 <p><img src="https://upload-images.jianshu.io/upload_images/3941016-ca0d9998e651a056.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IDA查看"></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3941016-f13d94bc7d0c3e12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="objdump查看"></p>
-<ol>
+<ol start="3">
 <li>汇编阶段：把源程序的helloworld.s  翻译成机器语言指令。并将结果保存在  helloworld.o文件中，helloworld.o 是一个2进制文件</li>
 </ol>
-<ol>
+<ol start="4">
 <li>链接阶段： 源程序中的hellworld 调用了printf 函数  ，他是每一个C 编辑器提供的标准c库中的一个函数，printf 函数存在一个名为printf.o的单独的预编译好的目标文中中，而这个文件必须以某种形式合并到我们helloworld.o程序中链接器(ld)就负责这种合并。结果生产一个可执行的文件为helloworld。</li>
 </ol>
 <h3 id="ida-查看链接的printf-函数"><a href="#ida-查看链接的printf-函数" class="headerlink" title="ida 查看链接的printf 函数"></a>ida 查看链接的printf 函数</h3><p><img src="https://upload-images.jianshu.io/upload_images/3941016-7c820f4d3de67eb6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
@@ -550,7 +551,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yubenliu.cn" rel="external nofollow noreferrer">樱木</a>
+                    <a href="https://yubenliu.cn" rel="external nofollow noreferrer">Simle丶樱木</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -560,7 +561,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yubenliu.cn/2019/08/21/helloword/">http://yubenliu.cn/2019/08/21/helloword/</a>
+                    <a href="https://yubenliu.cn/2019/08/21/helloword/">https://yubenliu.cn/2019/08/21/helloword/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -573,7 +574,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="http://yubenliu.cn" target="_blank">樱木</a>
+                    <a href="https://yubenliu.cn" target="_blank">Simle丶樱木</a>
                     !
                 </span>
             </div>
@@ -1021,7 +1022,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">年份</span>
-            <a href="http://yubenliu.cn" target="_blank">樱木</a>
+            <a href="https://yubenliu.cn" target="_blank">Simle丶樱木</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>

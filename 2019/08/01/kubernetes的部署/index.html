@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="kubernetes的部署, Simle丶樱木">
     <meta name="description" content="什么是kubernetes
@@ -143,7 +143,7 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
         <div class="logo-name">Simle丶樱木</div>
         <div class="logo-desc">
             
-            好好学习天天向上
+            心若在，梦就在。
             
         </div>
     </div>
@@ -463,14 +463,14 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2,514
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    9 分
                 </div>
                 
 				
@@ -500,7 +500,7 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
 <h3 id="四-Labels"><a href="#四-Labels" class="headerlink" title="四 Labels"></a>四 Labels</h3><p>Labels是用于区分Pod、Service、Replication Controller的key/value键值对，Pod、Service、 Replication Controller可以有多个label，但是每个label的key只能对应一个value。Labels是Service和Replication Controller运行的基础，为了将访问Service的请求转发给后端提供服务的多个容器，正是通过标识容器的labels来选择正确的容器。同样，Replication Controller也使用labels来管理通过pod 模板创建的一组容器，这样Replication Controller可以更加容易，方便地管理多个容器，无论有多少容器。</p>
 <h2 id="Kubernetes构件"><a href="#Kubernetes构件" class="headerlink" title="Kubernetes构件"></a>Kubernetes构件</h2><p>Kubenetes整体框架，主要包括kubecfg、Master API Server、Kubelet、Minion(Host)以及Proxy</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/3941016-76ea037267e3e5b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h3 id="一-Master"><a href="#一-Master" class="headerlink" title="一  Master"></a>一  Master</h3><p>Master定义了Kubernetes 集群Master/API Server的主要声明，包括Pod Registry、Controller Registry、Service Registry、Endpoint Registry、Minion Registry、Binding Registry、RESTStorage以及Client, 是client(Kubecfg)调用Kubernetes API，管理Kubernetes主要构件Pods、Services、Minions、容器的入口。Master由API Server、Scheduler以及Registry等组成。从下图可知Master的工作流主要分以下步骤：<br>1) Kubecfg将特定的请求，比如创建Pod，发送给Kubernetes Client。<br>2) Kubernetes Client将请求发送给API server。<br>3) API Server根据请求的类型，比如创建Pod时storage类型是pods，然后依此选择何种REST Storage API对请求作出处理。<br>4) REST Storage API对的请求作相应的处理。<br>5) 将处理的结果存入高可用键值存储系统Etcd中。<br>6) 在API Server响应Kubecfg的请求后，Scheduler会根据Kubernetes Client获取集群中运行Pod及Minion信息。<br>7) 依据从Kubernetes Client获取的信息，Scheduler将未分发的Pod分发到可用的Minion节点上。<br>下面是Master的主要构件的详细介绍：<br><img src="http://upload-images.jianshu.io/upload_images/3941016-16f56503372f2b4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>图3-2 Master主要构件及工作流</p>
+<h3 id="一-Master"><a href="#一-Master" class="headerlink" title="一  Master"></a>一  Master</h3><p>Master定义了Kubernetes 集群Master/API Server的主要声明，包括Pod Registry、Controller Registry、Service Registry、Endpoint Registry、Minion Registry、Binding Registry、RESTStorage以及Client, 是client(Kubecfg)调用Kubernetes API，管理Kubernetes主要构件Pods、Services、Minions、容器的入口。Master由API Server、Scheduler以及Registry等组成。从下图可知Master的工作流主要分以下步骤：<br>1) Kubecfg将特定的请求，比如创建Pod，发送给Kubernetes Client。<br>2) Kubernetes Client将请求发送给API server。<br>3) API Server根据请求的类型，比如创建Pod时storage类型是pods，然后依此选择何种REST Storage API对请求作出处理。<br>4) REST Storage API对的请求作相应的处理。<br>5) 将处理的结果存入高可用键值存储系统Etcd中。<br>6) 在API Server响应Kubecfg的请求后，Scheduler会根据Kubernetes Client获取集群中运行Pod及Minion信息。<br>7) 依据从Kubernetes Client获取的信息，Scheduler将未分发的Pod分发到可用的Minion节点上。<br>下面是Master的主要构件的详细介绍：<br><img src="http://upload-images.jianshu.io/upload_images/3941016-16f56503372f2b4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br>图3-2 Master主要构件及工作流</p>
 <h3 id="Minion-Registry"><a href="#Minion-Registry" class="headerlink" title="Minion Registry"></a>Minion Registry</h3><p>Minion Registry负责跟踪Kubernetes 集群中有多少Minion(Host)。Kubernetes封装Minion Registry成实现Kubernetes API Server的RESTful API接口REST，通过这些API，我们可以对Minion Registry做Create、Get、List、Delete操作，由于Minon只能被创建或删除，所以不支持Update操作，并把Minion的相关配置信息存储到etcd。除此之外，Scheduler算法根据Minion的资源容量来确定是否将新建Pod分发到该Minion节点。</p>
 <h3 id="Pod-Registry"><a href="#Pod-Registry" class="headerlink" title="Pod Registry"></a>Pod Registry</h3><p>Pod Registry负责跟踪Kubernetes集群中有多少Pod在运行，以及这些Pod跟Minion是如何的映射关系。将Pod Registry和Cloud Provider信息及其他相关信息封装成实现Kubernetes API Server的RESTful API接口REST。通过这些API，我们可以对Pod进行Create、Get、List、Update、Delete操作，并将Pod的信息存储到etcd中，而且可以通过Watch接口监视Pod的变化情况，比如一个Pod被新建、删除或者更新。</p>
 <h3 id="Service-Registry"><a href="#Service-Registry" class="headerlink" title="Service Registry"></a>Service Registry</h3><p>Service Registry负责跟踪Kubernetes集群中运行的所有服务。根据提供的Cloud Provider及Minion Registry信息把Service Registry封装成实现Kubernetes API Server需要的RESTful API接口REST。利用这些接口，我们可以对Service进行Create、Get、List、Update、Delete操作，以及监视Service变化情况的watch操作，并把Service信息存储到etcd。</p>
@@ -508,7 +508,7 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
 <h3 id="Endpoints-Registry"><a href="#Endpoints-Registry" class="headerlink" title="Endpoints Registry"></a>Endpoints Registry</h3><p>Endpoints Registry负责收集Service的endpoint，比如Name：”mysql”，Endpoints: [“10.10.1.1:1909”，”10.10.2.2:8834”]，同Pod Registry，Controller Registry也实现了Kubernetes API Server的RESTful API接口，可以做Create、Get、List、Update、Delete以及watch操作。</p>
 <h3 id="Binding-Registry"><a href="#Binding-Registry" class="headerlink" title="Binding Registry"></a>Binding Registry</h3><p>Binding包括一个需要绑定Pod的ID和Pod被绑定的Host，Scheduler写Binding Registry后，需绑定的Pod被绑定到一个host。Binding Registry也实现了Kubernetes API Server的RESTful API接口，但Binding Registry是一个write-only对象，所有只有Create操作可以使用， 否则会引起错误。</p>
 <h3 id="Scheduler"><a href="#Scheduler" class="headerlink" title="Scheduler"></a>Scheduler</h3><p>Scheduler收集和分析当前Kubernetes集群中所有Minion节点的资源(内存、CPU)负载情况，然后依此分发新建的Pod到Kubernetes集群中可用的节点。由于一旦Minion节点的资源被分配给Pod，那这些资源就不能再分配给其他Pod， 除非这些Pod被删除或者退出， 因此，Kubernetes需要分析集群中所有Minion的资源使用情况，保证分发的工作负载不会超出当前该Minion节点的可用资源范围。具体来说，Scheduler做以下工作：<br>1) 实时监测Kubernetes集群中未分发的Pod。<br>2) 实时监测Kubernetes集群中所有运行的Pod，Scheduler需要根据这些Pod的资源状况安全地将未分发的Pod分发到指定的Minion节点上。<br>3) Scheduler也监测Minion节点信息，由于会频繁查找Minion节点，Scheduler会缓存一份最新的信息在本地。<br>4) 最后，Scheduler在分发Pod到指定的Minion节点后，会把Pod相关的信息Binding写回API Server。</p>
-<h3 id="Kubelet"><a href="#Kubelet" class="headerlink" title="Kubelet"></a>Kubelet</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-470b89f752a0b96d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>图3-3 Kubernetes详细构件<br>根据上图3-3可知Kubelet是Kubernetes集群中每个Minion和Master API Server的连接点，Kubelet运行在每个Minion上，是Master API Server和Minion之间的桥梁，接收Master API Server分配给它的commands和work，与持久性键值存储etcd、file、server和http进行交互，读取配置信息。Kubelet的主要工作是管理Pod和容器的生命周期，其包括Docker Client、Root Directory、Pod Workers、Etcd Client、Cadvisor Client以及Health Checker组件，具体工作如下：<br>1) 通过Worker给Pod异步运行特定的Action。<br>2) 设置容器的环境变量。<br>3) 给容器绑定Volume。<br>4) 给容器绑定Port。<br>5) 根据指定的Pod运行一个单一容器。<br>6) 杀死容器。<br>7) 给指定的Pod创建network 容器。<br>8) 删除Pod的所有容器。<br>9) 同步Pod的状态。<br>10) 从Cadvisor获取container info、 pod info、root info、machine info。<br>11) 检测Pod的容器健康状态信息。<br>12) 在容器中运行命令。</p>
+<h3 id="Kubelet"><a href="#Kubelet" class="headerlink" title="Kubelet"></a>Kubelet</h3><p><img src="http://upload-images.jianshu.io/upload_images/3941016-470b89f752a0b96d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br>图3-3 Kubernetes详细构件<br>根据上图3-3可知Kubelet是Kubernetes集群中每个Minion和Master API Server的连接点，Kubelet运行在每个Minion上，是Master API Server和Minion之间的桥梁，接收Master API Server分配给它的commands和work，与持久性键值存储etcd、file、server和http进行交互，读取配置信息。Kubelet的主要工作是管理Pod和容器的生命周期，其包括Docker Client、Root Directory、Pod Workers、Etcd Client、Cadvisor Client以及Health Checker组件，具体工作如下：<br>1) 通过Worker给Pod异步运行特定的Action。<br>2) 设置容器的环境变量。<br>3) 给容器绑定Volume。<br>4) 给容器绑定Port。<br>5) 根据指定的Pod运行一个单一容器。<br>6) 杀死容器。<br>7) 给指定的Pod创建network 容器。<br>8) 删除Pod的所有容器。<br>9) 同步Pod的状态。<br>10) 从Cadvisor获取container info、 pod info、root info、machine info。<br>11) 检测Pod的容器健康状态信息。<br>12) 在容器中运行命令。</p>
 <h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><p>Proxy是为了解决外部网络能够访问跨机器集群中容器提供的应用服务而设计的，从上图3-3可知Proxy服务也运行在每个Minion上。Proxy提供TCP/UDP sockets的proxy，每创建一种Service，Proxy主要从etcd获取Services和Endpoints的配置信息，或者也可以从file获取，然后根据配置信息在Minion上启动一个Proxy的进程并监听相应的服务端口，当外部请求发生时，Proxy会根据Load Balancer将请求分发到后端正确的容器处</p>
 <h2 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h2><blockquote>
 <p>准备工作</p>
@@ -519,11 +519,10 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
 <th>对象</th>
 <th>版本</th>
 <th>ip</th>
-<th>备注 </th>
+<th>备注</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>k8s-master</td>
 <td>centos7</td>
 <td>192.168.29.11</td>
@@ -541,15 +540,12 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
 <td>192.168.29.12</td>
 <td>K8S节点所在主机</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h3 id="安装主要程序"><a href="#安装主要程序" class="headerlink" title="安装主要程序"></a>安装主要程序</h3><ul>
 <li>192.168.29.11<br>执行以下命令，安装kubernetes和etcd</li>
 </ul>
-<pre><code>yum -y install --enablerepo=virt7-docker-common-release kubernetes etcd
-</code></pre><h2 id="禁用防火墙"><a href="#禁用防火墙" class="headerlink" title="禁用防火墙"></a>禁用防火墙</h2><pre><code>systemctl disable iptables-services firewalld
-systemctl stop iptables-services firewalld
-</code></pre><h3 id="192-168-29-11-上主机配置"><a href="#192-168-29-11-上主机配置" class="headerlink" title="192.168.29.11 上主机配置"></a>192.168.29.11 上主机配置</h3><h4 id="一-修改文件-etc-kubernetes-config-所有节点"><a href="#一-修改文件-etc-kubernetes-config-所有节点" class="headerlink" title="一 修改文件/etc/kubernetes/config(所有节点)"></a>一 修改文件/etc/kubernetes/config(所有节点)</h4><p>注意，master和slave主机都要修改<br>指定master主机的ip，文件内容如下：</p>
+<pre><code>yum -y install --enablerepo=virt7-docker-common-release kubernetes etcd</code></pre><h2 id="禁用防火墙"><a href="#禁用防火墙" class="headerlink" title="禁用防火墙"></a>禁用防火墙</h2><pre><code>systemctl disable iptables-services firewalld
+systemctl stop iptables-services firewalld</code></pre><h3 id="192-168-29-11-上主机配置"><a href="#192-168-29-11-上主机配置" class="headerlink" title="192.168.29.11 上主机配置"></a>192.168.29.11 上主机配置</h3><h4 id="一-修改文件-etc-kubernetes-config-所有节点"><a href="#一-修改文件-etc-kubernetes-config-所有节点" class="headerlink" title="一 修改文件/etc/kubernetes/config(所有节点)"></a>一 修改文件/etc/kubernetes/config(所有节点)</h4><p>注意，master和slave主机都要修改<br>指定master主机的ip，文件内容如下：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/3941016-f2286b4085fb8079.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h4 id="二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下"><a href="#二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下" class="headerlink" title="二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下"></a>二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-a881113924dd47da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h4 id="三-修改配置文件-etc-kubernetes-apiserver"><a href="#三-修改配置文件-etc-kubernetes-apiserver" class="headerlink" title="三 修改配置文件/etc/kubernetes/apiserver"></a>三 修改配置文件/etc/kubernetes/apiserver</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-83c145be3b651c13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
@@ -558,10 +554,8 @@ systemctl stop iptables-services firewalld
     systemctl restart $SERVICES
     systemctl enable $SERVICES
     systemctl status $SERVICES
-done
-</code></pre><h2 id="slave节点配置"><a href="#slave节点配置" class="headerlink" title="slave节点配置"></a>slave节点配置</h2><p>yum 安装kubernetes</p>
-<pre><code>yum -y install  kubernetes flannel
-</code></pre><h3 id="slave-配置文件修改"><a href="#slave-配置文件修改" class="headerlink" title="slave 配置文件修改"></a>slave 配置文件修改</h3><h4 id="一-修改kubernetes配置文件，指定master"><a href="#一-修改kubernetes配置文件，指定master" class="headerlink" title="一 .修改kubernetes配置文件，指定master"></a>一 .修改kubernetes配置文件，指定master</h4><p>/etc/kubernetes/config</p>
+done</code></pre><h2 id="slave节点配置"><a href="#slave节点配置" class="headerlink" title="slave节点配置"></a>slave节点配置</h2><p>yum 安装kubernetes</p>
+<pre><code>yum -y install  kubernetes flannel</code></pre><h3 id="slave-配置文件修改"><a href="#slave-配置文件修改" class="headerlink" title="slave 配置文件修改"></a>slave 配置文件修改</h3><h4 id="一-修改kubernetes配置文件，指定master"><a href="#一-修改kubernetes配置文件，指定master" class="headerlink" title="一 .修改kubernetes配置文件，指定master"></a>一 .修改kubernetes配置文件，指定master</h4><p>/etc/kubernetes/config</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/3941016-2181a58f95b1164b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h4 id="二-配置kubelet服务"><a href="#二-配置kubelet服务" class="headerlink" title="二  配置kubelet服务"></a>二  配置kubelet服务</h4><p> /etc/kubernetes/kubelet</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/3941016-5d1fb93275d32ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
@@ -569,8 +563,7 @@ done
     systemctl restart $SERVICES
     systemctl enable $SERVICES
     systemctl status $SERVICES
-done
-</code></pre><p>###验证</p>
+done</code></pre><p>###验证</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/3941016-f8344025c3bc9b20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 
             </div>
@@ -587,7 +580,7 @@ done
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yubenliu.cn" rel="external nofollow noreferrer">樱木</a>
+                    <a href="https://yubenliu.cn" rel="external nofollow noreferrer">Simle丶樱木</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -597,7 +590,7 @@ done
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yubenliu.cn/2019/08/01/kubernetes的部署/">http://yubenliu.cn/2019/08/01/kubernetes的部署/</a>
+                    <a href="https://yubenliu.cn/2019/08/01/kubernetes的部署/">https://yubenliu.cn/2019/08/01/kubernetes的部署/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -610,7 +603,7 @@ done
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="http://yubenliu.cn" target="_blank">樱木</a>
+                    <a href="https://yubenliu.cn" target="_blank">Simle丶樱木</a>
                     !
                 </span>
             </div>
@@ -907,12 +900,12 @@ done
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/密码学/">
-                        <span class="chip bg-color">密码学</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/密码学/">
+                        <span class="chip bg-color">密码学</span>
                     </a>
                     
                 </div>
@@ -1056,7 +1049,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">年份</span>
-            <a href="http://yubenliu.cn" target="_blank">樱木</a>
+            <a href="https://yubenliu.cn" target="_blank">Simle丶樱木</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
