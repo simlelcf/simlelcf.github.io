@@ -146,9 +146,9 @@
       <category term="docker" scheme="https://yubenliu.cn/categories/docker/"/>
     
     
-      <category term="docker" scheme="https://yubenliu.cn/tags/docker/"/>
-    
       <category term="Linux" scheme="https://yubenliu.cn/tags/Linux/"/>
+    
+      <category term="docker" scheme="https://yubenliu.cn/tags/docker/"/>
     
   </entry>
   
@@ -228,9 +228,9 @@
     
       <category term="Python" scheme="https://yubenliu.cn/tags/Python/"/>
     
-      <category term="Linux" scheme="https://yubenliu.cn/tags/Linux/"/>
-    
       <category term="django" scheme="https://yubenliu.cn/tags/django/"/>
+    
+      <category term="Linux" scheme="https://yubenliu.cn/tags/Linux/"/>
     
   </entry>
   

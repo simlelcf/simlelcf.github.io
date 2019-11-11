@@ -132,9 +132,9 @@
       
         <tags>
             
-            <tag> docker </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> docker </tag>
             
         </tags>
       
@@ -217,9 +217,9 @@
             
             <tag> Python </tag>
             
-            <tag> Linux </tag>
-            
             <tag> django </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
