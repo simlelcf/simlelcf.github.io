@@ -14,7 +14,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Simle丶樱木</title>
-    <link rel="icon" type="image/png" href="/cat.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -23,102 +23,118 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <style type="text/css">
-        
-        code[class*="language-"], pre[class*="language-"] {
-            white-space: pre !important;
-        }
-        
-    </style>
-
+    
     <script src="/libs/jquery/jquery.min.js"></script>
+    
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
-
-<header class="navbar-fixed">
+    <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
+        <div id="navContainer" class="nav-wrapper head-container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/cat.png" class="logo-img" alt="LOGO">
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">Simle丶樱木</span>
                 </a>
             </div>
             
 
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
-<ul class="right">
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
     
-    <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">
-            
-            <i class="fa fas fa-home"></i>
-            
-            <span>首页</span>
-        </a>
-    </li>
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
     
-    <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">
-            
-            <i class="fa fas fa-tags"></i>
-            
-            <span>标签</span>
-        </a>
-    </li>
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
     
-    <li class="hide-on-med-and-down">
-        <a href="/categories" class="waves-effect waves-light">
-            
-            <i class="fa fas fa-bookmark"></i>
-            
-            <span>分类</span>
-        </a>
-    </li>
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
     
-    <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">
-            
-            <i class="fa fas fa-archive"></i>
-            
-            <span>归档</span>
-        </a>
-    </li>
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
     
-    <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">
-            
-            <i class="fa fas fa-user-circle"></i>
-            
-            <span>关于</span>
-        </a>
-    </li>
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
     
-    <li class="hide-on-med-and-down">
-        <a href="/friends" class="waves-effect waves-light">
-            
-            <i class="fa fas fa-address-book"></i>
-            
-            <span>友情链接</span>
-        </a>
-    </li>
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
     
-    <li>
-        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
-        </a>
-    </li>
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
 </ul>
 
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
         
-        <img src="/cat.png" class="logo-img circle responsive-img">
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">Simle丶樱木</div>
         <div class="logo-desc">
@@ -132,58 +148,81 @@
 
     <ul class="menu-list mobile-menu-list">
         
-        <li>
-            <a href="/" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fas fa-home"></i>
-                
-                首页
-            </a>
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
         </li>
         
-        <li>
-            <a href="/tags" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fas fa-tags"></i>
-                
-                标签
-            </a>
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
         </li>
         
-        <li>
-            <a href="/categories" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fas fa-bookmark"></i>
-                
-                分类
-            </a>
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
         </li>
         
-        <li>
-            <a href="/archives" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fas fa-archive"></i>
-                
-                归档
-            </a>
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
         </li>
         
-        <li>
-            <a href="/about" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fas fa-user-circle"></i>
-                
-                关于
-            </a>
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
         </li>
         
-        <li>
-            <a href="/friends" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fas fa-address-book"></i>
-                
-                友情链接
-            </a>
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
         </li>
         
         
@@ -197,7 +236,7 @@
 
 </header>
 
-
+    
 <style>
     .carousel-control {
         width: 45px;
@@ -237,75 +276,106 @@
         color: #fff;
         font-size: 2.4rem;
     }
+    
+    html, body {
+        height:100%;
+    }
+
+    #page {
+        height:100%;
+        min-height: 100%;
+        width:100%;
+    }
 </style>
 
 
 
-<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
+<div id="page" class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
     
     <div id="prev-cover" class="left waves-effect carousel-control">
-        <i class="icon fa fa-angle-left"></i>
+        <i class="icon fas fa-angle-left"></i>
     </div>
     <div id="next-cover" class="right waves-effect carousel-control">
-        <i class="icon fa fa-angle-right"></i>
+        <i class="icon fas fa-angle-right"></i>
     </div>
     
 
     <div class="carousel-item red white-text bg-cover about-cover">
-        <div class="container">
+        <div class="container" style="right: 0px;left: 0px;">
             <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
             <div class="title center-align">
                 
-                    胆小怕生不易相处
+                胆小怕生不易相处
                 
             </div>
 
             <div class="description center-align">
                 
-                    心若在，梦就在。
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: ['从来没有真正的绝境, 只有心灵的迷途','Never really desperate, only the lost of the soul'],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
                 
             </div>
         </div>
     </div>
 </div>
+
+
 <script>
-// 每天切换 banner 图.  Switch banner image every day.
-//$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + Math.floor(Math.random()*17) + '.jpg)');  
+    // 每天切换 banner 图.  Switch banner image every day.
+    $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
 </script>
 
-            <div class="cover-btns">
-                <a href="#indexCard" class="waves-effect waves-light btn">
-                    <i class="fa fa-angle-double-down"></i>开始阅读
-                </a>
 
+            <div class="cover-btns">
                 
                 <a href="https://github.com/simlelcf" class="waves-effect waves-light btn" target="_blank">
-                    <i class="fa fab fa-github-alt"></i>Github
+                    <i class="fab fa-github-alt"></i>Github
                 </a>
                 
             </div>
             <div class="cover-social-link">
-    <a href="https://github.com/simlelcf" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-github"></i>
-    </a>
-
 
 
     <a href="mailto:simle1014425308@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
+        <i class="fas fa-envelope-open"></i>
     </a>
+
+
+
+
+
+
+
+
 
 
 
 
 
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fa fa-rss"></i>
+        <i class="fas fa-rss"></i>
     </a>
+
 </div>
+        </div>
+        <div class="container" style="bottom: 0; position: absolute; top: unset; height: 45px;">
+            <div class="cover-btns" style="top: unset;">
+                <a href="#indexCard" class="waves-effect waves-light btn scroll-down">
+                    <i class="fas fa-angle-double-down"></i>开始阅读
+                </a>
+            </div>
         </div>
     </div>
 
@@ -316,7 +386,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + Math.floor(Math.r
     
     <div class="carousel-item amber white-text carousel-post bg-cover"
             style="background-image: url('/medias/featureimages/15.jpg');">
-        <div class="container">
+        <div class="container" style="right: 0px;left: 0px;">
             <div class="row">
                 <div class="col s10 offset-s1">
                     <div class="title center-align">凯撒密码的加密解密</div>
@@ -328,7 +398,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + Math.floor(Math.r
                     </div>
                     <div class="cover-btns">
                         <a href="/2018/09/07/kaisa/" class="waves-effect waves-light btn" target="_blank">
-                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                            <i class="icon far fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
                 </div>
@@ -393,7 +463,7 @@ $(function () {
                         <div class="dream">
     
     <div class="title center-align">
-        <i class="fa fa-lightbulb-o"></i>&nbsp;&nbsp;宫崎骏
+        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;宫崎骏
     </div>
     
     <div class="row">
@@ -411,7 +481,7 @@ $(function () {
 <div class="music-player">
     
     <div class="title center-align">
-        <i class="fa fa-music"></i>&nbsp;&nbsp;听听音乐
+        <i class="fas fa-music"></i>&nbsp;&nbsp;听听音乐
     </div>
     
     <div class="row">
@@ -450,7 +520,7 @@ $(function () {
 
 
 
-<div class="title"><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;推荐文章</div>
+<div class="title"><i class="far fa-thumbs-up"></i>&nbsp;&nbsp;推荐文章</div>
 
 <div class="row">
 
@@ -461,17 +531,18 @@ $(function () {
             <div class="post-body">
                 <div class="post-categories">
                     
-                    <a href="/categories/密码学/" class="category" target="_blank">密码学</a>
+                        
+                            <a href="/categories/密码学/" class="category">密码学</a>
+                        
                     
                 </div>
-                <a href="/2018/09/07/kaisa/" target="_blank">
+                <a href="/2018/09/07/kaisa/">
                     <h3 class="post-title">凯撒密码的加密解密</h3>
                 </a>
                 <p class="post-description">前言
 凯撒密码作为一种最为古老的对称加密体制，在古罗马的时候都已经很流行，他的基本思想是：通过把字母移动一定的位数来实现加密和解密。明文中的所有字母都在字母表上向后（或向</p>
-                <a href="/2018/09/07/kaisa/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
-                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                <a href="/2018/09/07/kaisa/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
+                    <i class="icon far fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
         </div>
@@ -522,13 +593,13 @@ $(function () {
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-23
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/心情/" class="post-category" target="_blank">
+                                <a href="/categories/心情/" class="post-category">
                                     心情
                                 </a>
                                 
@@ -540,11 +611,11 @@ $(function () {
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/心情/" target="_blank">
+                        <a href="/tags/心情/">
                             <span class="chip bg-color">心情</span>
                         </a>
                         
-                        <a href="/tags/随笔/" target="_blank">
+                        <a href="/tags/随笔/">
                             <span class="chip bg-color">随笔</span>
                         </a>
                         
@@ -577,13 +648,13 @@ $(function () {
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-21
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/helloworld生命周期/" class="post-category" target="_blank">
+                                <a href="/categories/helloworld生命周期/" class="post-category">
                                     helloworld生命周期
                                 </a>
                                 
@@ -595,11 +666,11 @@ $(function () {
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/逆向/" target="_blank">
+                        <a href="/tags/逆向/">
                             <span class="chip bg-color">逆向</span>
                         </a>
                         
-                        <a href="/tags/计算机系统/" target="_blank">
+                        <a href="/tags/计算机系统/">
                             <span class="chip bg-color">计算机系统</span>
                         </a>
                         
@@ -628,13 +699,13 @@ $(function () {
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-02
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/web安全/" class="post-category" target="_blank">
+                                <a href="/categories/web安全/" class="post-category">
                                     web安全
                                 </a>
                                 
@@ -646,15 +717,15 @@ $(function () {
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/漏洞复现/" target="_blank">
+                        <a href="/tags/漏洞复现/">
                             <span class="chip bg-color">漏洞复现</span>
                         </a>
                         
-                        <a href="/tags/CVE-2018-11776/" target="_blank">
+                        <a href="/tags/CVE-2018-11776/">
                             <span class="chip bg-color">CVE-2018-11776</span>
                         </a>
                         
-                        <a href="/tags/struts2/" target="_blank">
+                        <a href="/tags/struts2/">
                             <span class="chip bg-color">struts2</span>
                         </a>
                         
@@ -688,13 +759,13 @@ $(function () {
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-02
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/漏扫/" class="post-category" target="_blank">
+                                <a href="/categories/漏扫/" class="post-category">
                                     漏扫
                                 </a>
                                 
@@ -706,15 +777,15 @@ $(function () {
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/扫描器/" target="_blank">
+                        <a href="/tags/扫描器/">
                             <span class="chip bg-color">扫描器</span>
                         </a>
                         
-                        <a href="/tags/工具/" target="_blank">
+                        <a href="/tags/工具/">
                             <span class="chip bg-color">工具</span>
                         </a>
                         
-                        <a href="/tags/自动化/" target="_blank">
+                        <a href="/tags/自动化/">
                             <span class="chip bg-color">自动化</span>
                         </a>
                         
@@ -747,13 +818,13 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-01
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/docker/" class="post-category" target="_blank">
+                                <a href="/categories/docker/" class="post-category">
                                     docker
                                 </a>
                                 
@@ -765,12 +836,12 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Linux/" target="_blank">
-                            <span class="chip bg-color">Linux</span>
+                        <a href="/tags/docker/">
+                            <span class="chip bg-color">docker</span>
                         </a>
                         
-                        <a href="/tags/docker/" target="_blank">
-                            <span class="chip bg-color">docker</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
                     </div>
@@ -799,13 +870,13 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-09-07
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/密码学/" class="post-category" target="_blank">
+                                <a href="/categories/密码学/" class="post-category">
                                     密码学
                                 </a>
                                 
@@ -817,11 +888,11 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/密码学/" target="_blank">
+                        <a href="/tags/密码学/">
                             <span class="chip bg-color">密码学</span>
                         </a>
                         
-                        <a href="/tags/Python/" target="_blank">
+                        <a href="/tags/Python/">
                             <span class="chip bg-color">Python</span>
                         </a>
                         
@@ -853,13 +924,13 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-07-16
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/linux程序的保护机制/" class="post-category" target="_blank">
+                                <a href="/categories/linux程序的保护机制/" class="post-category">
                                     linux程序的保护机制
                                 </a>
                                 
@@ -871,15 +942,15 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/逆向/" target="_blank">
+                        <a href="/tags/逆向/">
                             <span class="chip bg-color">逆向</span>
                         </a>
                         
-                        <a href="/tags/ctf/" target="_blank">
+                        <a href="/tags/ctf/">
                             <span class="chip bg-color">ctf</span>
                         </a>
                         
-                        <a href="/tags/pwn/" target="_blank">
+                        <a href="/tags/pwn/">
                             <span class="chip bg-color">pwn</span>
                         </a>
                         
@@ -916,13 +987,13 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-01-02
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/django任务队列/" class="post-category" target="_blank">
+                                <a href="/categories/django任务队列/" class="post-category">
                                     django任务队列
                                 </a>
                                 
@@ -934,16 +1005,16 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Python/" target="_blank">
+                        <a href="/tags/Python/">
                             <span class="chip bg-color">Python</span>
                         </a>
                         
-                        <a href="/tags/django/" target="_blank">
-                            <span class="chip bg-color">django</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
-                        <a href="/tags/Linux/" target="_blank">
-                            <span class="chip bg-color">Linux</span>
+                        <a href="/tags/django/">
+                            <span class="chip bg-color">django</span>
                         </a>
                         
                     </div>
@@ -958,50 +1029,106 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
 
 
 
-<footer class="page-footer bg-color">
+
+    <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            <!--本站由&copy;<a href="https://github.com/dylan903" target="_blank">dylan</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.-->
-
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="https://yubenliu.cn" target="_blank">Simle丶樱木</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
             
-
             
-			
-                <br>
-                
-                <span id="busuanzi_container_site_pv">
-                    <i class="fa fa-heart-o"></i>
-                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
-                </span>
-                
-                
-                <span id="busuanzi_container_site_uv">
-                    <i class="fa fa-users"></i>
-                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
-                </span>
-                
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/simlelcf" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-github"></i>
-    </a>
-
 
 
     <a href="mailto:simle1014425308@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
+        <i class="fas fa-envelope-open"></i>
     </a>
+
+
+
+
+
+
+
+
 
 
 
 
 
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fa fa-rss"></i>
+        <i class="fas fa-rss"></i>
     </a>
+
 </div>
     </div>
 </footer>
@@ -1009,11 +1136,11 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
 <div class="progress-bar"></div>
 
 
-<!-- 搜索遮罩框 -->
+    <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
             <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
                    class="search-input">
         </div>
@@ -1027,30 +1154,65 @@ $(function () {
     searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
 });
 </script>
-<!-- 回到顶部按钮 -->
+    <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fa fa-angle-up"></i>
+        <i class="fas fa-arrow-up"></i>
     </a>
 </div>
 
 
-<script src="/libs/materialize/materialize.min.js"></script>
-<script src="/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/libs/aos/aos.js"></script>
-<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-
-    <script src="/libs/others/clicklove.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
 
+    
+
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
 
 </body>
+
 </html>
