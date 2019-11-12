@@ -78,12 +78,11 @@ theme: hexo-theme-matery
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  - type: baidu_url_submitter  ##百度连接提交
-  - type: git
+    type: git
     repo: 
-        github: git@github.com:simlelcf/simlelcf.github.io.git,master
+        github: git@github.com:simlelcf/simlelcf.github.io
         #coding: git@git.dev.tencent.com:dylan903/dylan903.coding.me.git,master
-  #branch: master
+    branch: master
 
 # plugin
 prism_plugin:
