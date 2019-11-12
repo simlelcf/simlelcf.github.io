@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Simle丶樱木</title>
+  
+  <subtitle>胆小怕生,不易相处</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://yubenliu.cn/"/>
+  <updated>2019-11-12T07:01:57.544Z</updated>
+  <id>https://yubenliu.cn/</id>
+  
+  <author>
+    <name>Simle丶樱木</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux程序的保护机制</title>
+    <link href="https://yubenliu.cn/2019/11/12/linux%E7%A8%8B%E5%BA%8F%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/"/>
+    <id>https://yubenliu.cn/2019/11/12/linux程序保护机制/</id>
+    <published>2019-11-12T07:01:57.544Z</published>
+    <updated>2019-11-12T07:01:57.544Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近看了一些PWN 的题目，在此总结一波，这篇文章有些资料来自各网友的总结。像我这样记忆力比较差的人，还是要多记录。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/3941016-ff02e0571c8fca70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;image.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;操作系统提供了许多安全机制来尝试降低或阻止缓冲区溢出攻击带来的安全风险，包括DEP、ASLR等。在编写漏洞利用代码的时候，需要特别注意目标进程是否开启了DEP（Linux下对应NX）、ASLR（Linux下对应PIE）等机制，例如存在DEP（NX）的话就不能直接执行栈上的数据，存在ASLR的话各个系统调用的地址就是随机化的。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="linux程序的保护机制" scheme="https://yubenliu.cn/categories/linux%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/"/>
+    
+    
+      <category term="逆向" scheme="https://yubenliu.cn/tags/%E9%80%86%E5%90%91/"/>
+    
+      <category term="ctf" scheme="https://yubenliu.cn/tags/ctf/"/>
+    
+      <category term="pwn" scheme="https://yubenliu.cn/tags/pwn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小心情</title>
+    <link href="https://yubenliu.cn/2019/08/23/xiaoqiu/"/>
+    <id>https://yubenliu.cn/2019/08/23/xiaoqiu/</id>
+    <published>2019-08-23T06:20:00.000Z</published>
+    <updated>2019-11-12T07:01:57.546Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;与你分享，最自我的存在，最重要的秘密。&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/3941016-fe10f7fc79dd1705.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;小秋&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;脑海里存在过好多个故事&lt;br&gt;大多包含了我爱你的主题&lt;/p&gt;
+&lt;p&gt;它们可能在我想你的某些须臾发生了&lt;/p&gt;
+&lt;p&gt;然后消失在我无法说忘记的深深自责里&lt;/p&gt;
+&lt;p&gt;偶尔会记录下的都是可以用言语概论的&lt;/p&gt;
+&lt;p&gt;在我觉得实在是孤单了喔&lt;/p&gt;
+&lt;p&gt;说与 除了你我的爱人们听&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="心情" scheme="https://yubenliu.cn/categories/%E5%BF%83%E6%83%85/"/>
+    
+    
+      <category term="心情" scheme="https://yubenliu.cn/tags/%E5%BF%83%E6%83%85/"/>
+    
+      <category term="随笔" scheme="https://yubenliu.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>helloworld生命周期</title>
+    <link href="https://yubenliu.cn/2019/08/21/helloword/"/>
+    <id>https://yubenliu.cn/2019/08/21/helloword/</id>
+    <published>2019-08-21T06:20:00.000Z</published>
+    <updated>2019-11-12T07:01:57.545Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在我们要学习一门编程语言的时候第一个程序基本上是helloworld，但就是这个简单的程序到底是如何运行的，在此做一下记录。&lt;br&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/3941016-511f2343273f9a90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;image.png&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="helloworld生命周期" scheme="https://yubenliu.cn/categories/helloworld%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    
+    
+      <category term="逆向" scheme="https://yubenliu.cn/tags/%E9%80%86%E5%90%91/"/>
+    
+      <category term="计算机系统" scheme="https://yubenliu.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CVE-2018-11776漏洞复现</title>
+    <link href="https://yubenliu.cn/2019/08/02/CVE-2018-11776%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    <id>https://yubenliu.cn/2019/08/02/CVE-2018-11776漏洞复现/</id>
+    <published>2019-08-02T06:20:00.000Z</published>
+    <updated>2019-11-12T07:01:57.541Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0x01-漏洞概述&quot;&gt;&lt;a href=&quot;#0x01-漏洞概述&quot; class=&quot;headerlink&quot; title=&quot;0x01 漏洞概述&quot;&gt;&lt;/a&gt;0x01
+        
+      
+    
+    </summary>
+    
+      <category term="web安全" scheme="https://yubenliu.cn/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="漏洞复现" scheme="https://yubenliu.cn/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+      <category term="CVE-2018-11776" scheme="https://yubenliu.cn/tags/CVE-2018-11776/"/>
+    
+      <category term="struts2" scheme="https://yubenliu.cn/tags/struts2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nessus与awvs API</title>
+    <link href="https://yubenliu.cn/2019/08/02/scan/"/>
+    <id>https://yubenliu.cn/2019/08/02/scan/</id>
+    <published>2019-08-02T06:20:00.000Z</published>
+    <updated>2019-11-12T07:01:57.539Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/3941016-beb5143ed978f26e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;nessus.jpg&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt; 最近在做自动化安全扫描器开发，在项目中想引用比较知名的扫描器，如是整理了一下API作为参考&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="漏扫" scheme="https://yubenliu.cn/categories/%E6%BC%8F%E6%89%AB/"/>
+    
+    
+      <category term="扫描器" scheme="https://yubenliu.cn/tags/%E6%89%AB%E6%8F%8F%E5%99%A8/"/>
+    
+      <category term="工具" scheme="https://yubenliu.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="自动化" scheme="https://yubenliu.cn/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>kubernetes的部署</title>
+    <link href="https://yubenliu.cn/2019/08/01/kubernetes%E7%9A%84%E9%83%A8%E7%BD%B2/"/>
+    <id>https://yubenliu.cn/2019/08/01/kubernetes的部署/</id>
+    <published>2019-08-01T06:20:00.000Z</published>
+    <updated>2019-11-12T07:01:57.543Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;什么是kubernetes&quot;&gt;&lt;a href=&quot;#什么是kubernetes&quot; class=&quot;headerlink&quot; title=&quot;什么是kubernetes&quot;&gt;&lt;/a&gt;什么是kubernetes&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Kubernetes是Google开源的容器集群管理系统，其提供应用部署、维护、 扩展机制等功能，利用Kubernetes能方便地管理跨机器运行容器化的应用&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="docker" scheme="https://yubenliu.cn/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="https://yubenliu.cn/tags/docker/"/>
+    
+      <category term="Linux" scheme="https://yubenliu.cn/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>凯撒密码的加密解密</title>
+    <link href="https://yubenliu.cn/2018/09/07/kaisa/"/>
+    <id>https://yubenliu.cn/2018/09/07/kaisa/</id>
+    <published>2018-09-07T01:25:00.000Z</published>
+    <updated>2019-11-12T07:01:57.539Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;凯撒密码作为一种最为古老的对称加密体制，在古罗马的时候都已经很流行，他的基本思想是：通过把字母移动一定的位数来实现加密和解密。明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E，以此类推X将变成A，Y变成B，Z变成C。由此可见，位数就是凯撒密码加密和解密的密钥。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="密码学" scheme="https://yubenliu.cn/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+    
+      <category term="密码学" scheme="https://yubenliu.cn/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+      <category term="Python" scheme="https://yubenliu.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python中的任务队列</title>
+    <link href="https://yubenliu.cn/2018/01/02/python-task-ququ22e/"/>
+    <id>https://yubenliu.cn/2018/01/02/python-task-ququ22e/</id>
+    <published>2018-01-02T06:20:00.000Z</published>
+    <updated>2019-11-12T07:01:57.542Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;为什么要做任务队列&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;要回答这个问题我们首先看看在流水线上的案列，如果人的速度很慢，机器的速度比人的速度快很多，就会造成，机器生产的东西没有及时处理，越积越多，造成阻塞，影响生产。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="django任务队列" scheme="https://yubenliu.cn/categories/django%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97/"/>
+    
+    
+      <category term="Python" scheme="https://yubenliu.cn/tags/Python/"/>
+    
+      <category term="Linux" scheme="https://yubenliu.cn/tags/Linux/"/>
+    
+      <category term="django" scheme="https://yubenliu.cn/tags/django/"/>
+    
+  </entry>
+  
+</feed>
