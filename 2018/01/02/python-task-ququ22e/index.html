@@ -11,8 +11,9 @@
 要回答这个问题我们首先看看在流水线上的案列，如果人的速度很慢，机器的速度比人的速度快很多，就会造成，机器生产的东西没有及时处理，越积越多，造成阻塞，影响生产。
 
 
+
 任务队列的意义：
-打个比方如果出现人的速度跟不上机器">
+打个比方如果出现人的速度跟不上机">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -385,7 +386,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1,159
+                    1.2k
                 </div>
                 
 
@@ -413,6 +414,7 @@
 </ul>
 <p>要回答这个问题我们首先看看在流水线上的案列，如果人的速度很慢，机器的速度比人的速度快很多，就会造成，机器生产的东西没有及时处理，越积越多，造成阻塞，影响生产。</p>
 <a id="more"></a>
+
 <ul>
 <li><p>任务队列的意义：</p>
 <p>打个比方如果出现人的速度跟不上机器速度怎么办，这个时候我们就需要第三方，监管人员（任务队列）把机器生产的东西，放在一个地方，（队列），然后分配给每个用户，有条不理的执行。</p>
@@ -425,11 +427,7 @@
 <li>关于安装celery</li>
 </ul>
 <pre><code>pip  install Celery
-
-</code></pre><h1 id="关于celery-的概念介绍"><a href="#关于celery-的概念介绍" class="headerlink" title="关于celery 的概念介绍"></a>关于celery 的概念介绍</h1><p><strong>消息队列</strong><br>消息队列的输入是工作的一个单元，称为任务，独立的职程（Worker）进程持续监视队列中是否有需要处理的新任务。<br>Celery 用消息通信，通常使用中间人（Broker）在客户端和职程间斡旋。这个过程从客户端向队列添加消息开始，之后中间人把消息派送给职程，职程对消息进行处理。如下图所示：<br> <img src="http://upload-images.jianshu.io/upload_images/3941016-00078436898975e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br>Celery 系统可包含多个职程和中间人，以此获得高可用性和横向扩展能力。<br><strong>Celery**</strong>的架构<strong><br>Celery的架构由三部分组成，消息中间件（message broker），任务执行单元（worker）和任务执行结果存储（task result store）组成。
-</strong>消息中间件<strong><br>Celery本身不提供消息服务，但是可以方便的和第三方提供的消息中间件集成，包括，<a href="http://rabbitmq.com/" target="_blank" rel="noopener">RabbitMQ</a>,<a href="http://redis.io/" target="_blank" rel="noopener">Redis</a>,<a href="http://mongodb.org/" target="_blank" rel="noopener">MongoDB</a>等，这里我先去了解<a href="http://rabbitmq.com/" target="_blank" rel="noopener">RabbitMQ</a>,<a href="http://redis.io/" target="_blank" rel="noopener">Redis</a>。
-</strong>任务执行单元<strong><br>Worker是Celery提供的任务执行的单元，worker并发的运行在分布式的系统节点中
-</strong>任务结果存储**<br>Task result store用来存储Worker执行的任务的结果，Celery支持以不同方式存储任务的结果，包括Redis，MongoDB，Django ORM，AMQP等，这里我先不去看它是如何存储的，就先选用Redis来存储任务执行结果。</p>
+</code></pre><h1 id="关于celery-的概念介绍"><a href="#关于celery-的概念介绍" class="headerlink" title="关于celery 的概念介绍"></a>关于celery 的概念介绍</h1><p><strong>消息队列</strong><br>消息队列的输入是工作的一个单元，称为任务，独立的职程（Worker）进程持续监视队列中是否有需要处理的新任务。<br>Celery 用消息通信，通常使用中间人（Broker）在客户端和职程间斡旋。这个过程从客户端向队列添加消息开始，之后中间人把消息派送给职程，职程对消息进行处理。如下图所示：<br> <img src="http://upload-images.jianshu.io/upload_images/3941016-00078436898975e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br>Celery 系统可包含多个职程和中间人，以此获得高可用性和横向扩展能力。<br><strong>Celery**</strong>的架构**<br>Celery的架构由三部分组成，消息中间件（message broker），任务执行单元（worker）和任务执行结果存储（task result store）组成。<br><strong>消息中间件</strong><br>Celery本身不提供消息服务，但是可以方便的和第三方提供的消息中间件集成，包括，<a href="http://rabbitmq.com/" target="_blank" rel="noopener">RabbitMQ</a>,<a href="http://redis.io/" target="_blank" rel="noopener">Redis</a>,<a href="http://mongodb.org/" target="_blank" rel="noopener">MongoDB</a>等，这里我先去了解<a href="http://rabbitmq.com/" target="_blank" rel="noopener">RabbitMQ</a>,<a href="http://redis.io/" target="_blank" rel="noopener">Redis</a>。<br><strong>任务执行单元</strong><br>Worker是Celery提供的任务执行的单元，worker并发的运行在分布式的系统节点中<br><strong>任务结果存储</strong><br>Task result store用来存储Worker执行的任务的结果，Celery支持以不同方式存储任务的结果，包括Redis，MongoDB，Django ORM，AMQP等，这里我先不去看它是如何存储的，就先选用Redis来存储任务执行结果。</p>
 <h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><p> 环境</p>
 <ul>
 <li>kaillinux  主机两台（192.168.29.234，192.168.29.198）</li>
@@ -467,7 +465,6 @@ def sum(values):
 @app.task
 def other(x, y):
     return x * y
-
 </code></pre><ul>
 <li>celeryconfig.py</li>
 </ul>
@@ -504,7 +501,6 @@ CELERY_ROUTES = {
     &#39;task.add&#39;:{&#39;queue&#39;:&#39;queue_add&#39;, &#39;routing_key&#39;:&#39;queue_add&#39;},
     &#39;task.reduce&#39;:{&#39;queue&#39;:&#39;queue_reduce&#39;, &#39;routing_key&#39;:&#39;queue_sum&#39;},
 }
-
 </code></pre><h1 id="关于flower是监控任务信息的web-图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower-文件"><a href="#关于flower是监控任务信息的web-图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower-文件" class="headerlink" title="关于flower是监控任务信息的web 图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower 文件"></a>关于flower是监控任务信息的web 图表，默认的配置没有做验证，而且当主机重启时，数据会丢失，所以我们要自定义一个flower 文件</h1><p><a href="https://github.com/mher/flower" target="_blank" rel="noopener">flower github</a></p>
 <p>在234 上flower.py 的脚本</p>
 <pre><code>#!/usr/bin/env python
@@ -516,16 +512,13 @@ port = 5555
 #外部访问密码
 #basic_auth=[&#39;root:ybl8651073&#39;]
 persistent=True  #持久化celery tasks（如果为false的话，重启flower之后，监控的task就消失了)
-db=&quot;/root/flower_db&quot;
-</code></pre><h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><ul>
-<li>在198上启动<pre><code>celery worker -A  tasks --loglevel=info --queues=celery,queue_add --hostname=celery_worker198
-</code></pre></li>
+db=&quot;/root/flower_db&quot;</code></pre><h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><ul>
+<li>在198上启动<pre><code>celery worker -A  tasks --loglevel=info --queues=celery,queue_add --hostname=celery_worker198</code></pre></li>
 <li>在234 上启动</li>
 </ul>
 <pre><code>1.  redis服务
 2.  celery worker -A  tasks --loglevel=info --queues=celery,queue_reduce --hostname=celery_worker234
-3.  celery  flower worker -A  tasks  --config==/root/flower.py 
-</code></pre><h1 id="服务器验证"><a href="#服务器验证" class="headerlink" title="服务器验证"></a>服务器验证</h1><ul>
+3.  celery  flower worker -A  tasks  --config==/root/flower.py </code></pre><h1 id="服务器验证"><a href="#服务器验证" class="headerlink" title="服务器验证"></a>服务器验证</h1><ul>
 <li>在任一台有celeryservice项目代码的服务器上，运行add、reduce、-</li>
 <li>sum、other任务（测试可简单使用add.delay(1,2)等）</li>
 <li>add只会在198上运行，</li>
@@ -542,8 +535,7 @@ db=&quot;/root/flower_db&quot;
 <li>分析<br><img src="http://upload-images.jianshu.io/upload_images/3941016-d8248fb57d9ac788.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运行结果"></li>
 </ul>
 <ul>
-<li>也可以通过 curl提交任务<pre><code>curl -X POST -d &#39;{&quot;args&quot;:[1,2]}&#39; http://192.168.29.234:5555/api/task/async-apply/tasks.add
-</code></pre></li>
+<li>也可以通过 curl提交任务<pre><code>curl -X POST -d &#39;{&quot;args&quot;:[1,2]}&#39; http://192.168.29.234:5555/api/task/async-apply/tasks.add</code></pre></li>
 </ul>
 
             </div>
@@ -859,8 +851,9 @@ db=&quot;/root/flower_db&quot;
 要回答这个问题我们首先看看在流水线上的案列，如果人的速度很慢，机器的速度比人的速度快很多，就会造成，机器生产的东西没有及时处理，越积越多，造成阻塞，影响生产。
 
 
+
 任务队列的意义：
-打个比方如果出现人的速度跟不上机器
+打个比方如果出现人的速度跟不上机
                         
                     </div>
                     <div class="publish-info">

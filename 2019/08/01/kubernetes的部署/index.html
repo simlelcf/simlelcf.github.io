@@ -378,14 +378,14 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2,514
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    9 分
                 </div>
                 
 				
@@ -434,11 +434,10 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
 <th>对象</th>
 <th>版本</th>
 <th>ip</th>
-<th>备注 </th>
+<th>备注</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>k8s-master</td>
 <td>centos7</td>
 <td>192.168.29.11</td>
@@ -456,15 +455,12 @@ Kubernetes是Google开源的容器集群管理系统，其提供应用部署、�
 <td>192.168.29.12</td>
 <td>K8S节点所在主机</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h3 id="安装主要程序"><a href="#安装主要程序" class="headerlink" title="安装主要程序"></a>安装主要程序</h3><ul>
 <li>192.168.29.11<br>执行以下命令，安装kubernetes和etcd</li>
 </ul>
-<pre><code>yum -y install --enablerepo=virt7-docker-common-release kubernetes etcd
-</code></pre><h2 id="禁用防火墙"><a href="#禁用防火墙" class="headerlink" title="禁用防火墙"></a>禁用防火墙</h2><pre><code>systemctl disable iptables-services firewalld
-systemctl stop iptables-services firewalld
-</code></pre><h3 id="192-168-29-11-上主机配置"><a href="#192-168-29-11-上主机配置" class="headerlink" title="192.168.29.11 上主机配置"></a>192.168.29.11 上主机配置</h3><h4 id="一-修改文件-etc-kubernetes-config-所有节点"><a href="#一-修改文件-etc-kubernetes-config-所有节点" class="headerlink" title="一 修改文件/etc/kubernetes/config(所有节点)"></a>一 修改文件/etc/kubernetes/config(所有节点)</h4><p>注意，master和slave主机都要修改<br>指定master主机的ip，文件内容如下：</p>
+<pre><code>yum -y install --enablerepo=virt7-docker-common-release kubernetes etcd</code></pre><h2 id="禁用防火墙"><a href="#禁用防火墙" class="headerlink" title="禁用防火墙"></a>禁用防火墙</h2><pre><code>systemctl disable iptables-services firewalld
+systemctl stop iptables-services firewalld</code></pre><h3 id="192-168-29-11-上主机配置"><a href="#192-168-29-11-上主机配置" class="headerlink" title="192.168.29.11 上主机配置"></a>192.168.29.11 上主机配置</h3><h4 id="一-修改文件-etc-kubernetes-config-所有节点"><a href="#一-修改文件-etc-kubernetes-config-所有节点" class="headerlink" title="一 修改文件/etc/kubernetes/config(所有节点)"></a>一 修改文件/etc/kubernetes/config(所有节点)</h4><p>注意，master和slave主机都要修改<br>指定master主机的ip，文件内容如下：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/3941016-f2286b4085fb8079.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h4 id="二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下"><a href="#二-修改配置文件-etc-etcd-etcd-conf-确保etcd监听所有地址。内容如下" class="headerlink" title="二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下"></a>二 修改配置文件/etc/etcd/etcd.conf,确保etcd监听所有地址。内容如下</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-a881113924dd47da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h4 id="三-修改配置文件-etc-kubernetes-apiserver"><a href="#三-修改配置文件-etc-kubernetes-apiserver" class="headerlink" title="三 修改配置文件/etc/kubernetes/apiserver"></a>三 修改配置文件/etc/kubernetes/apiserver</h4><p><img src="http://upload-images.jianshu.io/upload_images/3941016-83c145be3b651c13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
@@ -473,10 +469,8 @@ systemctl stop iptables-services firewalld
     systemctl restart $SERVICES
     systemctl enable $SERVICES
     systemctl status $SERVICES
-done
-</code></pre><h2 id="slave节点配置"><a href="#slave节点配置" class="headerlink" title="slave节点配置"></a>slave节点配置</h2><p>yum 安装kubernetes</p>
-<pre><code>yum -y install  kubernetes flannel
-</code></pre><h3 id="slave-配置文件修改"><a href="#slave-配置文件修改" class="headerlink" title="slave 配置文件修改"></a>slave 配置文件修改</h3><h4 id="一-修改kubernetes配置文件，指定master"><a href="#一-修改kubernetes配置文件，指定master" class="headerlink" title="一 .修改kubernetes配置文件，指定master"></a>一 .修改kubernetes配置文件，指定master</h4><p>/etc/kubernetes/config</p>
+done</code></pre><h2 id="slave节点配置"><a href="#slave节点配置" class="headerlink" title="slave节点配置"></a>slave节点配置</h2><p>yum 安装kubernetes</p>
+<pre><code>yum -y install  kubernetes flannel</code></pre><h3 id="slave-配置文件修改"><a href="#slave-配置文件修改" class="headerlink" title="slave 配置文件修改"></a>slave 配置文件修改</h3><h4 id="一-修改kubernetes配置文件，指定master"><a href="#一-修改kubernetes配置文件，指定master" class="headerlink" title="一 .修改kubernetes配置文件，指定master"></a>一 .修改kubernetes配置文件，指定master</h4><p>/etc/kubernetes/config</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/3941016-2181a58f95b1164b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h4 id="二-配置kubelet服务"><a href="#二-配置kubelet服务" class="headerlink" title="二  配置kubelet服务"></a>二  配置kubelet服务</h4><p> /etc/kubernetes/kubelet</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/3941016-5d1fb93275d32ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
@@ -484,8 +478,7 @@ done
     systemctl restart $SERVICES
     systemctl enable $SERVICES
     systemctl status $SERVICES
-done
-</code></pre><p>###验证</p>
+done</code></pre><p>###验证</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/3941016-f8344025c3bc9b20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 
             </div>

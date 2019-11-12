@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yubenliu.cn/"/>
-  <updated>2019-11-12T07:01:57.544Z</updated>
+  <updated>2019-11-12T07:58:53.082Z</updated>
   <id>https://yubenliu.cn/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>linux程序的保护机制</title>
     <link href="https://yubenliu.cn/2019/11/12/linux%E7%A8%8B%E5%BA%8F%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/"/>
     <id>https://yubenliu.cn/2019/11/12/linux程序保护机制/</id>
-    <published>2019-11-12T07:01:57.544Z</published>
-    <updated>2019-11-12T07:01:57.544Z</updated>
+    <published>2019-11-12T07:58:53.082Z</published>
+    <updated>2019-11-12T07:58:53.082Z</updated>
     
     <summary type="html">
     
@@ -32,6 +32,7 @@
 &lt;/blockquote&gt;
     
     </summary>
+    
     
       <category term="linux程序的保护机制" scheme="https://yubenliu.cn/categories/linux%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/"/>
     
@@ -49,7 +50,7 @@
     <link href="https://yubenliu.cn/2019/08/23/xiaoqiu/"/>
     <id>https://yubenliu.cn/2019/08/23/xiaoqiu/</id>
     <published>2019-08-23T06:20:00.000Z</published>
-    <updated>2019-11-12T07:01:57.546Z</updated>
+    <updated>2019-11-12T07:58:53.084Z</updated>
     
     <summary type="html">
     
@@ -65,6 +66,7 @@
     
     </summary>
     
+    
       <category term="心情" scheme="https://yubenliu.cn/categories/%E5%BF%83%E6%83%85/"/>
     
     
@@ -79,13 +81,14 @@
     <link href="https://yubenliu.cn/2019/08/21/helloword/"/>
     <id>https://yubenliu.cn/2019/08/21/helloword/</id>
     <published>2019-08-21T06:20:00.000Z</published>
-    <updated>2019-11-12T07:01:57.545Z</updated>
+    <updated>2019-11-12T07:58:53.083Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;在我们要学习一门编程语言的时候第一个程序基本上是helloworld，但就是这个简单的程序到底是如何运行的，在此做一下记录。&lt;br&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/3941016-511f2343273f9a90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;image.png&quot;&gt;&lt;/p&gt;
     
     </summary>
+    
     
       <category term="helloworld生命周期" scheme="https://yubenliu.cn/categories/helloworld%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
     
@@ -101,7 +104,7 @@
     <link href="https://yubenliu.cn/2019/08/02/CVE-2018-11776%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
     <id>https://yubenliu.cn/2019/08/02/CVE-2018-11776漏洞复现/</id>
     <published>2019-08-02T06:20:00.000Z</published>
-    <updated>2019-11-12T07:01:57.541Z</updated>
+    <updated>2019-11-12T07:58:53.080Z</updated>
     
     <summary type="html">
     
@@ -114,6 +117,7 @@
       
     
     </summary>
+    
     
       <category term="web安全" scheme="https://yubenliu.cn/categories/web%E5%AE%89%E5%85%A8/"/>
     
@@ -131,7 +135,7 @@
     <link href="https://yubenliu.cn/2019/08/02/scan/"/>
     <id>https://yubenliu.cn/2019/08/02/scan/</id>
     <published>2019-08-02T06:20:00.000Z</published>
-    <updated>2019-11-12T07:01:57.539Z</updated>
+    <updated>2019-11-12T07:58:53.078Z</updated>
     
     <summary type="html">
     
@@ -139,6 +143,7 @@
 &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt; 最近在做自动化安全扫描器开发，在项目中想引用比较知名的扫描器，如是整理了一下API作为参考&lt;/p&gt;
     
     </summary>
+    
     
       <category term="漏扫" scheme="https://yubenliu.cn/categories/%E6%BC%8F%E6%89%AB/"/>
     
@@ -156,7 +161,7 @@
     <link href="https://yubenliu.cn/2019/08/01/kubernetes%E7%9A%84%E9%83%A8%E7%BD%B2/"/>
     <id>https://yubenliu.cn/2019/08/01/kubernetes的部署/</id>
     <published>2019-08-01T06:20:00.000Z</published>
-    <updated>2019-11-12T07:01:57.543Z</updated>
+    <updated>2019-11-12T07:58:53.081Z</updated>
     
     <summary type="html">
     
@@ -165,6 +170,7 @@
 &lt;/blockquote&gt;
     
     </summary>
+    
     
       <category term="docker" scheme="https://yubenliu.cn/categories/docker/"/>
     
@@ -180,7 +186,7 @@
     <link href="https://yubenliu.cn/2018/09/07/kaisa/"/>
     <id>https://yubenliu.cn/2018/09/07/kaisa/</id>
     <published>2018-09-07T01:25:00.000Z</published>
-    <updated>2019-11-12T07:01:57.539Z</updated>
+    <updated>2019-11-12T07:58:53.078Z</updated>
     
     <summary type="html">
     
@@ -189,6 +195,7 @@
 &lt;/blockquote&gt;
     
     </summary>
+    
     
       <category term="密码学" scheme="https://yubenliu.cn/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
@@ -204,7 +211,7 @@
     <link href="https://yubenliu.cn/2018/01/02/python-task-ququ22e/"/>
     <id>https://yubenliu.cn/2018/01/02/python-task-ququ22e/</id>
     <published>2018-01-02T06:20:00.000Z</published>
-    <updated>2019-11-12T07:01:57.542Z</updated>
+    <updated>2019-11-12T07:58:53.081Z</updated>
     
     <summary type="html">
     
@@ -214,6 +221,7 @@
 &lt;p&gt;要回答这个问题我们首先看看在流水线上的案列，如果人的速度很慢，机器的速度比人的速度快很多，就会造成，机器生产的东西没有及时处理，越积越多，造成阻塞，影响生产。&lt;/p&gt;
     
     </summary>
+    
     
       <category term="django任务队列" scheme="https://yubenliu.cn/categories/django%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97/"/>
     
